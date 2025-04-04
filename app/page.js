@@ -1,3 +1,4 @@
+import Hero from "@/components/home/Hero";
 import SiteSurMesure from "@/components/home/SiteSurMesure";
 import Temoignage from "@/components/home/Temoignage";
 import Image from "next/image";
@@ -5,6 +6,7 @@ import Image from "next/image";
 export default function Home() {
 	return (
 		<>
+			<Hero />
 			<SiteSurMesure />
 			<Temoignage />
 		</>

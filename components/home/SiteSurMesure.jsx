@@ -23,8 +23,6 @@ const SiteSurMesure = () => {
 
 	return (
 		<>
-			<div className="min-h-screen"></div>
-
 			{/* Section sur-mesure */}
 			<section id="sur-mesure" ref={ref}>
 				<div className="wrapper py-24 sm:py-32 md:py-44 text-center relative overflow-hidden">
@@ -47,7 +45,6 @@ const SiteSurMesure = () => {
 					</motion.div>
 				</div>
 			</section>
-
 			{/* Section logo + flèche */}
 			<div className="border-y border-black/10">
 				<div
