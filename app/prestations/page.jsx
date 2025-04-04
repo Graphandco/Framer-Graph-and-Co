@@ -1,9 +1,9 @@
-const page = () => {
+const PrestationsPage = () => {
 	return (
-		<div className="wrapper min-h-[3000px]">
-			<div>page</div>
+		<div className="wrapper">
+			<h1>Nos Prestations</h1>
 		</div>
 	);
 };
 
-export default page;
+export default PrestationsPage;

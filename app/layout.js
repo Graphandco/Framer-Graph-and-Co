@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import { Outfit, Urbanist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -18,13 +19,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+	const pathname = headers().get("x-pathname") || "/";
+	const isHome = pathname === "/";
+
 	return (
 		<html lang="en">
 			<body
 				className={`${outfit.variable} ${urbanist.variable} antialiased`}
 			>
 				<Header />
-				<main>{children}</main>
+				<main className={isHome ? "" : "mt-24"}>{children}</main>
 			</body>
 		</html>
 	);
