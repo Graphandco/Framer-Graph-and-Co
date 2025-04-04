@@ -63,14 +63,14 @@ const Rassurance = () => {
 						>
 							<Image
 								src={atouts[hoveredIndex].image}
-								width={230}
-								height={170}
+								width={300}
+								height={250}
 								alt={atouts[hoveredIndex].name}
 							/>
-							<div className="text-lg text-white/50">
+							<div className="text-xl text-white/50">
 								{atouts[hoveredIndex].name}
 							</div>
-							<div className="text-white">
+							<div className="text-lg text-white">
 								{atouts[hoveredIndex].description}
 							</div>
 						</motion.div>
@@ -82,7 +82,7 @@ const Rassurance = () => {
 							<div
 								key={i}
 								onMouseEnter={() => setHoveredIndex(i)}
-								className={`title-font py-6 border-b border-white/50 sm:text-5xl cursor-pointer text-white/50 transition-colors duration-300`}
+								className={`title-font py-3 sm:py-6 border-b border-white/50 sm:text-5xl cursor-pointer text-white/50 transition-colors duration-300`}
 							>
 								<div
 									className={`relative transition-all duration-300 ease-out transform ${
@@ -92,7 +92,7 @@ const Rassurance = () => {
 									}`}
 								>
 									<span>{atout.name}</span>
-									<span className="text-[20px] font-semibold align-top ml-2">
+									<span className="text-[15px] sm:text-[20px] font-semibold align-top ml-2">
 										<span className="text-primary">
 											{"{"}
 										</span>

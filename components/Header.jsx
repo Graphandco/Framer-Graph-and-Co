@@ -5,14 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-
-const navLinks = [
-	{ href: "/", label: "Accueil" },
-	{ href: "/prestations", label: "Prestations" },
-	{ href: "/projets", label: "Projets" },
-	{ href: "/blog", label: "Blog" },
-	{ href: "/contact", label: "Contact" },
-];
+import { useResponsive } from "@/hooks/UseResponsive";
+import BurgerMenu from "./BurgerMenu";
+import Burger from "./burger/Burger";
 
 const Header = () => {
 	const pathname = usePathname();
@@ -20,6 +15,7 @@ const Header = () => {
 	const [scrolled, setScrolled] = useState(false);
 	const [scrollDirection, setScrollDirection] = useState("up");
 	const lastScrollY = useRef(0);
+	const { isTablet, isMobile } = useResponsive();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -42,11 +38,19 @@ const Header = () => {
 	const isDark = isHome && !scrolled;
 	const textColor = isDark ? "text-white" : "text-black";
 	const bgStyle = scrolled
-		? "bg-white/80 backdrop-blur-xs shadow-sm"
+		? "bg-white/80 backdrop-blur-sm shadow-sm"
 		: "bg-transparent";
 	const borderStyle = !isHome ? "border-b border-black/10" : "";
 	const visibility =
 		scrollDirection === "down" ? "-translate-y-full" : "translate-y-0";
+
+	const navLinks = [
+		{ href: "/", label: "Accueil" },
+		{ href: "/prestations", label: "Prestations" },
+		{ href: "/projets", label: "Projets" },
+		{ href: "/blog", label: "Blog" },
+		{ href: "/contact", label: "Contact" },
+	];
 
 	return (
 		<motion.header
@@ -80,32 +84,36 @@ const Header = () => {
 				</motion.div>
 
 				{/* Navigation */}
-				<motion.div
-					initial="hidden"
-					animate="visible"
-					variants={{
-						visible: {
-							transition: {
-								staggerChildren: 0.1,
-								delayChildren: 0.3,
+				{!isMobile ? (
+					<motion.div
+						initial="hidden"
+						animate="visible"
+						variants={{
+							visible: {
+								transition: {
+									staggerChildren: 0.1,
+									delayChildren: 0.3,
+								},
 							},
-						},
-					}}
-					className={`flex items-center gap-4 title-font text-lg transition-colors duration-300 ${textColor}`}
-				>
-					{navLinks.map((link, i) => (
-						<motion.div
-							key={i}
-							variants={{
-								hidden: { y: 20, opacity: 0 },
-								visible: { y: 0, opacity: 1 },
-							}}
-							transition={{ duration: 0.5, ease: "easeOut" }}
-						>
-							<Link href={link.href}>{link.label}</Link>
-						</motion.div>
-					))}
-				</motion.div>
+						}}
+						className={`flex items-center gap-4 title-font text-lg transition-colors duration-300 ${textColor}`}
+					>
+						{navLinks.map((link, i) => (
+							<motion.div
+								key={i}
+								variants={{
+									hidden: { y: 20, opacity: 0 },
+									visible: { y: 0, opacity: 1 },
+								}}
+								transition={{ duration: 0.5, ease: "easeOut" }}
+							>
+								<Link href={link.href}>{link.label}</Link>
+							</motion.div>
+						))}
+					</motion.div>
+				) : (
+					<Burger />
+				)}
 			</div>
 		</motion.header>
 	);

@@ -1,6 +1,6 @@
 const ProjetsPage = () => {
 	return (
-		<div className="wrapper">
+		<div className="wrapper mt-24">
 			<h1>Nos projets</h1>
 		</div>
 	);

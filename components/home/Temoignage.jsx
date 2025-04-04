@@ -7,7 +7,7 @@ const Temoignage = () => {
 				<div className="flex flex-col sm:flex-row gap-12 md:gap-24 items-stretch">
 					{/* Texte : ordre normal en mobile, premier en sm+ */}
 					<div className="flex flex-col justify-center flex-[2] order-1 sm:order-2">
-						<div className="text-xl md:text-2xl leading-7 md:leading-8 text-black font-medium">
+						<div className="text-xl md:text-2xl leading-7 md:leading-8 font-medium">
 							Design soigné, navigation intuitive, architecture
 							technique impeccable : Graph & Co a conçu pour moi
 							un site sublime qui met en lumière mes services dans
