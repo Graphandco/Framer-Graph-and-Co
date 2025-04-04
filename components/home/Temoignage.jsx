@@ -4,24 +4,11 @@ import React from "react";
 const Temoignage = () => {
 	return (
 		<section id="temoignage">
-			<div className="wrapper mx-auto py-36">
-				<div className="flex gap-24 items-stretch">
-					{/* Colonne image */}
-					<div className="w-80 relative flex-1">
-						<div className="relative w-full h-full">
-							<Image
-								src="/helene.webp"
-								fill
-								alt="Photo d'Hélène de Bomot"
-								className="object-cover"
-								sizes="max(min(100vw - 48px, 1848px), 1px)"
-							/>
-						</div>
-					</div>
-
-					{/* Colonne texte */}
-					<div className="flex flex-col justify-center flex-[2]">
-						<div className="text-2xl leading-8 text-black font-semibold">
+			<div className="wrapper mx-auto py-16 sm:py-24  md:py-36">
+				<div className="flex flex-col sm:flex-row gap-12 md:gap-24 items-stretch">
+					{/* Texte : ordre normal en mobile, premier en sm+ */}
+					<div className="flex flex-col justify-center flex-[2] order-1 sm:order-2">
+						<div className="text-xl md:text-2xl leading-7 md:leading-8 text-black font-medium">
 							Design soigné, navigation intuitive, architecture
 							technique impeccable : Graph & Co a conçu pour moi
 							un site sublime qui met en lumière mes services dans
@@ -44,6 +31,19 @@ const Temoignage = () => {
 						</div>
 						<div className="text-black/50">
 							Auteure et biographe - BOMOT
+						</div>
+					</div>
+
+					{/* Image : centrée en mobile, colonne à gauche en sm+ */}
+					<div className="order-2 sm:order-1 w-full sm:w-80 flex justify-center sm:block">
+						<div className="relative w-full max-w-[400px] h-[400px] sm:h-full">
+							<Image
+								src="/helene.webp"
+								fill
+								alt="Photo d'Hélène de Bomot"
+								className="object-cover"
+								sizes="(max-width: 640px) 100vw, 320px"
+							/>
 						</div>
 					</div>
 				</div>
