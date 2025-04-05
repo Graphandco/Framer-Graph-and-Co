@@ -53,7 +53,7 @@ const SiteSurMesure = () => {
 							<div className="py-32 px-5 flex flex-col gap-5 items-center justify-center">
 								<p>
 									Un design fait pour durer et évoluer avec
-									votre activité
+									votre activité !
 								</p>
 								<Image
 									src="/logo.svg"
