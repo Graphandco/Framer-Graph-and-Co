@@ -1,6 +1,7 @@
 import { Outfit, Urbanist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import { ViewTransitions } from "next-view-transitions";
 
 const outfit = Outfit({
 	variable: "--font-outfit",
@@ -19,13 +20,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en">
-			<body
-				className={`${outfit.variable} ${urbanist.variable} antialiased`}
-			>
-				<Header />
-				<main>{children}</main>
-			</body>
-		</html>
+		<ViewTransitions>
+			<html lang="en">
+				<body
+					className={`${outfit.variable} ${urbanist.variable} antialiased`}
+				>
+					<Header />
+					<main>{children}</main>
+				</body>
+			</html>
+		</ViewTransitions>
 	);
 }

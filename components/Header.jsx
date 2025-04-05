@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { useResponsive } from "@/hooks/UseResponsive";
-import BurgerMenu from "./BurgerMenu";
 import Burger from "./burger/Burger";
+import Nav from "./Nav";
 
 const Header = () => {
 	const pathname = usePathname();
@@ -98,18 +98,7 @@ const Header = () => {
 						}}
 						className={`flex items-center gap-4 title-font text-lg transition-colors duration-300 ${textColor}`}
 					>
-						{navLinks.map((link, i) => (
-							<motion.div
-								key={i}
-								variants={{
-									hidden: { y: 20, opacity: 0 },
-									visible: { y: 0, opacity: 1 },
-								}}
-								transition={{ duration: 0.5, ease: "easeOut" }}
-							>
-								<Link href={link.href}>{link.label}</Link>
-							</motion.div>
-						))}
+						<Nav />
 					</motion.div>
 				) : (
 					<Burger />
