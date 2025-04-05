@@ -120,6 +120,17 @@
 	--sidebar-ring: oklch(0.556 0 0);
 } */
 @layer utilities {
+	main {
+		transition-property: opacity, transform, filter, background;
+		transition-timing-function: ease-in-out;
+		transition-duration: 250ms;
+	}
+	.page-transition {
+		opacity: 0;
+		background: black;
+		transform: translateY(100%);
+		/* filter: blur(12px); */
+	}
 	h1 {
 		font-size: clamp(40px, 10px + 7vw, 80px);
 		font-family: var(--title-font);
