@@ -38,7 +38,7 @@ const Rassurance = () => {
 	return (
 		<section
 			id="rassurance"
-			className="bg-black text-white my-16 sm:my-24 md:my-36 pt-8 pb-16"
+			className="bg-black text-white mt-16 sm:mt-24 md:mt-36 pt-8 pb-16"
 		>
 			<div className="wrapper">
 				<div className="flex items-center justify-between">
@@ -50,7 +50,7 @@ const Rassurance = () => {
 					/>
 					<SectionLegend text="Les atouts de votre site" />
 				</div>
-				<div className="py-14 grid md:grid-cols-[2fr_3fr] gap-8 md:gap-12 items-center">
+				<div className="py-14 grid sm:grid-cols-[2fr_3fr] gap-8 sm:gap-12 items-center">
 					{/* Colonne gauche avec animation */}
 					<AnimatePresence mode="wait">
 						<motion.div
@@ -82,7 +82,7 @@ const Rassurance = () => {
 							<div
 								key={i}
 								onMouseEnter={() => setHoveredIndex(i)}
-								className={`title-font py-3 sm:py-6 border-b border-white/50 sm:text-5xl cursor-pointer text-white/50 transition-colors duration-300`}
+								className={`title-font font-semibold py-3 sm:py-6 border-b border-white/50 text-2xl sm:text-4xl md:text-5xl cursor-pointer text-white/50 transition-colors duration-300`}
 							>
 								<div
 									className={`relative transition-all duration-300 ease-out transform ${

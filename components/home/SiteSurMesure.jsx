@@ -4,15 +4,15 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 import { FaArrowDownLong } from "react-icons/fa6";
+import FadeInOnView from "../ui/FadeInOnView";
 
 const SiteSurMesure = () => {
 	const ref = useRef(null);
-	const logoSectionRef = useRef(null);
 
-	// Section "sur-mesure" scroll-based
+	// Scroll animation pour le titre + image (pas modifié)
 	const { scrollYProgress } = useScroll({
 		target: ref,
-		offset: ["start 90%", "end 80%"],
+		offset: ["start end", "start 20%"],
 	});
 
 	const textScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
@@ -35,6 +35,7 @@ const SiteSurMesure = () => {
 							width={800}
 							height={800}
 							alt="Dark woman"
+							className="max-w-10/12 xs:max-w-full"
 						/>
 					</motion.div>
 					<motion.div
@@ -44,53 +45,38 @@ const SiteSurMesure = () => {
 						Un site "sur-mesure" rien que pour vous !
 					</motion.div>
 				</div>
-			</section>
-			{/* Section logo + flèche */}
-			<div className="border-y border-black/10">
-				<div
-					ref={logoSectionRef}
-					className="wrapper-small border-x border-black/10 relative"
-				>
-					{/* Container texte + logo, anim from bottom */}
-					<motion.div
-						initial={{ y: 40, opacity: 0 }}
-						whileInView={{ y: 0, opacity: 1 }}
-						transition={{ duration: 0.3, ease: "easeOut" }}
-						viewport={{ once: false, amount: 0.7 }}
-						className="py-32 px-5 flex flex-col gap-5 items-center justify-center"
-					>
-						<p>
-							Un design fait pour durer et évoluer avec votre
-							activité
-						</p>
-						<Image
-							src="/logo.svg"
-							width={60}
-							height={60}
-							alt="Logo Graph and Co"
-						/>
-					</motion.div>
-
-					{/* Flèche, anim en décalé */}
-					<motion.div
-						initial={{ y: 40, opacity: 0 }}
-						whileInView={{ y: 0, opacity: 1 }}
-						transition={{
-							delay: 0.2,
-							duration: 0.3,
-							ease: "easeOut",
-						}}
-						viewport={{ once: false, amount: 0.7 }}
-						className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2"
-					>
-						<div className="bg-white p-2 md:p-3 rounded-full border border-black/10">
-							<div className="bg-black text-white rounded-full p-5 md:p-7 sm:text-xl">
-								<FaArrowDownLong />
+				{/* Section logo + flèche */}
+				<div className="border-y border-black/10">
+					<div className="wrapper-small border-x border-black/10 relative">
+						{/* Texte + logo */}
+						<FadeInOnView>
+							<div className="py-32 px-5 flex flex-col gap-5 items-center justify-center">
+								<p>
+									Un design fait pour durer et évoluer avec
+									votre activité
+								</p>
+								<Image
+									src="/logo.svg"
+									width={60}
+									height={60}
+									alt="Logo Graph and Co"
+								/>
 							</div>
-						</div>
-					</motion.div>
+						</FadeInOnView>
+
+						{/* Flèche */}
+						<FadeInOnView delay={0.2}>
+							<div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+								<div className="bg-white p-2 md:p-3 rounded-full border border-black/10">
+									<div className="bg-black text-white rounded-full p-5 md:p-7 sm:text-xl">
+										<FaArrowDownLong />
+									</div>
+								</div>
+							</div>
+						</FadeInOnView>
+					</div>
 				</div>
-			</div>
+			</section>
 		</>
 	);
 };

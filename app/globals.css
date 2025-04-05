@@ -79,6 +79,7 @@
 }
 
 @theme {
+	--breakpoint-xs: 540px;
 	--breakpoint-sm: 767px;
 	--breakpoint-md: 1024px;
 	--breakpoint-lg: 1280px;
@@ -135,7 +136,7 @@
 		margin-inline: auto;
 	}
 	.sur-mesure {
-		font-size: clamp(30px, 20px + 5vw, 100px);
+		font-size: clamp(30px, 15px + 5vw, 100px);
 	}
 	.hero-lead {
 		font-size: clamp(30px, 16vw, 160px);

@@ -1,49 +1,72 @@
+"use client";
+
 import Image from "next/image";
+import { FaQuoteLeft } from "react-icons/fa";
+import FadeInOnView from "../ui/FadeInOnView"; // adapte le chemin si besoin
 
 const Temoignage = () => {
 	return (
 		<section id="temoignage">
-			<div className="wrapper mx-auto py-16 sm:py-24  md:py-36">
+			<div className="wrapper mx-auto py-32">
 				<div className="flex flex-col sm:flex-row gap-12 md:gap-24 items-stretch">
-					{/* Texte : ordre normal en mobile, premier en sm+ */}
+					{/* Bloc texte */}
 					<div className="flex flex-col justify-center flex-[2] order-1 sm:order-2">
-						<div className="text-xl md:text-2xl leading-7 md:leading-8 font-medium">
-							Design soigné, navigation intuitive, architecture
-							technique impeccable : Graph & Co a conçu pour moi
-							un site sublime qui met en lumière mes services dans
-							un style unique et original… MON style. Car ce
-							professionnel chevronné fait du sur-mesure ! Avec
-							lui, on avance avec méthode, en confiance et
-							toujours dans la bonne humeur. En plus, il s’adapte
-							à votre budget, à votre agenda et au degré
-							d’accompagnement dont vous avez besoin. Bien
-							s’entourer est la clé pour se doter d’un site
-							internet performant, alors choisissez Graph & Co.
-						</div>
-						<div className="text-black/50 font-medium py-8 border-b border-black/10">
-							De la conception au lancement, nous mettons en place
-							des solutions digitales soignées et durables dans le
-							temps.
-						</div>
-						<div className="pt-8 text-xl font-semibold title-font">
-							Hélène Lichtenberger
-						</div>
-						<div className="text-black/50">
-							Auteure et biographe - BOMOT
-						</div>
+						<FadeInOnView>
+							<div className="text-xl md:text-2xl leading-7 md:leading-8 font-medium">
+								<span className="inline-block text-primary text-5xl pr-5">
+									<FaQuoteLeft />
+								</span>
+								Design soigné, navigation intuitive,
+								architecture technique impeccable : Graph & Co a
+								conçu pour moi un site sublime qui met en
+								lumière mes services dans un style unique et
+								original… MON style. Car ce professionnel
+								chevronné fait du sur-mesure ! Avec lui, on
+								avance avec méthode, en confiance et toujours
+								dans la bonne humeur. En plus, il s’adapte à
+								votre budget, à votre agenda et au degré
+								d’accompagnement dont vous avez besoin. Bien
+								s’entourer est la clé pour se doter d’un site
+								internet performant, alors choisissez Graph &
+								Co.
+							</div>
+						</FadeInOnView>
+
+						<FadeInOnView delay={0.1}>
+							<div className="text-black/50 font-medium py-8 border-b border-black/10">
+								De la conception au lancement, nous mettons en
+								place des solutions digitales soignées et
+								durables dans le temps.
+							</div>
+						</FadeInOnView>
+
+						<FadeInOnView delay={0.2}>
+							<div className="pt-8 text-xl font-semibold title-font">
+								Hélène Lichtenberger
+							</div>
+						</FadeInOnView>
+
+						<FadeInOnView delay={0.3}>
+							<div className="text-black/50">
+								Auteure et biographe - BOMOT
+							</div>
+						</FadeInOnView>
 					</div>
 
-					{/* Image : centrée en mobile, colonne à gauche en sm+ */}
+					{/* Bloc image */}
 					<div className="order-2 sm:order-1 w-full sm:w-80 flex justify-center sm:block">
-						<div className="relative w-full max-w-[400px] h-[400px] sm:h-full">
-							<Image
-								src="/helene.webp"
-								fill
-								alt="Photo d'Hélène de Bomot"
-								className="object-cover"
-								sizes="(max-width: 640px) 100vw, 320px"
-							/>
-						</div>
+						<FadeInOnView>
+							<div className="relative w-full h-full max-w-[400px]">
+								<Image
+									src="/home/helene.webp"
+									alt="Photo d'Hélène de Bomot"
+									width={400}
+									height={600}
+									className="w-full h-full object-cover outline outline-offset-5 outline-black/50"
+									sizes="(max-width: 640px) 100vw, 320px"
+								/>
+							</div>
+						</FadeInOnView>
 					</div>
 				</div>
 			</div>
