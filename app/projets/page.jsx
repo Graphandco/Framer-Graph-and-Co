@@ -1,9 +1,10 @@
-"use client";
-import ReactLenis from "@studio-freight/react-lenis";
+import ProjetsHero from "@/components/projets/ProjetsHero";
+import PageHero from "@/components/ui/PageHero";
 
 const ProjetsPage = () => {
 	return (
-		<ReactLenis root>
+		<>
+			<PageHero title="Nos projets" image="/projets/hero-projets.avif" />
 			<div className="wrapper mt-24">
 				<h1>Nos projets</h1>
 				<div>
@@ -141,7 +142,7 @@ const ProjetsPage = () => {
 					temporibus magnam quis nostrum facilis adipisci?
 				</div>
 			</div>
-		</ReactLenis>
+		</>
 	);
 };
 

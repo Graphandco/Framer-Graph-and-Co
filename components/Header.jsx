@@ -36,25 +36,17 @@ const Header = () => {
 
 	// Styles dynamiques
 	const isDark = isHome && !scrolled;
-	const textColor = isDark ? "text-white" : "text-black";
+	const textColor = !scrolled ? "text-white" : "text-black";
 	const bgStyle = scrolled
 		? "bg-white/80 backdrop-blur-sm shadow-sm"
 		: "bg-transparent";
-	const borderStyle = !isHome ? "border-b border-black/10" : "";
+	// const borderStyle = !isHome ? "border-b border-black/10" : "";
 	const visibility =
 		scrollDirection === "down" ? "-translate-y-full" : "translate-y-0";
 
-	const navLinks = [
-		{ href: "/", label: "Accueil" },
-		{ href: "/prestations", label: "Prestations" },
-		{ href: "/projets", label: "Projets" },
-		{ href: "/blog", label: "Blog" },
-		{ href: "/contact", label: "Contact" },
-	];
-
 	return (
 		<motion.header
-			className={`fixed w-full left-0 top-0 z-50 py-3 transition-all duration-300 transform ${bgStyle} ${borderStyle} ${visibility}`}
+			className={`fixed w-full left-0 top-0 z-50 py-3 transition-all duration-300 transform ${bgStyle} ${visibility}`}
 		>
 			<div className="wrapper flex justify-between items-center">
 				{/* Logo + nom */}

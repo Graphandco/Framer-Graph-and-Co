@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import FadeInOnView from "../ui/FadeInOnView";
+import MagnetButton from "../ui/MagnetButton";
 
 const Hero = () => {
 	const sectionRef = useRef(null);
@@ -78,6 +79,9 @@ const Hero = () => {
 					>
 						Création de sites web
 					</motion.div>
+				</div>
+				<div className="mt-12 mx-auto">
+					<MagnetButton />
 				</div>
 			</div>
 		</section>
