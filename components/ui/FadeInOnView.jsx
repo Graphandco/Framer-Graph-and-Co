@@ -8,10 +8,11 @@ const FadeInOnView = ({
 	delay = 0,
 	amount = 0.4,
 	stagger = 0.15,
+	once = false,
 	className = "",
 }) => {
 	const ref = useRef(null);
-	const isInView = useInView(ref, { amount });
+	const isInView = useInView(ref, { amount, once });
 
 	return (
 		<motion.div

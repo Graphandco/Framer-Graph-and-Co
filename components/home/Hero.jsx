@@ -1,37 +1,51 @@
 "use client";
 
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import FadeInOnView from "../ui/FadeInOnView";
 
 const Hero = () => {
-	const { scrollYProgress } = useScroll();
-	const scale = useTransform(scrollYProgress, [0, 0.3], [1, 1.4]);
+	const sectionRef = useRef(null);
+	const titleRef = useRef(null);
+
+	const { scrollYProgress } = useScroll({
+		target: sectionRef,
+		offset: ["start start", "end start"],
+	});
+
+	const yTitle = useTransform(scrollYProgress, [0, 1], [0, -80]);
+	const yDesc = useTransform(scrollYProgress, [0, 1], [0, -120]);
+	const scaleBg = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
 
 	return (
 		<section
 			id="hero"
-			className="relative min-h-screen overflow-hidden mb-28 "
+			ref={sectionRef}
+			className="relative min-h-screen overflow-hidden mb-28 bg-black"
 		>
-			{/* Image dans le flux avec blend visible */}
-			<motion.div
-				style={{ scale }}
-				className="relative w-full h-full min-h-screen"
-			>
-				<Image
-					src="/home/bg-hero.avif"
-					alt="Hero"
-					fill
-					className="object-cover"
-					priority
-				/>
-			</motion.div>
+			{/* Fond avec scale */}
+			<div className="absolute inset-0">
+				<motion.div
+					style={{ scale: scaleBg }}
+					className="w-full h-full will-change-transform"
+				>
+					<Image
+						src="/home/bg-hero.avif"
+						alt="Hero"
+						fill
+						className="object-cover"
+						priority
+					/>
+				</motion.div>
+			</div>
 
-			{/* Contenu overlay + blend */}
-			<div className="absolute inset-0 flex flex-col justify-center pb-24 px-5">
+			{/* Contenu blendé */}
+			<div className="absolute inset-0 flex flex-col justify-center px-5">
 				<FadeInOnView
 					amount={0.1}
 					delay={1}
+					once
 					className="mb-8 flex flex-col items-end gap-2 text-white font-semibold"
 				>
 					<div>Interface utilisateur</div>
@@ -39,22 +53,31 @@ const Hero = () => {
 					<div>Sécurité</div>
 					<div>Accessibilité</div>
 				</FadeInOnView>
-				<div className="hero-lead title-font text-white font-semibold leading-[0.8] mix-blend-exclusion">
-					Graph & Co
+
+				<div ref={titleRef}>
+					<motion.div
+						style={{ y: yTitle }}
+						className="hero-lead title-font text-white font-semibold leading-[0.8] mix-blend-exclusion"
+					>
+						Graph & Co
+					</motion.div>
 				</div>
 
 				<div className="flex flex-col-reverse xs:flex-row xs:items-center mt-6 gap-8">
 					<FadeInOnView amount={0.1}>
-						<div className="text-white max-w-md">
+						<div className="text-white max-w-md mix-blend-exclusion">
 							Nous sommes spécialisés dans la réalisation de sites
-							web. Moderne et intuitif, votre site sera un
-							puissant levier pour accroitre la vitalité de votre
+							web. Moderne et intuitif, votre site sera un p
+							uissant levier pour accroitre la vitalité de votre
 							entreprise.
 						</div>
 					</FadeInOnView>
-					<div className="hero-sub-lead title-font text-white font-medium leading-[0.8] mix-blend-exclusion">
+					<motion.div
+						style={{ y: yDesc }}
+						className="hero-sub-lead title-font text-white font-medium leading-[0.8] mix-blend-exclusion"
+					>
 						Création de sites web
-					</div>
+					</motion.div>
 				</div>
 			</div>
 		</section>
