@@ -2,6 +2,8 @@
 import { useState } from "react";
 // import { FiMenu, FiX, FiArrowRight } from "react-icons/fi";
 import { AlignJustify } from "lucide-react";
+import { RiMenu3Fill } from "react-icons/ri";
+import { VscMenu } from "react-icons/vsc";
 
 import { motion } from "framer-motion";
 import BurgerNav from "./BurgerNav";
@@ -15,9 +17,9 @@ const Burger = ({ navLinks }) => {
 				whileHover={{ rotate: "180deg" }}
 				whileTap={{ scale: 0.9 }}
 				onClick={() => setIsOpen(true)}
-				className="text-3xl bg-primary text-black hover:text-white transition-colors p-3 rounded-full"
+				className="text-3xl text-white hover:text-primary transition-colors p-3 cursor-pointer"
 			>
-				<AlignJustify />
+				<VscMenu />
 			</motion.button>
 			<BurgerNav
 				isOpen={isOpen}

@@ -58,30 +58,32 @@ const Header = () => {
 		>
 			<div className="wrapper flex justify-between items-center">
 				{/* Logo + nom */}
-				<motion.div
-					initial={{ y: 20, opacity: 0 }}
-					animate={{ y: 0, opacity: 1 }}
-					transition={{ duration: 0.6, ease: "easeOut" }}
-					className="flex gap-1 items-center"
-				>
+				<Link href="/">
 					<motion.div
-						animate={{ scale: scrolled ? 0.75 : 1 }}
-						transition={{ duration: 0.3 }}
-						className="origin-center"
+						initial={{ y: 20, opacity: 0 }}
+						animate={{ y: 0, opacity: 1 }}
+						transition={{ duration: 0.6, ease: "easeOut" }}
+						className="flex gap-1 items-center"
 					>
-						<Image
-							src="/logo.svg"
-							width={40}
-							height={40}
-							alt="Logo Graph and Co"
-						/>
+						<motion.div
+							animate={{ scale: scrolled ? 0.75 : 1 }}
+							transition={{ duration: 0.3 }}
+							className="origin-center"
+						>
+							<Image
+								src="/logo.svg"
+								width={40}
+								height={40}
+								alt="Logo Graph and Co"
+							/>
+						</motion.div>
+						<div
+							className={`title-font font-medium transition-colors duration-300 ${textColor}`}
+						>
+							Graph and Co
+						</div>
 					</motion.div>
-					<div
-						className={`title-font font-medium transition-colors duration-300 ${textColor}`}
-					>
-						Graph and Co
-					</div>
-				</motion.div>
+				</Link>
 
 				{/* Navigation */}
 				{!isMobile ? (
