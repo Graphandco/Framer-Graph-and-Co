@@ -83,6 +83,15 @@
 	--breakpoint-sm: 767px;
 	--breakpoint-md: 1024px;
 	--breakpoint-lg: 1280px;
+	--text-8xl: clamp(50px, 16vw, 160px);
+	--text-8xl--line-height: 0.9;
+	--text-7xl: clamp(50px, 14vw, 140px);
+	--text-7xl--line-height: 0.9;
+
+	--text-6xl: clamp(40px, 15px + 8vw, 100px);
+	--text-6xl--line-height: 0.9;
+	--text-5xl: clamp(40px, 10px + 7vw, 80px);
+	--text-5xl--line-height: 0.9;
 	/* --breakpoint-xl: 30rem; */
 }
 
@@ -137,15 +146,20 @@
 	}
 	.sur-mesure {
 		font-size: clamp(30px, 15px + 5vw, 100px);
+		font-family: var(--title-font);
 	}
 	.home-hero-lead {
 		font-size: clamp(50px, 16vw, 160px);
+		font-family: var(--title-font);
 	}
 	.hero-lead {
 		font-size: clamp(50px, 14vw, 140px);
+		font-family: var(--title-font);
 	}
-	.hero-sub-lead {
+	.big-text {
 		font-size: clamp(40px, 10px + 7vw, 80px);
+		font-family: var(--title-font);
+		line-height: 0.9;
 	}
 	@media (width <= 1024px) {
 		.wrapper,

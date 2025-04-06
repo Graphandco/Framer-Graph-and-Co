@@ -82,7 +82,7 @@ const Hero = () => {
 					</FadeInOnView>
 					<motion.h1
 						style={{ y: yDesc }}
-						className="hero-sub-lead title-font text-white font-medium leading-[0.8] mix-blend-exclusion"
+						className="big-text title-font text-white font-medium leading-[0.8] mix-blend-exclusion"
 					>
 						Création de sites web
 					</motion.h1>
