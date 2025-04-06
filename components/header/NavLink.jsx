@@ -1,7 +1,7 @@
 "use client";
 import { useTransitionRouter } from "next-view-transitions";
 
-const NavLink = ({ name, href, className, setIsOpen }) => {
+const NavLink = ({ name, href, className, setIsOpen = false }) => {
 	const router = useTransitionRouter();
 
 	function slideInOut() {
@@ -48,7 +48,7 @@ const NavLink = ({ name, href, className, setIsOpen }) => {
 		<a
 			onClick={(e) => {
 				e.preventDefault();
-				setIsOpen(false);
+				() => setIsOpen(false);
 				router.push(href, {
 					onTransitionReady: slideInOut,
 				});
