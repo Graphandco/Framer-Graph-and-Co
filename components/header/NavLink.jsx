@@ -48,7 +48,9 @@ const NavLink = ({ name, href, className, setIsOpen = false }) => {
 		<a
 			onClick={(e) => {
 				e.preventDefault();
-				() => setIsOpen(false);
+				if (typeof setIsOpen === "function") {
+					setIsOpen(false);
+				}
 				router.push(href, {
 					onTransitionReady: slideInOut,
 				});
