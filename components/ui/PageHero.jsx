@@ -8,7 +8,7 @@ import MagnetButton from "../ui/MagnetButton";
 import TextAppear from "../ui/TextAppear";
 import { useResponsive } from "@/hooks/UseResponsive";
 
-const PageHero = ({ title, image }) => {
+const PageHero = ({ title, image, imageClass = "object-cover" }) => {
 	const sectionRef = useRef(null);
 	const titleRef = useRef(null);
 	const { isTablet, isMobile } = useResponsive();
@@ -38,7 +38,7 @@ const PageHero = ({ title, image }) => {
 						src={image}
 						alt="title"
 						fill
-						className="object-cover"
+						className={imageClass}
 						priority
 					/>
 				</motion.div>

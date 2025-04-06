@@ -1,4 +1,3 @@
-import ProjetsHero from "@/components/projets/ProjetsHero";
 import PageHero from "@/components/ui/PageHero";
 
 const ProjetsPage = () => {

@@ -4,7 +4,7 @@ import { useTransitionRouter } from "next-view-transitions";
 const Nav = () => {
 	const navLinks = [
 		{ href: "/", label: "Accueil" },
-		{ href: "/prestations", label: "Prestations" },
+		{ href: "/offres", label: "Offres" },
 		{ href: "/projets", label: "Projets" },
 		{ href: "/blog", label: "Blog" },
 		{ href: "/contact", label: "Contact" },

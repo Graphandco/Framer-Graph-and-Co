@@ -13,21 +13,44 @@ export const DarkGradientPricing = () => {
 			}}
 			className="relative overflow-hidden bg-zinc-950 text-zinc-200 selection:bg-zinc-600"
 		>
-			<div className="relative z-10 mx-auto max-w-5xl px-4 py-20 md:px-8">
+			<div className="wrapper relative z-10 py-20">
 				<div className="mb-12 space-y-3">
 					<h2 className="text-center text-3xl font-semibold leading-tight sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-						Pricing
+						Trouvez le pack qui vous correspond !
 					</h2>
-					<p className="text-center text-base text-zinc-400 md:text-lg">
-						Use it for free for yourself, upgrade when your team
-						needs advanced control.
-					</p>
 				</div>
 
-				<div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+				<div className="grid grid-cols-1 gap-6 xs:grid-cols-2 md:grid-cols-4">
 					<PriceCard
-						tier="Free"
-						price="$0/mo"
+						tier="Starter"
+						price="800 €"
+						bestFor="Site clé en main"
+						CTA={
+							<GhostButton className="w-full">
+								Get started free
+							</GhostButton>
+						}
+						benefits={[
+							{
+								text: "RDV personnalisé",
+								checked: true,
+							},
+							{
+								text: "Développement de votre site",
+								checked: true,
+							},
+							{ text: "Site sécurisé", checked: true },
+							{ text: "Responsive design", checked: true },
+							{
+								text: "Hébergement et maintenance",
+								checked: false,
+							},
+							{ text: "Nom de domaine", checked: false },
+						]}
+					/>
+					<PriceCard
+						tier="Medium"
+						price="1500 €"
 						bestFor="Best for 1-5 users"
 						CTA={
 							<GhostButton className="w-full">
@@ -35,16 +58,19 @@ export const DarkGradientPricing = () => {
 							</GhostButton>
 						}
 						benefits={[
-							{ text: "One workspace", checked: true },
-							{ text: "Email support", checked: true },
-							{ text: "1 day data retention", checked: false },
-							{ text: "Custom roles", checked: false },
-							{ text: "Priority support", checked: false },
-							{ text: "SSO", checked: false },
+							{ text: "Pack starter +", checked: true },
+							{ text: "Modifications illimitées", checked: true },
+							{ text: "Maintenance du site", checked: true },
+							{
+								text: "Hébergement + Nom de domaine",
+								checked: true,
+							},
+							{ text: "Rédaction des contenus", checked: false },
+							{ text: "Vente en ligne", checked: false },
 						]}
 					/>
 					<PriceCard
-						tier="Pro"
+						tier="E-commerce"
 						price="$79/mo"
 						bestFor="Best for 5-50 users"
 						CTA={
@@ -62,8 +88,8 @@ export const DarkGradientPricing = () => {
 						]}
 					/>
 					<PriceCard
-						tier="Enterprise"
-						price="Contact us"
+						tier="Premium"
+						price="Nous contacter"
 						bestFor="Best for 50+ users"
 						CTA={
 							<GhostButton className="w-full">
@@ -113,11 +139,11 @@ const Benefit = ({ text, checked }) => {
 	return (
 		<div className="flex items-center gap-3">
 			{checked ? (
-				<span className="grid size-5 place-content-center rounded-full bg-blue-600 text-sm text-zinc-50">
+				<span className="grid size-5 aspect-square place-content-center rounded-full bg-primary text-sm text-black font-semibold">
 					<FiCheck />
 				</span>
 			) : (
-				<span className="grid size-5 place-content-center rounded-full bg-zinc-800 text-sm text-zinc-400">
+				<span className="grid size-5 aspect-square place-content-center rounded-full bg-zinc-800 text-sm text-zinc-400">
 					<FiX />
 				</span>
 			)}

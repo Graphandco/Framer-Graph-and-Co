@@ -120,11 +120,11 @@
 	--sidebar-ring: oklch(0.556 0 0);
 } */
 @layer utilities {
-	h1 {
+	/* h1 {
 		font-size: clamp(40px, 10px + 7vw, 80px);
 		font-family: var(--title-font);
 		font-weight: 600;
-	}
+	} */
 	.wrapper {
 		max-width: 1280px;
 		padding-inline: 5vw;
@@ -138,8 +138,11 @@
 	.sur-mesure {
 		font-size: clamp(30px, 15px + 5vw, 100px);
 	}
+	.home-hero-lead {
+		font-size: clamp(50px, 16vw, 160px);
+	}
 	.hero-lead {
-		font-size: clamp(30px, 16vw, 160px);
+		font-size: clamp(50px, 14vw, 140px);
 	}
 	.hero-sub-lead {
 		font-size: clamp(40px, 10px + 7vw, 80px);
@@ -154,6 +157,11 @@
 		.wrapper,
 		.wrapper-small {
 			padding-inline: 20px;
+		}
+	}
+	@media (width <= 540px) {
+		.hero-lead {
+			font-size: 45px;
 		}
 	}
 }

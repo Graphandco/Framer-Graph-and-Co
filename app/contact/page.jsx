@@ -1,11 +1,11 @@
 "use client";
-import ContactHero from "@/components/contact/ContactHero";
 import { TabsFAQ } from "@/components/TabsFAQ";
+import PageHero from "@/components/ui/PageHero";
 
 const ContactPage = () => {
 	return (
 		<>
-			<ContactHero />
+			<PageHero title="Contact" image="/contact/hero-contact.avif" />
 			<div className="wrapper mt-24">
 				<h1>Restons en contact !</h1>
 				<TabsFAQ />

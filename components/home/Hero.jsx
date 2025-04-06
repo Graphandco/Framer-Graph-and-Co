@@ -58,7 +58,7 @@ const Hero = () => {
 				<div ref={titleRef}>
 					<motion.div
 						style={{ y: yTitle }}
-						className="hero-lead title-font text-white font-semibold leading-[0.8] mix-blend-exclusion"
+						className="home-hero-lead title-font text-white font-semibold leading-[0.8] mix-blend-exclusion"
 					>
 						Graph & Co
 					</motion.div>
@@ -73,12 +73,12 @@ const Hero = () => {
 							entreprise.
 						</div>
 					</FadeInOnView>
-					<motion.div
+					<motion.h1
 						style={{ y: yDesc }}
 						className="hero-sub-lead title-font text-white font-medium leading-[0.8] mix-blend-exclusion"
 					>
 						Création de sites web
-					</motion.div>
+					</motion.h1>
 				</div>
 				<div className="mt-12 mx-auto">
 					<MagnetButton />
