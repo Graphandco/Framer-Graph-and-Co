@@ -1,8 +1,8 @@
 import { Outfit, Urbanist } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
 import { ViewTransitions } from "next-view-transitions";
 import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
 
 const outfit = Outfit({
 	variable: "--font-outfit",

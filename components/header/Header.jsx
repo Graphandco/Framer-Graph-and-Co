@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { useResponsive } from "@/hooks/UseResponsive";
+import NavBar from "./NavBar";
 import Burger from "./burger/Burger";
-import Nav from "./Nav";
 
 const Header = () => {
 	const pathname = usePathname();
@@ -43,6 +43,14 @@ const Header = () => {
 	// const borderStyle = !isHome ? "border-b border-black/10" : "";
 	const visibility =
 		scrollDirection === "down" ? "-translate-y-full" : "translate-y-0";
+
+	const navLinks = [
+		{ href: "/", name: "Accueil" },
+		{ href: "/offres", name: "Offres" },
+		{ href: "/projets", name: "Projets" },
+		{ href: "/blog", name: "Blog" },
+		{ href: "/contact", name: "Contact" },
+	];
 
 	return (
 		<motion.header
@@ -90,10 +98,10 @@ const Header = () => {
 						}}
 						className={`flex items-center gap-4 title-font text-lg transition-colors duration-300 ${textColor}`}
 					>
-						<Nav />
+						<NavBar navLinks={navLinks} />
 					</motion.div>
 				) : (
-					<Burger />
+					<Burger navLinks={navLinks} />
 				)}
 			</div>
 		</motion.header>

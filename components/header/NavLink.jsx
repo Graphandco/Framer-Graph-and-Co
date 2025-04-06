@@ -1,15 +1,7 @@
 "use client";
 import { useTransitionRouter } from "next-view-transitions";
 
-const Nav = () => {
-	const navLinks = [
-		{ href: "/", label: "Accueil" },
-		{ href: "/offres", label: "Offres" },
-		{ href: "/projets", label: "Projets" },
-		{ href: "/blog", label: "Blog" },
-		{ href: "/contact", label: "Contact" },
-	];
-
+const NavLink = ({ name, href, className, setIsOpen }) => {
 	const router = useTransitionRouter();
 
 	function slideInOut() {
@@ -53,25 +45,20 @@ const Nav = () => {
 	}
 
 	return (
-		<>
-			<>
-				{navLinks.map((link, i) => (
-					<a
-						key={i}
-						onClick={(e) => {
-							e.preventDefault();
-							router.push(link.href, {
-								onTransitionReady: slideInOut,
-							});
-						}}
-						href={link.href}
-					>
-						{link.label}
-					</a>
-				))}
-			</>
-		</>
+		<a
+			onClick={(e) => {
+				e.preventDefault();
+				setIsOpen(false);
+				router.push(href, {
+					onTransitionReady: slideInOut,
+				});
+			}}
+			href={href}
+			className={className}
+		>
+			{name}
+		</a>
 	);
 };
 
-export default Nav;
+export default NavLink;

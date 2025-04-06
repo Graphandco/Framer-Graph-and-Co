@@ -19,11 +19,18 @@ const Hero = () => {
 	const yDesc = useTransform(scrollYProgress, [0, 1], [0, -120]);
 	const scaleBg = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
 
+	const scrollToSection = () => {
+		const section = document.getElementById("sur-mesure");
+		if (section) {
+			section.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
 	return (
 		<section
 			id="hero"
 			ref={sectionRef}
-			className="relative min-h-screen overflow-hidden mb-28 bg-black"
+			className="relative min-h-screen overflow-hidden"
 		>
 			{/* Fond avec scale */}
 			<div className="absolute inset-0">
@@ -81,7 +88,7 @@ const Hero = () => {
 					</motion.h1>
 				</div>
 				<div className="mt-12 mx-auto">
-					<MagnetButton />
+					<MagnetButton onClick={scrollToSection} />
 				</div>
 			</div>
 		</section>

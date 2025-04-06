@@ -1,9 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import BurgerLink from "./BurgerLink";
 import { X } from "lucide-react";
+import NavLink from "../NavLink";
 
-const BurgerNav = ({ isOpen, setIsOpen }) => {
+const BurgerNav = ({ isOpen, setIsOpen, navLinks }) => {
 	const navVariants = {
 		open: {
 			x: "0%",
@@ -30,6 +30,12 @@ const BurgerNav = ({ isOpen, setIsOpen }) => {
 			},
 		},
 	};
+	const navLinkVariants = {
+		open: { x: 0 },
+		closed: { x: 25 },
+	};
+
+	const MotionNav = motion.create(NavLink);
 
 	return (
 		<motion.nav
@@ -39,7 +45,7 @@ const BurgerNav = ({ isOpen, setIsOpen }) => {
 			initial="closed"
 		>
 			<motion.button
-				className="text-3xl bg-white text-black hover:text-indigo-500 border-[1px] border-transparent hover:border-indigo-500 transition-colors p-4 rounded-full absolute top-3 right-3 flex items-center justify-center"
+				className="text-3xl bg-foreground text-white hover:bg-primary transition-colors p-4 rounded-full absolute top-3 right-3 flex items-center justify-center"
 				whileHover={{ rotate: "180deg" }}
 				onClick={() => setIsOpen(false)}
 				whileTap={{ scale: 0.9 }}
@@ -50,10 +56,25 @@ const BurgerNav = ({ isOpen, setIsOpen }) => {
 				variants={linkWrapperVariants}
 				className="flex flex-col gap-4 justify-center bg-white h-screen"
 			>
-				<BurgerLink text="Accueil" link="/" />
-				<BurgerLink text="Prestations" link="/prestations" />
-				<BurgerLink text="Réalisations" link="realisations" />
-				<BurgerLink text="Contact" link="contact" />
+				{navLinks.map((navlink, i) => (
+					<MotionNav
+						key={i}
+						variants={navLinkVariants}
+						transition={{
+							type: "spring",
+							damping: 3,
+						}}
+						whileHover={{
+							y: -15,
+							rotate: "-7.5deg",
+						}}
+						name={navlink.name}
+						href={navlink.href}
+						setIsOpen={setIsOpen}
+						className="inline-block px-8 text-foreground z-10 w-fit font-black text-7xl hover:text-primary transition-colors"
+						rel="nofollow"
+					/>
+				))}
 			</motion.div>
 		</motion.nav>
 	);

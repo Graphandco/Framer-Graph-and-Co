@@ -24,7 +24,7 @@ const SiteSurMesure = () => {
 	return (
 		<>
 			{/* Section sur-mesure */}
-			<section id="sur-mesure" ref={ref}>
+			<section id="sur-mesure" ref={ref} className="pt-28">
 				<div className="wrapper py-24 sm:py-32 md:py-44 text-center relative overflow-hidden">
 					<motion.div
 						style={{ clipPath }}

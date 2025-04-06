@@ -6,7 +6,7 @@ import { AlignJustify } from "lucide-react";
 import { motion } from "framer-motion";
 import BurgerNav from "./BurgerNav";
 
-const Burger = () => {
+const Burger = ({ navLinks }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
@@ -19,7 +19,11 @@ const Burger = () => {
 			>
 				<AlignJustify />
 			</motion.button>
-			<BurgerNav isOpen={isOpen} setIsOpen={setIsOpen} />
+			<BurgerNav
+				isOpen={isOpen}
+				setIsOpen={setIsOpen}
+				navLinks={navLinks}
+			/>
 		</div>
 	);
 };

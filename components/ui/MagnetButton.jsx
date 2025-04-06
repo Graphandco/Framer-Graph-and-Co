@@ -7,7 +7,7 @@ import {
 import { useRef } from "react";
 import { MdOutlineArrowUpward } from "react-icons/md";
 
-const MagnetButton = () => {
+const MagnetButton = ({ onClick }) => {
 	const ref = useRef(null);
 
 	const x = useMotionValue(0);
@@ -46,6 +46,7 @@ const MagnetButton = () => {
 			ref={ref}
 			onMouseMove={handleMouseMove}
 			onMouseLeave={handleMouseLeave}
+			onClick={onClick}
 			style={{ transform }}
 			transition={{ type: "spring", stiffness: 200, damping: 20 }}
 			className="group relative grid h-[100px] w-[100px] place-content-center rounded-full border-2 border-white transition-colors duration-700 ease-out cursor-pointer"
