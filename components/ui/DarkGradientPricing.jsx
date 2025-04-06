@@ -71,7 +71,7 @@ export const DarkGradientPricing = () => {
 					/>
 					<PriceCard
 						tier="E-commerce"
-						price="$79/mo"
+						price="2500 €"
 						bestFor="Best for 5-50 users"
 						CTA={
 							<GhostButton className="w-full bg-zinc-50 text-zinc-950 hover:bg-zinc-200 hover:text-zinc-900">
@@ -116,6 +116,7 @@ const PriceCard = ({ tier, price, bestFor, CTA, benefits }) => {
 		<Card>
 			<div className="flex flex-col items-center border-b border-zinc-700 pb-6">
 				<span className="mb-6 inline-block text-zinc-50">{tier}</span>
+				<span className="text-white/50">à partir de</span>
 				<span className="mb-3 inline-block text-4xl font-medium ">
 					{price}
 				</span>

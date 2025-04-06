@@ -68,8 +68,8 @@ const Hero = () => {
 					<FadeInOnView amount={0.1}>
 						<div className="text-white max-w-md mix-blend-exclusion">
 							Nous sommes spécialisés dans la réalisation de sites
-							web. Moderne et intuitif, votre site sera un p
-							uissant levier pour accroitre la vitalité de votre
+							web. Moderne et intuitif, votre site sera un
+							puissant levier pour accroitre la vitalité de votre
 							entreprise.
 						</div>
 					</FadeInOnView>
