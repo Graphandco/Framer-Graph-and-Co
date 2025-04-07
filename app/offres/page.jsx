@@ -6,7 +6,7 @@ import PageHero from "@/components/ui/PageHero";
 
 export default async function OffresPage() {
 	return (
-		<div>
+		<>
 			<PageHero
 				title="Nos offres"
 				image="/offres/hero-offres.avif"
@@ -16,6 +16,6 @@ export default async function OffresPage() {
 			<TextIntro />
 			<Prices />
 			<SurMesure />
-		</div>
+		</>
 	);
 }
