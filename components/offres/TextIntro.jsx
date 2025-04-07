@@ -1,11 +1,16 @@
 "use client";
-
 import FadeInOnView from "../ui/FadeInOnView";
 
 const TextIntro = () => {
 	return (
 		<section>
 			{/* <div className="wrapper py-12 bg-black/5 grid">
+				<div className="text-10xl">
+					Voici un long texte 10xl pour voir le retour à la ligne
+				</div>
+				<div className="text-9xl">
+					Voici un long texte 9xl pour voir le retour à la ligne
+				</div>
 				<div className="text-8xl">
 					Voici un long texte 8xl pour voir le retour à la ligne
 				</div>
@@ -37,15 +42,16 @@ const TextIntro = () => {
 					Voici un long texte normale pour voir le retour à la ligne
 				</div>
 			</div> */}
+
 			<div className="wrapper py-24">
-				<FadeInOnView delay={1} once={true}>
-					<p className="text-4xl sm:text-5xl md:text-6xl font-semibold title-font mb-8">
+				<FadeInOnView delay={1.5} once={true}>
+					<p className="text-2xl sm:text-3xl font-semibold title-font mb-8">
 						Réalisons ensemble votre site, doté de toutes les
 						fonctionnalités dont vous et vos clients avez besoin.
 					</p>
 				</FadeInOnView>
-				<FadeInOnView delay={1.25} once={true}>
-					<p className="text-xl sm:text-2xl md:text-3xl font-semibold">
+				<FadeInOnView delay={1.5} once={true}>
+					<p className="sm:text-lg font-medium">
 						<span className="text-foreground/70 mr-1">
 							Selon votre profil et votre budget, plusieurs
 							options s’offrent à vous.

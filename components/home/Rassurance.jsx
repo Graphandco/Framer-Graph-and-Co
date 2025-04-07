@@ -82,7 +82,7 @@ const Rassurance = () => {
 							<div
 								key={i}
 								onMouseEnter={() => setHoveredIndex(i)}
-								className={`title-font font-semibold py-3 sm:py-6 border-b border-white/50 text-2xl sm:text-4xl md:text-5xl cursor-pointer text-white/50 transition-colors duration-300`}
+								className={`title-font font-semibold py-3 sm:py-6 border-b border-white/50 sm:text-3xl md:text-4xl cursor-pointer text-white/50 transition-colors duration-300`}
 							>
 								<div
 									className={`relative transition-all duration-300 ease-out transform ${

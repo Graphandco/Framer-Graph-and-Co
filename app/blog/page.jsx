@@ -1,12 +1,22 @@
 "use client";
 
+import Button from "@/components/ui/Button";
 import PageHero from "@/components/ui/PageHero";
 
 const BlogPage = () => {
 	return (
 		<>
 			<PageHero title="Le blog" image="/blog/blog-hero.avif" />
-			<div className="wrapper py-24">
+			<div className="wrapper py-24 ">
+				<div className="py-12 space-y-2 ">
+					<Button>En savoir plus</Button>
+					<Button outline>Contour</Button>
+					<Button full>Large</Button>
+					<Button muted>Inactif</Button>
+				</div>
+				<div className="py-12 bg-black">
+					<Button white>En savoir plus</Button>
+				</div>
 				<div>
 					<h1>Le blog</h1>
 					<div>

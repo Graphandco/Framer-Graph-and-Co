@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FaQuoteLeft } from "react-icons/fa";
 import FadeInOnView from "../ui/FadeInOnView"; // adapte le chemin si besoin
+import Button from "../ui/Button";
 
 const Temoignage = () => {
 	return (
@@ -12,7 +13,7 @@ const Temoignage = () => {
 					{/* Bloc texte */}
 					<div className="flex flex-col justify-center flex-[2] order-1 sm:order-2">
 						<FadeInOnView>
-							<div className="text-xl md:text-2xl leading-7 md:leading-8 font-medium">
+							<div className="text-lg font-medium">
 								<span className="inline-block text-primary text-5xl pr-5">
 									<FaQuoteLeft />
 								</span>
@@ -50,6 +51,15 @@ const Temoignage = () => {
 							<div className="text-black/50">
 								Auteure et biographe - BOMOT
 							</div>
+						</FadeInOnView>
+						<FadeInOnView>
+							<Button
+								href="https://www.google.com/search?sca_esv=fccbee740c3569c2&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2Kzf6MYr6Dix-GSAblYyCQFImquqsxXSKWGuueYlXJcu_nOOnojgY0gkfQj8pUzftYs-5kRIK_tZ3RLuHvXrzbEaUCLgoS&q=Graph+and+Co+Reviews&sa=X&ved=2ahUKEwjJ2-eT4cWMAxVYKvsDHXmJOyYQ0bkNegQIORAE&biw=1450&bih=867&dpr=2"
+								blank
+								className="mt-8"
+							>
+								Voir plus d'avis
+							</Button>
 						</FadeInOnView>
 					</div>
 

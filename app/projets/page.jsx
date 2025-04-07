@@ -1,9 +1,14 @@
 import PageHero from "@/components/ui/PageHero";
+import { getMdxData } from "@/utils/mdxUtils";
+import RealisationsText from "@/markdown/realisations.mdx";
 
-const ProjetsPage = () => {
+export default async function ProjetsPage() {
+	const data = await getMdxData("markdown/realisations");
+	console.log(data);
 	return (
 		<>
 			<PageHero title="Nos projets" image="/projets/hero-projets.avif" />
+			<RealisationsText />
 			<div className="wrapper mt-24">
 				<h1>Nos projets</h1>
 				<div>
@@ -143,6 +148,4 @@ const ProjetsPage = () => {
 			</div>
 		</>
 	);
-};
-
-export default ProjetsPage;
+}

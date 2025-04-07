@@ -40,7 +40,7 @@ const SiteSurMesure = () => {
 					</motion.div>
 					<motion.div
 						style={{ scale: textScale }}
-						className="sur-mesure title-font font-black relative z-10 mix-blend-exclusion text-white leading-none"
+						className="text-6xl title-font font-black relative z-10 mix-blend-exclusion text-white leading-none"
 					>
 						Un site "sur-mesure" rien que pour vous !
 					</motion.div>

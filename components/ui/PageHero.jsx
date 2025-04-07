@@ -32,7 +32,7 @@ const PageHero = ({ title, image, imageClass = "object-cover" }) => {
 			<div className="absolute inset-0">
 				<motion.div
 					style={{ scale: scaleBg }}
-					className="w-full h-full will-change-transform"
+					className="w-full h-full will-change-transform after:content-[''] after:absolute after:top-0 after:left-0 after:h-1/4 after:w-full after:bg-linear-to-t after:from-transparent after:to-black/70 "
 				>
 					<Image
 						src={image}
@@ -48,7 +48,7 @@ const PageHero = ({ title, image, imageClass = "object-cover" }) => {
 				<div ref={titleRef}>
 					<motion.div
 						style={{ y: yTitle }}
-						className="text-7xl title-font text-white font-semibold leading-[0.8]"
+						className="text-8xl title-font text-white font-semibold leading-[0.8]"
 					>
 						<TextAppear>.{title}</TextAppear>
 					</motion.div>

@@ -65,7 +65,7 @@ const Hero = () => {
 				<div ref={titleRef}>
 					<motion.div
 						style={{ y: yTitle }}
-						className="home-hero-lead title-font text-white font-semibold leading-[0.8] mix-blend-exclusion"
+						className="text-10xl title-font text-white font-semibold leading-[0.8] mix-blend-exclusion"
 					>
 						Graph & Co
 					</motion.div>
@@ -82,7 +82,7 @@ const Hero = () => {
 					</FadeInOnView>
 					<motion.h1
 						style={{ y: yDesc }}
-						className="big-text title-font text-white font-medium leading-[0.8] mix-blend-exclusion"
+						className="text-6xl title-font text-white font-medium leading-[0.8] mix-blend-exclusion"
 					>
 						Création de sites web
 					</motion.h1>
