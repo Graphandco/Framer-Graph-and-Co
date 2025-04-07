@@ -8,6 +8,7 @@ import { useEffect, useState, useRef } from "react";
 import { useResponsive } from "@/hooks/UseResponsive";
 import NavBar from "./NavBar";
 import Burger from "./burger/Burger";
+import NavLink from "./NavLink";
 
 const Header = () => {
 	const pathname = usePathname();
@@ -58,7 +59,7 @@ const Header = () => {
 		>
 			<div className="wrapper flex justify-between items-center">
 				{/* Logo + nom */}
-				<Link href="/">
+				<NavLink href="/">
 					<motion.div
 						initial={{ y: 20, opacity: 0 }}
 						animate={{ y: 0, opacity: 1 }}
@@ -83,7 +84,7 @@ const Header = () => {
 							Graph and Co
 						</div>
 					</motion.div>
-				</Link>
+				</NavLink>
 
 				{/* Navigation */}
 				{!isMobile ? (
