@@ -16,8 +16,10 @@ export default function Button({
 	onClick,
 	className = "",
 }) {
+	const hasIcon = icon !== null && icon !== false;
+
 	const baseClasses = `
-		relative z-0 flex items-center justify-center gap-2 overflow-hidden rounded-full
+		relative z-0 flex items-center justify-center overflow-hidden rounded-full
 		transition-all duration-750 cursor-pointer
 		before:absolute before:inset-0 before:-z-10
 		before:translate-x-[200%] before:translate-y-[200%] before:scale-[2.5]
@@ -28,12 +30,14 @@ export default function Button({
 		shadow-[0_7px_15px_rgba(0,0,0,0.15),_0_5px_5px_rgba(0,0,0,0.1)]
 	`;
 
-	const sizeClasses = small ? "px-3 py-1" : "px-4 py-2 text-base";
+	const sizeClasses = small ? "text-sm px-3 py-1" : "px-4 py-2 text-base";
+
+	const gapClass = hasIcon ? "gap-2" : "";
 
 	const spanClasses =
 		"transition-transform duration-750 group-hover:scale-90";
 
-	const iconWithSize = (
+	const iconWithSize = hasIcon ? (
 		<span
 			className={
 				small ? "text-base leading-none" : "text-xl leading-none"
@@ -41,7 +45,7 @@ export default function Button({
 		>
 			{icon}
 		</span>
-	);
+	) : null;
 
 	let variantClasses = "";
 
@@ -65,7 +69,7 @@ export default function Button({
 
 	const button = (
 		<button
-			className={`group ${baseClasses} ${sizeClasses} ${variantClasses} ${className}`}
+			className={`group ${baseClasses} ${gapClass} ${sizeClasses} ${variantClasses} ${className}`}
 			onClick={muted ? undefined : onClick}
 			disabled={muted}
 		>

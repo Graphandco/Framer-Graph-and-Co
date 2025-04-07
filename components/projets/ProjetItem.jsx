@@ -8,6 +8,11 @@ const ProjetItem = ({ project }) => {
 
 	return (
 		<motion.article
+			layout
+			initial={{ opacity: 0, y: 20 }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: 20 }}
+			transition={{ duration: 0.4, ease: "easeOut" }}
 			whileHover="hover"
 			className="relative featured nth-2:row-span-2 flex flex-col justify-end overflow-hidden rounded-3xl after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1/2 after:w-full after:bg-linear-to-t after:to-transparent after:from-black/80"
 		>
@@ -33,9 +38,7 @@ const ProjetItem = ({ project }) => {
 				>
 					.{title}
 				</motion.div>
-				<div className="text-white/70 leading-tight ">
-					{description}
-				</div>
+				<div className="text-white/70 leading-tight">{description}</div>
 			</div>
 		</motion.article>
 	);
