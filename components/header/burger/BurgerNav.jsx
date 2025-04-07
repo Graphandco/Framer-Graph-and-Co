@@ -86,7 +86,7 @@ const BurgerNav = ({ isOpen, setIsOpen, navLinks }) => {
 			{/* Liens */}
 			<motion.div
 				variants={linkWrapperVariants}
-				className="flex flex-col gap-7  justify-center items-start bg-white h-screen px-12"
+				className="flex flex-col gap-7 justify-center items-start bg-white h-screen px-12"
 			>
 				{navLinks.map((navlink, i) => (
 					<motion.div key={i} variants={navLinkVariants}>

@@ -54,7 +54,7 @@ const Header = () => {
 
 	return (
 		<motion.header
-			className={`fixed w-full left-0 top-0 z-50 py-3 transition-all duration-300 transform ${bgStyle} ${visibility}`}
+			className={`fixed w-full left-0 top-0 z-50 py-2 sm:py-3 transition-all duration-300 transform ${bgStyle} ${visibility}`}
 		>
 			<div className="wrapper flex justify-between items-center">
 				{/* Logo + nom */}
