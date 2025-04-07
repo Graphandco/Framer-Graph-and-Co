@@ -1,13 +1,14 @@
 "use client";
 
 import { MdOutlineSubdirectoryArrowRight } from "react-icons/md";
-import Link from "next/link";
+import NavLink from "../header/NavLink";
 
 export default function Button({
 	white = false,
 	outline = false,
 	full = false,
 	muted = false,
+	small = false,
 	blank = false,
 	icon = <MdOutlineSubdirectoryArrowRight />,
 	children,
@@ -17,19 +18,30 @@ export default function Button({
 }) {
 	const baseClasses = `
 		relative z-0 flex items-center justify-center gap-2 overflow-hidden rounded-full
-		px-4 py-2 font-semibold uppercase transition-all duration-500 cursor-pointer
+		transition-all duration-750 cursor-pointer
 		before:absolute before:inset-0 before:-z-10
 		before:translate-x-[200%] before:translate-y-[200%] before:scale-[2.5]
-		before:rounded-full before:transition-transform before:duration-500
+		before:rounded-full before:transition-transform before:duration-750
 		before:content-[""]
 		hover:scale-105 active:scale-95
 		hover:before:translate-x-0 hover:before:translate-y-0
 		shadow-[0_7px_15px_rgba(0,0,0,0.15),_0_5px_5px_rgba(0,0,0,0.1)]
 	`;
 
+	const sizeClasses = small ? "px-3 py-1" : "px-4 py-2 text-base";
+
 	const spanClasses =
-		"transition-transform duration-500 group-hover:scale-90";
-	const iconWithSize = <span className="text-xl leading-none">{icon}</span>;
+		"transition-transform duration-750 group-hover:scale-90";
+
+	const iconWithSize = (
+		<span
+			className={
+				small ? "text-base leading-none" : "text-xl leading-none"
+			}
+		>
+			{icon}
+		</span>
+	);
 
 	let variantClasses = "";
 
@@ -53,7 +65,7 @@ export default function Button({
 
 	const button = (
 		<button
-			className={`group ${baseClasses} ${variantClasses} ${className}`}
+			className={`group ${baseClasses} ${sizeClasses} ${variantClasses} ${className}`}
 			onClick={muted ? undefined : onClick}
 			disabled={muted}
 		>
@@ -64,13 +76,13 @@ export default function Button({
 
 	if (href) {
 		return (
-			<Link
+			<NavLink
 				href={href}
 				target={blank ? "_blank" : undefined}
 				rel={blank ? "noopener noreferrer" : undefined}
 			>
 				{button}
-			</Link>
+			</NavLink>
 		);
 	}
 

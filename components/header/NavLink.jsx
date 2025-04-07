@@ -1,20 +1,14 @@
 "use client";
 import { useTransitionRouter } from "next-view-transitions";
 
-const NavLink = ({ name, href, className, setIsOpen = false }) => {
+const NavLink = ({ name, href, className, setIsOpen = false, children }) => {
 	const router = useTransitionRouter();
 
 	function slideInOut() {
 		document.documentElement.animate(
 			[
-				{
-					opacity: 1,
-					transform: "translateY(0)",
-				},
-				{
-					opacity: 0.2,
-					transform: "translateY(-35%)",
-				},
+				{ opacity: 1, transform: "translateY(0)" },
+				{ opacity: 0.2, transform: "translateY(-35%)" },
 			],
 			{
 				duration: 750,
@@ -56,7 +50,7 @@ const NavLink = ({ name, href, className, setIsOpen = false }) => {
 			href={href}
 			className={className}
 		>
-			{name}
+			{name || children}
 		</a>
 	);
 };

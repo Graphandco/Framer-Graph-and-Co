@@ -9,38 +9,33 @@ const ProjetItem = ({ project }) => {
 	return (
 		<motion.article
 			whileHover="hover"
-			className="relative bg-white rounded-3xl pt-72 px-3 overflow-hidden"
+			className="relative featured nth-2:row-span-2 flex flex-col justify-end overflow-hidden rounded-3xl after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1/2 after:w-full after:bg-linear-to-t after:to-transparent after:from-black/80"
 		>
-			{/* Image animée */}
-
 			<MotionImage
 				variants={{
-					hover: {
-						scale: 1.2,
-						filter: "blur(1px)",
-					},
+					hover: { scale: 1.025, filter: "blur(4px)" },
 				}}
 				transition={{ duration: 0.25, ease: "easeOut" }}
 				src={`/projets/${image}`}
 				alt={title}
-				width={600}
-				height={300}
-				className="absolute top-0 left-0 w-full object-cover rounded-3xl aspect-[3/2]"
+				fill
+				className="object-cover"
 				priority
 			/>
 
-			{/* Texte */}
-			<div className="px-3 pb-6 flex flex-col gap-3">
+			<div className="relative z-10 text-white px-8 pt-52 pb-8">
 				<motion.div
 					variants={{
-						hover: { y: 10 },
+						hover: { scale: 0.9 },
 					}}
-					transition={{ duration: 0.3 }}
-					className="text-lg font-semibold"
+					transition={{ duration: 0.2 }}
+					className="text-3xl title-font font-semibold origin-left"
 				>
-					{title}
+					.{title}
 				</motion.div>
-				<div className="text-black/70 leading-tight">{description}</div>
+				<div className="text-white/70 leading-tight ">
+					{description}
+				</div>
 			</div>
 		</motion.article>
 	);
