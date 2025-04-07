@@ -24,7 +24,14 @@ export default async function Page({ params }) {
 }
 
 export function generateStaticParams() {
-	return [{ slug: "welcome" }, { slug: "about" }];
+	const dirPath = path.join(process.cwd(), "markdown/projets");
+	const files = fs.readdirSync(dirPath);
+
+	return files
+		.filter((file) => file.endsWith(".mdx"))
+		.map((file) => ({
+			slug: file.replace(/\.mdx$/, ""),
+		}));
 }
 
 export const dynamicParams = true;
