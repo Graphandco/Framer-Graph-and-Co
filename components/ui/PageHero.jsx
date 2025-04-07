@@ -48,7 +48,7 @@ const PageHero = ({ title, image, imageClass = "object-cover" }) => {
 				<div ref={titleRef}>
 					<motion.div
 						style={{ y: yTitle }}
-						className="text-5xl title-font text-white font-semibold leading-[0.8]"
+						className="text-7xl title-font text-white font-semibold leading-[0.8]"
 					>
 						<TextAppear>.{title}</TextAppear>
 					</motion.div>

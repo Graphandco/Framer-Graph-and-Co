@@ -10,73 +10,98 @@ const BurgerNav = ({ isOpen, setIsOpen, navLinks }) => {
 			borderTopLeftRadius: "0vw",
 			borderBottomLeftRadius: "0vw",
 			opacity: 1,
+			transition: {
+				type: "spring",
+				stiffness: 120,
+				damping: 14,
+				bounce: 0.15,
+			},
 		},
 		closed: {
 			x: "100%",
 			borderTopLeftRadius: "50vw",
 			borderBottomLeftRadius: "50vw",
 			opacity: 0,
+			transition: {
+				type: "spring",
+				stiffness: 120,
+				damping: 18,
+			},
 		},
 	};
+
 	const linkWrapperVariants = {
 		open: {
 			transition: {
-				staggerChildren: 0.1,
+				staggerChildren: 0.12,
+				delayChildren: 0.15,
 			},
 		},
 		closed: {
 			transition: {
-				staggerChildren: 0.1,
+				staggerDirection: -1,
+				staggerChildren: 0.08,
 			},
 		},
 	};
 	const navLinkVariants = {
-		open: { x: 0 },
-		closed: { x: 25 },
+		open: {
+			x: 0,
+			opacity: 1,
+			transition: {
+				type: "spring",
+				stiffness: 180,
+				damping: 8,
+				bounce: 0.4,
+			},
+		},
+		closed: {
+			x: 25,
+			opacity: 0,
+			transition: {
+				type: "spring",
+				stiffness: 120,
+				damping: 20,
+			},
+		},
 	};
-
-	const MotionNav = motion.create(NavLink);
 
 	return (
 		<motion.nav
-			className="fixed top-0 bottom-0 left-0 right-0 w-full"
+			className="fixed top-0 bottom-0 left-0 right-0 w-full z-50"
+			initial="closed"
 			animate={isOpen ? "open" : "closed"}
 			variants={navVariants}
-			initial="closed"
 		>
+			{/* Bouton fermeture */}
 			<motion.button
 				className="text-3xl bg-foreground text-white hover:bg-primary transition-colors p-4 rounded-full absolute top-3 right-3 flex items-center justify-center"
 				whileHover={{ rotate: "180deg" }}
-				onClick={() => setIsOpen(false)}
 				whileTap={{ scale: 0.9 }}
+				onClick={() => setIsOpen(false)}
 			>
 				<X />
 			</motion.button>
+
+			{/* Liens */}
 			<motion.div
 				variants={linkWrapperVariants}
-				className="flex flex-col gap-4 justify-center bg-white h-screen"
+				className="flex flex-col gap-4 justify-center items-start bg-white h-screen px-12"
 			>
 				{navLinks.map((navlink, i) => (
-					<MotionNav
-						key={i}
-						variants={navLinkVariants}
-						transition={{
-							type: "spring",
-							damping: 3,
-						}}
-						whileHover={{
-							y: -15,
-							rotate: "-7.5deg",
-						}}
-						name={navlink.name}
-						href={navlink.href}
-						setIsOpen={setIsOpen}
-						className="inline-block px-8 text-foreground z-10 w-fit font-black text-7xl hover:text-primary transition-colors"
-						rel="nofollow"
-					/>
+					<motion.div key={i} variants={navLinkVariants}>
+						<NavLink
+							name={navlink.name}
+							href={navlink.href}
+							setIsOpen={setIsOpen}
+							className="inline-block pl-6 text-foreground z-10 font-black text-5xl sm:text-7xl hover:text-primary transition-colors"
+							rel="nofollow"
+						/>
+					</motion.div>
 				))}
 			</motion.div>
 		</motion.nav>
 	);
 };
+
 export default BurgerNav;

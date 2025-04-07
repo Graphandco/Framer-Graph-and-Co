@@ -18,7 +18,6 @@ const NavLink = ({ name, href, className, setIsOpen = false }) => {
 			],
 			{
 				duration: 750,
-				// easing: "cubic-bezier(0.87, 0, 0.13, 1)",
 				easing: "cubic-bezier(0.76, 0, 0.24, 1)",
 				fill: "forwards",
 				pseudoElement: "::view-transition-old(root)",
@@ -36,7 +35,6 @@ const NavLink = ({ name, href, className, setIsOpen = false }) => {
 			],
 			{
 				duration: 750,
-				// easing: "cubic-bezier(0.87, 0, 0.13, 1)",
 				easing: "cubic-bezier(0.76, 0, 0.24, 1)",
 				fill: "forwards",
 				pseudoElement: "::view-transition-new(root)",

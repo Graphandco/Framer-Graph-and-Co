@@ -17,7 +17,7 @@ const Burger = ({ navLinks }) => {
 				whileHover={{ rotate: "180deg" }}
 				whileTap={{ scale: 0.9 }}
 				onClick={() => setIsOpen(true)}
-				className="text-3xl text-white hover:text-primary transition-colors p-3 cursor-pointer"
+				className="text-3xl text-white transition-colors p-3 cursor-pointer"
 			>
 				<VscMenu />
 			</motion.button>
