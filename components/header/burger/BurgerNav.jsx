@@ -86,7 +86,7 @@ const BurgerNav = ({ isOpen, setIsOpen, navLinks }) => {
 			{/* Liens */}
 			<motion.div
 				variants={linkWrapperVariants}
-				className="flex flex-col gap-4 justify-center items-start bg-white h-screen px-12"
+				className="flex flex-col gap-7  justify-center items-start bg-white h-screen px-12"
 			>
 				{navLinks.map((navlink, i) => (
 					<motion.div key={i} variants={navLinkVariants}>
@@ -94,7 +94,7 @@ const BurgerNav = ({ isOpen, setIsOpen, navLinks }) => {
 							name={navlink.name}
 							href={navlink.href}
 							setIsOpen={setIsOpen}
-							className="inline-block pl-6 text-foreground z-10 font-black text-5xl sm:text-7xl hover:text-primary transition-colors"
+							className="inline-block pl-6 text-foreground z-10 font-black text-6xl hover:text-primary transition-colors"
 							rel="nofollow"
 						/>
 					</motion.div>

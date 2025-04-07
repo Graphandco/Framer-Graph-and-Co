@@ -21,9 +21,9 @@ const ProjetsList = ({ projects }) => {
 
 	return (
 		<section id="projets">
-			<div className="wrapper py-16">
+			<div className="wrapper py-8 sm:py-16">
 				{/* Filtres */}
-				<div className="sticky top-0 z-20 py-6 flex flex-wrap justify-center gap-4">
+				<div className="sticky top-0 z-20 py-6 flex flex-wrap justify-center gap-2 sm:gap-4">
 					{["tous", "vitrine", "e-commerce", "mockup"].map(
 						(category) => (
 							<Button
@@ -53,7 +53,7 @@ const ProjetsList = ({ projects }) => {
 								animate={{ opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: 20 }}
 								transition={{ duration: 0.4, ease: "easeOut" }}
-								className="p-12 bg-white rounded-3xl"
+								className="xs:p-4 sm:p-8 md:p-12 bg-white rounded-3xl"
 							>
 								<RealisationsText />
 								<Button small href="offres" className="mt-5">

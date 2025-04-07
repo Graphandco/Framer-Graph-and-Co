@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
@@ -85,7 +84,6 @@ const Header = () => {
 						</div>
 					</motion.div>
 				</NavLink>
-
 				{/* Navigation */}
 				{!isMobile ? (
 					<motion.div

@@ -72,6 +72,7 @@ export default function Button({
 			className={`group ${baseClasses} ${gapClass} ${sizeClasses} ${variantClasses} ${className}`}
 			onClick={muted ? undefined : onClick}
 			disabled={muted}
+			title={children}
 		>
 			{iconWithSize}
 			<span className={spanClasses}>{children}</span>
