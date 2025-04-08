@@ -1,8 +1,6 @@
 import fs from "fs";
 import path from "path";
-
-import Link from "next/link";
-import { IoArrowBackCircleOutline } from "react-icons/io5";
+import matter from "gray-matter";
 import ProjetSingle from "@/components/projets/ProjetSingle";
 
 export async function generateMetadata({ params }) {
