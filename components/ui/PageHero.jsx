@@ -6,13 +6,10 @@ import Image from "next/image";
 import FadeInOnView from "../ui/FadeInOnView";
 import MagnetButton from "../ui/MagnetButton";
 import TextAppear from "../ui/TextAppear";
-import { useResponsive } from "@/hooks/UseResponsive";
 
 const PageHero = ({ title, image, imageClass = "object-cover" }) => {
 	const sectionRef = useRef(null);
 	const titleRef = useRef(null);
-	const { isTablet, isMobile } = useResponsive();
-	const sectionHeight = isMobile ? "min-h-[30vh]" : "min-h-[50vh]";
 
 	const { scrollYProgress } = useScroll({
 		target: sectionRef,
@@ -26,7 +23,7 @@ const PageHero = ({ title, image, imageClass = "object-cover" }) => {
 		<section
 			id="hero"
 			ref={sectionRef}
-			className={`relative ${sectionHeight} overflow-hidden bg-black`}
+			className="relative min-h-[30vh] sm:min-h-[50vh] overflow-hidden bg-black"
 		>
 			{/* Fond avec scale */}
 			<div className="absolute inset-0">

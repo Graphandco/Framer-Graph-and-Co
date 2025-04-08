@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Button from "../ui/Button";
 import ProjetItem from "./ProjetItem";
 import RealisationsText from "@/markdown/realisations.mdx";
 import { AnimatePresence, motion } from "framer-motion";
+import ProjetsFilter from "./ProjetsFilter";
+import Button from "../ui/Button";
 
 const ProjetsList = ({ projects }) => {
 	const [activeCategory, setActiveCategory] = useState("tous");
@@ -23,22 +24,10 @@ const ProjetsList = ({ projects }) => {
 		<section id="projets">
 			<div className="wrapper py-8 sm:py-16">
 				{/* Filtres */}
-				<div className="sticky top-0 z-20 py-6 flex flex-wrap justify-center gap-2 sm:gap-4">
-					{["tous", "vitrine", "e-commerce", "mockup"].map(
-						(category) => (
-							<Button
-								key={category}
-								small
-								muted={activeCategory === category}
-								black={activeCategory !== category}
-								onClick={() => setActiveCategory(category)}
-								icon={null}
-							>
-								{category}
-							</Button>
-						)
-					)}
-				</div>
+				<ProjetsFilter
+					activeCategory={activeCategory}
+					setActiveCategory={setActiveCategory}
+				/>
 
 				{/* Liste des projets */}
 				<motion.div
@@ -53,9 +42,11 @@ const ProjetsList = ({ projects }) => {
 								animate={{ opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: 20 }}
 								transition={{ duration: 0.4, ease: "easeOut" }}
-								className="xs:p-4 sm:p-8 md:p-12 bg-white rounded-3xl"
+								className="p-4 sm:p-8 md:p-12 bg-white rounded-3xl"
 							>
-								<RealisationsText />
+								<div className="text-sm xs:text-base">
+									<RealisationsText />
+								</div>
 								<Button small href="offres" className="mt-5">
 									Voir nos offres
 								</Button>

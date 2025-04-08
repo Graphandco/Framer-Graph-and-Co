@@ -5,7 +5,7 @@ import NavLink from "../header/NavLink";
 
 const ProjetItem = ({ project }) => {
 	const { title, description, slug, image } = project;
-	const MotionImage = motion(Image);
+	const MotionImage = motion.create(Image);
 
 	return (
 		<motion.article

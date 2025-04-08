@@ -1,12 +1,21 @@
 "use client";
-
-import { useWindowSize } from "usehooks-ts";
+import { useState, useEffect } from "react";
 
 export function useResponsive() {
-	const { width } = useWindowSize();
+	const [isMobile, setIsMobile] = useState(false);
+	const [isTablet, setIsTablet] = useState(false);
 
-	const isTablet = width <= 1024;
-	const isMobile = width <= 767;
+	useEffect(() => {
+		const handleResize = () => {
+			const width = window.innerWidth;
+			setIsMobile(width < 768);
+			setIsTablet(width >= 768 && width < 1024);
+		};
 
-	return { width, isTablet, isMobile };
+		handleResize(); // Check initial
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
+	return { isMobile, isTablet };
 }
