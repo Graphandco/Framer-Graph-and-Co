@@ -1,4 +1,5 @@
 "use client";
+import ContactForm from "@/components/contact/ContactForm";
 import { TabsFAQ } from "@/components/TabsFAQ";
 import BlockTextAppear from "@/components/ui/BlockTextAppear";
 import PageHero from "@/components/ui/PageHero";
@@ -8,6 +9,7 @@ const ContactPage = () => {
 		<>
 			<PageHero title="Contact" image="/contact/hero-contact.avif" />
 			<div className="wrapper mt-24">
+				<ContactForm />
 				<BlockTextAppear>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					Iusto omnis, reprehenderit iste accusantium enim impedit
