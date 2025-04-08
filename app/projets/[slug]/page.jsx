@@ -5,7 +5,11 @@ import ProjetSingle from "@/components/projets/ProjetSingle";
 
 export async function generateMetadata({ params }) {
 	const { slug } = params;
-	const filePath = path.join(process.cwd(), "markdown/blog", `${slug}.mdx`);
+	const filePath = path.join(
+		process.cwd(),
+		"markdown/projets",
+		`${slug}.mdx`
+	);
 	const fileContent = fs.readFileSync(filePath, "utf-8");
 	const { data } = matter(fileContent);
 	return {
