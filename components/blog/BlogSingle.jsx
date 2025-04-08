@@ -31,7 +31,7 @@ const BlogSingle = ({ fileContent }) => {
 				title={frontmatter.title}
 				image={`/blog/${frontmatter.image}`}
 			/>
-			<div className="wrapper py-24">
+			<div className="wrapper py-8 sm:py-16">
 				<Button small href="/blog" icon=<GrReturn /> className="mb-5">
 					Retour au blog
 				</Button>

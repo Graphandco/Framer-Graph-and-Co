@@ -1,3 +1,6 @@
+import PageHero from "@/components/ui/PageHero";
+import Politique from "@/markdown/politique-confidentialite.mdx";
+
 export const metadata = {
 	title: "Politique de confidentialite | Graph and Co",
 	description:
@@ -21,9 +24,15 @@ export const metadata = {
 
 const PolitiqueConfidentialitePage = () => {
 	return (
-		<div className="wrapper">
-			<div>PolitiqueConfidentialitePage</div>
-		</div>
+		<>
+			<PageHero
+				title="Politique de confidentialité"
+				image="/politique.avif"
+			/>
+			<div className="wrapper markdown py-8 sm:py-16">
+				<Politique />
+			</div>
+		</>
 	);
 };
 

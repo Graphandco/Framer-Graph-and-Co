@@ -43,7 +43,7 @@ const TextIntro = () => {
 				</div>
 			</div> */}
 
-			<div className="wrapper py-24">
+			<div className="wrapper py-8 sm:py-16">
 				<FadeInOnView delay={1.5} once={true}>
 					<p className="text-2xl sm:text-3xl font-semibold title-font mb-8">
 						Réalisons ensemble votre site, doté de toutes les

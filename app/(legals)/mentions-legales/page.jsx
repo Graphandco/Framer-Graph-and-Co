@@ -1,3 +1,6 @@
+import PageHero from "@/components/ui/PageHero";
+import Mentions from "@/markdown/mentions-legales.mdx";
+
 export const metadata = {
 	title: "Mentions légales | Graph and Co",
 	description:
@@ -21,9 +24,12 @@ export const metadata = {
 
 const MentionsLegalesPage = () => {
 	return (
-		<div className="wrapper">
-			<div>MentionsLegalesPage</div>
-		</div>
+		<>
+			<PageHero title="Mentions légales" image="/mentions-legales.avif" />
+			<div className="wrapper markdown py-8 sm:py-16">
+				<Mentions />
+			</div>
+		</>
 	);
 };
 
