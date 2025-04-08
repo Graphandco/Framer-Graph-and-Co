@@ -245,7 +245,10 @@
 }
 
 .markdown h2 {
-	font-size: var(--text-4xl);
+	font-size: var(--text-2xl);
 	font-family: var(--title-font);
 	font-weight: 600;
+}
+.markdown h3 {
+	font-size: var(--text-xl);
 }

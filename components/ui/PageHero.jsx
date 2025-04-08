@@ -41,7 +41,7 @@ const PageHero = ({ title, image, imageClass = "object-cover" }) => {
 				</motion.div>
 			</div>
 
-			<div className="absolute inset-0 flex flex-col justify-end py-14  px-5">
+			<div className="absolute inset-0 flex flex-col justify-end pb-4 sm:pb-8 px-5">
 				<div ref={titleRef}>
 					<motion.div
 						style={{ y: yTitle }}

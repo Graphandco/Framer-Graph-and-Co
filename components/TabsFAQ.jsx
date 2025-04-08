@@ -8,7 +8,7 @@ export const TabsFAQ = () => {
 	const [selected, setSelected] = useState(TABS[0]);
 
 	return (
-		<section className="overflow-hidden">
+		<section className="wrapper bg-black/5">
 			<Tabs selected={selected} setSelected={setSelected} />
 			<Questions selected={selected} />
 		</section>
@@ -84,8 +84,8 @@ const Question = ({ question, answer }) => {
 	return (
 		<motion.div
 			animate={open ? "open" : "closed"}
-			className={`rounded-xl border-[1px] border-slate-700 px-4 transition-colors ${
-				open ? "bg-slate-800" : "bg-slate-900"
+			className={`rounded-xl px-4 transition-colors ${
+				open ? "bg-white" : "bg-white"
 			}`}
 		>
 			<button
@@ -94,7 +94,7 @@ const Question = ({ question, answer }) => {
 			>
 				<span
 					className={`text-left text-lg font-medium transition-colors ${
-						open ? "text-slate-50" : "text-slate-400"
+						open ? "text-foreground" : "text-foreground"
 					}`}
 				>
 					{question}
@@ -110,8 +110,8 @@ const Question = ({ question, answer }) => {
 					}}
 				>
 					<FiPlus
-						className={`text-2xl transition-colors ${
-							open ? "text-slate-50" : "text-slate-400"
+						className={`text-lg transition-colors cursor-pointer ${
+							open ? "text-foreground" : "text-foreground"
 						}`}
 					/>
 				</motion.span>
@@ -122,7 +122,7 @@ const Question = ({ question, answer }) => {
 					height: open ? height : "0px",
 					marginBottom: open ? "24px" : "0px",
 				}}
-				className="overflow-hidden text-slate-400"
+				className="overflow-hidden"
 			>
 				<p ref={ref}>{answer}</p>
 			</motion.div>

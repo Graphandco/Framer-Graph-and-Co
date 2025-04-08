@@ -31,12 +31,12 @@ const ProjetSingle = ({ fileContent }) => {
 				title={frontmatter.title}
 				image={`/projets/${frontmatter.image}`}
 			/>
-			<div className="wrapper py-24">
+			<div className="wrapper pb-24">
 				<Button
 					small
 					href="/projets"
 					icon=<GrReturn />
-					className="mb-5"
+					className="mt-3 mb-8"
 				>
 					Retour aux projets
 				</Button>
