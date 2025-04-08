@@ -7,7 +7,7 @@ export async function POST() {
 	try {
 		const { data, error } = await resend.emails.send({
 			from: "Graph and Co <contact-from@graphandco.net>",
-			to: ["contact@graphandco.net"],
+			to: ["contact@graphandco.com"],
 			subject: "Nouveau message depuis votre site Graph and Co",
 			react: EmailTemplate({ firstName: "Reggio" }),
 		});
