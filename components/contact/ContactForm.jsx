@@ -2,6 +2,10 @@
 
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import Button from "../ui/Button";
+import { SiMinutemailer } from "react-icons/si";
+import { AnimatePresence, motion } from "framer-motion";
+import FadeInOnView from "../ui/FadeInOnView";
 
 export default function ContactForm() {
 	const [isEmailSent, setIsEmailSent] = useState(false);
@@ -34,80 +38,101 @@ export default function ContactForm() {
 		}
 	};
 
-	if (isEmailSent) {
-		return (
-			<div className="bg-green-100 text-green-800 p-6 rounded-lg text-center">
-				✅ Votre message a bien été envoyé.
-			</div>
-		);
-	}
+	const testSubmit = (e) => {
+		e.preventDefault();
+		console.log("Envoyé");
+		setIsEmailSent(true);
+	};
 
 	return (
-		<form
-			onSubmit={handleSubmit(onSubmit)}
-			className="max-w-xl w-full space-y-6"
-		>
-			<div>
-				<label
-					htmlFor="firstName"
-					className="block text-sm font-medium text-gray-700"
+		<AnimatePresence mode="wait">
+			{isEmailSent ? (
+				<motion.div
+					key="success"
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					exit={{ opacity: 0, y: -20 }}
+					transition={{ duration: 0.4, ease: "easeInOut" }}
+					className="bg-green-100 text-green-800 p-6 rounded-lg text-center"
 				>
-					Prénom
-				</label>
-				<input
-					type="text"
-					id="firstName"
-					{...register("firstName", { required: true })}
-					className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-black focus:ring-black"
-				/>
-				{errors.firstName && (
-					<p className="text-sm text-red-500">Ce champ est requis</p>
-				)}
-			</div>
-
-			<div>
-				<label
-					htmlFor="email"
-					className="block text-sm font-medium text-gray-700"
+					✅ Votre message a bien été envoyé.
+				</motion.div>
+			) : (
+				<motion.form
+					key="form"
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					exit={{ opacity: 0, y: -20 }}
+					transition={{ duration: 0.4, ease: "easeInOut" }}
+					// onSubmit={handleSubmit(onSubmit)}
+					onSubmit={testSubmit}
+					className="max-w-xl w-full"
 				>
-					Email
-				</label>
-				<input
-					type="email"
-					id="email"
-					{...register("email", { required: true })}
-					className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-black focus:ring-black"
-				/>
-				{errors.email && (
-					<p className="text-sm text-red-500">Ce champ est requis</p>
-				)}
-			</div>
+					<FadeInOnView className="space-y-8">
+						<div>
+							<label htmlFor="name" className="sr-only">
+								Votre nom
+							</label>
+							<input
+								type="text"
+								id="name"
+								placeholder="Votre nom"
+								{...register("name", { required: true })}
+								className="block w-full border-b border-gray-300 py-2 focus:border-black outline-none"
+							/>
+							{errors.name && (
+								<p className="text-sm text-red-500">
+									Ce champ est requis
+								</p>
+							)}
+						</div>
 
-			<div>
-				<label
-					htmlFor="message"
-					className="block text-sm font-medium text-gray-700"
-				>
-					Message
-				</label>
-				<textarea
-					id="message"
-					rows="5"
-					{...register("message", { required: true })}
-					className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-black focus:ring-black"
-				></textarea>
-				{errors.message && (
-					<p className="text-sm text-red-500">Ce champ est requis</p>
-				)}
-			</div>
+						<div>
+							<label htmlFor="email" className="sr-only">
+								Email
+							</label>
+							<input
+								type="email"
+								id="email"
+								placeholder="Votre email"
+								{...register("email", { required: true })}
+								className="block w-full border-b border-gray-300 py-2 focus:border-black outline-none"
+							/>
+							{errors.email && (
+								<p className="text-sm text-red-500">
+									Ce champ est requis
+								</p>
+							)}
+						</div>
 
-			<button
-				type="submit"
-				disabled={isSubmitting}
-				className="bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
-			>
-				{isSubmitting ? "Envoi en cours..." : "Envoyer"}
-			</button>
-		</form>
+						<div>
+							<label htmlFor="message" className="sr-only">
+								Message
+							</label>
+							<textarea
+								id="message"
+								rows="5"
+								placeholder="Votre message"
+								{...register("message", { required: true })}
+								className="block w-full border-b border-gray-300 py-2 focus:border-black outline-none"
+							></textarea>
+							{errors.message && (
+								<p className="text-sm text-red-500">
+									Ce champ est requis
+								</p>
+							)}
+						</div>
+
+						<Button
+							type="submit"
+							disabled={isSubmitting}
+							icon={<SiMinutemailer />}
+						>
+							{isSubmitting ? "Envoi en cours..." : "Envoyer"}
+						</Button>
+					</FadeInOnView>
+				</motion.form>
+			)}
+		</AnimatePresence>
 	);
 }

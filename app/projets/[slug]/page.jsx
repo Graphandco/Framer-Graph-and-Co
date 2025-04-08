@@ -5,6 +5,32 @@ import Link from "next/link";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import ProjetSingle from "@/components/projets/ProjetSingle";
 
+export async function generateMetadata({ params }) {
+	const { slug } = params;
+	const filePath = path.join(process.cwd(), "markdown/blog", `${slug}.mdx`);
+	const fileContent = fs.readFileSync(filePath, "utf-8");
+	const { data } = matter(fileContent);
+	return {
+		title: `${data.title} | Graph and Co`,
+		description: data.metadesc || "Découvrez nos projets.",
+		openGraph: {
+			title: `${data.title} | Graph and Co`,
+			description: data.metadesc,
+			url: `https://graphandco.com/projets/${slug}`,
+			type: "article",
+			siteName: "Graph and Co",
+			images: [
+				{
+					url: `https://graphandco.com/projets/${data.image}`,
+					width: 1200,
+					height: 630,
+					alt: data.title,
+				},
+			],
+		},
+	};
+}
+
 export default async function Page({ params }) {
 	const { slug } = await params;
 

@@ -1,22 +1,43 @@
 import fs from "fs";
 import path from "path";
-
-import Link from "next/link";
-import { IoArrowBackCircleOutline } from "react-icons/io5";
+import matter from "gray-matter";
 import BlogSingle from "@/components/blog/BlogSingle";
 
-export default async function Page({ params }) {
-	const { slug } = await params;
+// 🔧 Génère dynamiquement les meta title/description
 
-	// 📌 Charger le fichier MDX
+export async function generateMetadata({ params }) {
+	const { slug } = params;
+	const filePath = path.join(process.cwd(), "markdown/blog", `${slug}.mdx`);
+	const fileContent = fs.readFileSync(filePath, "utf-8");
+	const { data } = matter(fileContent);
+	return {
+		title: `${data.title} | Graph and Co`,
+		description: data.metadesc || "Découvrez notre article de blog.",
+		openGraph: {
+			title: `${data.title} | Graph and Co`,
+			description: data.metadesc,
+			url: `https://graphandco.com/blog/${slug}`,
+			type: "article",
+			siteName: "Graph and Co",
+			images: [
+				{
+					url: `https://graphandco.com/blog/${data.image}`,
+					width: 1200,
+					height: 630,
+					alt: data.title,
+				},
+			],
+		},
+	};
+}
+
+export default async function Page({ params }) {
+	const { slug } = params;
+
 	const filePath = path.join(process.cwd(), "markdown/blog", `${slug}.mdx`);
 	const fileContent = fs.readFileSync(filePath, "utf-8");
 
-	return (
-		<>
-			<BlogSingle fileContent={fileContent} />
-		</>
-	);
+	return <BlogSingle fileContent={fileContent} />;
 }
 
 export function generateStaticParams() {

@@ -10,14 +10,14 @@ export async function POST(req) {
 		// 🔎 Debug : vérifie que les données sont bien reçues
 		console.log("Formulaire reçu :", body);
 
-		const { firstName, email, message } = body;
+		const { name, email, message } = body;
 
 		const { data, error } = await resend.emails.send({
-			from: "Graph and Co <contact@graphandco.com>",
+			from: "Graph and Co <contact@graphandco.net>",
 			to: ["contact@graphandco.com"],
 			subject: "Nouveau message depuis le site Graph and Co",
 			react: EmailTemplate({
-				firstName,
+				name,
 				email,
 				message,
 			}),

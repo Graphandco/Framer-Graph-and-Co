@@ -1,47 +1,42 @@
-"use client";
 import ContactForm from "@/components/contact/ContactForm";
+import ContactText from "@/components/contact/ContactText";
 import { TabsFAQ } from "@/components/TabsFAQ";
 import BlockTextAppear from "@/components/ui/BlockTextAppear";
 import PageHero from "@/components/ui/PageHero";
+
+export const metadata = {
+	title: "Nous Contacter | Graph and Co",
+	description:
+		"Vous avez un projet de site web sur-mesure ? Graph and Co vous accompagne avec une approche esthétique, rapide et pensée pour vos utilisateurs. Discutons-en !",
+	openGraph: {
+		title: "Nous Contacter | Graph and Co",
+		description:
+			"Vous avez un projet de site web sur-mesure ? Graph and Co vous accompagne avec une approche esthétique, rapide et pensée pour vos utilisateurs. Discutons-en !",
+		url: "https://graphandco.com/contact",
+		images: [
+			{
+				url: "https://graphandco.com/og-image.jpg",
+				width: 1200,
+				height: 630,
+				alt: "Graph and Co - contact",
+			},
+		],
+		type: "website",
+	},
+};
 
 const ContactPage = () => {
 	return (
 		<>
 			<PageHero title="Contact" image="/contact/hero-contact.avif" />
-			<div className="wrapper mt-24">
-				<ContactForm />
-				<BlockTextAppear>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Iusto omnis, reprehenderit iste accusantium enim impedit
-					mollitia dolor facere recusandae nobis id natus voluptatem
-					aspernatur fugiat velit architecto! Sit vel iusto,
-					necessitatibus blanditiis repellendus voluptas mollitia,
-					quis quos unde explicabo eveniet praesentium quo consequatur
-					autem perspiciatis esse laborum. Debitis consequatur ex
-					fugiat dolore est adipisci quasi consectetur repellendus
-					quia, incidunt quos praesentium accusantium. Sed qui atque a
-					aliquid, fugit explicabo ducimus recusandae cumque deleniti
-					perferendis reprehenderit assumenda itaque eveniet expedita
-					modi cum maiores, vel magni veniam, adipisci perspiciatis
-					iure? Sapiente omnis veniam saepe aut atque vel rerum,
-					explicabo impedit corporis error aliquid commodi asperiores
-					dolorum cupiditate deserunt nam quisquam quo ex at dolores,
-					iste corrupti quam officia! Ullam doloremque, fugiat et
-					eveniet voluptates perspiciatis laborum mollitia magni
-					obcaecati, necessitatibus dolorum, ratione ut excepturi.
-					Architecto vitae placeat nobis sint numquam odio eveniet
-					eaque possimus neque est? Soluta commodi aspernatur eligendi
-					doloribus exercitationem, eos maiores voluptatem magnam
-					debitis in possimus harum nisi, id qui iste numquam aliquam
-					mollitia ducimus! Harum eveniet voluptatum voluptatem quasi
-					atque dignissimos consequatur, cupiditate adipisci!
-					Distinctio, totam explicabo doloribus asperiores voluptate
-					ad cumque! Nam error cum dolore neque ipsam in
-					necessitatibus vitae praesentium consequatur fugiat odit,
-					nesciunt temporibus facilis.
-				</BlockTextAppear>
-				<h1>Restons en contact !</h1>
-				<TabsFAQ />
+			<div className="wrapper py-8 sm:py-16 space-y-6 xs:space-y-10">
+				<h2 className="text-2xl font-semibold">
+					Une envie, un projet ?
+				</h2>
+				<div className="grid sm:grid-cols-2 gap-6 sm:gap-16">
+					<ContactText />
+					<ContactForm />
+				</div>
 			</div>
 		</>
 	);
