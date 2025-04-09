@@ -79,6 +79,7 @@ const BurgerNav = ({ isOpen, setIsOpen, navLinks }) => {
 				whileHover={{ rotate: "180deg" }}
 				whileTap={{ scale: 0.9 }}
 				onClick={() => setIsOpen(false)}
+				aria-label="Fermer le menu"
 			>
 				<X />
 			</motion.button>
