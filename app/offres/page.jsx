@@ -33,8 +33,8 @@ export default async function OffresPage() {
 				image="/offres/hero-offres.avif"
 				imageClass="object-cover object-top"
 			/>
-			<TextIntro />
 			<Prices />
+			<TextIntro />
 			<SurMesure />
 			<UserWithIcon />
 		</>

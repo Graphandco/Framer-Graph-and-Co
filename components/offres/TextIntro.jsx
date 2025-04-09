@@ -1,7 +1,10 @@
 "use client";
 import FadeInOnView from "../ui/FadeInOnView";
+import Parallax from "../ui/Parallax";
+import { useRef } from "react";
 
 const TextIntro = () => {
+	const containerRef = useRef(null);
 	return (
 		<section>
 			{/* <div className="wrapper py-12 bg-black/5 grid">
@@ -43,14 +46,17 @@ const TextIntro = () => {
 				</div>
 			</div> */}
 
-			<div className="wrapper py-8 sm:py-16">
-				<FadeInOnView delay={1.5} once={true}>
+			<div
+				className="wrapper py-8 sm:py-16 overflow-y-scroll"
+				ref={containerRef}
+			>
+				<Parallax containerRef={containerRef}>
 					<p className="text-2xl sm:text-3xl font-semibold title-font mb-8">
 						Réalisons ensemble votre site, doté de toutes les
 						fonctionnalités dont vous et vos clients avez besoin.
 					</p>
-				</FadeInOnView>
-				<FadeInOnView delay={1.5} once={true}>
+				</Parallax>
+				<Parallax containerRef={containerRef} level="lg">
 					<p className="sm:text-lg font-medium">
 						<span className="text-foreground/70 mr-1">
 							Selon votre profil et votre budget, plusieurs
@@ -65,7 +71,7 @@ const TextIntro = () => {
 							évolutions de votre activité.
 						</span>
 					</p>
-				</FadeInOnView>
+				</Parallax>
 			</div>
 		</section>
 	);
