@@ -18,6 +18,7 @@ const Burger = ({ navLinks }) => {
 				whileTap={{ scale: 0.9 }}
 				onClick={() => setIsOpen(true)}
 				className="text-3xl text-white transition-colors px-3 py-1 sm:py-3 cursor-pointer"
+				aria-label="Menu burger"
 			>
 				<VscMenu />
 			</motion.button>
