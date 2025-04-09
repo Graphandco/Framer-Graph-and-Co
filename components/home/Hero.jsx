@@ -76,7 +76,7 @@ const Hero = () => {
 				<div ref={titleRef}>
 					<motion.div
 						style={{ y: yTitle }}
-						className="text-10xl title-font text-white font-semibold leading-[0.8] mix-blend-exclusion"
+						className="text-10xl title-font text-white font-semibold leading-[0.8] xs:mix-blend-exclusion"
 					>
 						Graph & Co
 					</motion.div>
@@ -84,7 +84,7 @@ const Hero = () => {
 
 				<div className="flex flex-col-reverse xs:flex-row xs:items-center mt-6 gap-8">
 					<FadeInOnView amount={0.1}>
-						<div className="text-white max-w-md mix-blend-exclusion">
+						<div className="text-white max-w-md xs:mix-blend-exclusion">
 							Nous sommes spécialisés dans la réalisation de sites
 							web. Moderne et intuitif, votre site sera un
 							puissant levier pour accroitre la vitalité de votre
@@ -93,7 +93,7 @@ const Hero = () => {
 					</FadeInOnView>
 					<motion.h1
 						style={{ y: yDesc }}
-						className="text-6xl title-font text-white font-medium leading-[0.8] mix-blend-exclusion"
+						className="text-6xl title-font text-white font-medium leading-[0.8] xs:mix-blend-exclusion"
 					>
 						Création de sites web
 					</motion.h1>

@@ -11,8 +11,8 @@ export function useResponsive() {
 		const handleResize = () => {
 			const width = window.innerWidth;
 			setIsPhone(width < 540);
-			setIsMobile(width >= 540 && width < 768);
-			setIsTablet(width >= 768 && width < 1024);
+			setIsMobile(width < 768);
+			setIsTablet(width < 1024);
 			setIsDesktop(width > 1024);
 		};
 

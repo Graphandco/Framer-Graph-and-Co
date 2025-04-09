@@ -15,7 +15,7 @@ const Header = () => {
 	const [scrolled, setScrolled] = useState(false);
 	const [scrollDirection, setScrollDirection] = useState("up");
 	const lastScrollY = useRef(0);
-	const { isTablet, isMobile } = useResponsive();
+	const { isMobile } = useResponsive();
 
 	useEffect(() => {
 		const handleScroll = () => {
