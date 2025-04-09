@@ -89,7 +89,7 @@ const Temoignage = () => {
 					</Parallax>
 				</div>
 			</div>
-			<DistortedSlider
+			{/* <DistortedSlider
 				images={[
 					"/mentions-legales.avif",
 					"/contact/hero-contact2.avif",
@@ -102,7 +102,7 @@ const Temoignage = () => {
 					"/blog/nextjs-15.avif",
 					"/home/bg-hero.avif",
 				]}
-			/>
+			/> */}
 		</section>
 	);
 };
