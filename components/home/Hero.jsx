@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import FadeInOnView from "../ui/FadeInOnView";
 import MagnetButton from "../ui/MagnetButton";
+import { useResponsive } from "@/hooks/UseResponsive";
 
 const Hero = () => {
 	const sectionRef = useRef(null);
@@ -25,6 +26,16 @@ const Hero = () => {
 			section.scrollIntoView({ behavior: "smooth" });
 		}
 	};
+	const { isPhone, isMobile, isTablet, isDesktop } = useResponsive();
+	function getHeroImageSource() {
+		if (isPhone) return "/home/bg-hero-phone.avif";
+		if (isMobile) return "/home/bg-hero-mobile.avif";
+		if (isTablet) return "/home/bg-hero-tablet.avif";
+		if (isDesktop) return "/home/bg-hero-desktop.avif";
+		return "/home/bg-hero-desktop.avif";
+	}
+
+	const heroImageSource = getHeroImageSource();
 
 	return (
 		<section
@@ -39,7 +50,7 @@ const Hero = () => {
 					className="w-full h-full will-change-transform"
 				>
 					<Image
-						src="/home/bg-hero.avif"
+						src={heroImageSource}
 						alt="Hero"
 						fill
 						className="object-cover"

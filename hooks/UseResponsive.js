@@ -2,14 +2,18 @@
 import { useState, useEffect } from "react";
 
 export function useResponsive() {
+	const [isPhone, setIsPhone] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 	const [isTablet, setIsTablet] = useState(false);
+	const [isDesktop, setIsDesktop] = useState(false);
 
 	useEffect(() => {
 		const handleResize = () => {
 			const width = window.innerWidth;
-			setIsMobile(width < 768);
+			setIsPhone(width < 540);
+			setIsMobile(width >= 540 && width < 768);
 			setIsTablet(width >= 768 && width < 1024);
+			setIsDesktop(width > 1024);
 		};
 
 		handleResize(); // Check initial
@@ -17,5 +21,5 @@ export function useResponsive() {
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
-	return { isMobile, isTablet };
+	return { isPhone, isMobile, isTablet, isDesktop };
 }
