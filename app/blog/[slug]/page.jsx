@@ -6,7 +6,7 @@ import BlogSingle from "@/components/blog/BlogSingle";
 // 🔧 Génère dynamiquement les meta title/description
 
 export async function generateMetadata({ params }) {
-	const { slug } = params;
+	const { slug } = await params;
 	const filePath = path.join(process.cwd(), "markdown/blog", `${slug}.mdx`);
 	const fileContent = fs.readFileSync(filePath, "utf-8");
 	const { data } = matter(fileContent);
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-	const { slug } = params;
+	const { slug } = await params;
 
 	const filePath = path.join(process.cwd(), "markdown/blog", `${slug}.mdx`);
 	const fileContent = fs.readFileSync(filePath, "utf-8");

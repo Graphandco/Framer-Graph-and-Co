@@ -56,7 +56,7 @@ const Header = () => {
 		<motion.header
 			className={`fixed w-full left-0 top-0 z-50 py-2 sm:py-3 transition-all duration-300 transform ${bgStyle} ${visibility}`}
 		>
-			<div className="wrapper flex justify-between items-center">
+			<section className="wrapper flex justify-between items-center">
 				{/* Logo + nom */}
 				<NavLink href="/">
 					<motion.div
@@ -86,7 +86,7 @@ const Header = () => {
 				</NavLink>
 				{/* Navigation */}
 				{!isMobile ? (
-					<motion.div
+					<motion.nav
 						initial="hidden"
 						animate="visible"
 						variants={{
@@ -100,11 +100,11 @@ const Header = () => {
 						className={`flex items-center gap-4 title-font text-lg transition-colors duration-300 ${textColor}`}
 					>
 						<NavBar navLinks={navLinks} />
-					</motion.div>
+					</motion.nav>
 				) : (
 					<Burger navLinks={navLinks} />
 				)}
-			</div>
+			</section>
 		</motion.header>
 	);
 };

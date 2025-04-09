@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import ProjetSingle from "@/components/projets/ProjetSingle";
 
 export async function generateMetadata({ params }) {
-	const { slug } = params;
+	const { slug } = await params;
 	const filePath = path.join(
 		process.cwd(),
 		"markdown/projets",
