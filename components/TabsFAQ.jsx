@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import useMeasure from "react-use-measure";
+import Button from "./ui/Button";
 
 export const TabsFAQ = () => {
 	const [selected, setSelected] = useState(TABS[0]);
@@ -19,7 +20,7 @@ const Tabs = ({ selected, setSelected }) => {
 	return (
 		<div className="relative z-10 flex flex-wrap items-center justify-center gap-4">
 			{TABS.map((tab) => (
-				<button
+				<Button
 					onClick={() => setSelected(tab)}
 					className={`relative overflow-hidden whitespace-nowrap rounded-md border-[1px] px-3 py-1.5 text-sm font-medium transition-colors duration-500 ${
 						selected === tab
@@ -43,7 +44,7 @@ const Tabs = ({ selected, setSelected }) => {
 							/>
 						)}
 					</AnimatePresence>
-				</button>
+				</Button>
 			))}
 		</div>
 	);

@@ -42,7 +42,7 @@ const MagnetButton = ({ icon = <MdOutlineArrowUpward />, onClick }) => {
 	};
 
 	return (
-		<motion.button
+		<motion.div
 			ref={ref}
 			onMouseMove={handleMouseMove}
 			onMouseLeave={handleMouseLeave}
@@ -56,7 +56,7 @@ const MagnetButton = ({ icon = <MdOutlineArrowUpward />, onClick }) => {
 			</div>
 
 			<div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-black/50 transition-transform duration-700 ease-out group-hover:scale-100" />
-		</motion.button>
+		</motion.div>
 	);
 };
 
