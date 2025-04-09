@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ProjetSingle from "@/components/projets/ProjetSingle";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
 	const { slug } = await params;
@@ -36,19 +37,21 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
 	const { slug } = await params;
 
-	// 📌 Charger le fichier MDX
 	const filePath = path.join(
 		process.cwd(),
 		"markdown/projets",
 		`${slug}.mdx`
 	);
-	const fileContent = fs.readFileSync(filePath, "utf-8");
 
-	return (
-		<>
-			<ProjetSingle fileContent={fileContent} />
-		</>
-	);
+	let fileContent;
+	try {
+		fileContent = fs.readFileSync(filePath, "utf-8");
+	} catch (error) {
+		// Si le fichier est introuvable, renvoyer une 404
+		return notFound();
+	}
+
+	return <ProjetSingle fileContent={fileContent} />;
 }
 
 export function generateStaticParams() {

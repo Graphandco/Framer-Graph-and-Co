@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import BlogSingle from "@/components/blog/BlogSingle";
+import { notFound } from "next/navigation";
 
 // 🔧 Génère dynamiquement les meta title/description
 
@@ -35,7 +36,14 @@ export default async function Page({ params }) {
 	const { slug } = await params;
 
 	const filePath = path.join(process.cwd(), "markdown/blog", `${slug}.mdx`);
-	const fileContent = fs.readFileSync(filePath, "utf-8");
+
+	let fileContent;
+	try {
+		fileContent = fs.readFileSync(filePath, "utf-8");
+	} catch (error) {
+		// Si le fichier est introuvable, renvoyer une 404
+		return notFound();
+	}
 
 	return <BlogSingle fileContent={fileContent} />;
 }

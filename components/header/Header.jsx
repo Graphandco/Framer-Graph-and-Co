@@ -75,6 +75,7 @@ const Header = () => {
 								width={40}
 								height={40}
 								alt="Logo Graph and Co"
+								priority
 							/>
 						</motion.div>
 						<div

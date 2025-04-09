@@ -27,7 +27,7 @@ const PageHero = ({ title, image, imageClass = "object-cover" }) => {
 			<div className="absolute inset-0">
 				<motion.div
 					style={{ scale: scaleBg }}
-					className="w-full h-full will-change-transform after:content-[''] after:absolute after:top-0 after:left-0 after:h-1/4 after:w-full after:bg-linear-to-t after:from-transparent after:to-black/70 before:content-[''] before:absolute before:bottom-0 before:left-0 before:h-1/2 before:w-full before:bg-linear-to-t before:from-black/50 before:to-transparent before:z-10"
+					className="relative w-full h-full will-change-transform after:content-[''] after:absolute after:top-0 after:left-0 after:h-1/4 after:w-full after:bg-linear-to-t after:from-transparent after:to-black/70 before:content-[''] before:absolute before:bottom-0 before:left-0 before:h-1/2 before:w-full before:bg-linear-to-t before:from-black/50 before:to-transparent before:z-10"
 				>
 					<Image
 						src={image}

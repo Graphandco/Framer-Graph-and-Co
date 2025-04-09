@@ -47,7 +47,7 @@ const Hero = () => {
 			<div className="absolute inset-0">
 				<motion.div
 					style={{ scale: scaleBg }}
-					className="w-full h-full will-change-transform"
+					className="relative w-full h-full will-change-transform"
 				>
 					<Image
 						src={heroImageSource}
@@ -59,13 +59,12 @@ const Hero = () => {
 				</motion.div>
 			</div>
 
-			{/* Contenu blendé */}
 			<div className="absolute inset-0 flex flex-col justify-center px-5">
 				<FadeInOnView
 					amount={0.1}
 					delay={1}
 					once
-					className="mb-8 flex flex-col items-end gap-2 text-white font-semibold"
+					className="mb-8 flex flex-col items-end gap-1 text-white font-semibold"
 				>
 					<div>Interface utilisateur</div>
 					<div>Expérience utilisateur</div>
@@ -82,7 +81,7 @@ const Hero = () => {
 					</motion.div>
 				</div>
 
-				<div className="flex flex-col-reverse xs:flex-row xs:items-center mt-6 gap-8">
+				<div className="relative flex flex-col-reverse xs:flex-row xs:items-center mt-6 gap-8">
 					<FadeInOnView amount={0.1}>
 						<div className="text-white max-w-md xs:mix-blend-exclusion">
 							Nous sommes spécialisés dans la réalisation de sites
@@ -98,7 +97,7 @@ const Hero = () => {
 						Création de sites web
 					</motion.h1>
 				</div>
-				<div className="mt-12 mx-auto">
+				<div className="relative mt-12 mx-auto">
 					<MagnetButton onClick={scrollToSection} />
 				</div>
 			</div>

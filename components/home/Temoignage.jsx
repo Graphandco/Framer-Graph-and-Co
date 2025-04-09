@@ -11,7 +11,7 @@ import DistortedSlider from "@/components/DistortedSlider";
 const Temoignage = () => {
 	const containerRef = useRef(null);
 	return (
-		<section id="temoignage" ref={containerRef}>
+		<section id="temoignage" ref={containerRef} className="relative">
 			<div className="wrapper pt-44">
 				<div className="flex flex-col sm:flex-row gap-12 md:gap-24 items-stretch">
 					{/* Bloc image */}

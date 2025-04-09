@@ -38,10 +38,10 @@ const Rassurance = () => {
 	return (
 		<section
 			id="rassurance"
-			className="bg-black text-white mt-16 sm:mt-24 md:mt-36 pt-8 pb-16"
+			className="relative bg-black text-white mt-16 sm:mt-24 md:mt-36 pt-8 pb-16"
 		>
 			<div className="wrapper">
-				<div className="flex items-center justify-between">
+				<div className="relative flex items-center justify-between">
 					<Image
 						src="/logo.svg"
 						width={50}
@@ -59,13 +59,14 @@ const Rassurance = () => {
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: 30 }}
 							transition={{ duration: 0.2, ease: "easeOut" }}
-							className="space-y-3"
+							className="relative space-y-3"
 						>
 							<Image
 								src={atouts[hoveredIndex].image}
 								width={300}
 								height={250}
 								alt={atouts[hoveredIndex].name}
+								style={{ width: "100%", height: "auto" }}
 							/>
 							<div className="text-xl text-white/50">
 								{atouts[hoveredIndex].name}

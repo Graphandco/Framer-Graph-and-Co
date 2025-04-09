@@ -10,16 +10,18 @@ const ChangingText = () => {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setActive((prev) => (prev + 1) % phrases.length);
-		}, 2500);
+		}, 2000);
 
 		return () => clearInterval(interval);
 	}, [phrases.length]);
 
 	return (
 		<div className="bg-black px-4 text-center overflow-hidden">
-			<h3 className="text-3xl title-font font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl">
-				Réalisons ensemble votre site
-				<div className="relative mt-2 h-[2.5em] w-full text-white/50">
+			<h3 className="title-font font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+				Réalisons ensemble
+				<br />
+				votre site
+				<div className="relative h-[2.5em] w-full text-white/50">
 					<AnimatePresence mode="wait">
 						<motion.div
 							key={phrases[active]}

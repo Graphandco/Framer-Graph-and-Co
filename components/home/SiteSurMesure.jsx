@@ -24,7 +24,7 @@ const SiteSurMesure = () => {
 	return (
 		<>
 			{/* Section sur-mesure */}
-			<section id="sur-mesure" ref={ref} className="pt-28">
+			<section id="sur-mesure" ref={ref} className="relative pt-28">
 				<div className="wrapper py-24 sm:py-32 md:py-44 text-center relative overflow-hidden">
 					<motion.div
 						style={{ clipPath }}
@@ -36,6 +36,7 @@ const SiteSurMesure = () => {
 							height={800}
 							alt="Dark woman"
 							className="max-w-10/12 xs:max-w-full"
+							style={{ width: "100%", height: "auto" }}
 						/>
 					</motion.div>
 					<motion.div
