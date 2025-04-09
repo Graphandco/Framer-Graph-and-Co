@@ -17,7 +17,7 @@ const ChangingText = () => {
 
 	return (
 		<div className="bg-black px-4 text-center overflow-hidden">
-			<h3 className="title-font font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+			<div className="title-font font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl">
 				Réalisons ensemble
 				<br />
 				votre site
@@ -50,7 +50,7 @@ const ChangingText = () => {
 						</motion.div>
 					</AnimatePresence>
 				</div>
-			</h3>
+			</div>
 		</div>
 	);
 };
