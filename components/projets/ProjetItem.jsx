@@ -17,7 +17,10 @@ const ProjetItem = ({ project }) => {
 			whileHover="hover"
 			className="relative featured nth-2:row-span-2 flex flex-col justify-end overflow-hidden rounded-3xl after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1/2 after:w-full after:bg-linear-to-t after:to-transparent after:from-black/80"
 		>
-			<NavLink href={`/projets/${slug}`}>
+			<NavLink
+				href={`/projets/${slug}`}
+				className="h-full flex items-end"
+			>
 				<MotionImage
 					variants={{
 						hover: { scale: 1.025, filter: "blur(4px)" },

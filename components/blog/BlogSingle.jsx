@@ -32,7 +32,12 @@ const BlogSingle = ({ fileContent }) => {
 				image={`/blog/${frontmatter.image}`}
 			/>
 			<div className="wrapper py-8 sm:py-16">
-				<Button small href="/blog" icon=<GrReturn /> className="mb-5">
+				<Button
+					small
+					href="/blog"
+					icon=<GrReturn />
+					className="mb-5 ml-auto"
+				>
 					Retour au blog
 				</Button>
 				<MDXRenderer source={mdxSource} />

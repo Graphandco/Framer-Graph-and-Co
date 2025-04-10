@@ -1,8 +1,9 @@
 import Image from "next/image";
+import TextPresentation from "@/markdown/contact.mdx";
 
 const ContactText = () => {
 	return (
-		<div className="">
+		<>
 			<Image
 				src="/contact/regis-avatar.avif"
 				width={100}
@@ -21,7 +22,7 @@ const ContactText = () => {
 				toute demande d'information! Nous nous ferons un plaisir de
 				revenir vers vous rapidement.
 			</p>
-		</div>
+		</>
 	);
 };
 

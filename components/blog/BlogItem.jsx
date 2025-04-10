@@ -2,10 +2,17 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import NavLink from "../header/NavLink";
+import Button from "../ui/Button";
 
 const BlogItem = ({ blog }) => {
-	const { title, description, slug, image } = blog;
+	const { title, description, slug, image, date } = blog;
 	const MotionImage = motion.create(Image);
+
+	const formattedDate = new Date(date).toLocaleDateString("fr-FR", {
+		day: "2-digit",
+		month: "long",
+		year: "numeric",
+	});
 
 	return (
 		<motion.article
@@ -15,9 +22,9 @@ const BlogItem = ({ blog }) => {
 			exit={{ opacity: 0, y: 20 }}
 			transition={{ duration: 0.4, ease: "easeOut" }}
 			whileHover="hover"
-			className="relative featured nth-2:row-span-2 flex flex-col justify-end overflow-hidden rounded-3xl after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1/2 after:w-full after:bg-linear-to-t after:to-transparent after:from-black/80"
+			className="relative flex flex-col justify-end overflow-hidden rounded-3xl "
 		>
-			<NavLink href={`/blog/${slug}`}>
+			<NavLink href={`/blog/${slug}`} className="h-full flex flex-col">
 				<MotionImage
 					variants={{
 						hover: { scale: 1.025, filter: "blur(4px)" },
@@ -25,24 +32,32 @@ const BlogItem = ({ blog }) => {
 					transition={{ duration: 0.25, ease: "easeOut" }}
 					src={`/blog/${image}`}
 					alt={title}
-					fill
+					width={600}
+					height={200}
+					style={{ width: "100%", height: "200px" }}
 					className="object-cover"
 					priority
 				/>
 				{/* Text content */}
-				<div className="relative z-10 text-white px-8 pt-52 pb-8">
+				<div className="relative z-10 p-8 pt-2 bg-white">
+					<div className="text-right text-sm font-medium text-black/40 mb-5">
+						{formattedDate}
+					</div>
 					<motion.div
 						variants={{
 							hover: { scale: 0.9 },
 						}}
 						transition={{ duration: 0.2 }}
-						className="text-3xl title-font font-semibold origin-left"
+						className="text-xl title-font mb-3 font-semibold origin-left"
 					>
-						.{title}
+						{title}
 					</motion.div>
-					<div className="text-white/70 leading-tight">
+					<div className="text-black/40 font-medium leading-tight mb-4">
 						{description}
 					</div>
+					<Button small icon={null}>
+						En savoir plus
+					</Button>
 				</div>
 			</NavLink>
 		</motion.article>
