@@ -44,7 +44,13 @@ const NavBar = ({ navLinks }) => {
 	return (
 		<>
 			{navLinks.map((link, i) => (
-				<NavLink key={i} name={link.name} href={link.href} />
+				<NavLink
+					key={i}
+					name={link.name}
+					href={link.href}
+					isHeaderLink={true}
+					className="relative"
+				/>
 			))}
 		</>
 	);
