@@ -47,7 +47,7 @@ const Hero = () => {
 			<div className="absolute inset-0">
 				<motion.div
 					style={{ scale: scaleBg }}
-					className="relative w-full h-full will-change-transform"
+					className="relative w-full h-full will-change-transform after:content-[''] after:absolute after:top-0 after:left-0 after:h-1/4 after:w-full after:bg-linear-to-t after:from-transparent after:to-black/70"
 				>
 					<Image
 						src={heroImageSource}

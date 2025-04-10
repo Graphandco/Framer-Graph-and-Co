@@ -49,7 +49,7 @@ const NavBar = ({ navLinks }) => {
 					name={link.name}
 					href={link.href}
 					isHeaderLink={true}
-					className="relative"
+					className="relative font-medium title-font"
 				/>
 			))}
 		</>

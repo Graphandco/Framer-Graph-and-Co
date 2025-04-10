@@ -1,7 +1,7 @@
 "use client";
 import { useScrollParallax } from "@/hooks/useScrollParallax";
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 
 export default function Parallax({
 	level = "md",
@@ -13,11 +13,6 @@ export default function Parallax({
 	scaleDirection = "up",
 }) {
 	const containerRef = useRef(null);
-	const [mounted, setMounted] = useState(false);
-
-	useEffect(() => {
-		if (containerRef.current) setMounted(true);
-	}, []);
 
 	const {
 		y,
@@ -34,16 +29,12 @@ export default function Parallax({
 
 	return (
 		<div ref={containerRef}>
-			{mounted ? (
-				<motion.div
-					style={{ y, scale: s, opacity: o }}
-					className={className}
-				>
-					{children}
-				</motion.div>
-			) : (
-				<div className={className}>{children}</div>
-			)}
+			<motion.div
+				style={{ y, scale: s, opacity: o }}
+				className={className}
+			>
+				{children}
+			</motion.div>
 		</div>
 	);
 }

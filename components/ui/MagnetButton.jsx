@@ -49,7 +49,7 @@ const MagnetButton = ({ icon = <MdOutlineArrowUpward />, onClick }) => {
 			onClick={onClick}
 			style={{ transform }}
 			transition={{ type: "spring", stiffness: 200, damping: 20 }}
-			className="group relative grid h-[100px] w-[100px] place-content-center rounded-full border-2 border-white transition-colors duration-700 ease-out cursor-pointer"
+			className="group relative grid h-[75px] w-[75px] sm:h-[100px] sm:w-[100px] place-content-center rounded-full border-2 border-white transition-colors duration-700 ease-out cursor-pointer"
 		>
 			<div className="pointer-events-none relative z-10 rotate-[140deg] text-5xl text-white transition-all duration-700 ease-out group-hover:rotate-[180deg]">
 				{icon}

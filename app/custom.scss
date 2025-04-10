@@ -8,6 +8,9 @@
 		margin-inline: auto;
 	}
 }
+.title-font {
+	font-family: var(--title-font);
+}
 .sur-mesure {
 	font-size: clamp(30px, 15px + 5vw, 100px);
 	font-family: var(--title-font);

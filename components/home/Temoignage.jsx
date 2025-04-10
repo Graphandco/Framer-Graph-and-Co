@@ -15,7 +15,7 @@ const Temoignage = () => {
 			<div className="wrapper pt-44">
 				<div className="flex flex-col sm:flex-row gap-12 md:gap-24 items-stretch">
 					{/* Bloc image */}
-					<Parallax containerRef={containerRef} level="">
+					<Parallax level="xs">
 						<div className="w-full sm:w-80 flex justify-center sm:block">
 							<FadeInOnView>
 								<div className="relative w-full h-full max-w-[400px]">
@@ -33,7 +33,7 @@ const Temoignage = () => {
 					</Parallax>
 
 					{/* Bloc texte */}
-					<Parallax containerRef={containerRef} level="xxl">
+					<Parallax level="xs">
 						<div className="flex flex-col justify-center w-full">
 							<FadeInOnView>
 								<div className="text-lg font-medium">
