@@ -1,4 +1,4 @@
-import Prices from "@/components/offres/Prices";
+import PriceCards from "@/components/offres/prices/PriceCards";
 import SurMesure from "@/components/offres/SurMesure";
 import TextIntro from "@/components/offres/TextIntro";
 import UserWithIcon from "@/components/offres/UserWithIcon";
@@ -33,7 +33,7 @@ export default async function OffresPage() {
 				image="/offres/hero-offres.avif"
 				imageClass="object-cover object-top"
 			/>
-			<Prices />
+			<PriceCards />
 			<TextIntro />
 			<SurMesure />
 			<UserWithIcon />

@@ -23,13 +23,13 @@ export const DarkGradientPricing = () => {
 
 				<div className="grid grid-cols-1 gap-6 xs:grid-cols-2 md:grid-cols-4">
 					<PriceCard
-						tier="Starter"
+						title="Starter"
 						price="800 €"
 						bestFor="Site clé en main"
 						CTA={
-							<GhostButton className="w-full">
-								Get started free
-							</GhostButton>
+							<Button white href="/contact" className="w-full">
+								Choisir
+							</Button>
 						}
 						benefits={[
 							{
@@ -50,13 +50,13 @@ export const DarkGradientPricing = () => {
 						]}
 					/>
 					<PriceCard
-						tier="Medium"
+						title="Medium"
 						price="1500 €"
 						bestFor="Best for 1-5 users"
 						CTA={
-							<GhostButton className="w-full">
-								Get started free
-							</GhostButton>
+							<Button white href="/contact" className="w-full">
+								Choisir
+							</Button>
 						}
 						benefits={[
 							{ text: "Pack starter +", checked: true },
@@ -71,13 +71,13 @@ export const DarkGradientPricing = () => {
 						]}
 					/>
 					<PriceCard
-						tier="E-commerce"
+						title="E-commerce"
 						price="2500 €"
 						bestFor="Best for 5-50 users"
 						CTA={
-							<GhostButton className="w-full bg-zinc-50 text-zinc-950 hover:bg-zinc-200 hover:text-zinc-900">
-								14-day free trial
-							</GhostButton>
+							<Button white href="/contact" className="w-full">
+								Choisir
+							</Button>
 						}
 						benefits={[
 							{ text: "Five workspaces", checked: true },
@@ -89,13 +89,13 @@ export const DarkGradientPricing = () => {
 						]}
 					/>
 					<PriceCard
-						tier="Premium"
-						price="Nous contacter"
+						title="Premium"
+						premium
 						bestFor="Best for 50+ users"
 						CTA={
-							<GhostButton className="w-full">
-								Contact us
-							</GhostButton>
+							<Button white href="/contact" className="w-full">
+								Choisir
+							</Button>
 						}
 						benefits={[
 							{ text: "Unlimited workspaces", checked: true },
@@ -112,15 +112,23 @@ export const DarkGradientPricing = () => {
 	);
 };
 
-const PriceCard = ({ tier, price, bestFor, CTA, benefits }) => {
+const PriceCard = ({ title, price, bestFor, CTA, benefits, premium }) => {
 	return (
 		<Card>
 			<div className="flex flex-col items-center border-b border-zinc-700 pb-6">
-				<span className="mb-6 inline-block text-zinc-50">{tier}</span>
-				<span className="text-white/50">à partir de</span>
-				<span className="mb-3 inline-block text-4xl font-medium ">
-					{price}
+				<span className="mb-6 inline-block text-primary font-semibold title-font">
+					{title}
 				</span>
+				<span className="text-white/50">à partir de</span>
+				{premium ? (
+					<span className="mb-3 inline-block text-lg font-medium ">
+						Nous contacter
+					</span>
+				) : (
+					<span className="mb-3 inline-block text-4xl font-medium ">
+						{price}
+					</span>
+				)}
 				<span className="bg-gradient-to-br from-zinc-200 to-zinc-500 bg-clip-text text-center text-transparent">
 					{bestFor}
 				</span>
