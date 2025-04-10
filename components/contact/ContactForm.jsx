@@ -53,9 +53,12 @@ export default function ContactForm() {
 					animate={{ opacity: 1, y: 0 }}
 					exit={{ opacity: 0, y: -20 }}
 					transition={{ duration: 0.4, ease: "easeInOut" }}
-					className="bg-green-100 text-green-800 p-6 rounded-lg text-center"
+					className="shadow-2xl self-center flex flex-col items-center justify-center p-6 rounded-lg text-center"
 				>
-					✅ Votre message a bien été envoyé.
+					<div className="text-3xl title-font font-semibold">
+						Merci !
+					</div>
+					<div>Votre message a bien été envoyé.</div>
 				</motion.div>
 			) : (
 				<motion.form

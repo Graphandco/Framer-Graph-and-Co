@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import BlogItem from "./BlogItem";
-import BlogPresentation from "@/markdown/presentation-blog.mdx";
+import BlogPresentation from "@/markdown/blog-presentation.mdx";
 import { AnimatePresence, motion } from "framer-motion";
 import BlogFilter from "./BlogFilter";
 
@@ -22,6 +22,9 @@ const BlogList = ({ blog }) => {
 	return (
 		<section id="blog">
 			<div className="wrapper py-8 sm:py-16">
+				<h2 className="title-font text-4xl font-semibold">
+					Plongée dans les coulisses du web
+				</h2>
 				<div className="markdown">
 					<BlogPresentation />
 				</div>

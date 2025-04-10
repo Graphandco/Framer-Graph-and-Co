@@ -21,8 +21,11 @@ const ProjetsList = ({ projects }) => {
 	});
 
 	return (
-		<section id="projets">
+		<section id="projets" className="bg-black/10">
 			<div className="wrapper py-8 sm:py-16">
+				<h2 className="title-font text-4xl font-bold mb-5">
+					Ils nous ont fait confiance
+				</h2>
 				{/* Filtres */}
 				<ProjetsFilter
 					activeCategory={activeCategory}

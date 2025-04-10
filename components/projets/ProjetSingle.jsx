@@ -7,6 +7,7 @@ import MDXRenderer from "@/components/MDXRenderer";
 import PageHero from "../ui/PageHero";
 import Button from "../ui/Button";
 import { GrReturn } from "react-icons/gr";
+import Loading from "../Loading";
 
 const ProjetSingle = ({ fileContent }) => {
 	const [mdxSource, setMdxSource] = useState(null);
@@ -23,7 +24,7 @@ const ProjetSingle = ({ fileContent }) => {
 		processMDX();
 	}, [fileContent]);
 
-	if (!mdxSource || !frontmatter) return <p>Chargement...</p>;
+	if (!mdxSource || !frontmatter) return <Loading />;
 
 	return (
 		<>
@@ -36,10 +37,13 @@ const ProjetSingle = ({ fileContent }) => {
 					small
 					href="/projets"
 					icon=<GrReturn />
-					className="mt-3 mb-8"
+					className="mt-3 mb-8 ml-auto"
 				>
 					Retour aux projets
 				</Button>
+				<h2 className="title-font text-4xl font-bold mb-5">
+					{frontmatter.description}
+				</h2>
 				<MDXRenderer source={mdxSource} />
 			</div>
 		</>
