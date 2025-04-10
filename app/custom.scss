@@ -28,6 +28,9 @@
 	font-family: var(--title-font);
 	line-height: 0.9;
 }
+.offres-intro strong {
+	color: white;
+}
 
 @media (width <= 1024px) {
 	.wrapper,

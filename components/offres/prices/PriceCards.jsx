@@ -10,7 +10,7 @@ const PriceCards = () => {
 					<h2 className="text-center text-3xl font-semibold leading-tight sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
 						Trouvez le pack qui vous correspond !
 					</h2>
-					<div className="markdown py-5 text-white/70">
+					<div className="markdown offres-intro py-5 text-white/70">
 						<TextIntro />
 					</div>
 				</div>

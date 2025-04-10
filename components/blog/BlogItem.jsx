@@ -27,7 +27,7 @@ const BlogItem = ({ blog }) => {
 			<NavLink href={`/blog/${slug}`} className="h-full flex flex-col">
 				<MotionImage
 					variants={{
-						hover: { scale: 1.025, filter: "blur(4px)" },
+						hover: { scale: 1.025, filter: "blur(2px)" },
 					}}
 					transition={{ duration: 0.25, ease: "easeOut" }}
 					src={`/blog/${image}`}
