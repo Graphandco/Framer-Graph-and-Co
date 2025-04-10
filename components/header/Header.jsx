@@ -103,7 +103,7 @@ const Header = () => {
 						<NavBar navLinks={navLinks} />
 					</motion.nav>
 				) : (
-					<Burger navLinks={navLinks} />
+					<Burger navLinks={navLinks} textColor={textColor} />
 				)}
 			</section>
 		</motion.header>
