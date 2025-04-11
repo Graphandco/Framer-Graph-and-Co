@@ -58,7 +58,7 @@ export const StickySection = () => {
 				</div>
 			</section> */}
 
-			<div className="py-16 sm:py-32 relative z-20 bg-white">
+			<div className="pt-16 sm:pt-32 pb-12 relative z-20 bg-white">
 				<div className="wrapper grid gap-10 bg-white  border-l border-r border-black/10">
 					<h2 className="title-text text-2xl sm:text-3xl md:sm:text-4xl font-semibold">
 						<span>Qu’est-ce qu’un bon site web ?</span>
@@ -86,6 +86,13 @@ export const StickySection = () => {
 						</div>
 						<div className="markdown">
 							<PresentationText />
+							<Button
+								icon={null}
+								href="/contact"
+								className="mt-8"
+							>
+								Nous contacter
+							</Button>
 						</div>
 					</div>
 				</div>
