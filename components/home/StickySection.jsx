@@ -41,7 +41,7 @@ export const StickySection = () => {
 
 			{/* Section normale */}
 
-			<section className="banner flex justify-center items-center relative min-h-screen overflow-hidden z-10">
+			<section className="banner flex justify-center items-center relative min-h-screen overflow-hidden z-10 py-8">
 				<div className="absolute inset-0 w-full h-full overflow-hidden will-change-transform bg-black">
 					<ParallaxImage
 						src="/home/exposure.avif"
