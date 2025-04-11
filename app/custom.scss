@@ -76,6 +76,9 @@
 }
 
 .markdown {
+	p {
+		margin-block: 1rem 0.5rem;
+	}
 	h2 {
 		font-size: var(--text-2xl);
 		font-family: var(--title-font);

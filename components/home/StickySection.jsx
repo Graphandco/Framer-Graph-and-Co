@@ -6,6 +6,7 @@ import SectionLegend from "../SectionLegend";
 import Button from "../ui/Button";
 import PresentationText from "@/markdown/home/presentation.mdx";
 import ParallaxImage from "../ui/ParallaxImage";
+import Image from "next/image";
 
 export const StickySection = () => {
 	// const ref = useRef(null);
@@ -38,10 +39,8 @@ export const StickySection = () => {
 					</Button>
 				</div>
 			</div>
-
 			{/* Section normale */}
-
-			<section className="banner flex justify-center items-center relative min-h-screen overflow-hidden z-10 py-8">
+			{/* <section className="banner flex justify-center items-center relative min-h-screen overflow-hidden z-10 py-8">
 				<div className="absolute inset-0 w-full h-full overflow-hidden will-change-transform bg-black">
 					<ParallaxImage
 						src="/home/exposure.avif"
@@ -57,13 +56,40 @@ export const StickySection = () => {
 						</Button>
 					</div>
 				</div>
-			</section>
+			</section> */}
 
-			{/* <div className=" py-72 relative z-20 bg-white">
-				<div className="wrapper flex flex-col gap-6 justify-center items-center bg-white markdown">
-					<PresentationText />
+			<div className="py-16 sm:py-32 relative z-20 bg-white">
+				<div className="wrapper grid gap-10 bg-white  border-l border-r border-black/10">
+					<h2 className="title-text text-2xl sm:text-3xl md:sm:text-4xl font-semibold">
+						<span>Qu’est-ce qu’un bon site web ?</span>
+						<br />
+						<span className="text-black/50">
+							Et surtout, pourquoi faire appel à un pro ?
+						</span>
+					</h2>
+					<div className="grid sm:grid-cols-[2fr_3fr] gap-4 sm:gap-14  justify-center items-center">
+						<div>
+							<Image
+								src="/contact/regis-avatar.avif"
+								alt="Grph and Co Régis avatar"
+								width={400}
+								height={600}
+								className="rounded-xl"
+								priority
+							/>
+							<div className="text-lg title-font mt-5 font-bold">
+								Régis
+							</div>
+							<div className="italic font-medium text-black/50">
+								Créateur de Graph and Co
+							</div>
+						</div>
+						<div className="markdown">
+							<PresentationText />
+						</div>
+					</div>
 				</div>
-			</div> */}
+			</div>
 		</section>
 	);
 };
