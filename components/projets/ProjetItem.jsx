@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import NavLink from "../header/NavLink";
 
 const ProjetItem = ({ project }) => {
-	const { title, description, slug, image } = project;
+	const { title, description, slug, image, position } = project;
 	const MotionImage = motion.create(Image);
 
 	return (
@@ -29,7 +29,7 @@ const ProjetItem = ({ project }) => {
 					src={`/projets/${image}`}
 					alt={title}
 					fill
-					className="object-cover"
+					className={`object-cover object-${position ? position : "center"}`}
 					priority
 				/>
 				{/* Text content */}

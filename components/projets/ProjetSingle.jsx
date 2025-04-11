@@ -31,6 +31,9 @@ const ProjetSingle = ({ fileContent }) => {
 			<PageHero
 				title={frontmatter.title}
 				image={`/projets/${frontmatter.image}`}
+				position={
+					frontmatter.position ? frontmatter.position : "center"
+				}
 			/>
 			<div className="wrapper pb-24">
 				<Button

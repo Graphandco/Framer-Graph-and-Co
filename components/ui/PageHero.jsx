@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import TextAppear from "../ui/TextAppear";
 
-const PageHero = ({ title, image, imageClass = "object-cover" }) => {
+const PageHero = ({ title, image, position = "center" }) => {
 	const sectionRef = useRef(null);
 	const titleRef = useRef(null);
 
@@ -33,7 +33,7 @@ const PageHero = ({ title, image, imageClass = "object-cover" }) => {
 						src={image}
 						alt="title"
 						fill
-						className={imageClass}
+						className={`object-cover object-${position}`}
 						priority
 					/>
 				</motion.div>
