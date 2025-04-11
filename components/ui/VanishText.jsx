@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import styles from "../../app/page.module.scss";
+import styles from "./page.module.scss";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 

@@ -38,7 +38,7 @@ const Rassurance = () => {
 	return (
 		<section
 			id="rassurance"
-			className="relative bg-black text-white mt-16 sm:mt-24 md:mt-36 pt-8 pb-16"
+			className="relative bg-black text-white pt-8 pb-16"
 		>
 			<div className="wrapper">
 				<div className="relative flex items-center justify-between">

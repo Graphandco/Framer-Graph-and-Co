@@ -1,6 +1,8 @@
 import Hero from "@/components/home/Hero";
+import NosCompetences from "@/components/home/NosCompetences";
 import Rassurance from "@/components/home/Rassurance";
 import SiteSurMesure from "@/components/home/SiteSurMesure";
+import Stats from "@/components/home/Stats";
 import { StickySection } from "@/components/home/StickySection";
 import Temoignage from "@/components/home/Temoignage";
 
@@ -31,6 +33,8 @@ export default function Home() {
 			<Hero />
 			<StickySection />
 			<SiteSurMesure />
+			<NosCompetences />
+			<Stats />
 			<Rassurance />
 			<Temoignage />
 		</>
