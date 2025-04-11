@@ -19,7 +19,7 @@ export default function SiteSurMesure() {
 	 * Le mapping [0.2, 0.8] signifie qu'on démarre le mouvement à 20% du scroll progress,
 	 * et on le termine à 80%, pour garder le fond centré quand scrollYProgress = 0.5
 	 */
-	const yBackground = useTransform(scrollYProgress, [0.3, 1], ["100%", "0%"]);
+	const yBackground = useTransform(scrollYProgress, [0.7, 1], ["100%", "0%"]);
 	const smoothYBackground = useSpring(yBackground, {
 		stiffness: 100,
 		damping: 20,
@@ -30,13 +30,13 @@ export default function SiteSurMesure() {
 	 * Il se déplace légèrement vers le haut pendant le scroll.
 	 * Ici, on le fait monter de 0 à -80px entre 0.2 et 0.8 du scroll progress
 	 */
-	const yText = useTransform(scrollYProgress, [0.3, 0.8], [60, 0]);
+	const yText = useTransform(scrollYProgress, [0.7, 0.8], [60, 0]);
 	const smoothYText = useSpring(yText, { stiffness: 100, damping: 20 });
 
 	return (
 		<section
 			ref={ref}
-			className="relative py-32 overflow-hidden wrapper flex items-center justify-center"
+			className="relative py-28 sm:py-40 overflow-hidden wrapper flex items-center justify-center"
 		>
 			{/* Overlay noir qui translate vers le haut */}
 			<motion.div
@@ -47,10 +47,9 @@ export default function SiteSurMesure() {
 			{/* Texte avec effet de parallax et mix-blend pour contraste */}
 			<motion.h1
 				style={{ y: smoothYText }}
-				className="title-font relative z-20 text-6xl text-white mix-blend-difference text-center font-bold"
+				className="relative z-20 text-6xl text-white mix-blend-difference text-center font-black"
 			>
-				Un site <span className="italic">"sur-mesure"</span> rien que
-				pour vous !
+				Un site "sur-mesure" rien que pour vous !
 			</motion.h1>
 		</section>
 	);
