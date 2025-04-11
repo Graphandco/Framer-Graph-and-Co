@@ -25,7 +25,7 @@ const ParallaxImage = ({ src, alt }) => {
 					src={src}
 					alt={alt}
 					fill
-					className="absolute w-full h-full will-change-transform object-cover"
+					className="absolute w-full h-full will-change-transform object-cover object-right"
 					sizes="100vw"
 					priority
 				/>
