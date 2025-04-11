@@ -1,6 +1,7 @@
 import Hero from "@/components/home/Hero";
 import Rassurance from "@/components/home/Rassurance";
 import SiteSurMesure from "@/components/home/SiteSurMesure";
+import { StickySection } from "@/components/home/StickySection";
 import Temoignage from "@/components/home/Temoignage";
 
 export const metadata = {
@@ -28,6 +29,7 @@ export default function Home() {
 	return (
 		<>
 			<Hero />
+			<StickySection />
 			<SiteSurMesure />
 			<Rassurance />
 			<Temoignage />

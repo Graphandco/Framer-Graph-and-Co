@@ -1,6 +1,3 @@
-import SectionLegend from "../SectionLegend";
-import { StickySection } from "./StickySection";
-
 const SurMesure = () => {
 	return (
 		<>
@@ -25,7 +22,6 @@ const SurMesure = () => {
 					</p>
 				</div>
 			</section>
-			<StickySection />
 		</>
 	);
 };
