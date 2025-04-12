@@ -63,7 +63,7 @@ export const StickySection = () => {
 					<h2 className="title-text text-2xl sm:text-3xl md:sm:text-4xl font-semibold">
 						<span>Qu’est-ce qu’un bon site web ?</span>
 						<br />
-						<span className="text-black/50">
+						<span className="text-neutral-500">
 							Et surtout, pourquoi faire appel à un pro ?
 						</span>
 					</h2>

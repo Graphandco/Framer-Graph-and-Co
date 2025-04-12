@@ -15,13 +15,11 @@ export default function Button({
 	href,
 	onClick,
 	className = "",
-	ariaLabel, // <-- nouvel attribut
 }) {
 	const hasIcon = icon !== null && icon !== false;
-	const isText = typeof children === "string" || typeof children === "number";
 
 	const baseClasses = `
-		relative z-0 flex items-center justify-center overflow-hidden rounded-full
+		relative z-0 flex items-center justify-center overflow-hidden rounded-full font-medium
 		transition-all duration-750 cursor-pointer
 		before:absolute before:inset-0 before:-z-10
 		before:translate-x-[200%] before:translate-y-[200%] before:scale-[2.5]
@@ -33,7 +31,9 @@ export default function Button({
 	`;
 
 	const sizeClasses = small ? "text-sm px-3 py-1" : "px-4 py-2 text-base";
+
 	const gapClass = hasIcon ? "gap-2" : "";
+
 	const spanClasses =
 		"transition-transform duration-750 group-hover:scale-90";
 
@@ -67,28 +67,15 @@ export default function Button({
 		variantClasses += " w-full";
 	}
 
-	const accessibleLabel =
-		ariaLabel || (isText ? String(children) : undefined);
-
 	const button = (
 		<button
 			className={`group ${baseClasses} ${gapClass} ${sizeClasses} ${variantClasses} ${className}`}
 			onClick={muted ? undefined : onClick}
 			disabled={muted}
-			aria-label={accessibleLabel}
+			title={children}
 		>
 			{iconWithSize}
-
-			{isText ? (
-				<span className={spanClasses}>{children}</span>
-			) : accessibleLabel ? (
-				<>
-					<span className="sr-only">{accessibleLabel}</span>
-					<span className={spanClasses}>{children}</span>
-				</>
-			) : (
-				<span className={spanClasses}>{children}</span>
-			)}
+			<span className={spanClasses}>{children}</span>
 		</button>
 	);
 

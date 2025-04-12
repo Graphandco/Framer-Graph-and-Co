@@ -67,7 +67,7 @@ const Stats = () => {
 							<span ref={(el) => (refs.current[index] = el)} />
 							{stat.suffix}
 						</p>
-						<p className="text-center text-black/50 leading-tight">
+						<p className="text-center text-neutral-500 leading-tight">
 							{stat.subheading}
 						</p>
 					</div>

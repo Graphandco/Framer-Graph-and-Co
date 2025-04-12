@@ -57,7 +57,7 @@ const Temoignage = () => {
 						</FadeInOnView>
 
 						<FadeInOnView delay={0.1}>
-							<div className="text-black/50 font-medium py-8 border-b border-black/10">
+							<div className="text-neutral-500 font-medium py-8 border-b border-black/10">
 								De la conception au lancement, nous mettons en
 								place des solutions digitales soignées et
 								durables dans le temps.
@@ -71,7 +71,7 @@ const Temoignage = () => {
 						</FadeInOnView>
 
 						<FadeInOnView delay={0.3}>
-							<div className="text-black/50">
+							<div className="text-neutral-500">
 								Auteure et biographe - BOMOT
 							</div>
 						</FadeInOnView>

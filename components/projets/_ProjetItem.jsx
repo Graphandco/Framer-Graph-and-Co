@@ -40,7 +40,9 @@ const ProjetItem = ({ project }) => {
 				>
 					{title}
 				</motion.div>
-				<div className="text-black/70 leading-tight">{description}</div>
+				<div className="text-neutral-600 leading-tight">
+					{description}
+				</div>
 			</div>
 		</motion.article>
 	);

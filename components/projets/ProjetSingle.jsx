@@ -8,6 +8,7 @@ import PageHero from "../ui/PageHero";
 import Button from "../ui/Button";
 import { GrReturn } from "react-icons/gr";
 import Loading from "../Loading";
+import { FaEye } from "react-icons/fa";
 
 const ProjetSingle = ({ fileContent }) => {
 	const [mdxSource, setMdxSource] = useState(null);
@@ -38,6 +39,7 @@ const ProjetSingle = ({ fileContent }) => {
 			<div className="wrapper pb-24">
 				<Button
 					small
+					outline
 					href="/projets"
 					icon=<GrReturn />
 					className="mt-3 mb-8 ml-auto"
@@ -47,6 +49,9 @@ const ProjetSingle = ({ fileContent }) => {
 				<h2 className="title-font text-2xl xs:text-3xl md:text-4xl font-bold mb-5">
 					{frontmatter.description}
 				</h2>
+				<Button icon={<FaEye />} href={frontmatter.link}>
+					Voir le site
+				</Button>
 				<MDXRenderer source={mdxSource} />
 			</div>
 		</>

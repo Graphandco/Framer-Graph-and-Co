@@ -10,7 +10,9 @@ const NosCompetences = () => {
 							Nos compétences
 							<br />
 						</span>
-						<span className="text-black/50">à votre service</span>
+						<span className="text-neutral-500">
+							à votre service
+						</span>
 					</h2>
 					<CompetencesText />
 				</div>
