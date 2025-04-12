@@ -31,10 +31,6 @@ export default async function ProjectsPage() {
 			<PageHero title="Nos projets" image="/projets/hero-projets.avif" />
 
 			<ProjetsList projects={data} />
-
-			<section className="bg-black/5">
-				<TabsFAQ />
-			</section>
 		</>
 	);
 }

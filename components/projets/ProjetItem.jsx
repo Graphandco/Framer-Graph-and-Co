@@ -10,11 +10,15 @@ const ProjetItem = ({ project }) => {
 	return (
 		<motion.article
 			layout
-			initial={{ opacity: 0, y: 20 }}
+			initial={{ opacity: 0, y: 20, filter: "blur(3px)" }}
 			animate={{ opacity: 1, y: 0 }}
 			exit={{ opacity: 0, y: 20 }}
 			transition={{ duration: 0.4, ease: "easeOut" }}
 			whileHover="hover"
+			whileInView={{
+				filter: "blur(0px)",
+			}}
+			viewport={{ amount: 0.4, once: false }}
 			className="relative featured nth-2:row-span-2 flex flex-col justify-end overflow-hidden rounded-3xl after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1/2 after:w-full after:bg-linear-to-t after:to-transparent after:from-black/80"
 		>
 			<NavLink
@@ -33,7 +37,7 @@ const ProjetItem = ({ project }) => {
 					priority
 				/>
 				{/* Text content */}
-				<div className="relative z-10 text-white px-8 pt-52 pb-8">
+				<div className="relative z-10 text-white px-8 pt-52 pb-6">
 					<motion.div
 						variants={{
 							hover: { scale: 0.9 },
@@ -43,7 +47,7 @@ const ProjetItem = ({ project }) => {
 					>
 						.{title}
 					</motion.div>
-					<div className="text-neutral-600 leading-tight">
+					<div className="text-neutral-400 leading-tight">
 						{description}
 					</div>
 				</div>

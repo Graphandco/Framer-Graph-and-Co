@@ -38,12 +38,6 @@ export default function ContactForm() {
 		}
 	};
 
-	const testSubmit = (e) => {
-		e.preventDefault();
-		console.log("Envoyé");
-		setIsEmailSent(true);
-	};
-
 	return (
 		<AnimatePresence mode="wait">
 			{isEmailSent ? (
@@ -67,8 +61,8 @@ export default function ContactForm() {
 					animate={{ opacity: 1, y: 0 }}
 					exit={{ opacity: 0, y: -20 }}
 					transition={{ duration: 0.4, ease: "easeInOut" }}
-					// onSubmit={handleSubmit(onSubmit)}
-					onSubmit={testSubmit}
+					onSubmit={handleSubmit(onSubmit)}
+					// onSubmit={testSubmit}
 					className="max-w-xl w-full"
 				>
 					<FadeInOnView className="space-y-8">
