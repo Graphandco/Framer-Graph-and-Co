@@ -35,7 +35,7 @@ const Stats = () => {
 
 	const refs = useRef([]);
 	const containerRef = useRef(null);
-	const isInView = useInView(containerRef, { once: true });
+	const isInView = useInView(containerRef, { once: false });
 
 	useEffect(() => {
 		if (!isInView) return;

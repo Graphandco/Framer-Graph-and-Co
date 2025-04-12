@@ -80,15 +80,20 @@ export default function Button({
 	);
 
 	if (href) {
-		return (
-			<NavLink
-				href={href}
-				target={blank ? "_blank" : undefined}
-				rel={blank ? "noopener noreferrer" : undefined}
-			>
-				{button}
-			</NavLink>
-		);
+		if (blank) {
+			return (
+				<a
+					href={href}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="inline-block"
+				>
+					{button}
+				</a>
+			);
+		} else {
+			return <NavLink href={href}>{button}</NavLink>;
+		}
 	}
 
 	return button;
