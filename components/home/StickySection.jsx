@@ -80,7 +80,7 @@ export const StickySection = () => {
 							<div className="text-lg title-font mt-5 font-bold">
 								Régis
 							</div>
-							<div className="italic font-medium text-black/50">
+							<div className="italic font-medium text-neutral-500">
 								Créateur de Graph and Co
 							</div>
 						</div>
