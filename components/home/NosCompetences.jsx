@@ -1,4 +1,5 @@
 import CompetencesText from "@/markdown/home/nos-competences.mdx";
+import Button from "../ui/Button";
 
 const NosCompetences = () => {
 	return (
@@ -15,6 +16,9 @@ const NosCompetences = () => {
 						</span>
 					</h2>
 					<CompetencesText />
+					<Button href="projets" className="mt-10">
+						Voir nos réalisations
+					</Button>
 				</div>
 			</div>
 		</section>

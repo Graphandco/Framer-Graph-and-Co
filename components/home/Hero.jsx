@@ -21,7 +21,7 @@ const Hero = () => {
 	const scaleBg = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
 
 	const scrollToSection = () => {
-		const section = document.getElementById("sur-mesure");
+		const section = document.getElementById("notre-expertise");
 		if (section) {
 			section.scrollIntoView({ behavior: "smooth" });
 		}

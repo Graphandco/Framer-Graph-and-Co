@@ -36,21 +36,22 @@ export default function SiteSurMesure() {
 	return (
 		<section
 			ref={ref}
-			className="relative py-28 sm:py-40 overflow-hidden wrapper flex items-center justify-center"
+			className="relative py-28 sm:py-40 overflow-hidden flex items-center justify-center"
 		>
 			{/* Overlay noir qui translate vers le haut */}
 			<motion.div
 				style={{ y: smoothYBackground }}
 				className="absolute inset-0 bg-black z-10"
 			/>
-
-			{/* Texte avec effet de parallax et mix-blend pour contraste */}
-			<motion.h1
-				style={{ y: smoothYText }}
-				className="relative z-20 text-6xl text-white mix-blend-difference text-center font-black"
-			>
-				Un site "sur-mesure" rien que pour vous !
-			</motion.h1>
+			<div className="wrapper">
+				{/* Texte avec effet de parallax et mix-blend pour contraste */}
+				<motion.h1
+					style={{ y: smoothYText }}
+					className="relative z-20 text-6xl text-white mix-blend-difference text-center font-black"
+				>
+					Un site "sur-mesure" rien que pour vous !
+				</motion.h1>
+			</div>
 		</section>
 	);
 }

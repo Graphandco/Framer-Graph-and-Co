@@ -24,6 +24,7 @@ export const StickySection = () => {
 			<div
 				// style={{ y }}
 				className="sticky top-0 h-screen flex items-center justify-center bg-black text-white z-10"
+				id="notre-expertise"
 			>
 				<div className="wrapper flex flex-col gap-6 items-center text-center">
 					<SectionLegend text="Notre expertise" />

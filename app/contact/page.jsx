@@ -1,6 +1,6 @@
 import ContactForm from "@/components/contact/ContactForm";
 import ContactText from "@/components/contact/ContactText";
-import { TabsFAQ } from "@/components/TabsFAQ";
+import Tabs from "@/components/contact/Tabs";
 import BlockTextAppear from "@/components/ui/BlockTextAppear";
 import PageHero from "@/components/ui/PageHero";
 
@@ -33,10 +33,12 @@ const ContactPage = () => {
 				<h2 className="text-2xl font-semibold">
 					Une envie, un projet ?
 				</h2>
-				<div className="grid sm:grid-cols-2 gap-6 sm:gap-16">
+				<div className="grid sm:grid-cols-2 gap-6 sm:gap-16 pb-10">
 					<ContactText />
 					<ContactForm />
 				</div>
+				<hr className="border-slate-300" />
+				<Tabs />
 			</div>
 		</>
 	);

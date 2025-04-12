@@ -1,7 +1,6 @@
 import PageHero from "@/components/ui/PageHero";
 import { getMdxData } from "@/utils/mdxUtils";
 import ProjetsList from "@/components/projets/ProjetsList";
-import { TabsFAQ } from "@/components/TabsFAQ";
 
 export const metadata = {
 	title: "Les projets | Graph and Co",
