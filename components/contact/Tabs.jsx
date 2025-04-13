@@ -7,28 +7,28 @@ import useMeasure from "react-use-measure";
 const faqData = [
 	{
 		question:
-			"J'ai un site qui a mal vieillit, comment se passe la refonte d'un site existant ?",
-		answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque laboriosam neque reprehenderit saepe eius dolorum vel consequuntur perspiciatis ad vero.",
+			"J'ai un site qui a mal vieilli, comment se passe la refonte d'un site existant ?",
+		answer: "Nous récupérons le contenu de votre ancien site et nous l'intégrons dans un nouveau design. Nous vous conseillons sur les meilleures pratiques pour améliorer l'expérience utilisateur et le référencement naturel.",
 	},
 	{
 		question:
 			"J'ai besoin d'un site très simple, juste pour être présent sur Internet, comment faire ?",
-		answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque laboriosam neque reprehenderit saepe eius dolorum vel consequuntur perspiciatis ad vero.",
+		answer: "Nous proposons des solutions adaptées à tous les besoins, même les plus simples. Nous pouvons créer un site vitrine qui présente votre entreprise et vos services de manière efficace.",
 	},
 	{
 		question:
 			"Je n'y connais rien en informatique, serais-je capable d'ajouter des actualités sur mon site ?",
-		answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque laboriosam neque reprehenderit saepe eius dolorum vel consequuntur perspiciatis ad vero.",
+		answer: "Oui, nous vous formons à l'utilisation de votre site et vous fournissons un accès facile pour ajouter du contenu. Nous utilisons des systèmes de gestion de contenu (CMS) intuitifs qui ne nécessitent pas de compétences techniques.",
 	},
 	{
 		question:
 			"Mon neveu (ou ma cousine) prétend qu'elle peut me faire un site tout aussi bien à l'aide d'un logiciel gratuit. Est-ce possible ? ",
-		answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque laboriosam neque reprehenderit saepe eius dolorum vel consequuntur perspiciatis ad vero.",
+		answer: "Créer un site web est plus complexe qu'il n'y paraît. Un logiciel gratuit peut offrir des fonctionnalités de base, mais il ne garantit pas la qualité, la sécurité et l'optimisation nécessaires pour un site professionnel. Nous utilisons des outils et des techniques avancés pour garantir un site performant et sécurisé.",
 	},
 	{
 		question:
 			"Je suis pressé(e) ! Combien de temps prendra la création de mon site ?",
-		answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque laboriosam neque reprehenderit saepe eius dolorum vel consequuntur perspiciatis ad vero.",
+		answer: "Le délai de création d'un site dépend de sa complexité. En général, un site vitrine peut être réalisé en quelques semaines, tandis qu'un site plus complexe peut prendre plusieurs mois. Nous travaillons avec vous pour établir un calendrier réaliste et respecter les délais.",
 	},
 ];
 
