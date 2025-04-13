@@ -1,7 +1,7 @@
 const data = [
 	{
 		title: "Starter",
-		price: 800,
+		price: 900,
 		description: "Clé en main",
 		details: [
 			{
