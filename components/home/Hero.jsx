@@ -55,6 +55,7 @@ const Hero = () => {
 						fill
 						className="object-cover"
 						priority
+						sizes="100vw"
 					/>
 				</motion.div>
 			</div>

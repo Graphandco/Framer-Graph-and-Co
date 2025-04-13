@@ -49,7 +49,12 @@ const ProjetSingle = ({ fileContent }) => {
 				<h2 className="title-font text-2xl xs:text-3xl md:text-4xl font-bold mb-5">
 					{frontmatter.description}
 				</h2>
-				<Button blank icon={<FaEye />} href={frontmatter.url}>
+				<Button
+					blank
+					icon={<FaEye />}
+					href={frontmatter.url}
+					className="mb-8"
+				>
 					Voir le site
 				</Button>
 				<MDXRenderer source={mdxSource} />
