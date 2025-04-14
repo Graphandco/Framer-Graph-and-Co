@@ -7,7 +7,7 @@ const PriceCards = () => {
 		<section className="bg-black text-white">
 			<div className="wrapper py-8 sm:py-16">
 				<div className="mb-12 space-y-3">
-					<h2 className="text-center text-3xl font-semibold leading-tight sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
+					<h2 className="text-center leading-tight sm:leading-tight text-5xl md:leading-tight">
 						Trouvez le pack qui vous correspond !
 					</h2>
 					<div className="markdown offres-intro py-5 text-white/70">

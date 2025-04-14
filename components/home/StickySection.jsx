@@ -61,7 +61,7 @@ export const StickySection = () => {
 
 			<div className="pt-16 sm:pt-32 pb-12 relative z-20 bg-white">
 				<div className="wrapper grid gap-10 bg-white border-l border-r border-neutral-200">
-					<h2 className="title-text text-2xl sm:text-3xl md:sm:text-4xl font-semibold">
+					<h2 className="text-4xl">
 						<span>Qu’est-ce qu’un bon site web ?</span>
 						<br />
 						<span className="text-neutral-500">

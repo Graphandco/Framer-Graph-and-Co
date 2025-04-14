@@ -38,7 +38,7 @@ const Tabs = () => {
 	return (
 		<div className="pt-8 pb-12">
 			<div className="mx-auto max-w-3xl">
-				<h2 className="mb-4 text-center text-3xl font-semibold">FAQ</h2>
+				<h2 className="mb-4 text-center text-3xl">FAQ</h2>
 				{faqData.map((item, index) => {
 					const [ref, { height }] = useMeasure();
 					const isOpen = openIndex === index;

@@ -63,7 +63,7 @@ const Stats = () => {
 						className="flex flex-col items-center py-3 sm:py-0"
 					>
 						<div className="text-3xl mb-3">{stat.icon}</div>
-						<p className="mb-3 text-center text-xl font-semibold sm:text-2xl">
+						<p className="mb-3 text-center text-2xl">
 							<span ref={(el) => (refs.current[index] = el)} />
 							{stat.suffix}
 						</p>

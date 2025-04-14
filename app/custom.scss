@@ -1,3 +1,46 @@
+// FontSizes
+.text-xl,
+.text-2xl,
+.text-3xl,
+.text-4xl,
+.text-5xl,
+.text-6xl,
+.text-7xl,
+.text-8xl {
+	font-family: var(--title-font);
+	font-weight: 600;
+}
+.font-black {
+	font-weight: 900 !important;
+}
+@media (width <= 1024px) {
+	* {
+		--text-7xl: 5rem;
+		--text-6xl: 4rem;
+		--text-5xl: 3rem;
+		--text-4xl: 2.5rem;
+		--text-3xl: 2rem;
+		--text-2xl: 1.75rem;
+		--text-xl: 1.5rem;
+		--text-lg: 1.2rem;
+	}
+}
+@media (width <= 767px) {
+	* {
+		--text-7xl: 4rem;
+		--text-6xl: 3rem;
+		--text-5xl: 2.5rem;
+		--text-4xl: 2rem;
+		--text-3xl: 1.75rem;
+		--text-2xl: 1.6rem;
+		--text-xl: 1.3rem;
+		--text-lg: 1.2rem;
+	}
+}
+.text-font {
+	font-family: var(--text-font);
+}
+
 .wrapper {
 	max-width: 1280px;
 	padding-inline: 5vw;

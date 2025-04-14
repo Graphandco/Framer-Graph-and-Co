@@ -8,9 +8,7 @@ export default function NotFound() {
 			<PageHero title="404" image="/404.avif" />
 			<div className="wrapper min-h-[50vh] flex flex-col gap-3 items-center justify-center">
 				<p>La page recherchée n'existe pas</p>
-				<h2 className="title-font text-5xl font-bold">
-					Page non trouvée
-				</h2>
+				<h2 className="text-5xl">Page non trouvée</h2>
 				<Button href="/">Retour à l'accueil</Button>
 			</div>
 		</>

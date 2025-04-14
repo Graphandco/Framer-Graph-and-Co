@@ -22,7 +22,7 @@ const BlogList = ({ blog }) => {
 	return (
 		<section id="blog">
 			<div className="wrapper py-8 sm:py-16">
-				<h2 className="title-font text-4xl font-bold mb-5 leading-tight">
+				<h2 className="text-4xl mb-5">
 					Plongée dans les coulisses du web
 				</h2>
 				<div className="markdown">

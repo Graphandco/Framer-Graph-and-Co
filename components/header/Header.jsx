@@ -98,7 +98,7 @@ const Header = () => {
 								},
 							},
 						}}
-						className={`flex items-center gap-8 title-font text-lg transition-colors duration-300 ${textColor}`}
+						className={`flex items-center gap-8 text-lg transition-colors duration-300 ${textColor}`}
 					>
 						<NavBar navLinks={navLinks} />
 					</motion.nav>

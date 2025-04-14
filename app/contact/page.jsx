@@ -30,9 +30,7 @@ const ContactPage = () => {
 		<>
 			<PageHero title="Contact" image="/contact/hero-contact.avif" />
 			<div className="wrapper py-8 sm:py-16 space-y-6 xs:space-y-10">
-				<h2 className="text-2xl font-semibold">
-					Une envie, un projet ?
-				</h2>
+				<h2 className="text-3xl">Une envie, un projet ?</h2>
 				<div className="grid sm:grid-cols-2 gap-6 sm:gap-16 pb-10">
 					<ContactText />
 					<ContactForm />

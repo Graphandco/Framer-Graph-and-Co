@@ -13,9 +13,7 @@ const Temoignage = () => {
 	return (
 		<section id="temoignage" ref={containerRef} className="relative">
 			<div className="wrapper py-8 sm:py-16 md:py-24 ">
-				<h2 className="title-text text-2xl sm:text-3xl md:sm:text-4xl font-semibold mb-10">
-					La parole à...
-				</h2>
+				<h2 className="text-4xl mb-10">La parole à...</h2>
 				<div className="grid sm:grid-cols-[2fr_3fr] sm:flex-row gap-12 md:gap-24 items-stretch">
 					{/* Bloc image */}
 					<div className="w-full sm:w-80 flex justify-center sm:block mt-0 sm:mt-10">

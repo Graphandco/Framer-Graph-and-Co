@@ -54,15 +54,13 @@ const Card = ({ position, card, scrollYProgress }) => {
 			className="sticky top-0 flex w-full origin-top flex-col items-center justify-center px-4"
 		>
 			<card.Icon className="mb-4 text-4xl" />
-			<h3 className="mb-6 text-center text-4xl font-semibold md:text-6xl">
-				{card.title}
-			</h3>
+			<h3 className="mb-6 text-center text-6xl">{card.title}</h3>
 			<p className="mb-8 max-w-lg text-center text-sm md:text-base">
 				{card.description}
 			</p>
 			<a
 				href={card.routeTo}
-				className={`flex items-center gap-2 rounded px-6 py-4 text-base font-medium uppercase text-black transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 md:text-lg ${
+				className={`flex items-center gap-2 rounded px-6 py-4 text-base font-medium uppercase text-black transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 text-lg ${
 					card.ctaClasses
 				} ${
 					isOddCard

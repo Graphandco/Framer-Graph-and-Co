@@ -17,7 +17,7 @@ const ChangingText = () => {
 
 	return (
 		<div className="bg-black px-4 text-center overflow-hidden">
-			<div className="title-font font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+			<div className="text-white text-4xl">
 				Réalisons ensemble
 				<br />
 				votre site

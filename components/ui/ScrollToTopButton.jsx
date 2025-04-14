@@ -9,10 +9,15 @@ export default function ScrollToTopButton() {
 	const [show, setShow] = useState(false);
 
 	useEffect(() => {
-		const unsubscribe = scrollY.onChange((latest) => {
+		const callback = (latest) => {
 			setShow(latest > 400);
-		});
-		return () => unsubscribe();
+		};
+
+		scrollY.on("change", callback);
+
+		return () => {
+			scrollY.clearListeners("change");
+		};
 	}, [scrollY]);
 
 	const handleClick = () => {

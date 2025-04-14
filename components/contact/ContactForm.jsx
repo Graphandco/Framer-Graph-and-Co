@@ -49,9 +49,7 @@ export default function ContactForm() {
 					transition={{ duration: 0.4, ease: "easeInOut" }}
 					className="shadow-2xl self-center flex flex-col items-center justify-center p-6 rounded-lg text-center"
 				>
-					<div className="text-3xl title-font font-semibold">
-						Merci !
-					</div>
+					<div className="text-3xl">Merci !</div>
 					<div>Votre message a bien été envoyé.</div>
 				</motion.div>
 			) : (

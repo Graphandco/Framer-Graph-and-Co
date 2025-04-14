@@ -46,7 +46,7 @@ const ProjetSingle = ({ fileContent }) => {
 				>
 					Retour aux projets
 				</Button>
-				<h2 className="title-font text-2xl xs:text-3xl md:text-4xl font-bold mb-5">
+				<h2 className="text-4xl font-bold mb-5">
 					{frontmatter.description}
 				</h2>
 				<Button
