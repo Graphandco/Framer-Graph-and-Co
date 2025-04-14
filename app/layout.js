@@ -4,6 +4,7 @@ import "./custom.scss";
 import { ViewTransitions } from "next-view-transitions";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 // import BodyClassHandler from "@/lib/BodyClassHandler";
 
 const outfit = Outfit({
@@ -47,6 +48,7 @@ export default function RootLayout({ children }) {
 				>
 					<Header />
 					<main className="relative z-10 bg-white">{children}</main>
+					<ScrollToTopButton />
 					<Footer />
 				</body>
 				{/* </BodyClassHandler> */}

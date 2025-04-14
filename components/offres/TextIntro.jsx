@@ -44,7 +44,6 @@ const TextIntro = () => {
 					Voici un long texte normale pour voir le retour à la ligne
 				</div>
 			</div> */}
-
 			<div
 				className="wrapper py-8 sm:py-16 overflow-y-scroll"
 				ref={containerRef}
