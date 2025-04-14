@@ -40,8 +40,8 @@ const PageHero = ({ title, image, position = "center" }) => {
 				</motion.div>
 			</div>
 
-			<div className="absolute inset-0 flex flex-col justify-end pb-4 sm:pb-8 px-5">
-				<div ref={titleRef} className="relative wrapper">
+			<div className="absolute inset-0 flex flex-col justify-end pb-4 sm:pb-8">
+				<div ref={titleRef} className="relative wrapper ml-0!">
 					<motion.div
 						style={{ y: yTitle }}
 						className="relative text-8xl title-font text-white font-semibold leading-[0.8] pl-5 "
