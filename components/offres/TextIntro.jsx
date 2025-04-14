@@ -6,7 +6,7 @@ const TextIntro = () => {
 	const containerRef = useRef(null);
 	return (
 		<section>
-			{/* <div className="wrapper py-12 bg-black/5 grid">
+			<div className="wrapper py-12 bg-black/5 grid">
 				<div className="text-10xl">
 					Voici un long texte 10xl pour voir le retour à la ligne
 				</div>
@@ -43,7 +43,7 @@ const TextIntro = () => {
 				<div className="">
 					Voici un long texte normale pour voir le retour à la ligne
 				</div>
-			</div> */}
+			</div>
 			<div
 				className="wrapper py-8 sm:py-16 overflow-y-scroll"
 				ref={containerRef}

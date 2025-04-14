@@ -92,31 +92,31 @@
 	--text-8xl: clamp(48px, 12vw, 120px);
 	--text-8xl--line-height: 1.1;
 
-	--text-7xl: clamp(40px, 10vw, 100px);
+	--text-7xl: 6rem;
 	--text-7xl--line-height: 1;
 
-	--text-6xl: clamp(34px, 8vw, 80px);
+	--text-6xl: 5rem;
 	--text-6xl--line-height: 1;
 
-	--text-5xl: clamp(30px, 6vw, 64px);
+	--text-5xl: 4rem;
 	--text-5xl--line-height: 1;
 
-	--text-4xl: 3rem; /* 34px */
+	--text-4xl: 3rem;
 	--text-4xl--line-height: 1.1;
 
-	--text-3xl: 2.5rem; /* 30px */
+	--text-3xl: 2.5rem;
 	--text-3xl--line-height: 1.2;
 
-	--text-2xl: 2rem; /* 26px */
+	--text-2xl: 2rem;
 	--text-2xl--line-height: 1.1;
 
-	--text-xl: 1.75rem; /* 22px */
+	--text-xl: 1.75rem;
 	--text-xl--line-height: 1.25;
 
-	--text-lg: 1.25rem; /* 20px */
+	--text-lg: 1.25rem;
 	--text-lg--line-height: 1.5;
-	/* --breakpoint-xl: 30rem; */
 }
+
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
