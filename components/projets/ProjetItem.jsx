@@ -43,7 +43,7 @@ const ProjetItem = ({ project }) => {
 							hover: { scale: 0.9 },
 						}}
 						transition={{ duration: 0.2 }}
-						className="text-3xl title-font font-semibold origin-left"
+						className="text-3xl origin-left"
 					>
 						.{title}
 					</motion.div>

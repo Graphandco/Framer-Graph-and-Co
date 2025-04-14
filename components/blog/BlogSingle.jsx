@@ -42,9 +42,7 @@ const BlogSingle = ({ fileContent }) => {
 				>
 					Retour au blog
 				</Button>
-				<h2 className="title-font text-2xl xs:text-3xl md:text-4xl font-bold mb-5">
-					{frontmatter.description}
-				</h2>
+				<h2 className="text-4xl mb-5">{frontmatter.description}</h2>
 				<MDXRenderer source={mdxSource} />
 			</div>
 		</>

@@ -6,7 +6,7 @@ const NosCompetences = () => {
 		<section>
 			<div className="wrapper">
 				<div className="py-16 md:py-24 relative">
-					<h2 className="title-text text-2xl sm:text-3xl md:sm:text-4xl font-semibold mb-10">
+					<h2 className="text-4xl mb-10">
 						<span>
 							Nos compétences
 							<br />

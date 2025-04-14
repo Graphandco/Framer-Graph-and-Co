@@ -39,7 +39,7 @@ const BlogItem = ({ blog }) => {
 					priority
 				/>
 				{/* Text content */}
-				<div className="relative z-10 p-8 pt-2 bg-white">
+				<div className="relative grow-1 flex flex-col z-10 p-8 pt-2 bg-white">
 					<div className="text-right text-sm font-medium text-black/40 mb-5">
 						{formattedDate}
 					</div>
@@ -48,11 +48,11 @@ const BlogItem = ({ blog }) => {
 							hover: { scale: 0.9 },
 						}}
 						transition={{ duration: 0.2 }}
-						className="text-xl title-font mb-3 font-semibold origin-left"
+						className="text-xl mb-3 origin-left"
 					>
 						{title}
 					</motion.div>
-					<div className="text-black/40 font-medium leading-tight mb-4">
+					<div className="grow-1 text-black/40 font-medium leading-tight mb-8">
 						{description}
 					</div>
 					<Button small icon={null}>

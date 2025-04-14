@@ -6,6 +6,7 @@ const TextIntro = () => {
 	const containerRef = useRef(null);
 	return (
 		<section>
+			{/* 
 			<div className="wrapper py-12 bg-black/5 grid">
 				<div className="text-10xl">
 					Voici un long texte 10xl pour voir le retour à la ligne
@@ -44,15 +45,16 @@ const TextIntro = () => {
 					Voici un long texte normale pour voir le retour à la ligne
 				</div>
 			</div>
+          */}
 			<div
 				className="wrapper py-8 sm:py-16 overflow-y-scroll"
 				ref={containerRef}
 			>
-				<p className="text-2xl sm:text-3xl font-semibold title-font mb-8">
+				<p className="text-3xl mb-8">
 					Réalisons ensemble votre site, doté de toutes les
 					fonctionnalités dont vous et vos clients avez besoin.
 				</p>
-				<p className="sm:text-lg font-medium">
+				<p className="text-lg font-medium">
 					<span className="text-foreground/70 mr-1">
 						Selon votre profil et votre budget, plusieurs options
 						s’offrent à vous.

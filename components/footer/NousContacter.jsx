@@ -5,9 +5,7 @@ import { FaMobileAlt, FaFacebook, FaLinkedin } from "react-icons/fa";
 const NousContacter = () => {
 	return (
 		<div className="grid gap-y-5">
-			<div className="text-2xl font-bold text-white/70">
-				Nous contacter
-			</div>
+			<div className="text-2xl text-white/70">Nous contacter</div>
 			<div className="leading-tight space-y-3">
 				<div className="flex gap-2 items-center">
 					<FiMapPin />

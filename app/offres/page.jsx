@@ -36,7 +36,7 @@ export default async function OffresPage() {
 			/>
 			<TextIntro />
 			<PriceCards />
-			<div className="info wrapper-small py-24">
+			<div className="info wrapper-small py-12 sm:py-24">
 				{/* <h2 className="text-2xl title-font font-semibold mb-10">
 					Réalisons ensemble votre site, doté de toutes les
 					fonctionnalités dont vous et vos clients avez besoin.
