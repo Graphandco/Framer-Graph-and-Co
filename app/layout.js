@@ -5,7 +5,6 @@ import { ViewTransitions } from "next-view-transitions";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
-// import BodyClassHandler from "@/lib/BodyClassHandler";
 
 const outfit = Outfit({
 	variable: "--font-outfit",
@@ -42,6 +41,11 @@ export default function RootLayout({ children }) {
 	return (
 		<ViewTransitions>
 			<html lang="en">
+				<head>
+					<link rel="manifest" href="/manifest.json" />
+					<link rel="icon" href="/icons/icon-192x192.png" />
+					<meta name="theme-color" content="#ffffff" />
+				</head>
 				{/* <BodyClassHandler> */}
 				<body
 					className={`${outfit.variable} ${urbanist.variable} antialiased`}
