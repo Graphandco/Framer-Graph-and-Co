@@ -41,12 +41,14 @@ const PageHero = ({ title, image, position = "center" }) => {
 			</div>
 
 			<div className="absolute inset-0 flex flex-col justify-end pb-4 sm:pb-8 px-5">
-				<div ref={titleRef}>
+				<div ref={titleRef} className="relative wrapper">
 					<motion.div
 						style={{ y: yTitle }}
-						className="text-8xl title-font text-white font-semibold leading-[0.8]"
+						className="relative text-8xl title-font text-white font-semibold leading-[0.8] pl-5 "
 					>
-						<TextAppear>.{title}</TextAppear>
+						<TextAppear className="before:content-[''] before:absolute before:-left-0 before:top-[.60em] before:min-w-[.15em] before:aspect-square before:rounded-full before:bg-white">
+							{title}
+						</TextAppear>
 					</motion.div>
 				</div>
 			</div>
