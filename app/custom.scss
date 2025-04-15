@@ -153,11 +153,17 @@
 	}
 }
 
-.col p .line {
-	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+.vanish-paragraphs {
+	p {
+		margin-block: 1rem 0.5rem;
+	}
 }
 
-.col p .line span {
-	position: relative;
-	will-change: transform;
-}
+// .col p .line {
+// 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+// }
+
+// .col p .line span {
+// 	position: relative;
+// 	will-change: transform;
+// }

@@ -95,7 +95,7 @@ const BurgerNav = ({ isOpen, setIsOpen, navLinks }) => {
 							name={navlink.name}
 							href={navlink.href}
 							setIsOpen={setIsOpen}
-							className="inline-block pl-6 text-foreground z-10 font-black text-6xl hover:text-primary transition-colors"
+							className="inline-block pl-6 text-foreground z-10 text-font font-black text-6xl hover:text-primary transition-colors"
 							rel="nofollow"
 						/>
 					</motion.div>

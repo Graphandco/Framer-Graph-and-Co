@@ -9,6 +9,8 @@ import Button from "../ui/Button";
 import { GrReturn } from "react-icons/gr";
 import Loading from "../Loading";
 import { FaEye } from "react-icons/fa";
+import ProjetCarousel from "./ProjetCarousel";
+import { MdArrowOutward } from "react-icons/md";
 
 const ProjetSingle = ({ fileContent }) => {
 	const [mdxSource, setMdxSource] = useState(null);
@@ -24,6 +26,11 @@ const ProjetSingle = ({ fileContent }) => {
 
 		processMDX();
 	}, [fileContent]);
+
+	const images = Array.from(
+		{ length: frontmatter?.nbrCaptures },
+		(_, i) => `/projets/${frontmatter.slug}/capture${i + 1}.avif`
+	);
 
 	if (!mdxSource || !frontmatter) return <Loading />;
 
@@ -58,6 +65,25 @@ const ProjetSingle = ({ fileContent }) => {
 					Voir le site
 				</Button>
 				<MDXRenderer source={mdxSource} />
+				{images.length > 0 && (
+					<>
+						<div className="text-2xl text-center pt-8 pb-5">
+							Découvrez{" "}
+							<a
+								href={frontmatter.url}
+								target="blank"
+								className="text-neutral-500 hover:text-primary transition-colors"
+							>
+								{frontmatter.title}
+								<sup>
+									<MdArrowOutward className="inline" />
+								</sup>
+							</a>{" "}
+							en images !
+						</div>
+						<ProjetCarousel images={images} />
+					</>
+				)}
 			</div>
 		</>
 	);
