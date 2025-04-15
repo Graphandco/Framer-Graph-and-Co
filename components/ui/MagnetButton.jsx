@@ -7,7 +7,7 @@ import {
 import { useRef } from "react";
 import { MdOutlineArrowUpward } from "react-icons/md";
 
-const MagnetButton = ({ icon = <MdOutlineArrowUpward />, onClick }) => {
+const MagnetCustomButton = ({ icon = <MdOutlineArrowUpward />, onClick }) => {
 	const ref = useRef(null);
 
 	const x = useMotionValue(0);
@@ -60,4 +60,4 @@ const MagnetButton = ({ icon = <MdOutlineArrowUpward />, onClick }) => {
 	);
 };
 
-export default MagnetButton;
+export default MagnetCustomButton;

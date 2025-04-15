@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SectionLegend from "../SectionLegend";
-import Button from "../ui/Button";
+import CustomButton from "../ui/CustomButton";
 import PresentationText from "@/markdown/home/presentation.mdx";
 import ParallaxImage from "../ui/ParallaxImage";
 import Image from "next/image";
@@ -35,9 +35,9 @@ export const StickySection = () => {
 						Chaque projet est pensé pour s’adapter à vos besoins,
 						votre image, et vos ambitions.
 					</p>
-					<Button icon={null} white href="/offres">
+					<CustomButton icon={null} white href="/offres">
 						Voir nos offres
-					</Button>
+					</CustomButton>
 				</div>
 			</div>
 			{/* Section normale */}
@@ -52,9 +52,9 @@ export const StickySection = () => {
 				<div className="relative">
 					<div className="wrapper flex flex-col gap-6 justify-center items-center markdown">
 						<PresentationText />
-						<Button icon={null} href="/contact">
+						<CustomButton icon={null} href="/contact">
 							Nous contacter
-						</Button>
+						</CustomButton>
 					</div>
 				</div>
 			</section> */}
@@ -87,13 +87,13 @@ export const StickySection = () => {
 						</div>
 						<div className="markdown">
 							<PresentationText />
-							<Button
+							<CustomButton
 								icon={null}
 								href="/contact"
 								className="mt-8"
 							>
 								Nous contacter
-							</Button>
+							</CustomButton>
 						</div>
 					</div>
 				</div>

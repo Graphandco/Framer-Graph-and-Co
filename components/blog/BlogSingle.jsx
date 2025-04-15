@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 import MDXRenderer from "@/components/MDXRenderer";
 import PageHero from "../ui/PageHero";
-import Button from "../ui/Button";
+import CustomButton from "../ui/CustomButton";
 import { GrReturn } from "react-icons/gr";
 import Loading from "../Loading";
 
@@ -34,14 +34,14 @@ const BlogSingle = ({ fileContent }) => {
 				image={`/blog/${frontmatter.image}`}
 			/>
 			<div className="wrapper pb-24">
-				<Button
+				<CustomButton
 					small
 					href="/blog"
 					icon=<GrReturn />
 					className="mt-3 mb-8 ml-auto"
 				>
 					Retour au blog
-				</Button>
+				</CustomButton>
 				<h2 className="text-4xl mb-5">{frontmatter.description}</h2>
 				<MDXRenderer source={mdxSource} />
 			</div>

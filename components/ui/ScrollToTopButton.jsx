@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion, useScroll } from "framer-motion";
 
-export default function ScrollToTopButton() {
+export default function ScrollToTopCustomButton() {
 	const { scrollY } = useScroll();
 	const [show, setShow] = useState(false);
 
@@ -25,7 +25,7 @@ export default function ScrollToTopButton() {
 	};
 
 	return (
-		<motion.button
+		<motion.CustomButton
 			onClick={handleClick}
 			aria-label="Scroll to top"
 			title="Remonter"
@@ -35,6 +35,6 @@ export default function ScrollToTopButton() {
 			className="fixed bottom-8 right-8 z-50 rounded-full border border-primary/50 bg-black text-white p-3 shadow-lg hover:border-primary focus:outline-none cursor-pointer transition-colors duration-300 ease-in-out"
 		>
 			<FaArrowUp className="w-4 h-4" />
-		</motion.button>
+		</motion.CustomButton>
 	);
 }

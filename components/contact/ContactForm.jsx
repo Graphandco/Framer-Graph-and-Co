@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import Button from "../ui/Button";
+import CustomButton from "../ui/CustomButton";
 import { SiMinutemailer } from "react-icons/si";
 import { AnimatePresence, motion } from "framer-motion";
 import FadeInOnView from "../ui/FadeInOnView";
@@ -118,13 +118,13 @@ export default function ContactForm() {
 							)}
 						</div>
 
-						<Button
+						<CustomButton
 							type="submit"
 							disabled={isSubmitting}
 							icon={<SiMinutemailer />}
 						>
 							{isSubmitting ? "Envoi en cours..." : "Envoyer"}
-						</Button>
+						</CustomButton>
 					</FadeInOnView>
 				</motion.form>
 			)}

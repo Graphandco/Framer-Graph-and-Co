@@ -5,7 +5,7 @@ import ProjetItem from "./ProjetItem";
 import RealisationsText from "@/markdown/realisations.mdx";
 import { AnimatePresence, motion } from "framer-motion";
 import ProjetsFilter from "./ProjetsFilter";
-import Button from "../ui/Button";
+import CustomButton from "../ui/CustomButton";
 
 const ProjetsList = ({ projects }) => {
 	const [activeCategory, setActiveCategory] = useState("tous");
@@ -50,9 +50,13 @@ const ProjetsList = ({ projects }) => {
 								<div className="text-sm xs:text-base">
 									<RealisationsText />
 								</div>
-								<Button small href="offres" className="mt-5">
+								<CustomButton
+									small
+									href="offres"
+									className="mt-5"
+								>
 									Voir nos offres
-								</Button>
+								</CustomButton>
 							</motion.article>
 						)}
 

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import NavLink from "../header/NavLink";
-import Button from "../ui/Button";
+import CustomButton from "../ui/CustomButton";
 
 const BlogItem = ({ blog }) => {
 	const { title, description, slug, image, date } = blog;
@@ -55,9 +55,9 @@ const BlogItem = ({ blog }) => {
 					<div className="grow-1 text-black/40 font-medium leading-tight mb-8">
 						{description}
 					</div>
-					<Button small icon={null}>
+					<CustomButton small icon={null}>
 						En savoir plus
-					</Button>
+					</CustomButton>
 				</div>
 			</NavLink>
 		</motion.article>

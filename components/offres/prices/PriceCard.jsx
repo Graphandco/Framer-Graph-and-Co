@@ -1,7 +1,7 @@
 "use client";
 import { FiCheck, FiX } from "react-icons/fi";
 import { motion } from "framer-motion";
-import Button from "@/components/ui/Button";
+import CustomButton from "@/components/ui/CustomButton";
 
 const PriceCard = ({ pack }) => {
 	const { title, description, price, details, premium, bestSeller } = pack;
@@ -68,9 +68,15 @@ const PriceCard = ({ pack }) => {
 				))}
 			</div>
 
-			<Button small white icon={null} href="/contact" className="w-full">
+			<CustomButton
+				small
+				white
+				icon={null}
+				href="/contact"
+				className="w-full"
+			>
 				Choisir
-			</Button>
+			</CustomButton>
 		</motion.div>
 	);
 };

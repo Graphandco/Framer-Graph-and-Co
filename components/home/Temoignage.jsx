@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { FaQuoteLeft } from "react-icons/fa";
 import FadeInOnView from "@/components/ui/FadeInOnView"; // adapte le chemin si besoin
-import Button from "@/components/ui/Button";
+import CustomButton from "@/components/ui/CustomButton";
 import Parallax from "@/components/ui/Parallax"; // adapte ce chemin selon ton projet
 import { useRef } from "react";
 import DistortedSlider from "@/components/DistortedSlider";
@@ -75,13 +75,13 @@ const Temoignage = () => {
 						</FadeInOnView>
 
 						<FadeInOnView delay={0.4}>
-							<Button
+							<CustomButton
 								href="https://www.google.com/search?sca_esv=fccbee740c3569c2&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2Kzf6MYr6Dix-GSAblYyCQFImquqsxXSKWGuueYlXJcu_nOOnojgY0gkfQj8pUzftYs-5kRIK_tZ3RLuHvXrzbEaUCLgoS&q=Graph+and+Co+Reviews&sa=X&ved=2ahUKEwjJ2-eT4cWMAxVYKvsDHXmJOyYQ0bkNegQIORAE&biw=1450&bih=867&dpr=2"
 								blank
 								className="mt-8"
 							>
 								Voir plus d'avis
-							</Button>
+							</CustomButton>
 						</FadeInOnView>
 					</div>
 				</div>

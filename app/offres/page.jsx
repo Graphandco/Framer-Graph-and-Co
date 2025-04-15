@@ -1,7 +1,7 @@
 import PriceCards from "@/components/offres/prices/PriceCards";
 import TextIntro from "@/components/offres/TextIntro";
 import UserWithIcon from "@/components/offres/UserWithIcon";
-import Button from "@/components/ui/Button";
+import CustomButton from "@/components/ui/CustomButton";
 import PageHero from "@/components/ui/PageHero";
 import VanishParagraphs from "@/components/ui/VanishParagraphs";
 
@@ -71,9 +71,9 @@ export default async function OffresPage() {
 						créations pour vous aider à définir vos besoins.
 					</p>
 				</VanishParagraphs>
-				<Button icon={null} href="/projets" className="mt-8">
+				<CustomButton icon={null} href="/projets" className="mt-8">
 					Découvrez nos projets
-				</Button>
+				</CustomButton>
 			</div>
 			<UserWithIcon />
 		</>
