@@ -5,6 +5,7 @@ import { ViewTransitions } from "next-view-transitions";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
+import { Analytics } from "./analytics";
 
 const outfit = Outfit({
 	variable: "--font-outfit",
@@ -42,6 +43,24 @@ export default function RootLayout({ children }) {
 		<ViewTransitions>
 			<html lang="en">
 				<head>
+					{/* Script Google Analytics */}
+					<script
+						async
+						src="https://www.googletagmanager.com/gtag/js?id=G-345118589"
+					></script>
+					<script
+						dangerouslySetInnerHTML={{
+							__html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-345118589', {
+                page_path: window.location.pathname,
+              });
+            `,
+						}}
+					/>
+
 					<link rel="manifest" href="/manifest.json" />
 					<link rel="icon" href="/icons/icon-192x192.png" />
 					<meta name="theme-color" content="#ffffff" />
@@ -50,6 +69,7 @@ export default function RootLayout({ children }) {
 				<body
 					className={`${outfit.variable} ${urbanist.variable} antialiased`}
 				>
+					<Analytics />
 					<Header />
 					<main className="relative z-10 bg-white">{children}</main>
 					<ScrollToTopButton />
