@@ -60,7 +60,7 @@ const Card = ({ position, card, scrollYProgress }) => {
 			</p>
 			<a
 				href={card.routeTo}
-				className={`flex items-center gap-2 rounded px-6 py-4 text-base font-medium uppercase text-black transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 text-lg ${
+				className={`flex items-center gap-2 rounded px-6 py-4 font-medium uppercase text-black transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 text-lg ${
 					card.ctaClasses
 				} ${
 					isOddCard
