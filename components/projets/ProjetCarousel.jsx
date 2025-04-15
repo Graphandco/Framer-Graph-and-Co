@@ -1,47 +1,121 @@
-import * as React from "react";
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card";
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
-} from "@/components/ui/carousel";
-import Image from "next/image";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 
-export function ProjetCarousel({ images }) {
+const images = [
+	"/projets/bomot/capture1.avif",
+	"/projets/bomot/capture2.avif",
+	"/projets/bomot/capture3.avif",
+	"/projets/bomot/capture4.avif",
+];
+
+const AUTO_SCROLL = true;
+const SCROLL_INTERVAL = 5000; // ms
+
+export default function ProjetCarousel() {
+	const [index, setIndex] = useState(0);
+	const [direction, setDirection] = useState(0);
+	const [progressKey, setProgressKey] = useState(0);
+	const [isPaused, setIsPaused] = useState(false);
+	const intervalRef = useRef(null);
+
+	const paginate = (newDirection) => {
+		setDirection(newDirection);
+		setIndex(
+			(prev) => (prev + newDirection + images.length) % images.length
+		);
+		setProgressKey((prev) => prev + 1);
+	};
+
+	useEffect(() => {
+		if (!AUTO_SCROLL || isPaused) return;
+
+		intervalRef.current = setInterval(() => {
+			paginate(1);
+		}, SCROLL_INTERVAL);
+
+		return () => clearInterval(intervalRef.current);
+	}, [index, isPaused]);
+
+	const variants = {
+		enter: (direction) => ({
+			x: direction > 0 ? 300 : -300,
+			opacity: 0,
+			scale: 0.8,
+		}),
+		center: {
+			x: 0,
+			opacity: 1,
+			scale: 1,
+		},
+		exit: (direction) => ({
+			x: direction < 0 ? 300 : -300,
+			opacity: 0,
+			scale: 0.8,
+		}),
+	};
+
 	return (
-		<Carousel
-			className="w-full max-w-10/12 mx-auto"
-			opts={{
-				loop: true,
-				align: "start",
-			}}
+		<div
+			className="relative w-full max-w-3xl mx-auto overflow-hidden bg-neutral-100 rounded-xl shadow-lg"
+			onMouseEnter={() => setIsPaused(true)}
+			onMouseLeave={() => setIsPaused(false)}
 		>
-			<CarouselContent>
-				{images.map((image, index) => (
-					<CarouselItem
+			<div className="relative aspect-video">
+				<AnimatePresence initial={false} custom={direction}>
+					<motion.img
 						key={index}
-						className="xs:basis-1/2 sm:basis-1/2 md:basis-1/3"
-					>
-						<div className="p-1">
-							<div className="flex aspect-[1.4/1] h-full items-center justify-center p-6">
-								<Image
-									src={image.full}
-									alt={`Capture d'écran de ${image.alt}`}
-									width={200}
-									height={200}
-									className="w-full h-full object-cover rounded-xl shadow-md"
-									sizes="(max-width: 640px) 100vw, 320px"
-								/>
-							</div>
-						</div>
-					</CarouselItem>
-				))}
-			</CarouselContent>
-			<CarouselPrevious />
-			<CarouselNext />
-		</Carousel>
+						src={images[index]}
+						custom={direction}
+						variants={variants}
+						initial="enter"
+						animate="center"
+						exit="exit"
+						transition={{
+							x: { type: "spring", stiffness: 300, damping: 30 },
+							opacity: { duration: 0.2 },
+						}}
+						className="absolute top-0 left-0 w-full h-full object-cover"
+					/>
+				</AnimatePresence>
+
+				{/* Progress bar */}
+				{AUTO_SCROLL && !isPaused && (
+					<motion.div
+						key={progressKey}
+						initial={{ width: 0 }}
+						animate={{ width: "100%" }}
+						transition={{
+							duration: SCROLL_INTERVAL / 1000,
+							ease: "linear",
+						}}
+						className="absolute bottom-0 left-0 h-1 bg-black"
+					/>
+				)}
+			</div>
+
+			{/* Arrows */}
+			<div className="absolute inset-0 flex items-center justify-between px-4">
+				<button
+					onClick={() => paginate(-1)}
+					className="bg-white bg-opacity-70 hover:bg-opacity-100 p-2 rounded-full shadow transition"
+				>
+					<GoArrowLeft size={24} />
+				</button>
+				<button
+					onClick={() => paginate(1)}
+					className="bg-white bg-opacity-70 hover:bg-opacity-100 p-2 rounded-full shadow transition"
+				>
+					<GoArrowRight size={24} />
+				</button>
+			</div>
+
+			{/* Image counter */}
+			<div className="absolute bottom-2 right-4 text-sm bg-white/70 px-2 py-1 rounded">
+				{index + 1} / {images.length}
+			</div>
+		</div>
 	);
 }

@@ -49,7 +49,7 @@ const Tabs = () => {
 							animate={isOpen ? "open" : "closed"}
 							className="border-b-[1px] border-b-slate-300"
 						>
-							<CustomButton
+							<button
 								onClick={() =>
 									setOpenIndex((prev) =>
 										prev === index ? null : index
@@ -75,7 +75,7 @@ const Tabs = () => {
 								>
 									<FiChevronDown className="text-2xl text-slate-900" />
 								</motion.span>
-							</CustomButton>
+							</button>
 							<motion.div
 								initial={false}
 								animate={{

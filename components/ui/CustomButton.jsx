@@ -67,7 +67,7 @@ export default function CustomButton({
 		variantClasses += " w-full";
 	}
 
-	const CustomButton = (
+	const button = (
 		<button
 			className={`group ${baseClasses} ${gapClass} ${sizeClasses} ${variantClasses} ${className}`}
 			onClick={muted ? undefined : onClick}
@@ -88,13 +88,13 @@ export default function CustomButton({
 					rel="noopener noreferrer"
 					className="inline-block"
 				>
-					{CustomButton}
+					{button}
 				</a>
 			);
 		} else {
-			return <NavLink href={href}>{CustomButton}</NavLink>;
+			return <NavLink href={href}>{button}</NavLink>;
 		}
 	}
 
-	return CustomButton;
+	return button;
 }
