@@ -5,6 +5,7 @@ import { ViewTransitions } from "next-view-transitions";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const outfit = Outfit({
 	variable: "--font-outfit",
@@ -55,6 +56,7 @@ export default function RootLayout({ children }) {
 					<ScrollToTopButton />
 					<Footer />
 				</body>
+				<GoogleAnalytics gaId="G-345118589" />
 				{/* </BodyClassHandler> */}
 			</html>
 		</ViewTransitions>
