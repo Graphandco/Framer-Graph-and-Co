@@ -35,6 +35,8 @@ const Hero = () => {
 		return "/home/bg-hero-desktop.avif";
 	}
 
+	const itemsDelay = isMobile ? 0 : 1;
+
 	const heroImageSource = getHeroImageSource();
 
 	return (
@@ -63,7 +65,7 @@ const Hero = () => {
 			<div className="absolute inset-0 flex flex-col justify-center px-5">
 				<FadeInOnView
 					amount={0.1}
-					delay={1}
+					delay={itemsDelay}
 					once
 					className="mb-8 flex flex-col items-end gap-1 text-white font-semibold"
 				>
