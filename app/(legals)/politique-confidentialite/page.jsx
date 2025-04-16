@@ -27,7 +27,7 @@ const PolitiqueConfidentialitePage = () => {
 		<>
 			<PageHero
 				title="Politique de confidentialité"
-				image="/politique.avif"
+				image="/legals/politique.avif"
 			/>
 			<div className="wrapper markdown py-8 sm:py-16">
 				<Politique />

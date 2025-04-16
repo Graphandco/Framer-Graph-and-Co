@@ -25,7 +25,10 @@ export const metadata = {
 const MentionsLegalesPage = () => {
 	return (
 		<>
-			<PageHero title="Mentions légales" image="/mentions-legales.avif" />
+			<PageHero
+				title="Mentions légales"
+				image="/legals/mentions-legales.avif"
+			/>
 			<div className="wrapper markdown py-8 sm:py-16">
 				<Mentions />
 			</div>

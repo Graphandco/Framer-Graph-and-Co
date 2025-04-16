@@ -63,7 +63,7 @@ const Hero = () => {
 			</div>
 
 			<div className="absolute inset-0 flex flex-col justify-center px-5">
-				<FadeInOnView
+				{/* <FadeInOnView
 					amount={0.1}
 					delay={itemsDelay}
 					once
@@ -73,7 +73,13 @@ const Hero = () => {
 					<div>Expérience utilisateur</div>
 					<div>Sécurité</div>
 					<div>Accessibilité</div>
-				</FadeInOnView>
+				</FadeInOnView> */}
+				<div className="mb-8 flex flex-col items-end gap-1 text-white font-semibold">
+					<div>Interface utilisateur</div>
+					<div>Expérience utilisateur</div>
+					<div>Sécurité</div>
+					<div>Accessibilité</div>
+				</div>
 
 				<div ref={titleRef}>
 					<motion.div
