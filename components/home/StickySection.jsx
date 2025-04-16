@@ -71,8 +71,8 @@ export const StickySection = () => {
 					<div className="grid sm:grid-cols-[2fr_3fr] gap-4 sm:gap-14  justify-center items-center">
 						<div>
 							<Image
-								src="/contact/regis-avatar.avif"
-								alt="Grph and Co Régis avatar"
+								src="/home/regis-avatar.avif"
+								alt="Graph and Co Régis avatar"
 								width={400}
 								height={600}
 								className="rounded-xl"
