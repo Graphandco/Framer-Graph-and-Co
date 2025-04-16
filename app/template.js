@@ -6,7 +6,7 @@ export default function Template({ children }) {
 		<ReactLenis
 			root
 			options={{
-				lerp: 0.05,
+				lerp: 0.1,
 				duration: 1.2,
 				smoothTouch: true,
 				touchMultiplier: 1.5,
