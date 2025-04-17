@@ -88,7 +88,7 @@ const Hero = () => {
 				</div>
 
 				<div className="relative flex flex-col-reverse xs:flex-row xs:items-center mt-6 gap-8">
-					<div className="text-white max-w-md xs:mix-blend-exclusion">
+					<div className="text-white max-w-md">
 						Nous sommes spécialisés dans la réalisation de sites
 						web. Moderne et intuitif, votre site sera un puissant
 						levier pour accroitre la vitalité de votre entreprise.
