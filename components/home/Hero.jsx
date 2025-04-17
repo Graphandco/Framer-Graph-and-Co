@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import FadeInOnView from "../ui/FadeInOnView";
 import MagnetButton from "../ui/MagnetButton";
 import { useResponsive } from "@/hooks/UseResponsive";
 
@@ -34,8 +33,6 @@ const Hero = () => {
 		if (isDesktop) return "/home/bg-hero-desktop.avif";
 		return "/home/bg-hero-desktop.avif";
 	}
-
-	const itemsDelay = isMobile ? 0 : 1;
 
 	const heroImageSource = getHeroImageSource();
 
@@ -91,14 +88,11 @@ const Hero = () => {
 				</div>
 
 				<div className="relative flex flex-col-reverse xs:flex-row xs:items-center mt-6 gap-8">
-					<FadeInOnView amount={0.1}>
-						<div className="text-white max-w-md xs:mix-blend-exclusion">
-							Nous sommes spécialisés dans la réalisation de sites
-							web. Moderne et intuitif, votre site sera un
-							puissant levier pour accroitre la vitalité de votre
-							entreprise.
-						</div>
-					</FadeInOnView>
+					<div className="text-white max-w-md xs:mix-blend-exclusion">
+						Nous sommes spécialisés dans la réalisation de sites
+						web. Moderne et intuitif, votre site sera un puissant
+						levier pour accroitre la vitalité de votre entreprise.
+					</div>
 					<motion.h1
 						style={{ y: yDesc }}
 						className="text-6xl title-font text-white font-medium leading-[0.8] xs:mix-blend-exclusion"
