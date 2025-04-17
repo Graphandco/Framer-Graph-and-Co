@@ -77,7 +77,7 @@ export const StickySection = () => {
 								height={600}
 								className="rounded-xl"
 								priority
-								sizes="(max-width: 640px) 100vw, 320px"
+								sizes="(max-width: 640px) 100vw, 400px"
 							/>
 							<div className="text-lg title-font mt-5 font-bold">
 								Régis
