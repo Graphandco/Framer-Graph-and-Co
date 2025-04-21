@@ -33,6 +33,7 @@ export default async function OffresPage() {
 				title="Nos offres"
 				image="/offres/hero-offres.avif"
 				imageClass="object-cover object-top"
+				position="top"
 			/>
 			<TextIntro />
 			<PriceCards />
