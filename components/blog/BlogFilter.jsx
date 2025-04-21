@@ -1,7 +1,7 @@
 import Button from "../ui/Button";
 
 const BlogFilter = ({ activeCategory, setActiveCategory }) => {
-	const categories = ["tous", "tech"];
+	const categories = ["tous", "news", "tech"];
 
 	return (
 		<div className="sticky top-0 z-20 py-6 flex flex-wrap justify-center gap-2 sm:gap-4">

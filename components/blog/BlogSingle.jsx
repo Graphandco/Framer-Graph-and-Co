@@ -32,6 +32,9 @@ const BlogSingle = ({ fileContent }) => {
 			<PageHero
 				title={frontmatter.title}
 				image={`/blog/${frontmatter.image}`}
+				position={
+					frontmatter.position ? frontmatter.position : "center"
+				}
 			/>
 			<div className="wrapper pb-24">
 				<Button

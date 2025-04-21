@@ -5,8 +5,9 @@ import NavLink from "../header/NavLink";
 import Button from "../ui/Button";
 
 const BlogItem = ({ blog }) => {
-	const { title, description, slug, image, date } = blog;
+	const { title, description, slug, category, image, date } = blog;
 	const MotionImage = motion.create(Image);
+	console.log(blog);
 
 	const formattedDate = new Date(date).toLocaleDateString("fr-FR", {
 		day: "2-digit",
@@ -24,7 +25,13 @@ const BlogItem = ({ blog }) => {
 			whileHover="hover"
 			className="relative flex flex-col justify-end overflow-hidden rounded-3xl "
 		>
-			<NavLink href={`/blog/${slug}`} className="h-full flex flex-col">
+			<NavLink
+				href={`/blog/${slug}`}
+				className="h-full flex flex-col relative"
+			>
+				<div className="absolute top-3 right-3 bg-primary py-0.5 px-2 rounded-full text-sm z-10 font-medium">
+					{category}
+				</div>
 				<MotionImage
 					variants={{
 						hover: { scale: 1.025, filter: "blur(2px)" },
