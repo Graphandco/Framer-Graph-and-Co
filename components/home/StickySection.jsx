@@ -1,22 +1,21 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import SectionLegend from "../SectionLegend";
 import Button from "../ui/Button";
 import PresentationText from "@/markdown/home/presentation.mdx";
-import ParallaxImage from "../ui/ParallaxImage";
 import Image from "next/image";
+import { useResponsive } from "@/hooks/UseResponsive";
 
 export const StickySection = () => {
-	// const ref = useRef(null);
-	// const { scrollYProgress } = useScroll({
-	// 	target: ref,
-	// 	offset: ["start start", "end start"],
-	// });
-
-	// Effet parallax léger sur la première section
-	// const y = useTransform(scrollYProgress, [0, 1], [0, -10]);
+	const { isPhone, isMobile, isTablet, isDesktop } = useResponsive();
+	function getHeroImageSource() {
+		if (isPhone) return "/home/regis-avatar-mobile.avif";
+		if (isMobile) return "/home/regis-avatar-mobile.avif";
+		if (isTablet) return "/home/regis-avatar-tablet.avif";
+		if (isDesktop) return "/home/regis-avatar.avif";
+		return "/home/regis-avatar.avif";
+	}
+	const heroImageSource = getHeroImageSource();
 
 	return (
 		<section className="relative">
@@ -40,24 +39,6 @@ export const StickySection = () => {
 					</Button>
 				</div>
 			</div>
-			{/* Section normale */}
-			{/* <section className="banner flex justify-center items-center relative min-h-screen overflow-hidden z-10 py-8">
-				<div className="absolute inset-0 w-full h-full overflow-hidden will-change-transform bg-black">
-					<ParallaxImage
-						src="/home/exposure.avif"
-						alt="Machine à écrire"
-					/>
-				</div>
-
-				<div className="relative">
-					<div className="wrapper flex flex-col gap-6 justify-center items-center markdown">
-						<PresentationText />
-						<Button icon={null} href="/contact">
-							Nous contacter
-						</Button>
-					</div>
-				</div>
-			</section> */}
 
 			<div className="pt-16 sm:pt-32 pb-12 relative z-20 bg-white">
 				<div className="wrapper grid gap-10 bg-white border-l border-r border-neutral-200">
