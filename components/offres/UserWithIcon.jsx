@@ -7,7 +7,7 @@ const UserWithIcon = () => {
 	return (
 		<div className="bg-black text-white">
 			<div className="wrapper flex flex-col xs:flex-row gap-10 items-start py-12">
-				<FadeInOnView delay={1} once={true}>
+				<FadeInOnView delay={0.25} once={true}>
 					<div className="flex flex-col sm:flex-row items-center gap-3 text-white">
 						<GiStrong className="text-6xl" />
 						<div className="">
@@ -17,7 +17,7 @@ const UserWithIcon = () => {
 						</div>
 					</div>
 				</FadeInOnView>
-				<FadeInOnView delay={1.2} once={true}>
+				<FadeInOnView delay={0.5} once={true}>
 					<div className="flex flex-col sm:flex-row items-center gap-3">
 						<BsRocketTakeoffFill className="text-6xl" />
 						<div className="">
