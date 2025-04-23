@@ -47,7 +47,7 @@ const PageHero = ({ title, image, position = "center" }) => {
 						className="relative text-8xl title-font text-white font-semibold leading-[0.8] pl-5 "
 					>
 						<TextAppear className="before:content-[''] before:absolute before:-left-0 before:top-[.60em] before:min-w-[.15em] before:aspect-square before:rounded-full before:bg-white">
-							{title}
+							<h1>{title}</h1>
 						</TextAppear>
 					</motion.div>
 				</div>

@@ -45,12 +45,12 @@ export default function SiteSurMesure() {
 			/>
 			<div className="wrapper">
 				{/* Texte avec effet de parallax et mix-blend pour contraste */}
-				<motion.h1
+				<motion.h2
 					style={{ y: smoothYText }}
 					className="relative z-20 text-6xl text-font text-white mix-blend-difference text-center font-black!"
 				>
 					Un site "sur-mesure" rien que pour vous !
-				</motion.h1>
+				</motion.h2>
 			</div>
 		</section>
 	);
