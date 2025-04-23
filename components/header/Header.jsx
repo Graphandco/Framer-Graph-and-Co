@@ -36,9 +36,9 @@ const Header = () => {
 
 	// Styles dynamiques
 	const isDark = isHome && !scrolled;
-	const textColor = !scrolled ? "text-white" : "text-black";
+	const textColor = !scrolled ? "text-white" : "text-white";
 	const bgStyle = scrolled
-		? "bg-white/80 backdrop-blur-sm shadow-sm"
+		? "bg-black/50 backdrop-blur-[6px] shadow-sm"
 		: "bg-transparent";
 	// const borderStyle = !isHome ? "border-b border-black/10" : "";
 	const visibility =

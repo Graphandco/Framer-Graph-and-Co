@@ -20,8 +20,11 @@ const PriceCard = ({ pack }) => {
 				delay: 0.25,
 			}}
 			viewport={{ amount: 0.4, once: false }} // 👈 visible à 40% du composant
-			className={`bg-[#121212] p-8 rounded-2xl flex flex-col ${bestSeller && "border border-primary/50"}`}
+			className={`bg-[#121212] relative p-8 rounded-2xl flex flex-col ${bestSeller && "border border-primary/50"}`}
 		>
+			{/* Best Seller */}
+			{/* {bestSeller && <div className="absolute">Best-seller</div>} */}
+
 			{/* Header */}
 			<div className="flex flex-col justify-between text-center">
 				<div className="text-primary font-semibold title-font mb-4">
