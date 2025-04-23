@@ -136,7 +136,9 @@
 		line-height: 1.1;
 	}
 	h3 {
+		font-family: var(--title-font);
 		font-size: var(--text-xl);
+		font-weight: 600;
 		margin-top: 0.75rem;
 		margin-bottom: 0.5rem;
 		line-height: 1.1;
