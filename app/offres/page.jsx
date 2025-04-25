@@ -1,6 +1,8 @@
+import Outils from "@/components/offres/Outils";
 import PriceCards from "@/components/offres/prices/PriceCards";
 import TextIntro from "@/components/offres/TextIntro";
 import UserWithIcon from "@/components/offres/UserWithIcon";
+import { VelocityText } from "@/components/offres/VelocityText";
 import Button from "@/components/ui/Button";
 import PageHero from "@/components/ui/PageHero";
 import VanishParagraphs from "@/components/ui/VanishParagraphs";
@@ -44,25 +46,11 @@ export default async function OffresPage() {
 				</h2> */}
 				<VanishParagraphs>
 					<h2 className="title-text text-2xl sm:text-3xl md:sm:text-4xl font-semibold">
-						Réalisons ensemble votre site,
+						Chaque site web est unique,
 					</h2>
 					<h3 className="title-text text-xl sm:text-2xl md:sm:text-3xl text-neutral-500 font-semibold mb-8">
-						doté de toutes les fonctionnalités dont vous et vos
-						clients avez besoin.
+						car chaque entreprise l'est également.
 					</h3>
-
-					<p>
-						Selon votre profil et votre budget, plusieurs options
-						s’offrent à vous. Quel que soit le pack choisi, votre
-						site sera personnalisé pour épouser vos besoins et ceux
-						de vos clients.
-					</p>
-					<p>
-						Dans le futur, il sera envisageable de développer de
-						nouvelles fonctionnalités pour l’adapter aux évolutions
-						de votre activité. Chaque site web est unique, car
-						chaque entreprise l'est également.
-					</p>
 					<p>
 						Soyez exigeant : nous créons ainsi votre site «
 						sur-mesure », afin qu'il vous habille comme un vêtement
@@ -76,6 +64,8 @@ export default async function OffresPage() {
 					Découvrez nos projets
 				</Button>
 			</div>
+			{/* <VelocityText />
+			<Outils /> */}
 			<UserWithIcon />
 		</>
 	);
