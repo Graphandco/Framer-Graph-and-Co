@@ -19,6 +19,7 @@
 		"@types/mdx": "^2.0.13",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
+		"critters": "^0.0.25",
 		"framer-motion": "^12.6.3",
 		"fs": "^0.0.1-security",
 		"gray-matter": "^4.0.3",
