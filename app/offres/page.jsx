@@ -3,7 +3,9 @@ import PriceCards from "@/components/offres/prices/PriceCards";
 import TextIntro from "@/components/offres/TextIntro";
 import UserWithIcon from "@/components/offres/UserWithIcon";
 import { VelocityText } from "@/components/offres/VelocityText";
+import Button from "@/components/ui/Button";
 import PageHero from "@/components/ui/PageHero";
+import VanishParagraphs from "@/components/ui/VanishParagraphs";
 
 export const metadata = {
 	title: "Nos offres | Graph and Co",
@@ -37,13 +39,12 @@ export default async function OffresPage() {
 			/>
 			<TextIntro />
 			<PriceCards />
-			{/*
-			<div className="info wrapper-small pt-12 sm:pt-24">
-				 <h2 className="text-2xl title-font font-semibold mb-10">
+			<div className="info wrapper-small py-12 sm:py-24">
+				{/* <h2 className="text-2xl title-font font-semibold mb-10">
 					Réalisons ensemble votre site, doté de toutes les
 					fonctionnalités dont vous et vos clients avez besoin.
 				</h2> */}
-			{/* <VanishParagraphs>
+				<VanishParagraphs>
 					<h2 className="title-text text-2xl sm:text-3xl md:sm:text-4xl font-semibold">
 						Chaque site web est unique,
 					</h2>
@@ -58,15 +59,14 @@ export default async function OffresPage() {
 						correspond. Jetez un oeil à quelques unes de nos
 						créations pour vous aider à définir vos besoins.
 					</p>
-				</VanishParagraphs> 
+				</VanishParagraphs>
 				<Button icon={null} href="/projets" className="mt-8">
 					Découvrez nos projets
 				</Button>
 			</div>
-         */}
-			<VelocityText />
+			{/* <VelocityText />
+			<Outils /> */}
 			<UserWithIcon />
-			<Outils />
 		</>
 	);
 }

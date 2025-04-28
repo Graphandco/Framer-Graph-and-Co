@@ -93,9 +93,9 @@ const TranslateWrapper = ({ children, reverse }) => {
 
 const LogoItem = ({ Icon, name }) => {
 	return (
-		<span className="flex items-center justify-center gap-1 px-2 sm:px-4 py-2 sm:py-4">
-			<Icon className="text-xl sm:text-2xl text-primary md:text-3xl" />
-			<span className="whitespace-nowrap text-lg sm:text-xl font-semibold uppercase md:text-2xl mix-blend-exclusion">
+		<span className="flex items-center justify-center gap-1 px-4 py-2 md:py-4">
+			<Icon className="text-2xl text-primary md:text-3xl" />
+			<span className="whitespace-nowrap text-xl font-semibold uppercase md:text-2xl mix-blend-exclusion">
 				{name}
 			</span>
 		</span>
