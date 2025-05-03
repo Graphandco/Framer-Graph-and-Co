@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import { FaQuoteLeft } from "react-icons/fa";
-import FadeInOnView from "@/components/ui/FadeInOnView"; // adapte le chemin si besoin
+import FadeInOnView from "@/components/ui/FadeInOnView";
 import Button from "@/components/ui/Button";
-import Parallax from "@/components/ui/Parallax"; // adapte ce chemin selon ton projet
+import Parallax from "@/components/ui/Parallax";
 import { useRef } from "react";
 import DistortedSlider from "@/components/DistortedSlider";
+import ElfsightWidget from "@/components/ElfsightWidget";
 
 const Temoignage = () => {
 	const containerRef = useRef(null);
@@ -74,17 +75,20 @@ const Temoignage = () => {
 							</div>
 						</FadeInOnView>
 
-						<FadeInOnView delay={0.4}>
+						{/* <FadeInOnView delay={0.4}>
 							<Button
-								href="https://www.google.com/search?sca_esv=fccbee740c3569c2&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2Kzf6MYr6Dix-GSAblYyCQFImquqsxXSKWGuueYlXJcu_nOOnojgY0gkfQj8pUzftYs-5kRIK_tZ3RLuHvXrzbEaUCLgoS&q=Graph+and+Co+Reviews&sa=X&ved=2ahUKEwjJ2-eT4cWMAxVYKvsDHXmJOyYQ0bkNegQIORAE&biw=1450&bih=867&dpr=2"
-								blank
-								className="mt-8"
+                     href="https://www.google.com/search?sca_esv=fccbee740c3569c2&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2Kzf6MYr6Dix-GSAblYyCQFImquqsxXSKWGuueYlXJcu_nOOnojgY0gkfQj8pUzftYs-5kRIK_tZ3RLuHvXrzbEaUCLgoS&q=Graph+and+Co+Reviews&sa=X&ved=2ahUKEwjJ2-eT4cWMAxVYKvsDHXmJOyYQ0bkNegQIORAE&biw=1450&bih=867&dpr=2"
+                     blank
+                     className="mt-8"
 							>
-								Voir plus d'avis
+                     Voir plus d'avis
 							</Button>
-						</FadeInOnView>
+                     </FadeInOnView> */}
 					</div>
 				</div>
+				<FadeInOnView delay={0.4} className="mt-16">
+					<ElfsightWidget />
+				</FadeInOnView>
 			</div>
 			{/* <DistortedSlider
 				images={[
