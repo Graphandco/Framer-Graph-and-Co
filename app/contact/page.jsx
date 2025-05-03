@@ -1,7 +1,6 @@
 import ContactForm from "@/components/contact/ContactForm";
 import ContactText from "@/components/contact/ContactText";
 import Tabs from "@/components/contact/Tabs";
-import BlockTextAppear from "@/components/ui/BlockTextAppear";
 import PageHero from "@/components/ui/PageHero";
 
 export const metadata = {

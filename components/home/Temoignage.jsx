@@ -86,9 +86,9 @@ const Temoignage = () => {
                      </FadeInOnView> */}
 					</div>
 				</div>
-				<FadeInOnView delay={0.4} className="mt-16">
+				<div className="mt-16">
 					<ElfsightWidget />
-				</FadeInOnView>
+				</div>
 			</div>
 			{/* <DistortedSlider
 				images={[
