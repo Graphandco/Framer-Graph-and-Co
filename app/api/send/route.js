@@ -8,7 +8,7 @@ export async function POST(req) {
 		const body = await req.json();
 
 		// 🔎 Debug : vérifie que les données sont bien reçues
-		console.log("Formulaire reçu :", body);
+		// console.log("Formulaire reçu :", body);
 
 		const { name, email, message } = body;
 

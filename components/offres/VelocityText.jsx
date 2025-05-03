@@ -54,7 +54,7 @@ export const VelocityText = () => {
 				</div>
 				<motion.p
 					style={{ skewX, x }}
-					className="origin-bottom-left pb-26 pl-12 whitespace-nowrap font-black! uppercase leading-[0.85] text-7xl md:leading-[0.85]"
+					className="origin-bottom-left pb-26 pl-12 whitespace-nowrap text-font font-black! uppercase leading-[0.85] text-7xl md:leading-[0.85]"
 				>
 					Design propre, performance assurée.
 				</motion.p>

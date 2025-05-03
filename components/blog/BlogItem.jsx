@@ -7,7 +7,7 @@ import Button from "../ui/Button";
 const BlogItem = ({ blog }) => {
 	const { title, description, slug, category, image, date } = blog;
 	const MotionImage = motion.create(Image);
-	console.log(blog);
+	// console.log(blog);
 
 	const formattedDate = new Date(date).toLocaleDateString("fr-FR", {
 		day: "2-digit",
