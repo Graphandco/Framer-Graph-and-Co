@@ -94,6 +94,7 @@ const Tab = ({ selected, title, setSelected, tabNum }) => {
       <motion.div
          className="group relative w-full"
          onHoverStart={() => setSelected(tabNum)}
+         onClick={() => setSelected(tabNum)}
          whileHover={{ scale: 1.02 }}
          transition={{ duration: 0.2 }}
       >
