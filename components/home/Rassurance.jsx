@@ -10,24 +10,24 @@ const Rassurance = () => {
       {
          name: "Interface utilisateur",
          description: "Un site internet unique, au design innovant et moderne",
-         image: "/rassurance/website.avif",
+         image: "/rassurance/interface-utilisateur.avif",
       },
       {
          name: "Expérience utilisateur",
          description: "Un site internet unique, au design innovant et moderne",
-         image: "/rassurance/branding.avif",
+         image: "/rassurance/experience-utilisateur.avif",
       },
       {
          name: "Sécurité",
          description:
             "Votre site est protégé, les données de vos visiteurs sont sécurisées",
-         image: "/rassurance/development.avif",
+         image: "/rassurance/securite.avif",
       },
       {
          name: "Accessibilité",
          description:
             "Un site accessible et intuitif sur tous les types de supports et tailles d'écrans",
-         image: "/rassurance/support.avif",
+         image: "/rassurance/accessibilite.avif",
       },
    ];
 
