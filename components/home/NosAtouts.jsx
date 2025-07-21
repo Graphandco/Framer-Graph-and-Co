@@ -130,7 +130,7 @@ const Tab = ({ selected, title, setSelected, tabNum }) => {
 
 const TabContent = ({ title, content, image }) => (
    <div className="w-full">
-      <div className="relative h-[500px] w-full rounded-xl bg-slate-800 shadow-xl overflow-hidden">
+      <div className="relative h-[300px] sm:h-[500px] w-full rounded-xl bg-slate-800 shadow-xl overflow-hidden">
          <div className="absolute inset-0">
             <Image src={image} alt={title} fill className="object-cover" />
             <div className="absolute inset-0 bg-black/50" />
