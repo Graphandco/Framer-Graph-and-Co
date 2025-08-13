@@ -68,7 +68,7 @@ const NosAtouts = () => {
                      ) : undefined;
                   })}
                </AnimatePresence>
-               <div className="w-full shrink-0 overflow-scroll">
+               <div className="w-full shrink-0 overflow-clip">
                   {FEATURES.map((tab, index) => {
                      return (
                         <Tab
@@ -92,10 +92,10 @@ const NosAtouts = () => {
 const Tab = ({ selected, title, setSelected, tabNum }) => {
    return (
       <motion.div
-         className="group relative w-full"
+         className="group relative w-full origin-left"
          onHoverStart={() => setSelected(tabNum)}
          onClick={() => setSelected(tabNum)}
-         whileHover={{ scale: 1.02 }}
+         whileHover={{ scale: 1.1, originX: 0 }}
          transition={{ duration: 0.2 }}
       >
          <motion.button
