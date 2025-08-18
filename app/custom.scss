@@ -175,76 +175,45 @@
       stroke-dasharray: 100%;
       stroke-dashoffset: 0%;
       transition:
-         transform 0.25s,
-         stroke-dashoffset 0.25s;
+         transform 0.35s cubic-bezier(0.68, -0.4, 0.32, 1.4),
+         stroke-dashoffset 0.35s cubic-bezier(0.68, -0.4, 0.32, 1.4);
       transform-origin: center;
       stroke-width: 2px;
    }
+
    .top {
       transform: translateY(-35%);
-      -webkit-transform: translateY(-35%);
-      -moz-transform: translateY(35%);
-      -ms-transform: translateY(35%);
-      -o-transform: translateY(35%);
    }
+
    .middle {
       transform: scaleX(1);
-      -webkit-transform: scaleX(1);
-      -moz-transform: scaleX(1);
-      -ms-transform: scaleX(1);
-      -o-transform: scaleX(1);
       transition:
-         opacity 0.3s,
-         transform 0.25s;
-      -webkit-transition:
-         opacity 0.25s,
-         transform 0.25s;
-      -moz-transition:
-         opacity 0.25s,
-         transform 0.25s;
-      -ms-transition:
-         opacity 0.25s,
-         transform 0.25s;
-      -o-transition:
-         opacity 0.25s,
-         transform 0.25s;
+         opacity 0.35s cubic-bezier(0.68, -0.4, 0.32, 1.4),
+         transform 0.35s cubic-bezier(0.68, -0.4, 0.32, 1.4);
    }
+
    .bottom {
       transform: translateY(33%);
-      -webkit-transform: translateY(33%);
-      -moz-transform: translateY(33%);
-      -ms-transform: translateY(33%);
-      -o-transform: translateY(33%);
       stroke-dasharray: 100%;
       stroke-dashoffset: 9px;
    }
+
    &:hover .bottom {
       stroke-dashoffset: 0%;
+      transition: stroke-dashoffset 0.35s cubic-bezier(0.68, -0.4, 0.32, 1.4);
    }
 
    &-open {
       .top {
          transform: rotate(45deg);
-         -webkit-transform: rotate(45deg);
-         -moz-transform: rotate(45deg);
-         -ms-transform: rotate(45deg);
-         -o-transform: rotate(45deg);
          stroke-linecap: round;
       }
       .middle {
          transform: scaleX(0.1);
-         -webkit-transform: scaleX(0.1);
-         -moz-transform: scaleX(0.1);
-         -ms-transform: scaleX(0.1);
-         -o-transform: scaleX(0.1);
          opacity: 0;
       }
       .bottom {
          transform: rotate(-45deg);
-         -webkit-transform: rotate(-45deg);
-         -moz-transform: rotate(-45deg);
-         -ms-transform: rotate(-45deg);
-         -o-transform: rotate(-45deg);
          stroke-linecap: round;
          stroke-dashoffset: 0%;
       }
