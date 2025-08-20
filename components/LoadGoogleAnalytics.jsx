@@ -18,7 +18,7 @@ export default function LoadGoogleAnalytics() {
             window.dataLayer.push(arguments);
          }
          gtag("js", new Date());
-         gtag("config", "G-345118589");
+         gtag("config", "G-8KZZ89ZK05");
       };
 
       // Attendre que la page soit complètement chargée
