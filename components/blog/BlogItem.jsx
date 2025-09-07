@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import NavLink from "../header/NavLink";
-import Button from "../ui/Button";
+// import NavLink from "../header/NavLink";
+// import Button from "../ui/Button";
+import RotatingButton from "../RotatingButton";
 
 const BlogItem = ({ blog }) => {
    const { title, description, slug, category, image, date } = blog;
@@ -25,10 +26,7 @@ const BlogItem = ({ blog }) => {
          whileHover="hover"
          className="relative flex flex-col justify-end overflow-hidden rounded-3xl "
       >
-         <NavLink
-            href={`/blog/${slug}`}
-            className="h-full flex flex-col relative"
-         >
+         <div className="h-full flex flex-col relative">
             <div className="absolute top-3 right-3 bg-primary py-0.5 px-2 rounded-full text-sm z-10 font-medium">
                {category}
             </div>
@@ -59,14 +57,22 @@ const BlogItem = ({ blog }) => {
                >
                   {title}
                </motion.div>
-               <div className="grow-1 text-black/40 font-medium leading-tight mb-8">
+               <div className="grow-1 text-black/40 font-medium leading-tight mb-2">
                   {description}
                </div>
-               <Button small icon={null}>
+               {/* <Button small icon={null}>
                   En savoir plus
-               </Button>
+               </Button> */}
+               <RotatingButton
+                  href={`/blog/${slug}`}
+                  text="En savoir plus "
+                  className="text-black"
+                  letterSpacing={1} // espacement entre lettres
+                  radius={32} // rayon de base
+                  hoverRadius={42}
+               />
             </div>
-         </NavLink>
+         </div>
       </motion.article>
    );
 };

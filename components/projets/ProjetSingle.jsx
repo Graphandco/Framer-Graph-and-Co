@@ -12,6 +12,7 @@ import { FaEye } from "react-icons/fa";
 import ProjetCarousel from "./ProjetCarousel";
 import { MdArrowOutward } from "react-icons/md";
 import { ArrowLeft, ArrowLeftCircleIcon } from "lucide-react";
+import NavLink from "../header/NavLink";
 
 const ProjetSingle = ({ fileContent }) => {
    const [mdxSource, setMdxSource] = useState(null);
@@ -52,7 +53,7 @@ const ProjetSingle = ({ fileContent }) => {
             >
                Retour aux projets
             </Button> */}
-            <a
+            <NavLink
                href="/projets"
                className="mt-3 mb-5 inline-flex items-center gap-1 underline group"
             >
@@ -61,7 +62,7 @@ const ProjetSingle = ({ fileContent }) => {
                   className="transition-transform duration-200 group-hover:-translate-x-1.5"
                />
                Retour aux projets
-            </a>
+            </NavLink>
             <h2 className="text-4xl font-bold mb-5">
                {frontmatter.description}
             </h2>
