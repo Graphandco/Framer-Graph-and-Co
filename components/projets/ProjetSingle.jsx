@@ -78,18 +78,17 @@ const ProjetSingle = ({ fileContent }) => {
             {images.length > 0 && (
                <>
                   <div className="text-2xl text-center pt-8 pb-5">
-                     Découvrez{" "}
+                     Plongez dans l'univers de{" "}
                      <a
                         href={frontmatter.url}
                         target="blank"
-                        className="text-neutral-500 hover:text-primary transition-colors"
+                        className="text-primary hover:scale-105 inline-block transition-transform origin-left group duration-200"
                      >
                         {frontmatter.title}
                         <sup>
-                           <MdArrowOutward className="inline" />
+                           <MdArrowOutward className="inline group-hover:rotate-45 group-hover:-translate-x-2 origin-bottom transition-transform duration-200" />
                         </sup>
-                     </a>{" "}
-                     en images !
+                     </a>
                   </div>
                   <ProjetCarousel images={images} />
                </>

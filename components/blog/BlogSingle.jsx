@@ -8,7 +8,7 @@ import PageHero from "../ui/PageHero";
 import Button from "../ui/Button";
 import { GrReturn } from "react-icons/gr";
 import Loading from "../Loading";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import NavLink from "../header/NavLink";
 
 const BlogSingle = ({ fileContent }) => {
@@ -57,6 +57,28 @@ const BlogSingle = ({ fileContent }) => {
             </Button> */}
             <h2 className="text-4xl mb-5">{frontmatter.description}</h2>
             <MDXRenderer source={mdxSource} />
+            <div className="mt-8 text-primary">
+               <NavLink
+                  href="/offres"
+                  className="mt-3 mb-5 flex items-center gap-1 underline group"
+               >
+                  Découvrez nos offres de création de sites
+                  <ArrowRight
+                     size={15}
+                     className="transition-transform duration-200 group-hover:translate-x-1.5"
+                  />
+               </NavLink>
+               <NavLink
+                  href="/projets"
+                  className="mt-3 mb-5 flex items-center gap-1 underline group"
+               >
+                  Consultez nos réalisations récentes{" "}
+                  <ArrowRight
+                     size={15}
+                     className="transition-transform duration-200 group-hover:translate-x-1.5"
+                  />
+               </NavLink>
+            </div>
          </div>
       </>
    );

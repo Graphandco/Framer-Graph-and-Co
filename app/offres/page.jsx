@@ -6,44 +6,44 @@ import { VelocityText } from "@/components/offres/VelocityText";
 import PageHero from "@/components/ui/PageHero";
 
 export const metadata = {
-	title: "Nos offres | Graph and Co",
-	description:
-		"Découvrez nos offres de création de sites web à Colmar : sites vitrines, e-commerce, solutions sur-mesure. Design soigné, fonctionnalités avancées, accompagnement personnalisé.",
-	openGraph: {
-		title: "Nos offres | Graph and Co",
-		description:
-			"Découvrez nos offres de création de sites web à Colmar : sites vitrines, e-commerce, solutions sur-mesure. Design soigné, fonctionnalités avancées, accompagnement personnalisé.",
-		url: "https://graphandco.com/offres",
-		images: [
-			{
-				url: "https://graphandco.com/og-image.jpg",
-				width: 1200,
-				height: 630,
-				alt: "Graph and Co - offres",
-			},
-		],
-		type: "website",
-	},
+   title: "Nos offres | Graph and Co",
+   description:
+      "Découvrez nos tarifs de création de sites web en Alsace : site vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
+   openGraph: {
+      title: "Nos offres | Graph and Co",
+      description:
+         "Découvrez nos tarifs de création de sites web en Alsace : site vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
+      url: "https://graphandco.com/offres",
+      images: [
+         {
+            url: "https://graphandco.com/og-image.jpg",
+            width: 1200,
+            height: 630,
+            alt: "Graph and Co - offres",
+         },
+      ],
+      type: "website",
+   },
 };
 
 export default async function OffresPage() {
-	return (
-		<>
-			<PageHero
-				title="Nos offres"
-				image="/offres/hero-offres.avif"
-				imageClass="object-cover object-top"
-				position="top"
-			/>
-			<TextIntro />
-			<PriceCards />
-			{/*
+   return (
+      <>
+         <PageHero
+            title="Nos offres"
+            image="/offres/hero-offres.avif"
+            imageClass="object-cover object-top"
+            position="top"
+         />
+         <TextIntro />
+         <PriceCards />
+         {/*
 			<div className="info wrapper-small pt-12 sm:pt-24">
 				 <h2 className="text-2xl title-font font-semibold mb-10">
 					Réalisons ensemble votre site, doté de toutes les
 					fonctionnalités dont vous et vos clients avez besoin.
 				</h2> */}
-			{/* <VanishParagraphs>
+         {/* <VanishParagraphs>
 					<h2 className="title-text text-2xl sm:text-3xl md:sm:text-4xl font-semibold">
 						Chaque site web est unique,
 					</h2>
@@ -64,9 +64,9 @@ export default async function OffresPage() {
 				</Button>
 			</div>
          */}
-			<VelocityText />
-			<UserWithIcon />
-			<Outils />
-		</>
-	);
+         <VelocityText />
+         <UserWithIcon />
+         <Outils />
+      </>
+   );
 }

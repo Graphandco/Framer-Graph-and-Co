@@ -8,13 +8,13 @@ import { StickySection } from "@/components/home/StickySection";
 import Temoignage from "@/components/home/Temoignage";
 
 export const metadata = {
-   title: "Création de sites Web | Graph and Co",
+   title: "Agence Web Alsace | Création Sites Internet Colmar | Graph & Co",
    description:
-      "Agence web à Colmar spécialisée dans la création de sites sur mesure. Graph and Co conçoit des sites rapides, esthétiques et orientés expérience utilisateur.",
+      "Agence web en Alsace spécialisée dans la création de sites internet sur-mesure. Design moderne, performances optimales et accompagnement personnalisé à Colmar.",
    openGraph: {
-      title: "Création de sites Web | Graph and Co",
+      title: "Agence Web Alsace | Création Sites Internet Colmar | Graph & Co",
       description:
-         "Vous avez un projet de site web sur-mesure ? Graph and Co vous accompagne avec une approche esthétique, rapide et pensée pour vos utilisateurs. Discutons-en !",
+         "Agence web en Alsace spécialisée dans la création de sites internet sur-mesure. Design moderne, performances optimales et accompagnement personnalisé à Colmar.",
       url: "https://graphandco.com/contact",
       images: [
          {
