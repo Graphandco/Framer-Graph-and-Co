@@ -23,7 +23,7 @@ const nextConfig = {
 
    // 🚀 NOUVELLES OPTIMISATIONS DE PERFORMANCE
    experimental: {
-      optimizeCss: true, // Active l'optimisation CSS
+      // optimizeCss: true, // Active l'optimisation CSS
       cssChunking: "strict", // Chunking CSS optimisé
    },
 
