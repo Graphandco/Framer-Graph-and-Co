@@ -52,6 +52,10 @@ export default function RootLayout({ children }) {
             <body
                className={`${outfit.variable} ${urbanist.variable} antialiased`}
             >
+               {process.env.NEXT_PUBLIC_ENVIRONMENT === "DEV" && (
+                  <div className="fixed inset-0 outline-4 outline-red-500 z-50"></div>
+               )}
+
                <Header />
                <main className="relative z-10 bg-white">{children}</main>
                <ScrollToTopButton />
