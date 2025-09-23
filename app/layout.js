@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
                className={`${outfit.variable} ${urbanist.variable} antialiased`}
             >
                {process.env.NEXT_PUBLIC_ENVIRONMENT === "DEV" && (
-                  <div className="fixed inset-0 outline-4 outline-red-500 z-50"></div>
+                  <div className="fixed inset-0 outline-4 -outline-offset-4 outline-primary z-50"></div>
                )}
 
                <Header />
