@@ -83,7 +83,7 @@ const Hero = () => {
                   style={{ y: yTitle }}
                   className="text-10xl title-font text-white font-semibold leading-[0.8] xs:mix-blend-exclusion"
                >
-                  {process.env.NEXT_PUBLIC_ENVIRONMENT === "dev"
+                  {process.env.NEXT_PUBLIC_ENVIRONMENT === "DEV"
                      ? "Sandbox"
                      : "Graph & Co"}
                </motion.div>
