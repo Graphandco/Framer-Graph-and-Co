@@ -44,12 +44,11 @@ const nextConfig = {
 
    webpack: (config, { dev, isServer }) => {
       if (!dev && !isServer) {
-         // Optimisation JavaScript moderne
-         config.resolve.alias = {
-            ...config.resolve.alias,
-            // Utilise les versions ES modules quand disponibles
-            "framer-motion": "framer-motion/dist/es",
-         };
+         // ❌ SUPPRIMÉ - Alias problématique
+         // config.resolve.alias = {
+         //    ...config.resolve.alias,
+         //    "framer-motion": "framer-motion/dist/es",
+         // };
 
          // Target ES2020+ pour éviter la transpilation
          config.target = ["web", "es2020"];
