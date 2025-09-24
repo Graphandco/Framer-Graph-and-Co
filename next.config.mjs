@@ -23,11 +23,12 @@ const nextConfig = {
    experimental: {
       // optimizeCss: true, // Commenté si problème avec critters
       cssChunking: "strict",
-
       // Optimisations JavaScript modernes
       esmExternals: true, // Utilise les modules ES natifs
-      serverComponentsExternalPackages: [], // Optimise les server components
    },
+
+   // ✅ DÉPLACÉ HORS DE EXPERIMENTAL (Next.js 15+)
+   serverExternalPackages: [], // Optimise les server components
 
    // Configuration de transpilation moderne
    transpilePackages: [], // Évite la transpilation inutile
