@@ -94,7 +94,7 @@ const Hero = () => {
                   style={{ y: yDesc }}
                   className="text-4xl title-font text-white font-medium leading-[0.8] xs:mix-blend-exclusion"
                >
-                  Création de sites web professionnels en Alsace
+                  Création de sites web professionnels à Colmar
                </motion.h1>
                <div className="text-white max-w-md">
                   Nous sommes spécialisés dans la réalisation de sites web.
