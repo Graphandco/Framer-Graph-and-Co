@@ -6,6 +6,7 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import LoadGoogleAnalytics from "@/components/LoadGoogleAnalytics";
+import ConsentManager from "./consent-manager";
 // import { GoogleAnalytics } from "@next/third-parties/google";
 
 const outfit = Outfit({
@@ -19,20 +20,20 @@ const urbanist = Urbanist({
 });
 
 export const metadata = {
-   title: "Création de sites Web | Graph and Co",
+   title: "Création Site Web Colmar - Agence Web Sur-Mesure | Graph & Co",
    description:
-      "Agence web à Colmar spécialisée dans la création de sites sur mesure. Graph and Co conçoit des sites rapides, esthétiques et orientés expérience utilisateur.",
+      "Agence web à Colmar spécialisée dans la création de sites sur mesure. Graph & Co conçoit des sites rapides, esthétiques et orientés expérience utilisateur.",
    openGraph: {
-      title: "Création de sites Web | Graph and Co",
+      title: "Création Site Web Colmar - Agence Web Sur-Mesure | Graph & Co",
       description:
-         "Agence web à Colmar spécialisée dans la création de sites sur mesure. Graph and Co conçoit des sites rapides, esthétiques et orientés expérience utilisateur.",
+         "Agence web à Colmar spécialisée dans la création de sites sur mesure. Graph & Co conçoit des sites rapides, esthétiques et orientés expérience utilisateur.",
       url: "https://graphandco.com",
       images: [
          {
             url: "https://graphandco.com/og-image.jpg",
             width: 1200,
             height: 630,
-            alt: "Graph and Co - accueil",
+            alt: "Graph & Co - accueil",
          },
       ],
       type: "website",
@@ -51,16 +52,19 @@ export default function RootLayout({ children }) {
             {/* <BodyClassHandler> */}
             <body
                className={`${outfit.variable} ${urbanist.variable} antialiased`}
+               suppressHydrationWarning={true}
             >
-               {process.env.NEXT_PUBLIC_ENVIRONMENT === "DEV" && (
-                  <div className="fixed inset-0 outline-4 -outline-offset-4 outline-primary z-50 pointer-events-none"></div>
-               )}
+               <ConsentManager>
+                  {process.env.NEXT_PUBLIC_ENVIRONMENT === "DEV" && (
+                     <div className="fixed inset-0 outline-4 -outline-offset-4 outline-primary z-50 pointer-events-none"></div>
+                  )}
 
-               <Header />
-               <main className="relative z-10 bg-white">{children}</main>
-               <ScrollToTopButton />
-               <Footer />
-               <LoadGoogleAnalytics />
+                  <Header />
+                  <main className="relative z-10 bg-white">{children}</main>
+                  <ScrollToTopButton />
+                  <Footer />
+                  <LoadGoogleAnalytics />
+               </ConsentManager>
             </body>
             {/* <GoogleAnalytics gaId="G-345118589" /> */}
             {/* </BodyClassHandler> */}

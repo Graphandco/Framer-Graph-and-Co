@@ -102,3 +102,126 @@
       text-wrap: pretty;
    }
 }
+
+/* ===== C15T CONSENT MANAGER DIALOG - STYLES PERSONNALISÉS ===== */
+@layer components {
+   /* Modal principal */
+   [data-testid="consent-manager-dialog-root"] {
+      @apply bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-hidden;
+   }
+
+   /* Header du modal */
+   [data-testid="consent-manager-dialog-header"] {
+      @apply px-6 py-4 border-b border-gray-200;
+   }
+
+   /* Titre du modal */
+   [data-testid="consent-manager-dialog-title"] {
+      @apply text-2xl font-bold text-foreground;
+   }
+
+   /* Description du modal */
+   [data-testid="consent-manager-dialog-description"] {
+      @apply text-gray-600 mt-2;
+   }
+
+   /* Contenu du modal */
+   [data-testid="consent-manager-dialog-content"] {
+      @apply px-6 py-4 overflow-y-auto max-h-[calc(90vh-200px)];
+   }
+
+   /* Footer du modal */
+   [data-testid="consent-manager-dialog-footer"] {
+      @apply px-6 py-4 border-t border-gray-200 flex justify-end gap-3 bg-gray-50;
+   }
+
+   /* Boutons du modal - style de base */
+   [data-testid="consent-manager-dialog-footer"] button {
+      @apply px-4 py-2 rounded-md font-medium transition-colors border;
+   }
+
+   /* Supprimer le texte bleu par défaut dans c15t */
+   [data-c15t] button,
+   [class*="c15t"] button,
+   [class*="c15t"] a {
+      color: inherit !important;
+   }
+
+   /* Remplacer tous les box-shadow bleus par noir */
+   [data-c15t] button:focus,
+   [class*="c15t"] button:focus,
+   button[data-testid*="cookie"]:focus,
+   button[data-testid*="consent"]:focus {
+      outline: none !important;
+      box-shadow: 0 0 0 2px black !important;
+   }
+
+   /* Bouton "Tout refuser" - style secondaire */
+   button[data-testid="cookie-banner-reject-button"],
+   button[data-testid="consent-manager-dialog-reject-button"] {
+      background-color: rgb(229, 231, 235) !important;
+      color: var(--foreground) !important;
+      border-color: rgb(209, 213, 219) !important;
+      @apply hover:!bg-gray-300;
+   }
+
+   /* Bouton "Tout accepter" - mis en avant avec couleur primaire */
+   button[data-testid="cookie-banner-accept-button"],
+   button[data-testid="consent-manager-dialog-accept-button"] {
+      background-color: var(--primary) !important;
+      color: var(--primary-foreground) !important;
+      border-color: var(--primary) !important;
+      @apply hover:opacity-90 !font-semibold !shadow-md;
+      font-weight: 600 !important;
+   }
+
+   /* Bouton "Paramétrer" - bordure grise, sans box-shadow par défaut */
+   button[data-testid="cookie-banner-customize-button"],
+   button[data-testid="consent-manager-dialog-customize-button"],
+   button[class*="c15t-button-primary-stroke"]:not([data-testid*="accept"]) {
+      background-color: white !important;
+      color: var(--foreground) !important;
+      border: 1px solid rgb(209, 213, 219) !important;
+      box-shadow: none !important;
+      filter: none !important;
+      @apply hover:!bg-gray-50;
+   }
+
+   /* Forcer l'absence de box-shadow sur le bouton "Paramétrer" par défaut (sans focus) */
+   button[data-testid="cookie-banner-customize-button"]:not(:focus),
+   button[data-testid="consent-manager-dialog-customize-button"]:not(:focus),
+   button[class*="c15t-button-primary-stroke"]:not(:focus):not(
+         [data-testid*="accept"]
+      ) {
+      box-shadow: none !important;
+   }
+
+   /* Assurer que le bouton "Paramétrer" a aussi le box-shadow noir au focus */
+   button[data-testid="cookie-banner-customize-button"]:focus,
+   button[data-testid="consent-manager-dialog-customize-button"]:focus,
+   button[class*="c15t-button-primary-stroke"]:focus:not(
+         [data-testid*="accept"]
+      ) {
+      outline: none !important;
+      box-shadow: 0 0 0 2px black !important;
+   }
+
+   /* Bouton "Enregistrer" - style primaire */
+   button[data-testid="consent-manager-dialog-save-button"],
+   [data-testid="consent-manager-dialog-footer"] button[class*="save"] {
+      background-color: var(--primary) !important;
+      color: var(--primary-foreground) !important;
+      border-color: var(--primary) !important;
+      @apply hover:opacity-90 !font-semibold !shadow-md;
+   }
+
+   /* Overlay du modal */
+   [data-testid="consent-manager-dialog-overlay"] {
+      @apply bg-black/50 backdrop-blur-sm;
+   }
+
+   /* Styles spécifiques pour la bannière de cookies */
+   [class*="cookie-banner"] {
+      @apply shadow-lg;
+   }
+}

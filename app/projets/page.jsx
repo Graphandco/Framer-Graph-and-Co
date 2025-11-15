@@ -3,11 +3,11 @@ import { getMdxData } from "@/utils/mdxUtils";
 import ProjetsList from "@/components/projets/ProjetsList";
 
 export const metadata = {
-   title: "Portfolio & Réalisations Web | Projets Clients Alsace | Graph & Co",
+   title: "Portfolio Sites Web Colmar - Réalisations E-commerce & Vitrines | Graph & Co",
    description:
       "Découvrez nos réalisations de sites web à Colmar : projets sur-mesure, vitrines, e-commerce. Un aperçu concret de notre savoir-faire en design, UX et performance.",
    openGraph: {
-      title: "Portfolio & Réalisations Web | Projets Clients Alsace | Graph & Co",
+      title: "Portfolio Sites Web Colmar - Réalisations E-commerce & Vitrines | Graph & Co",
       description:
          "Découvrez nos réalisations de sites web à Colmar : projets sur-mesure, vitrines, e-commerce. Un aperçu concret de notre savoir-faire en design, UX et performance.",
       url: "https://graphandco.com/projets",
@@ -16,7 +16,7 @@ export const metadata = {
             url: "https://graphandco.com/og-image.jpg",
             width: 1200,
             height: 630,
-            alt: "Graph and Co - projets",
+            alt: "Graph & Co - projets",
          },
       ],
       type: "website",
@@ -27,7 +27,10 @@ export default async function ProjectsPage() {
    const data = await getMdxData("markdown/projets");
    return (
       <>
-         <PageHero title="Nos projets" image="/projets/hero-projets.avif" />
+         <PageHero
+            title="Les projets de sites web de votre agence à Colmar"
+            image="/projets/hero-projets.avif"
+         />
 
          <ProjetsList projects={data} />
       </>

@@ -92,9 +92,10 @@ const Hero = () => {
             <div className="relative mt-8 space-y-4">
                <motion.h1
                   style={{ y: yDesc }}
-                  className="text-4xl title-font text-white font-medium leading-[0.8] xs:mix-blend-exclusion"
+                  className="text-4xl title-font text-white font-medium leading-[0.9] xs:mix-blend-exclusion"
                >
-                  Création de sites web professionnels à Colmar
+                  Votre agence web à Colmar - Création de sites internet
+                  sur-mesure
                </motion.h1>
                <div className="text-white max-w-md">
                   Nous sommes spécialisés dans la réalisation de sites web.
