@@ -147,6 +147,15 @@
       color: inherit !important;
    }
 
+   /* Remplacer tous les box-shadow bleus par noir */
+   [data-c15t] button:focus,
+   [class*="c15t"] button:focus,
+   button[data-testid*="cookie"]:focus,
+   button[data-testid*="consent"]:focus {
+      outline: none !important;
+      box-shadow: 0 0 0 2px black !important;
+   }
+
    /* Bouton "Tout refuser" - style secondaire */
    button[data-testid="cookie-banner-reject-button"],
    button[data-testid="consent-manager-dialog-reject-button"] {
@@ -166,7 +175,7 @@
       font-weight: 600 !important;
    }
 
-   /* Bouton "Paramétrer" - sans box-shadow bleue, bordure grise */
+   /* Bouton "Paramétrer" - bordure grise, sans box-shadow par défaut */
    button[data-testid="cookie-banner-customize-button"],
    button[data-testid="consent-manager-dialog-customize-button"],
    button[class*="c15t-button-primary-stroke"]:not([data-testid*="accept"]) {
@@ -174,7 +183,27 @@
       color: var(--foreground) !important;
       border: 1px solid rgb(209, 213, 219) !important;
       box-shadow: none !important;
+      filter: none !important;
       @apply hover:!bg-gray-50;
+   }
+
+   /* Forcer l'absence de box-shadow sur le bouton "Paramétrer" par défaut (sans focus) */
+   button[data-testid="cookie-banner-customize-button"]:not(:focus),
+   button[data-testid="consent-manager-dialog-customize-button"]:not(:focus),
+   button[class*="c15t-button-primary-stroke"]:not(:focus):not(
+         [data-testid*="accept"]
+      ) {
+      box-shadow: none !important;
+   }
+
+   /* Assurer que le bouton "Paramétrer" a aussi le box-shadow noir au focus */
+   button[data-testid="cookie-banner-customize-button"]:focus,
+   button[data-testid="consent-manager-dialog-customize-button"]:focus,
+   button[class*="c15t-button-primary-stroke"]:focus:not(
+         [data-testid*="accept"]
+      ) {
+      outline: none !important;
+      box-shadow: 0 0 0 2px black !important;
    }
 
    /* Bouton "Enregistrer" - style primaire */
