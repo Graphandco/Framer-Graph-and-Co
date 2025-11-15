@@ -6,20 +6,20 @@ import { VelocityText } from "@/components/offres/VelocityText";
 import PageHero from "@/components/ui/PageHero";
 
 export const metadata = {
-   title: "Nos offres | Graph and Co",
+   title: "Tarifs Création Site Web Colmar - Offres Vitrine & E-commerce | Graph & Co",
    description:
-      "Découvrez nos tarifs de création de sites web en Alsace : site vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
+      "Découvrez nos tarifs de création de sites web à Colmar : site vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
    openGraph: {
-      title: "Nos offres | Graph and Co",
+      title: "Tarifs Création Site Web Colmar - Offres Vitrine & E-commerce | Graph & Co",
       description:
-         "Découvrez nos tarifs de création de sites web en Alsace : site vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
+         "Découvrez nos tarifs de création de sites web à Colmar : site vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
       url: "https://graphandco.com/offres",
       images: [
          {
             url: "https://graphandco.com/og-image.jpg",
             width: 1200,
             height: 630,
-            alt: "Graph and Co - offres",
+            alt: "Graph & Co - offres",
          },
       ],
       type: "website",
@@ -30,7 +30,7 @@ export default async function OffresPage() {
    return (
       <>
          <PageHero
-            title="Nos offres"
+            title="Découvrez nos offres de création de sites web à Colmar"
             image="/offres/hero-offres.avif"
             imageClass="object-cover object-top"
             position="top"
