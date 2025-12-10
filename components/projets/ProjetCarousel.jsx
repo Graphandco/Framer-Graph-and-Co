@@ -24,14 +24,27 @@ export default function ProjetCarousel({ images = [] }) {
    };
 
    useEffect(() => {
-      if (!AUTO_SCROLL || isPaused || imageCount === 0) return;
+      if (!AUTO_SCROLL || isPaused || imageCount === 0) {
+         if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+         }
+         return;
+      }
 
       intervalRef.current = setInterval(() => {
-         paginate(1);
+         setIndex((prev) => (prev + 1) % imageCount);
+         setDirection(1);
+         setProgressKey((prev) => prev + 1);
       }, SCROLL_INTERVAL);
 
-      return () => clearInterval(intervalRef.current);
-   }, [index, isPaused, imageCount]);
+      return () => {
+         if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+         }
+      };
+   }, [isPaused, imageCount]); // Retiré 'index' des dépendances pour éviter la boucle infinie
 
    const variants = {
       enter: (direction) => ({

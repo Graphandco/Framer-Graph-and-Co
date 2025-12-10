@@ -6,7 +6,7 @@ import FadeInOnView from "@/components/ui/FadeInOnView";
 import Button from "@/components/ui/Button";
 import Parallax from "@/components/ui/Parallax";
 import { useRef } from "react";
-import DistortedSlider from "@/components/DistortedSlider";
+// import DistortedSlider from "@/components/DistortedSlider"; // Commenté car non utilisé
 import ElfsightWidget from "@/components/ElfsightWidget";
 
 const Temoignage = () => {

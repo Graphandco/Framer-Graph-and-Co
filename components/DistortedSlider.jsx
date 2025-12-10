@@ -159,7 +159,7 @@ export default function DistortedSlider({ images }) {
 		};
 
 		// === Events ===
-		window.addEventListener("keydown", (e) => {
+		const handleKeydown = (e) => {
 			if (e.key === "ArrowLeft") {
 				targetPositionRef.current += slideUnit;
 				targetDistortionFactorRef.current = Math.min(
@@ -173,11 +173,9 @@ export default function DistortedSlider({ images }) {
 					targetDistortionFactorRef.current + 0.3
 				);
 			}
-		});
+		};
 
-		window.addEventListener(
-			"wheel",
-			(e) => {
+		const handleWheel = (e) => {
 				e.preventDefault();
 				const wheelStrength = Math.abs(e.deltaY) * 0.001;
 				targetDistortionFactorRef.current = Math.min(
@@ -195,17 +193,15 @@ export default function DistortedSlider({ images }) {
 				window.scrollTimeout = setTimeout(() => {
 					isScrolling = false;
 				}, 150);
-			},
-			{ passive: false }
-		);
+		};
 
-		window.addEventListener("touchstart", (e) => {
+		const handleTouchstart = (e) => {
 			touchStartX = e.touches[0].clientX;
 			touchLastX = touchStartX;
 			isScrolling = false;
-		});
+		};
 
-		window.addEventListener("touchmove", (e) => {
+		const handleTouchmove = (e) => {
 			e.preventDefault();
 			const touchX = e.touches[0].clientX;
 			const deltaX = touchX - touchLastX;
@@ -217,9 +213,9 @@ export default function DistortedSlider({ images }) {
 			);
 			targetPositionRef.current -= deltaX * settings.touchSensitivity;
 			isScrolling = true;
-		});
+		};
 
-		window.addEventListener("touchend", () => {
+		const handleTouchend = () => {
 			const velocity = (touchLastX - touchStartX) * 0.005;
 			if (Math.abs(velocity) > 0.5) {
 				autoScrollSpeed =
@@ -233,16 +229,29 @@ export default function DistortedSlider({ images }) {
 					isScrolling = false;
 				}, 800);
 			}
-		});
+		};
 
-		window.addEventListener("resize", () => {
+		const handleResize = () => {
 			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
 			renderer.setSize(window.innerWidth, window.innerHeight);
-		});
+		};
+
+		// Ajouter les event listeners
+		window.addEventListener("keydown", handleKeydown);
+		window.addEventListener("wheel", handleWheel, { passive: false });
+		window.addEventListener("touchstart", handleTouchstart);
+		window.addEventListener("touchmove", handleTouchmove);
+		window.addEventListener("touchend", handleTouchend);
+		window.addEventListener("resize", handleResize);
+
+		let animationFrameId = null;
+		let isAnimating = true;
 
 		const animate = (time) => {
-			requestAnimationFrame(animate);
+			if (!isAnimating) return;
+			
+			animationFrameId = requestAnimationFrame(animate);
 
 			const deltaTime = lastTime ? (time - lastTime) / 1000 : 0.016;
 			lastTime = time;
@@ -324,8 +333,25 @@ export default function DistortedSlider({ images }) {
 		animate();
 
 		return () => {
+			isAnimating = false;
+			if (animationFrameId !== null) {
+				cancelAnimationFrame(animationFrameId);
+			}
+			// Nettoyer les event listeners
+			window.removeEventListener("keydown", handleKeydown);
+			window.removeEventListener("wheel", handleWheel);
+			window.removeEventListener("touchstart", handleTouchstart);
+			window.removeEventListener("touchmove", handleTouchmove);
+			window.removeEventListener("touchend", handleTouchend);
+			window.removeEventListener("resize", handleResize);
+			if (window.scrollTimeout) {
+				clearTimeout(window.scrollTimeout);
+			}
 			renderer.dispose();
-			slides.forEach((slide) => slide.geometry.dispose());
+			slides.forEach((slide) => {
+				if (slide.geometry) slide.geometry.dispose();
+				if (slide.material) slide.material.dispose();
+			});
 		};
 	}, [images]);
 
