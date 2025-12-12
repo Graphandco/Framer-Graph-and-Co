@@ -25,17 +25,21 @@ export default function VanishParagraphs({ children }) {
 				});
 
 				split.lines.forEach((line) => {
-					const content = line.innerHTML;
-					line.innerHTML = `
-            <span style="
-              display: block;
-              transform: translateY(100%);
-              opacity: 0;
-              clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-            ">
-              ${content}
-            </span>
-          `;
+					// Utiliser textContent pour éviter les risques XSS
+					// Si le contenu contient du HTML, il sera converti en texte
+					const content = line.textContent || line.innerText || "";
+					
+					// Créer un span de manière sécurisée
+					const span = document.createElement("span");
+					span.style.display = "block";
+					span.style.transform = "translateY(100%)";
+					span.style.opacity = "0";
+					span.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
+					span.textContent = content;
+					
+					// Vider la ligne et ajouter le span
+					line.innerHTML = "";
+					line.appendChild(span);
 				});
 			});
 

@@ -1,19 +1,20 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const ChangingText = () => {
-	const phrases = ["Élégant", "Sécurisé", "Accessible", "Performant"];
+const PHRASES = ["Élégant", "Sécurisé", "Accessible", "Performant"];
 
+const ChangingText = () => {
 	const [active, setActive] = useState(0);
+	const phrasesLength = useMemo(() => PHRASES.length, []);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setActive((prev) => (prev + 1) % phrases.length);
+			setActive((prev) => (prev + 1) % phrasesLength);
 		}, 2000);
 
 		return () => clearInterval(interval);
-	}, [phrases.length]);
+	}, [phrasesLength]);
 
 	return (
 		<div className="bg-black px-4 text-center overflow-hidden">
@@ -24,7 +25,7 @@ const ChangingText = () => {
 				<div className="relative h-[2.5em] w-full text-white/50">
 					<AnimatePresence mode="wait">
 						<motion.div
-							key={phrases[active]}
+							key={PHRASES[active]}
 							initial={{
 								y: 10,
 								opacity: 0,
@@ -46,7 +47,7 @@ const ChangingText = () => {
 							}}
 							className="absolute left-1/2 top-0 w-full -translate-x-1/2 text-white/50"
 						>
-							{phrases[active]}
+							{PHRASES[active]}
 						</motion.div>
 					</AnimatePresence>
 				</div>

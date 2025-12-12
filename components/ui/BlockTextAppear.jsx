@@ -18,8 +18,16 @@ const BlockTextAppear = ({ children }) => {
 			});
 
 			text.lines.forEach((line) => {
-				const content = line.innerHTML;
-				line.innerHTML = `<span>${content}</span>`;
+				// Utiliser textContent pour éviter les risques XSS
+				const content = line.textContent || line.innerText || "";
+				
+				// Créer un span de manière sécurisée
+				const span = document.createElement("span");
+				span.textContent = content;
+				
+				// Vider la ligne et ajouter le span
+				line.innerHTML = "";
+				line.appendChild(span);
 			});
 
 			gsap.set(".split-text p .line span", {
