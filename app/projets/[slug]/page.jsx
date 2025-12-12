@@ -6,8 +6,36 @@ import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
    const { slug } = await params;
+   
+   // Validation du slug pour prévenir Path Traversal
+   if (!slug || typeof slug !== "string" || /[\.\/\\]/.test(slug)) {
+      return {
+         title: "Page non trouvée - Graph & Co",
+         description: "La page demandée n'existe pas.",
+      };
+   }
+   
    const filePath = path.join(process.cwd(), "markdown/projets", `${slug}.mdx`);
-   const fileContent = fs.readFileSync(filePath, "utf-8");
+   
+   // Vérification supplémentaire : s'assurer que le chemin résolu est bien dans le répertoire attendu
+   const resolvedPath = path.resolve(filePath);
+   const allowedDir = path.resolve(process.cwd(), "markdown/projets");
+   if (!resolvedPath.startsWith(allowedDir)) {
+      return {
+         title: "Page non trouvée - Graph & Co",
+         description: "La page demandée n'existe pas.",
+      };
+   }
+   
+   let fileContent;
+   try {
+      fileContent = fs.readFileSync(filePath, "utf-8");
+   } catch (error) {
+      return {
+         title: "Page non trouvée - Graph & Co",
+         description: "La page demandée n'existe pas.",
+      };
+   }
    const { data } = matter(fileContent);
    return {
       title: `${data.title} - Portfolio Web Colmar | Graph & Co`,
@@ -35,7 +63,19 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
    const { slug } = await params;
 
+   // Validation du slug pour prévenir Path Traversal
+   if (!slug || typeof slug !== "string" || /[\.\/\\]/.test(slug)) {
+      return notFound();
+   }
+
    const filePath = path.join(process.cwd(), "markdown/projets", `${slug}.mdx`);
+   
+   // Vérification supplémentaire : s'assurer que le chemin résolu est bien dans le répertoire attendu
+   const resolvedPath = path.resolve(filePath);
+   const allowedDir = path.resolve(process.cwd(), "markdown/projets");
+   if (!resolvedPath.startsWith(allowedDir)) {
+      return notFound();
+   }
 
    let fileContent;
    try {
