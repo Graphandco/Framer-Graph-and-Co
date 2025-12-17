@@ -3,57 +3,57 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 
-export default function SiteSurMesure() {
-	const ref = useRef(null);
+export default function SiteSurMesure({ data }) {
+   const ref = useRef(null);
 
-	// Scroll progress : 0 = quand le haut de la section entre en bas de l'écran
-	//                   1 = quand le haut de la section atteint ~40% du viewport
-	const { scrollYProgress } = useScroll({
-		target: ref,
-		offset: ["start end", "start 20%"], // permet de raccourcir la plage d’animation
-	});
+   // Scroll progress : 0 = quand le haut de la section entre en bas de l'écran
+   //                   1 = quand le haut de la section atteint ~40% du viewport
+   const { scrollYProgress } = useScroll({
+      target: ref,
+      offset: ["start end", "start 20%"], // permet de raccourcir la plage d’animation
+   });
 
-	/**
-	 * BACKGROUND
-	 * Le fond noir commence à 100% (hors écran) et monte vers 0% (pleinement visible)
-	 * Le mapping [0.2, 0.8] signifie qu'on démarre le mouvement à 20% du scroll progress,
-	 * et on le termine à 80%, pour garder le fond centré quand scrollYProgress = 0.5
-	 */
-	const yBackground = useTransform(scrollYProgress, [0.5, 1], ["100%", "0%"]);
-	const smoothYBackground = useSpring(yBackground, {
-		stiffness: 100,
-		damping: 20,
-	});
+   /**
+    * BACKGROUND
+    * Le fond noir commence à 100% (hors écran) et monte vers 0% (pleinement visible)
+    * Le mapping [0.2, 0.8] signifie qu'on démarre le mouvement à 20% du scroll progress,
+    * et on le termine à 80%, pour garder le fond centré quand scrollYProgress = 0.5
+    */
+   const yBackground = useTransform(scrollYProgress, [0.5, 1], ["100%", "0%"]);
+   const smoothYBackground = useSpring(yBackground, {
+      stiffness: 100,
+      damping: 20,
+   });
 
-	/**
-	 * TEXTE
-	 * Il se déplace légèrement vers le haut pendant le scroll.
-	 * Ici, on le fait monter de 0 à -80px entre 0.2 et 0.8 du scroll progress
-	 */
-	const yText = useTransform(scrollYProgress, [0.7, 1], [60, 0]);
-	const smoothYText = useSpring(yText, { stiffness: 100, damping: 20 });
+   /**
+    * TEXTE
+    * Il se déplace légèrement vers le haut pendant le scroll.
+    * Ici, on le fait monter de 0 à -80px entre 0.2 et 0.8 du scroll progress
+    */
+   const yText = useTransform(scrollYProgress, [0.7, 1], [60, 0]);
+   const smoothYText = useSpring(yText, { stiffness: 100, damping: 20 });
 
-	return (
-		<section
-			ref={ref}
-			className="relative py-28 sm:py-40 overflow-hidden flex items-center justify-center"
-		>
-			{/* Overlay noir qui translate vers le haut */}
-			<motion.div
-				style={{ y: smoothYBackground }}
-				className="absolute inset-0 bg-black z-10"
-			/>
-			<div className="wrapper">
-				{/* Texte avec effet de parallax et mix-blend pour contraste */}
-				<motion.h2
-					style={{ y: smoothYText }}
-					className="relative z-20 text-6xl text-font text-white mix-blend-difference text-center font-black!"
-				>
-					Un site "sur-mesure" rien que pour vous !
-				</motion.h2>
-			</div>
-		</section>
-	);
+   return (
+      <section
+         ref={ref}
+         className="relative py-28 sm:py-40 overflow-hidden flex items-center justify-center"
+      >
+         {/* Overlay noir qui translate vers le haut */}
+         <motion.div
+            style={{ y: smoothYBackground }}
+            className="absolute inset-0 bg-black z-10"
+         />
+         <div className="wrapper">
+            {/* Texte avec effet de parallax et mix-blend pour contraste */}
+            <motion.h2
+               style={{ y: smoothYText }}
+               className="relative z-20 text-6xl text-font text-white mix-blend-difference text-center font-black!"
+            >
+               {data.parallax_black_white}
+            </motion.h2>
+         </div>
+      </section>
+   );
 }
 
 // "use client";

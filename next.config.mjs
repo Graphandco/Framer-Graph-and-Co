@@ -31,6 +31,22 @@ const nextConfig = {
    compress: true,
    poweredByHeader: false,
 
+   // Configuration des images
+   images: {
+      remotePatterns: [
+         {
+            protocol: "https",
+            hostname: "admin.graphandco.com",
+            pathname: "/**",
+         },
+         {
+            protocol: "http",
+            hostname: "localhost",
+            pathname: "/**",
+         },
+      ],
+   },
+
    // Optimisations webpack pour CSS
    webpack: (config, { dev, isServer }) => {
       if (!dev && !isServer) {

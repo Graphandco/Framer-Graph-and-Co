@@ -6,7 +6,7 @@ import Image from "next/image";
 import MagnetButton from "../ui/MagnetButton";
 import { useResponsive } from "@/hooks/UseResponsive";
 
-const Hero = () => {
+const Hero = ({ data }) => {
    const sectionRef = useRef(null);
    const titleRef = useRef(null);
 
@@ -60,17 +60,6 @@ const Hero = () => {
          </div>
 
          <div className="absolute inset-0 flex flex-col justify-center px-5">
-            {/* <FadeInOnView
-					amount={0.1}
-					delay={itemsDelay}
-					once
-					className="mb-8 flex flex-col items-end gap-1 text-white font-semibold"
-				>
-					<div>Interface utilisateur</div>
-					<div>Expérience utilisateur</div>
-					<div>Sécurité</div>
-					<div>Accessibilité</div>
-				</FadeInOnView> */}
             <div className="mb-8 flex flex-col items-end gap-1 text-white font-semibold">
                <div>Interface utilisateur</div>
                <div>Expérience utilisateur</div>
@@ -94,13 +83,10 @@ const Hero = () => {
                   style={{ y: yDesc }}
                   className="text-4xl title-font text-white font-medium leading-[0.9] xs:mix-blend-exclusion"
                >
-                  Votre agence web à Colmar - Création de sites internet
-                  sur-mesure
+                  {data.hero_title}
                </motion.h1>
                <div className="text-white max-w-md">
-                  Nous sommes spécialisés dans la réalisation de sites web.
-                  Moderne et intuitif, votre site sera un puissant levier pour
-                  accroitre la vitalité de votre entreprise.
+                  {data.hero_description}
                </div>
             </div>
             <div className="relative mt-12 mx-auto">

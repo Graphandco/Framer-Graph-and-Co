@@ -6,6 +6,7 @@ import SiteSurMesure from "@/components/home/SiteSurMesure";
 import Stats from "@/components/home/Stats";
 import { StickySection } from "@/components/home/StickySection";
 import Temoignage from "@/components/home/Temoignage";
+import { getWordpressContent } from "@/actions/getWordpressContent";
 
 export const metadata = {
    title: "Agence Web Colmar - Création Sites Internet Sur-Mesure | Graph & Co",
@@ -28,17 +29,18 @@ export const metadata = {
    },
 };
 
-export default function Home() {
+export default async function Home() {
+   const data = await getWordpressContent({ id: 2, type: "page" });
    return (
       <>
-         <Hero />
-         <StickySection />
-         <SiteSurMesure />
-         <NosCompetences />
+         <Hero data={data} />
+         <StickySection data={data} />
+         <SiteSurMesure data={data} />
+         <NosCompetences data={data} />
          <Stats />
          <NosAtouts />
          {/* <Rassurance /> */}
-         <Temoignage />
+         <Temoignage data={data} />
       </>
    );
 }
