@@ -1,12 +1,13 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import ProjetSingle from "@/components/projets/ProjetSingle";
 import { notFound } from "next/navigation";
+import {
+   getWordpressProject,
+   getWordpressProjects,
+} from "@/actions/getWordpressProjects";
 
 export async function generateMetadata({ params }) {
    const { slug } = await params;
-   
+
    // Validation du slug pour prévenir Path Traversal
    if (!slug || typeof slug !== "string" || /[\.\/\\]/.test(slug)) {
       return {
@@ -14,48 +15,44 @@ export async function generateMetadata({ params }) {
          description: "La page demandée n'existe pas.",
       };
    }
-   
-   const filePath = path.join(process.cwd(), "markdown/projets", `${slug}.mdx`);
-   
-   // Vérification supplémentaire : s'assurer que le chemin résolu est bien dans le répertoire attendu
-   const resolvedPath = path.resolve(filePath);
-   const allowedDir = path.resolve(process.cwd(), "markdown/projets");
-   if (!resolvedPath.startsWith(allowedDir)) {
+
+   const project = await getWordpressProject({ id: slug, idType: "SLUG" });
+
+   if (!project) {
       return {
          title: "Page non trouvée - Graph & Co",
          description: "La page demandée n'existe pas.",
       };
    }
-   
-   let fileContent;
-   try {
-      fileContent = fs.readFileSync(filePath, "utf-8");
-   } catch (error) {
-      return {
-         title: "Page non trouvée - Graph & Co",
-         description: "La page demandée n'existe pas.",
-      };
-   }
-   const { data } = matter(fileContent);
+
+   const metaTitle =
+      project.seo?.title ||
+      `${project.title} - Portfolio Web Colmar | Graph & Co`;
+   const metaDescription =
+      project.seo?.metaDesc ||
+      (project.content
+         ? project.content.replace(/[#*<>&"']/g, "").substring(0, 160)
+         : "Découvrez cette réalisation de site web créée par notre agence à Colmar.");
+
    return {
-      title: `${data.title} - Portfolio Web Colmar | Graph & Co`,
-      description:
-         data.metadesc ||
-         "Découvrez cette réalisation de site web créée par notre agence à Colmar.",
+      title: metaTitle,
+      description: metaDescription,
       openGraph: {
-         title: `${data.title} - Portfolio Web Colmar | Graph & Co`,
-         description: data.metadesc,
+         title: metaTitle,
+         description: metaDescription,
          url: `https://graphandco.com/projets/${slug}`,
          type: "article",
          siteName: "Graph & Co",
-         images: [
-            {
-               url: `https://graphandco.com/projets/${data.image}`,
-               width: 1200,
-               height: 630,
-               alt: data.title,
-            },
-         ],
+         ...(project.featuredImage && {
+            images: [
+               {
+                  url: project.featuredImage.link,
+                  width: project.featuredImage.width || 1200,
+                  height: project.featuredImage.height || 630,
+                  alt: project.title,
+               },
+            ],
+         }),
       },
    };
 }
@@ -68,35 +65,21 @@ export default async function Page({ params }) {
       return notFound();
    }
 
-   const filePath = path.join(process.cwd(), "markdown/projets", `${slug}.mdx`);
-   
-   // Vérification supplémentaire : s'assurer que le chemin résolu est bien dans le répertoire attendu
-   const resolvedPath = path.resolve(filePath);
-   const allowedDir = path.resolve(process.cwd(), "markdown/projets");
-   if (!resolvedPath.startsWith(allowedDir)) {
+   const project = await getWordpressProject({ id: slug, idType: "SLUG" });
+
+   if (!project) {
       return notFound();
    }
 
-   let fileContent;
-   try {
-      fileContent = fs.readFileSync(filePath, "utf-8");
-   } catch (error) {
-      // Si le fichier est introuvable, renvoyer une 404
-      return notFound();
-   }
-
-   return <ProjetSingle fileContent={fileContent} />;
+   return <ProjetSingle project={project} />;
 }
 
-export function generateStaticParams() {
-   const dirPath = path.join(process.cwd(), "markdown/projets");
-   const files = fs.readdirSync(dirPath);
+export async function generateStaticParams() {
+   const projects = await getWordpressProjects();
 
-   return files
-      .filter((file) => file.endsWith(".mdx"))
-      .map((file) => ({
-         slug: file.replace(/\.mdx$/, ""),
-      }));
+   return projects.map((project) => ({
+      slug: project.slug,
+   }));
 }
 
 export const dynamicParams = true;

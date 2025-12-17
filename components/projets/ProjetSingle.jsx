@@ -1,58 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
-import MDXRenderer from "@/components/MDXRenderer";
 import PageHero from "../ui/PageHero";
 import Button from "../ui/Button";
-import { GrReturn } from "react-icons/gr";
-import Loading from "../Loading";
 import { FaEye } from "react-icons/fa";
 import ProjetCarousel from "./ProjetCarousel";
 import { MdArrowOutward } from "react-icons/md";
-import { ArrowLeft, ArrowLeftCircleIcon } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import NavLink from "../header/NavLink";
 
-const ProjetSingle = ({ fileContent }) => {
-   const [mdxSource, setMdxSource] = useState(null);
-   const [frontmatter, setFrontmatter] = useState(null);
+const ProjetSingle = ({ project }) => {
+   if (!project) return null;
 
-   useEffect(() => {
-      const processMDX = async () => {
-         const { data, content } = matter(fileContent);
-         const mdx = await serialize(content);
-         setFrontmatter(data);
-         setMdxSource(mdx);
-      };
+   // Récupère les images depuis le champ ACF gallery
+   let images = [];
+   if (project.gallery && Array.isArray(project.gallery)) {
+      // Extrait les liens des images depuis la gallery ACF
+      images = project.gallery
+         .map((image) => image?.link)
+         .filter((link) => link); // Filtre les valeurs null/undefined
+   }
 
-      processMDX();
-   }, [fileContent]);
-
-   const images = Array.from(
-      { length: frontmatter?.nbrCaptures },
-      (_, i) => `/projets/${frontmatter.slug}/capture${i + 1}.avif`
-   );
-
-   if (!mdxSource || !frontmatter) return <Loading />;
+   // Image hero : featuredImage ou image ACF
+   const heroImage = project.featuredImage?.link || project.image || null;
+   const heroPosition = project.position || "center";
 
    return (
       <>
          <PageHero
-            title={frontmatter.title}
-            image={`/projets/${frontmatter.image}`}
-            position={frontmatter.position ? frontmatter.position : "center"}
+            title={project.title}
+            image={heroImage}
+            position={heroPosition}
          />
          <div className="wrapper pb-24">
-            {/* <Button
-               small
-               outline
-               href="/projets"
-               icon=<GrReturn />
-               className="mt-3 mb-8 inline-flex"
-            >
-               Retour aux projets
-            </Button> */}
             <NavLink
                href="/projets"
                className="mt-3 mb-5 inline-flex items-center gap-1 underline group"
@@ -63,32 +42,44 @@ const ProjetSingle = ({ fileContent }) => {
                />
                Retour aux projets
             </NavLink>
-            <h2 className="text-4xl font-bold mb-5">
-               {frontmatter.description}
-            </h2>
-            <Button
-               blank
-               icon={<FaEye />}
-               href={frontmatter.url}
-               className="mb-8"
-            >
-               Voir le site
-            </Button>
-            <MDXRenderer source={mdxSource} />
+            {project.subtitle && (
+               <h2 className="text-4xl font-bold mb-5">{project.subtitle}</h2>
+            )}
+            {project.url && (
+               <Button
+                  blank
+                  icon={<FaEye />}
+                  href={project.url}
+                  className="mb-8"
+               >
+                  Voir le site
+               </Button>
+            )}
+            {project.content && (
+               <div
+                  className="prose max-w-none mb-8"
+                  dangerouslySetInnerHTML={{ __html: project.content }}
+               />
+            )}
             {images.length > 0 && (
                <>
                   <div className="text-2xl text-center pt-8 pb-5">
                      Plongez dans l'univers de{" "}
-                     <a
-                        href={frontmatter.url}
-                        target="blank"
-                        className="text-primary hover:scale-105 inline-block transition-transform origin-left group duration-200"
-                     >
-                        {frontmatter.title}
-                        <sup>
-                           <MdArrowOutward className="inline group-hover:rotate-45 group-hover:-translate-x-2 origin-bottom transition-transform duration-200" />
-                        </sup>
-                     </a>
+                     {project.url ? (
+                        <a
+                           href={project.url}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="text-primary hover:scale-105 inline-block transition-transform origin-left group duration-200"
+                        >
+                           {project.title}
+                           <sup>
+                              <MdArrowOutward className="inline group-hover:rotate-45 group-hover:-translate-x-2 origin-bottom transition-transform duration-200" />
+                           </sup>
+                        </a>
+                     ) : (
+                        <span className="text-primary">{project.title}</span>
+                     )}
                   </div>
                   <ProjetCarousel images={images} />
                </>

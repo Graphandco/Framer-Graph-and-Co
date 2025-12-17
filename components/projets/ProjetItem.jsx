@@ -29,10 +29,9 @@ const ProjetItem = ({ project }) => {
                transition={{ duration: 0.25, ease: "easeOut" }}
                src={featuredImage.link}
                alt={title}
-               width={featuredImage.width}
-               height={featuredImage.height}
-               className={`h-full object-cover object-${position ? position : "center"}`}
+               className={`object-cover object-${position ? position : "center"}`}
                priority
+               fill
             />
             {/* Text content */}
             <div className="relative z-10 text-white px-8 pt-52 pb-6">

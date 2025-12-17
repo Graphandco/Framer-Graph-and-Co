@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import ProjetsFilter from "./ProjetsFilter";
 import Button from "../ui/Button";
 
-const ProjetsList = ({ projects }) => {
+const ProjetsList = ({ projects, data }) => {
    const [activeCategory, setActiveCategory] = useState("tous");
 
    const filteredProjects = projects.filter((project) =>
@@ -27,8 +27,6 @@ const ProjetsList = ({ projects }) => {
 
       return orderA - orderB;
    });
-
-   console.log(orderedProjects);
 
    return (
       <section id="projets" className="bg-black/10">
@@ -58,7 +56,11 @@ const ProjetsList = ({ projects }) => {
                         className="p-4 sm:p-8 md:p-12 bg-white rounded-3xl"
                      >
                         <div className="text-sm xs:text-base">
-                           <RealisationsText />
+                           <div
+                              dangerouslySetInnerHTML={{
+                                 __html: data.content,
+                              }}
+                           />
                         </div>
                         <Button small href="offres" className="mt-5">
                            Voir nos offres

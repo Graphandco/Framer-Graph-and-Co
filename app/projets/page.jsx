@@ -1,6 +1,7 @@
 import PageHero from "@/components/ui/PageHero";
 import ProjetsList from "@/components/projets/ProjetsList";
 import { getWordpressProjects } from "@/actions/getWordpressProjects";
+import { getWordpressContent } from "@/actions/getWordpressContent";
 
 export const metadata = {
    title: "Portfolio Sites Web Colmar - Réalisations E-commerce & Vitrines | Graph & Co",
@@ -25,6 +26,7 @@ export const metadata = {
 
 export default async function ProjectsPage() {
    const projects = await getWordpressProjects();
+   const data = await getWordpressContent({ id: 57, type: "page" });
    return (
       <>
          <PageHero
@@ -32,7 +34,7 @@ export default async function ProjectsPage() {
             image="/projets/hero-projets.avif"
          />
 
-         <ProjetsList projects={projects} />
+         <ProjetsList projects={projects} data={data} />
       </>
    );
 }

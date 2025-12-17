@@ -7,11 +7,11 @@ const REVALIDATE_TIME = Number(process.env.REVALIDATE_TIME) || 300;
 /**
  * Récupère un projet WordPress unique avec GraphQL pour les champs de base et REST pour les champs ACF
  * @param {Object} options
- * @param {string|number} options.id - ID du projet
- * @param {'DATABASE_ID'|'SLUG'|'URI'} [options.idType='DATABASE_ID'] - Type d'identifiant
+ * @param {string|number} options.id - ID ou slug du projet
+ * @param {'DATABASE_ID'|'SLUG'|'URI'} [options.idType='SLUG'] - Type d'identifiant
  */
-export async function getWordpressProject({ id, idType = "DATABASE_ID" }) {
-   if (!id) throw new Error("L'ID est requis");
+export async function getWordpressProject({ id, idType = "SLUG" }) {
+   if (!id) throw new Error("L'ID ou le slug est requis");
 
    if (!GRAPHQL_BASE_URL) {
       throw new Error(
@@ -29,6 +29,7 @@ export async function getWordpressProject({ id, idType = "DATABASE_ID" }) {
    const graphqlQuery = `
     query GetProject($id: ID!, $idType: ProjectIdType!) {
       project(id: $id, idType: $idType) {
+        databaseId
         title
         content(format: RENDERED)
         slug
@@ -66,17 +67,12 @@ export async function getWordpressProject({ id, idType = "DATABASE_ID" }) {
    const graphQLProject = graphqlData.project;
 
    if (!graphQLProject) {
-      throw new Error(`Projet avec l'ID ${id} non trouvé`);
+      return null; // Retourne null si le projet n'existe pas (au lieu de throw)
    }
 
    // 2️⃣ REST pour récupérer tous les champs ACF
-   // On utilise l'ID de la base de données pour REST
-   let restId = id;
-   if (idType !== "DATABASE_ID") {
-      // Si on a passé un slug ou autre, on doit d'abord récupérer l'ID depuis GraphQL
-      // Pour l'instant, on assume que l'ID est déjà un DATABASE_ID
-      // Si besoin, on peut ajouter une requête supplémentaire pour convertir
-   }
+   // On utilise le databaseId récupéré depuis GraphQL pour REST
+   const restId = graphQLProject.databaseId;
 
    const restRes = await fetch(`${REST_BASE_URL}/project/${restId}`, {
       next: { revalidate: REVALIDATE_TIME },
