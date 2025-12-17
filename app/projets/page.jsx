@@ -29,10 +29,7 @@ export default async function ProjectsPage() {
    const data = await getWordpressContent({ id: 57, type: "page" });
    return (
       <>
-         <PageHero
-            title="Les projets de sites web de votre agence à Colmar"
-            image="/projets/hero-projets.avif"
-         />
+         <PageHero title={data.title} image="/projets/hero-projets.avif" />
 
          <ProjetsList projects={projects} data={data} />
       </>

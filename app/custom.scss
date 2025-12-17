@@ -115,7 +115,8 @@
    animation: none !important;
 }
 
-.markdown {
+.markdown,
+.prose {
    a {
       color: oklch(55.6% 0 0);
       transition: 0.3s;
@@ -167,6 +168,16 @@
    p {
       margin-block: 1rem 0.5rem;
    }
+}
+
+.header-video {
+   width: 100%;
+   max-width: 100%;
+   height: auto;
+   border-radius: 1rem;
+   margin-bottom: 2rem;
+   display: block;
+   object-fit: cover;
 }
 
 .burger-menu {

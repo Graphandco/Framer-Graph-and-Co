@@ -52,8 +52,16 @@ export default function RotatingButton({
                {letters.map((letter, i) => {
                   const angle = i * angleStep;
                   const r = isHovered ? hoverRadius : radius;
-                  const x = Math.cos((angle * Math.PI) / 180) * r;
-                  const y = Math.sin((angle * Math.PI) / 180) * r;
+                  // Formater les valeurs pour éviter la notation scientifique
+                  const x = Number.parseFloat(
+                     (Math.cos((angle * Math.PI) / 180) * r).toFixed(2)
+                  );
+                  const y = Number.parseFloat(
+                     (Math.sin((angle * Math.PI) / 180) * r).toFixed(2)
+                  );
+                  const rotationAngle = Number.parseFloat(
+                     (angle + 90).toFixed(2)
+                  );
 
                   return (
                      <motion.span
@@ -64,9 +72,9 @@ export default function RotatingButton({
                            transformOrigin: "center",
                         }}
                         animate={{
-                           transform: `translate(${x}px, ${y}px) rotate(${
-                              angle + 90
-                           }deg)`,
+                           x: x,
+                           y: y,
+                           rotate: rotationAngle,
                         }}
                         transition={{
                            type: "spring",
