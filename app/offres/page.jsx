@@ -5,7 +5,7 @@ import UserWithIcon from "@/components/offres/UserWithIcon";
 import { VelocityText } from "@/components/offres/VelocityText";
 import PageHero from "@/components/ui/PageHero";
 import { getWordpressContent } from "@/actions/getWordpressContent";
-
+import { getWordpressPacks } from "@/actions/getWordpressPacks";
 export const metadata = {
    title: "Tarifs Création Site Web Colmar - Offres Vitrine & E-commerce | Graph & Co",
    description:
@@ -29,6 +29,7 @@ export const metadata = {
 
 export default async function OffresPage() {
    const data = await getWordpressContent({ id: 60, type: "page" });
+   const packs = await getWordpressPacks();
    return (
       <>
          <PageHero
@@ -37,7 +38,7 @@ export default async function OffresPage() {
             imageClass="object-cover object-top"
             position="top"
          />
-         <PriceCards data={data} />
+         <PriceCards data={data} packs={packs} />
          <TextIntro data={data} />
          <VelocityText />
          <UserWithIcon />

@@ -1,7 +1,6 @@
-import packs from "./packs";
 import PriceCard from "./PriceCard";
 
-const PriceCards = ({ data }) => {
+const PriceCards = ({ data, packs }) => {
    return (
       <section className="bg-black text-white">
          <div className="wrapper py-8 sm:py-16">
@@ -18,8 +17,8 @@ const PriceCards = ({ data }) => {
                />
             </div>
             <div className="grid grid-cols-1 gap-6 xs:grid-cols-2 md:grid-cols-4">
-               {packs.map((pack, index) => (
-                  <PriceCard pack={pack} key={index} />
+               {packs.map((pack) => (
+                  <PriceCard pack={pack} key={pack.id} />
                ))}
             </div>
          </div>
