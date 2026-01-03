@@ -79,7 +79,7 @@ const TextIntro = ({ data }) => {
                Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
             <div
-               className="wrapper prose relative z-10 text-white mix-blend-difference"
+               className="wrapper-small prose relative z-10 text-white mix-blend-difference"
                dangerouslySetInnerHTML={{
                   __html: data.content,
                }}
