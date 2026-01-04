@@ -2,6 +2,15 @@ import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+   images: {
+      remotePatterns: [
+         {
+            protocol: "https",
+            hostname: "admin.graphandco.com",
+            pathname: "/wp-content/uploads/**",
+         },
+      ],
+   },
    // Configuration MDX existante
    pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 
