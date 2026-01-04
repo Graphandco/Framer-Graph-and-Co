@@ -15,7 +15,7 @@ ENV REVALIDATE_TIME=$REVALIDATE_TIME
 
 # Copier uniquement les fichiers de dépendances d'abord (cache Docker)
 COPY package*.json ./
-RUN npm ci --only=production=false
+RUN npm install
 
 # Copier le reste du code source
 COPY . .
