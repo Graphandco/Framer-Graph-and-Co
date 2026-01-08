@@ -115,6 +115,10 @@
    animation: none !important;
 }
 
+.split-text p {
+   margin-block: 1rem 0.5rem;
+}
+
 .markdown {
    a {
       color: oklch(55.6% 0 0);

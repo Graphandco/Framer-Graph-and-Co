@@ -8,6 +8,9 @@ COPY package*.json ./
 # Installer toutes les dépendances (y compris devDependencies)
 RUN npm install
 
+# Copier le plugin SplitText premium
+COPY gsap-plugins/SplitText.js node_modules/gsap/SplitText.js
+
 # Copier le reste du code (sera monté en volume en dev, mais utile si tu build l'image)
 COPY . .
 
