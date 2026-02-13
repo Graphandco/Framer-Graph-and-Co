@@ -15,13 +15,14 @@ ENV REVALIDATE_TIME=$REVALIDATE_TIME
 
 # Copier uniquement les fichiers de dépendances d'abord (cache Docker)
 COPY package*.json ./
-# Copier le plugin SplitText premium
-COPY gsap-plugins/SplitText.js node_modules/gsap/SplitText.js
 
 RUN npm install
 
 # Copier le reste du code source
 COPY . .
+
+# Copier le plugin SplitText premium
+COPY gsap-plugins/SplitText.js node_modules/gsap/SplitText.js
 
 # Build Next.js
 RUN npm run build
