@@ -1,18 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useConsentManager } from "@c15t/nextjs";
 
 export default function LoadGoogleAnalytics() {
-   // useConsentManager retourne { consents, selectedConsents, ... }
-   const { consents } = useConsentManager();
    const [isGALoaded, setIsGALoaded] = useState(false);
 
    useEffect(() => {
-      // Ne charger Google Analytics que si le consentement marketing est accordé
-      if (!consents || !consents.marketing?.granted || isGALoaded) {
-         return;
-      }
+      if (isGALoaded) return;
 
       // Vérifier si GA n'est pas déjà chargé
       if (window.dataLayer && window.gtag) {
@@ -56,7 +50,7 @@ export default function LoadGoogleAnalytics() {
       } else {
          window.addEventListener("load", loadScript, { once: true });
       }
-   }, [consents?.marketing?.granted, isGALoaded]);
+   }, [isGALoaded]);
 
    return null;
 }

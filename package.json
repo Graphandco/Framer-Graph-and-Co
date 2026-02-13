@@ -10,12 +10,12 @@
       "lint": "next lint"
    },
    "dependencies": {
-      "@c15t/nextjs": "^1.7.1",
       "@gsap/react": "^2.1.2",
       "@mdx-js/loader": "^3.1.0",
       "@mdx-js/react": "^3.1.0",
       "@next/mdx": "^15.5.9",
       "@next/third-parties": "^15.3.0",
+      "@socialgouv/matomo-next": "^1.11.0",
       "@studio-freight/react-lenis": "^0.0.47",
       "@types/mdx": "^2.0.13",
       "class-variance-authority": "^0.7.1",

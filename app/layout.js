@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Outfit, Urbanist } from "next/font/google";
 import "./globals.css";
 import "./custom.scss";
@@ -6,7 +7,7 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import LoadGoogleAnalytics from "@/components/LoadGoogleAnalytics";
-import ConsentManager from "./consent-manager";
+import MatomoAnalytics from "@/components/MatomoAnalytics";
 // import { GoogleAnalytics } from "@next/third-parties/google";
 
 const outfit = Outfit({
@@ -54,17 +55,18 @@ export default function RootLayout({ children }) {
                className={`${outfit.variable} ${urbanist.variable} antialiased`}
                suppressHydrationWarning={true}
             >
-               <ConsentManager>
-                  {process.env.NEXT_PUBLIC_ENVIRONMENT === "DEV" && (
-                     <div className="fixed inset-0 outline-4 -outline-offset-4 outline-primary z-50 pointer-events-none"></div>
-                  )}
+               {process.env.NEXT_PUBLIC_ENVIRONMENT === "DEV" && (
+                  <div className="fixed inset-0 outline-4 -outline-offset-4 outline-primary z-50 pointer-events-none"></div>
+               )}
 
-                  <Header />
-                  <main className="relative z-10 bg-white">{children}</main>
-                  <ScrollToTopButton />
-                  <Footer />
-                  <LoadGoogleAnalytics />
-               </ConsentManager>
+               <Header />
+               <main className="relative z-10 bg-white">{children}</main>
+               <ScrollToTopButton />
+               <Footer />
+               <LoadGoogleAnalytics />
+               <Suspense fallback={null}>
+                  <MatomoAnalytics />
+               </Suspense>
             </body>
             {/* <GoogleAnalytics gaId="G-345118589" /> */}
             {/* </BodyClassHandler> */}
