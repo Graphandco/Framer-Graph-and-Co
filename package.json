@@ -7,8 +7,7 @@
       "build": "next build",
       "start": "next start",
       "postbuild": "next-sitemap",
-      "lint": "next lint",
-      "postinstall": "cp gsap-plugins/SplitText.js node_modules/gsap/SplitText.js 2>/dev/null || true"
+      "lint": "next lint"
    },
    "dependencies": {
       "@gsap/react": "^2.1.2",
