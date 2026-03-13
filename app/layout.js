@@ -49,13 +49,13 @@ export default function RootLayout({ children }) {
                <link rel="manifest" href="/manifest.json" />
                <link rel="icon" href="/logo512.png" />
                <meta name="theme-color" content="#ffffff" />
-               <JsonLdLocalBusiness />
             </head>
             {/* <BodyClassHandler> */}
             <body
                className={`${outfit.variable} ${urbanist.variable} antialiased`}
                suppressHydrationWarning={true}
             >
+               <JsonLdLocalBusiness />
                <ConsentManager>
                   {process.env.NEXT_PUBLIC_ENVIRONMENT === "DEV" && (
                      <div className="fixed inset-0 outline-4 -outline-offset-4 outline-primary z-50 pointer-events-none"></div>
