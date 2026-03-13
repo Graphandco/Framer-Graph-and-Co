@@ -6,6 +6,7 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import LoadGoogleAnalytics from "@/components/LoadGoogleAnalytics";
+import JsonLdLocalBusiness from "@/components/seo/JsonLdLocalBusiness";
 import ConsentManager from "./consent-manager";
 // import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
                <link rel="manifest" href="/manifest.json" />
                <link rel="icon" href="/logo512.png" />
                <meta name="theme-color" content="#ffffff" />
+               <JsonLdLocalBusiness />
             </head>
             {/* <BodyClassHandler> */}
             <body
