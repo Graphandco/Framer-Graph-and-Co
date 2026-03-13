@@ -7,6 +7,9 @@ export const metadata = {
    title: "Contact Agence Web Colmar - Devis Gratuit Site Internet | Graph & Co",
    description:
       "Contactez Graph & Co, votre agence web à Colmar. Devis gratuit pour votre projet de site internet professionnel. Réponse rapide garantie.",
+   alternates: {
+      canonical: "https://graphandco.com/contact",
+   },
    openGraph: {
       title: "Contact Agence Web Colmar - Devis Gratuit Site Internet | Graph & Co",
       description:

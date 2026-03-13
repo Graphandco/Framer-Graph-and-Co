@@ -5,6 +5,9 @@ export const metadata = {
    title: "Politique de confidentialité - Agence Web Colmar | Graph & Co",
    description:
       "Politique de confidentialité de Graph & Co, agence web à Colmar. Découvrez comment vos données personnelles sont collectées, utilisées et protégées sur notre site.",
+   alternates: {
+      canonical: "https://graphandco.com/politique-confidentialite",
+   },
    openGraph: {
       title: "Politique de confidentialité - Agence Web Colmar | Graph & Co",
       description:

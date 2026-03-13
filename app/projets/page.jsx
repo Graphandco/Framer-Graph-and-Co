@@ -6,6 +6,9 @@ export const metadata = {
    title: "Portfolio Sites Web Colmar - Réalisations E-commerce & Vitrines | Graph & Co",
    description:
       "Découvrez nos réalisations de sites web à Colmar : projets sur-mesure, vitrines, e-commerce. Un aperçu concret de notre savoir-faire en design, UX et performance.",
+   alternates: {
+      canonical: "https://graphandco.com/projets",
+   },
    openGraph: {
       title: "Portfolio Sites Web Colmar - Réalisations E-commerce & Vitrines | Graph & Co",
       description:

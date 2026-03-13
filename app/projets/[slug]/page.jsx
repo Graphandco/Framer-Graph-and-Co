@@ -38,6 +38,9 @@ export async function generateMetadata({ params }) {
    }
    const { data } = matter(fileContent);
    return {
+      alternates: {
+         canonical: `https://graphandco.com/projets/${slug}`,
+      },
       title: `${data.title} - Portfolio Web Colmar | Graph & Co`,
       description:
          data.metadesc ||

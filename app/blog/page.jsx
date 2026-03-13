@@ -6,6 +6,9 @@ export const metadata = {
    title: "Blog Web Colmar - Actualités UX/UI et Développement | Graph & Co",
    description:
       "Découvrez notre blog dédié à la création de sites web à Colmar : conseils en UX/UI, design sur-mesure, performance, accessibilité et retours d'expérience pour des sites modernes et efficaces.",
+   alternates: {
+      canonical: "https://graphandco.com/blog",
+   },
    openGraph: {
       title: "Blog Web Colmar - Actualités UX/UI et Développement | Graph & Co",
       description:

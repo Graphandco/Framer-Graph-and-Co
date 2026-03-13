@@ -5,6 +5,9 @@ export const metadata = {
    title: "Mentions légales - Agence Web Colmar | Graph & Co",
    description:
       "Mentions légales de Graph & Co, agence de création de sites web à Colmar. Retrouvez toutes les informations légales, coordonnées et responsabilités du site.",
+   alternates: {
+      canonical: "https://graphandco.com/mentions-legales",
+   },
    openGraph: {
       title: "Mentions légales - Agence Web Colmar | Graph & Co",
       description:

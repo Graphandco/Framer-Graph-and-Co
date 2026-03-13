@@ -9,6 +9,9 @@ export const metadata = {
    title: "Tarifs Création Site Web Colmar - Offres Vitrine & E-commerce | Graph & Co",
    description:
       "Découvrez nos tarifs de création de sites web à Colmar : site vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
+   alternates: {
+      canonical: "https://graphandco.com/offres",
+   },
    openGraph: {
       title: "Tarifs Création Site Web Colmar - Offres Vitrine & E-commerce | Graph & Co",
       description:
