@@ -7,6 +7,7 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import LoadGoogleAnalytics from "@/components/LoadGoogleAnalytics";
+import JsonLdLocalBusiness from "@/components/seo/JsonLdLocalBusiness";
 import MatomoAnalytics from "@/components/MatomoAnalytics";
 // import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -55,6 +56,7 @@ export default function RootLayout({ children }) {
                className={`${outfit.variable} ${urbanist.variable} antialiased`}
                suppressHydrationWarning={true}
             >
+               <JsonLdLocalBusiness />
                {process.env.NEXT_PUBLIC_ENVIRONMENT === "DEV" && (
                   <div className="fixed inset-0 outline-4 -outline-offset-4 outline-primary z-50 pointer-events-none"></div>
                )}
