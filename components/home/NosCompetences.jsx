@@ -14,7 +14,7 @@ const NosCompetences = () => {
                   </span>
                   <span className="text-neutral-500">à votre service</span>
                </h2>
-               <div className="split-text">
+               {/* <div className="split-text">
                   <SplitLineText>
                      <p>
                         Notre expertise : faire décoller votre site pour séduire
@@ -56,7 +56,7 @@ const NosCompetences = () => {
                         ligne.
                      </p>
                   </SplitLineText>
-               </div>
+               </div> */}
                <CompetencesText />
                <Button href="projets" className="mt-10">
                   Voir nos réalisations
