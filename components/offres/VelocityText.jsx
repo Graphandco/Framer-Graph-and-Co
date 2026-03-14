@@ -40,12 +40,11 @@ export const VelocityText = () => {
 						</h3>
 						<p>
 							Soyez exigeant : nous créons ainsi votre site «
-							sur-mesure », afin qu'il vous habille comme un
-							vêtement taillé pour vous ! Ni trop grand, ni trop
-							petit, dans une matière seyante et avec un budget
-							qui vous correspond. Jetez un oeil à quelques unes
-							de nos créations pour vous aider à définir vos
-							besoins.
+							sur-mesure », afin qu'il vous habille comme un vêtement
+							taillé pour vous ! Ni trop grand, ni trop petit,
+							dans une matière seyante et avec un budget qui vous
+							correspond. Jetez un œil à quelques unes de nos
+							créations pour vous aider à définir vos besoins.
 						</p>
 					</VanishParagraphs>
 					<Button icon={null} href="/projets" className="mt-8">

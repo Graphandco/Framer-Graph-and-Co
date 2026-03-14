@@ -6,16 +6,16 @@ import { VelocityText } from "@/components/offres/VelocityText";
 import PageHero from "@/components/ui/PageHero";
 
 export const metadata = {
-   title: "Tarifs Création Site Web Colmar - Offres Vitrine & E-commerce | Graph & Co",
+   title: "Tarifs création de sites web – Colmar, Sainte-Croix-en-Plaine | Graph & Co",
    description:
-      "Découvrez nos tarifs de création de sites web à Colmar : site vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
+      "Tarifs création de sites web à Colmar, Sainte-Croix-en-Plaine et environs : vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
    alternates: {
       canonical: "https://graphandco.com/offres",
    },
    openGraph: {
-      title: "Tarifs Création Site Web Colmar - Offres Vitrine & E-commerce | Graph & Co",
+      title: "Tarifs création de sites web – Colmar, Sainte-Croix-en-Plaine | Graph & Co",
       description:
-         "Découvrez nos tarifs de création de sites web à Colmar : site vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
+         "Tarifs création de sites web à Colmar, Sainte-Croix-en-Plaine et environs : vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
       url: "https://graphandco.com/offres",
       images: [
          {
@@ -33,7 +33,7 @@ export default async function OffresPage() {
    return (
       <>
          <PageHero
-            title="Découvrez nos offres de création de sites web à Colmar"
+            title="Tarifs création de sites web – Colmar, Sainte-Croix-en-Plaine et environs"
             image="/offres/hero-offres.avif"
             imageClass="object-cover object-top"
             position="top"

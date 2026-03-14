@@ -14,50 +14,25 @@ const NosCompetences = () => {
                   </span>
                   <span className="text-neutral-500">à votre service</span>
                </h2>
-               {/* <div className="split-text">
+               <div className="split-text">
                   <SplitLineText>
                      <p>
                         Notre expertise : faire décoller votre site pour séduire
-                        vos (futurs) clients. Graph and Co crée votre site
-                        sur-mesure, 100% responsive, performant, fiable et
-                        évolutif. En vous dotant d’un site internet à la hauteur
-                        de vos ambitions, nous vous rendrons visible sur
-                        internet pour que vos clients accèdent à votre offre,
-                        n’importe où, n’importe quand.
+                        vos (futurs) clients. Graph and Co crée{" "}
+                        <strong>votre site sur-mesure</strong>, 100% responsive,
+                        performant, fiable et évolutif. En vous dotant d’un site
+                        internet à la hauteur de vos ambitions, nous vous
+                        rendrons <strong>visible sur internet</strong> pour que
+                        vos clients accèdent à votre offre, n’importe où,
+                        n’importe quand.
                         <br />
                         Oui, chacun son métier. Le vôtre, être un expert dans
-                        votre domaine. Le nôtre, booster votre présence en
-                        ligne.
-                     </p>
-                     <p>
-                        Notre expertise : faire décoller votre site pour séduire
-                        vos (futurs) clients. Graph and Co crée votre site
-                        sur-mesure, 100% responsive, performant, fiable et
-                        évolutif. En vous dotant d’un site internet à la hauteur
-                        de vos ambitions, nous vous rendrons visible sur
-                        internet pour que vos clients accèdent à votre offre,
-                        n’importe où, n’importe quand.
-                        <br />
-                        Oui, chacun son métier. Le vôtre, être un expert dans
-                        votre domaine. Le nôtre, booster votre présence en
-                        ligne.
-                     </p>
-                     <p>
-                        Notre expertise : faire décoller votre site pour séduire
-                        vos (futurs) clients. Graph and Co crée votre site
-                        sur-mesure, 100% responsive, performant, fiable et
-                        évolutif. En vous dotant d’un site internet à la hauteur
-                        de vos ambitions, nous vous rendrons visible sur
-                        internet pour que vos clients accèdent à votre offre,
-                        n’importe où, n’importe quand.
-                        <br />
-                        Oui, chacun son métier. Le vôtre, être un expert dans
-                        votre domaine. Le nôtre, booster votre présence en
-                        ligne.
+                        votre domaine. Le nôtre,{" "}
+                        <strong>booster votre présence en ligne.</strong>
                      </p>
                   </SplitLineText>
-               </div> */}
-               <CompetencesText />
+               </div>
+               {/* <CompetencesText /> */}
                <Button href="projets" className="mt-10">
                   Voir nos réalisations
                </Button>
