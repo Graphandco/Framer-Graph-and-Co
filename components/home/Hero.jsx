@@ -3,11 +3,11 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import MagnetButton from "../ui/MagnetButton";
+import MagnetButton from "@/components/ui/MagnetButton";
 import { useResponsive } from "@/hooks/UseResponsive";
 import SplitLineText from "@/components/SplitLineText";
 
-const Hero = () => {
+const Hero = ({ data }) => {
    const sectionRef = useRef(null);
    const titleRef = useRef(null);
 
@@ -74,10 +74,9 @@ const Hero = () => {
 				</FadeInOnView> */}
             <div className="mb-8 flex flex-col items-end gap-1 text-white font-semibold">
                <SplitLineText delay={1}>
-                  <div>Interface utilisateur</div>
-                  <div>Expérience utilisateur</div>
-                  <div>Sécurité</div>
-                  <div>Accessibilité</div>
+                  {data.atouts.map((atout) => (
+                     <div key={atout.name}>{atout.name}</div>
+                  ))}
                </SplitLineText>
             </div>
 
@@ -100,15 +99,12 @@ const Hero = () => {
                      style={{ y: yDesc }}
                      className="text-4xl title-font text-white font-medium leading-[0.9] xs:mix-blend-exclusion"
                   >
-                     Votre agence web à Colmar - Création de sites internet
-                     sur-mesure
+                     {data.hero_title}
                   </motion.h1>
                </SplitLineText>
                <SplitLineText delay={0.5}>
                   <div className="text-white max-w-md">
-                     Nous sommes spécialisés dans la réalisation de sites web.
-                     Moderne et intuitif, votre site sera un puissant levier
-                     pour accroitre la vitalité de votre entreprise.
+                     {data.hero_description}
                   </div>
                </SplitLineText>
             </div>
