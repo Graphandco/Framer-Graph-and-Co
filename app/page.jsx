@@ -4,6 +4,7 @@ import NosAtouts from "@/components/home/NosAtouts";
 // import Rassurance from "@/components/home/Rassurance";
 import SiteSurMesure from "@/components/home/SiteSurMesure";
 import Stats from "@/components/home/Stats";
+import { HomeContentText } from "@/components/home/HomeContentText";
 import { StickySection } from "@/components/home/StickySection";
 import Temoignage from "@/components/home/Temoignage";
 import { getWordpressContent } from "@/actions/getWordpressContent";
@@ -38,13 +39,12 @@ const data = await getWordpressContent({
    variables: { id: 106 },
    rootField: "page",
 });
-console.log(data);
-
 export default function Home() {
    return (
       <>
          <Hero data={data.homepage.hero} />
          <StickySection />
+         <HomeContentText />
          <SiteSurMesure />
          <NosCompetences />
          <Stats />
