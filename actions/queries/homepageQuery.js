@@ -14,6 +14,12 @@ export const HOMEPAGE_QUERY = `
             }
         }
 
+        expertise {
+            top_legend
+            title
+            description
+        }
+
 
       }
     }
