@@ -41,30 +41,32 @@ const Stats = ({ stats }) => {
    }, [isInView, stats]);
 
    return (
-      <section ref={containerRef} className="wrapper bg-white pb-20">
-         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {stats.map((stat, index) => {
-               const Icon = resolvePicto(stat.picto);
-               const suffix = (stat.suffix ?? "").replace(/"/g, "").trim();
+      <section ref={containerRef} className="bg-white pb-20">
+         <div className="wrapper">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+               {stats.map((stat, index) => {
+                  const Icon = resolvePicto(stat.picto);
+                  const suffix = (stat.suffix ?? "").replace(/"/g, "").trim();
 
-               return (
-                  <div
-                     key={index}
-                     className="flex flex-col items-center py-3 sm:py-0"
-                  >
-                     <div className="text-3xl mb-3">
-                        {Icon ? <Icon /> : null}
+                  return (
+                     <div
+                        key={index}
+                        className="flex flex-col items-center py-3 sm:py-0"
+                     >
+                        <div className="text-3xl mb-3">
+                           {Icon ? <Icon /> : null}
+                        </div>
+                        <p className="mb-3 text-center text-2xl">
+                           <span ref={(el) => (refs.current[index] = el)} />
+                           {suffix}
+                        </p>
+                        <p className="text-center text-neutral-500 leading-tight">
+                           {stat.name}
+                        </p>
                      </div>
-                     <p className="mb-3 text-center text-2xl">
-                        <span ref={(el) => (refs.current[index] = el)} />
-                        {suffix}
-                     </p>
-                     <p className="text-center text-neutral-500 leading-tight">
-                        {stat.name}
-                     </p>
-                  </div>
-               );
-            })}
+                  );
+               })}
+            </div>
          </div>
       </section>
    );

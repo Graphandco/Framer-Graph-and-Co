@@ -8,6 +8,7 @@ import Parallax from "@/components/ui/Parallax";
 import { useRef } from "react";
 // import DistortedSlider from "@/components/DistortedSlider"; // Commenté car non utilisé
 import ElfsightWidget from "@/components/ElfsightWidget";
+import SplitLineText from "@/components/SplitLineText";
 
 const Temoignage = ({ data }) => {
    const containerRef = useRef(null);
@@ -39,9 +40,11 @@ const Temoignage = ({ data }) => {
                         <span className="inline-block text-primary text-5xl pr-5">
                            <FaQuoteLeft />
                         </span>
-                        <div
-                           dangerouslySetInnerHTML={{ __html: data.content }}
-                        />
+                        <SplitLineText>
+                           <div
+                              dangerouslySetInnerHTML={{ __html: data.content }}
+                           />
+                        </SplitLineText>
                      </div>
                   </FadeInOnView>
 

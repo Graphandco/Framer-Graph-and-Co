@@ -56,7 +56,12 @@ export default function SplitLineText({
             if (containerRef.current.hasAttribute("data-copy-wrapper")) {
                elements = Array.from(containerRef.current.children);
             } else {
-               elements = [containerRef.current];
+               const textBlocks = Array.from(
+                  containerRef.current.querySelectorAll(
+                     "p, li, h1, h2, h3, h4, h5, h6, blockquote"
+                  )
+               );
+               elements = textBlocks.length > 0 ? textBlocks : [containerRef.current];
             }
 
             elements.forEach((element) => {
@@ -82,12 +87,7 @@ export default function SplitLineText({
                }
 
                split.lines.forEach((line) => {
-                  line.classList.add(
-                     "relative",
-                     "will-change-transform",
-                     "pb-[0.2em]",
-                     "-mb-[0.2em]"
-                  );
+                  line.classList.add("relative", "will-change-transform");
                });
 
                lines.current.push(...split.lines);
