@@ -20,6 +20,23 @@ export const HOMEPAGE_QUERY = `
             description
         }
 
+        content {
+            black_title
+            grey_title
+            main_text
+            image {
+                node {
+                    id
+                    sourceUrl
+                    altText
+                    mediaDetails {
+                        width
+                        height
+                    }
+                }
+            }
+        }
+
 
       }
     }

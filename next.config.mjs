@@ -6,7 +6,7 @@ const nextConfig = {
       remotePatterns: [
          {
             protocol: "https",
-            hostname: "admin.graphandco.com",
+            hostname: "sites.graphandco.net",
             pathname: "/wp-content/uploads/**",
          },
       ],
