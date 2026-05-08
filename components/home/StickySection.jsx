@@ -7,7 +7,7 @@ export const StickySection = () => {
    return (
       <section
          id="notre-expertise"
-         className="sticky top-0 h-screen flex items-center justify-center bg-black text-white z-10"
+         className="sticky top-0 h-screen flex items-center justify-center bg-black text-white -z-10"
       >
          <div className="wrapper flex flex-col gap-6 items-center text-center">
             <SectionLegend text="Notre expertise" />

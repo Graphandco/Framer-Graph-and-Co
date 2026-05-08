@@ -4,7 +4,7 @@ import SplitLineText from "../SplitLineText";
 
 const NosCompetences = () => {
    return (
-      <section>
+      <section className="bg-white">
          <div className="wrapper">
             <div className="py-16 md:py-24 relative">
                <h2 className="text-4xl mb-10">
