@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 
-export default function SiteSurMesure() {
+export default function SiteSurMesure({ data }) {
    const ref = useRef(null);
 
    // Scroll progress : 0 = quand le haut de la section entre en bas de l'écran
@@ -49,7 +49,7 @@ export default function SiteSurMesure() {
                style={{ y: smoothYText }}
                className="relative z-20 text-6xl text-font text-white mix-blend-difference text-center font-black!"
             >
-               Un site "sur-mesure" rien que pour vous !
+               {data}
             </motion.h2>
          </div>
       </section>

@@ -45,8 +45,8 @@ export default function Home() {
          <Hero data={data.homepage.hero} />
          <StickySection data={data.homepage.expertise} />
          <HomeContentText data={data.homepage.content} />
-         <SiteSurMesure />
-         <NosCompetences />
+         <SiteSurMesure data={data.homepage.site_sur_mesure} />
+         <NosCompetences data={data.homepage.competences_a_votre_service} />
          <Stats />
          <NosAtouts />
          {/* <Rassurance /> */}

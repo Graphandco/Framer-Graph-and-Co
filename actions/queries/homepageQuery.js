@@ -37,6 +37,14 @@ export const HOMEPAGE_QUERY = `
             }
         }
 
+        site_sur_mesure
+
+        competences_a_votre_service {
+            black_title
+            grey_title
+            content
+        }
+
 
       }
     }

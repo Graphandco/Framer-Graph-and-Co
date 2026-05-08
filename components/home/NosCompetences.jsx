@@ -2,34 +2,22 @@ import CompetencesText from "@/markdown/home/nos-competences.mdx";
 import Button from "../ui/Button";
 import SplitLineText from "../SplitLineText";
 
-const NosCompetences = () => {
+const NosCompetences = ({ data }) => {
+   console.log(data);
    return (
       <section className="bg-white">
          <div className="wrapper">
             <div className="py-16 md:py-24 relative">
                <h2 className="text-4xl mb-10">
                   <span>
-                     Nos compétences
+                     {data.black_title}
                      <br />
                   </span>
-                  <span className="text-neutral-500">à votre service</span>
+                  <span className="text-neutral-500">{data.grey_title}</span>
                </h2>
                <div className="split-text">
                   <SplitLineText>
-                     <p>
-                        Notre expertise : faire décoller votre site pour séduire
-                        vos (futurs) clients. Graph and Co crée{" "}
-                        <strong>votre site sur-mesure</strong>, 100% responsive,
-                        performant, fiable et évolutif. En vous dotant d’un site
-                        internet à la hauteur de vos ambitions, nous vous
-                        rendrons <strong>visible sur internet</strong> pour que
-                        vos clients accèdent à votre offre, n’importe où,
-                        n’importe quand.
-                        <br />
-                        Oui, chacun son métier. Le vôtre, être un expert dans
-                        votre domaine. Le nôtre,{" "}
-                        <strong>booster votre présence en ligne.</strong>
-                     </p>
+                     <div dangerouslySetInnerHTML={{ __html: data.content }} />
                   </SplitLineText>
                </div>
                {/* <CompetencesText /> */}

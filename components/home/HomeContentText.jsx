@@ -6,7 +6,6 @@ import Image from "next/image";
 import SplitLineText from "@/components/SplitLineText";
 
 export const HomeContentText = ({ data }) => {
-   console.log(data);
    return (
       <section className="pt-16 sm:pt-32 pb-12 relative z-20 bg-white">
          <div className="wrapper grid gap-10 bg-white border-l border-r border-neutral-200">
