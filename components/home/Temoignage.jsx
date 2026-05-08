@@ -9,7 +9,7 @@ import { useRef } from "react";
 // import DistortedSlider from "@/components/DistortedSlider"; // Commenté car non utilisé
 import ElfsightWidget from "@/components/ElfsightWidget";
 
-const Temoignage = () => {
+const Temoignage = ({ data }) => {
    const containerRef = useRef(null);
    return (
       <section id="temoignage" ref={containerRef} className="relative bg-white">
@@ -21,10 +21,10 @@ const Temoignage = () => {
                   <FadeInOnView>
                      <div className="relative w-full h-full max-w-[400px]">
                         <Image
-                           src="/home/helene.webp"
-                           alt="Photo d'Hélène de Bomot"
-                           width={400}
-                           height={600}
+                           src={data.image.node.sourceUrl}
+                           alt={data.image.node.altText}
+                           width={data.image.node.mediaDetails.width}
+                           height={data.image.node.mediaDetails.height}
                            className="w-full h-full object-cover outline outline-offset-5 outline-black/50"
                            sizes="(max-width: 640px) 100vw, 320px"
                         />
@@ -39,36 +39,26 @@ const Temoignage = () => {
                         <span className="inline-block text-primary text-5xl pr-5">
                            <FaQuoteLeft />
                         </span>
-                        Design soigné, navigation intuitive, architecture
-                        technique impeccable : Graph & Co a conçu pour moi un
-                        site sublime qui met en lumière mes services dans un
-                        style unique et original… MON style. Car ce
-                        professionnel chevronné fait du sur-mesure ! Avec lui,
-                        on avance avec méthode, en confiance et toujours dans la
-                        bonne humeur. En plus, il s’adapte à votre budget, à
-                        votre agenda et au degré d’accompagnement dont vous avez
-                        besoin. Bien s’entourer est la clé pour se doter d’un
-                        site internet performant, alors choisissez Graph & Co.
+                        <div
+                           dangerouslySetInnerHTML={{ __html: data.content }}
+                        />
                      </div>
                   </FadeInOnView>
 
                   <FadeInOnView delay={0.1}>
                      <div className="text-neutral-500 font-medium py-8 border-b border-black/10">
-                        De la conception au lancement, nous mettons en place des
-                        solutions digitales soignées et durables dans le temps.
+                        {data.description}
                      </div>
                   </FadeInOnView>
 
                   <FadeInOnView delay={0.2}>
                      <div className="pt-8 text-xl font-semibold title-font">
-                        Hélène Lichtenberger
+                        {data.author}
                      </div>
                   </FadeInOnView>
 
                   <FadeInOnView delay={0.3}>
-                     <div className="text-neutral-500">
-                        Auteure et biographe - BOMOT
-                     </div>
+                     <div className="text-neutral-500">{data.job}</div>
                   </FadeInOnView>
 
                   {/* <FadeInOnView delay={0.4}>

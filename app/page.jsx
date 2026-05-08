@@ -48,9 +48,9 @@ export default function Home() {
          <SiteSurMesure data={data.homepage.site_sur_mesure} />
          <NosCompetences data={data.homepage.competences_a_votre_service} />
          <Stats stats={data.homepage.stats} />
-         <NosAtouts />
+         <NosAtouts atouts={data.homepage.atouts} />
          {/* <Rassurance /> */}
-         <Temoignage />
+         <Temoignage data={data.homepage.temoignage} />
       </>
    );
 }

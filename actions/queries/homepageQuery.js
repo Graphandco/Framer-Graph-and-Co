@@ -52,6 +52,42 @@ export const HOMEPAGE_QUERY = `
             picto
         }
 
+        temoignage {
+            author
+            job
+            image {
+                node {
+                    id
+                    sourceUrl
+                    altText
+                    mediaDetails {
+                        width
+                        height
+                    }
+                }
+            }
+            content
+            description
+        }
+
+        atouts {
+            top_legend
+            atout {
+                title
+                content
+                image {
+                    node {
+                        id
+                        sourceUrl
+                        altText
+                        mediaDetails {
+                            width
+                            height
+                        }
+                    }
+                }
+            }
+        }
 
       }
     }

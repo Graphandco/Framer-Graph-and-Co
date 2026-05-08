@@ -4,32 +4,14 @@ import { useState } from "react";
 import Image from "next/image";
 import SectionLegend from "@/components/SectionLegend";
 
-const NosAtouts = () => {
+const NosAtouts = ({ atouts }) => {
    const [selected, setSelected] = useState(0);
-   const FEATURES = [
-      {
-         title: "Interface utilisateur",
-         content: "Un site internet unique, au design innovant et moderne",
-         image: "/rassurance/interface-utilisateur.avif",
-      },
-      {
-         title: "Expérience utilisateur",
-         image: "/rassurance/experience-utilisateur.avif",
-         content: "Un site internet unique, au design innovant et moderne",
-      },
-      {
-         title: "Sécurité",
-         content:
-            "Votre site est protégé, les données de vos visiteurs sont sécurisées",
-         image: "/rassurance/securite.avif",
-      },
-      {
-         title: "Accessibilité",
-         content:
-            "Un site accessible et intuitif sur tous les types de supports et tailles d'écrans",
-         image: "/rassurance/accessibilite.avif",
-      },
-   ];
+   const rawAtouts = atouts?.atout;
+   const tabs = Array.isArray(rawAtouts)
+      ? rawAtouts
+      : rawAtouts && typeof rawAtouts === "object"
+        ? Object.values(rawAtouts).filter(Boolean)
+        : [];
 
    return (
       <section className="bg-black pt-8 pb-16 text-white">
@@ -41,11 +23,11 @@ const NosAtouts = () => {
                   height={50}
                   alt="Logo Graph and Co"
                />
-               <SectionLegend text="Les atouts de votre site" />
+               <SectionLegend text={atouts?.top_legend} />
             </div>
             <div className="grid sm:grid-cols-[3fr_4fr] items-center gap-6 py-12 md:gap-12">
                <AnimatePresence mode="wait">
-                  {FEATURES.map((tab, index) => {
+                  {tabs.map((tab, index) => {
                      return selected === index ? (
                         <motion.div
                            initial={{ opacity: 0, y: 50 }}
@@ -61,15 +43,15 @@ const NosAtouts = () => {
                            <TabContent
                               title={tab.title}
                               content={tab.content}
-                              image={tab.image}
-                              index={index}
+                              image={tab.image?.node?.sourceUrl}
+                              mediaDetails={tab.image?.node?.mediaDetails}
                            />
                         </motion.div>
                      ) : undefined;
                   })}
                </AnimatePresence>
                <div className="w-full shrink-0 overflow-clip">
-                  {FEATURES.map((tab, index) => {
+                  {tabs.map((tab, index) => {
                      return (
                         <Tab
                            key={index}
@@ -77,7 +59,7 @@ const NosAtouts = () => {
                            selected={selected === index}
                            title={tab.title}
                            content={tab.content}
-                           image={tab.image}
+                           image={tab.image?.node?.sourceUrl}
                            tabNum={index}
                         />
                      );
@@ -128,11 +110,17 @@ const Tab = ({ selected, title, setSelected, tabNum }) => {
    );
 };
 
-const TabContent = ({ title, content, image }) => (
+const TabContent = ({ title, content, image, mediaDetails }) => (
    <div className="w-full">
       <div className="relative h-[300px] sm:h-[500px] w-full rounded-xl bg-slate-800 shadow-xl overflow-hidden">
          <div className="absolute inset-0">
-            <Image src={image} alt={title} fill className="object-cover" />
+            <Image
+               src={image || "/logo.svg"}
+               alt={title}
+               width={mediaDetails?.width || 1200}
+               height={mediaDetails?.height || 800}
+               className="h-full object-cover"
+            />
             <div className="absolute inset-0 bg-black/50" />
          </div>
          <div className="relative z-10 p-8 h-full flex flex-col justify-end">
