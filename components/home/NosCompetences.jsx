@@ -3,7 +3,6 @@ import Button from "../ui/Button";
 import SplitLineText from "../SplitLineText";
 
 const NosCompetences = ({ data }) => {
-   console.log(data);
    return (
       <section className="bg-white">
          <div className="wrapper">

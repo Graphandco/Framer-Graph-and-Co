@@ -45,6 +45,13 @@ export const HOMEPAGE_QUERY = `
             content
         }
 
+        stats {
+            name
+            number
+            suffix
+            picto
+        }
+
 
       }
     }
