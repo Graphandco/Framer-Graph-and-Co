@@ -28,7 +28,7 @@ export const VelocityText = () => {
 	const x = useSpring(xRaw, { mass: 3, stiffness: 400, damping: 50 });
 
 	return (
-		<section ref={targetRef} className="h-[500vh] py-16">
+		<section ref={targetRef} className="relative h-[500vh] py-16">
 			<div className="sticky top-0 flex h-screen flex-col justify-between overflow-hidden">
 				<div className="wrapper-small py-24">
 					<VanishParagraphs>

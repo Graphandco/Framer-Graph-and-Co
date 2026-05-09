@@ -76,7 +76,7 @@ const PriceCard = ({ pack }) => {
             Choisir
          </Button> */}
          <div className="text-center">
-            {/* <RotatingButton href="/contact" text="Choisir Choisir " /> */}
+            <RotatingButton href="/contact" text="Choisir Choisir " />
          </div>
       </motion.div>
    );

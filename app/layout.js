@@ -48,7 +48,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
    return (
       <ViewTransitions>
-         <html lang="fr">
+         <html lang="fr" className="relative">
             <head>
                <link rel="manifest" href="/manifest.json" />
                <link rel="icon" href="/logo512.png" />
