@@ -22,9 +22,7 @@ const packsData = await getWordpressContent({
 
 const sortedPacksData = {
    ...packsData,
-   nodes: [...packsData.nodes].sort(
-      (a, b) => a.packs.order - b.packs.order
-   ),
+   nodes: [...packsData.nodes].sort((a, b) => a.packs.order - b.packs.order),
 };
 
 export const metadata = {
@@ -91,8 +89,8 @@ export default async function OffresPage() {
 				</Button>
 			</div>
          */}
-         <VelocityText />
-         <UserWithIcon />
+         <VelocityText data={data.tarifs.outro_text} />
+         <UserWithIcon data={data.tarifs} />
          <Outils />
       </>
    );

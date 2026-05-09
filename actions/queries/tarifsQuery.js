@@ -8,6 +8,16 @@ export const TARIFS_QUERY = `
         intro_text
         packs_title
         packs_description
+
+        outro_text {
+            first_title
+            second_title
+            description
+            velocity_text
+        }
+
+        user_text1
+        user_text2
       }
 
     }
