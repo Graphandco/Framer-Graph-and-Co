@@ -35,6 +35,7 @@ const PageHero = ({ title, image, position = "center" }) => {
                   fill
                   className={`object-cover object-${position}`}
                   priority
+                  //   unoptimized
                   // sizes="100vw"
                />
             </motion.div>

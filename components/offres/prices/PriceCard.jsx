@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import RotatingButton from "@/components/RotatingButton";
 
 const PriceCard = ({ pack }) => {
-   const { title, description, price, details, premium, bestSeller } = pack;
+   const { description, price, details, premium, bestSeller } = pack.packs;
 
    return (
       <motion.div
@@ -29,7 +29,7 @@ const PriceCard = ({ pack }) => {
          {/* Header */}
          <div className="flex flex-col justify-between text-center">
             <div className="text-primary font-semibold title-font mb-4">
-               {title}
+               {pack.title}
             </div>
             <div className="cart-price pb-8 border-b border-white/40">
                <div className="min-h-14 flex flex-col justify-between">
@@ -76,7 +76,7 @@ const PriceCard = ({ pack }) => {
             Choisir
          </Button> */}
          <div className="text-center">
-            <RotatingButton href="/contact" text="Choisir Choisir " />
+            {/* <RotatingButton href="/contact" text="Choisir Choisir " /> */}
          </div>
       </motion.div>
    );

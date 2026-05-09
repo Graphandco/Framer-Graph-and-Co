@@ -4,6 +4,28 @@ import TextIntro from "@/components/offres/TextIntro";
 import UserWithIcon from "@/components/offres/UserWithIcon";
 import { VelocityText } from "@/components/offres/VelocityText";
 import PageHero from "@/components/ui/PageHero";
+import { getWordpressContent } from "@/actions/getWordpressContent";
+import { TARIFS_QUERY } from "@/actions/queries/tarifsQuery";
+import { PACKS_QUERY } from "@/actions/queries/packsQuery";
+
+const data = await getWordpressContent({
+   query: TARIFS_QUERY,
+   variables: { id: 163 },
+   rootField: "page",
+});
+
+const packsData = await getWordpressContent({
+   query: PACKS_QUERY,
+   variables: {},
+   rootField: "packs",
+});
+
+const sortedPacksData = {
+   ...packsData,
+   nodes: [...packsData.nodes].sort(
+      (a, b) => a.packs.order - b.packs.order
+   ),
+};
 
 export const metadata = {
    title: "Tarifs création de sites web – Colmar, Sainte-Croix-en-Plaine | Graph & Co",
@@ -30,16 +52,18 @@ export const metadata = {
 };
 
 export default async function OffresPage() {
+   const heroImage =
+      data?.featuredImage?.node?.sourceUrl || "/offres/hero-offres.avif";
+
    return (
       <>
-         <PageHero
-            title="Tarifs création de sites web – Colmar, Sainte-Croix-en-Plaine et environs"
-            image="/offres/hero-offres.avif"
-            imageClass="object-cover object-top"
-            position="top"
+         <PageHero title={data.title} image={heroImage} position="top" />
+         <TextIntro data={data} />
+         <PriceCards
+            title={data.tarifs.packs_title}
+            description={data.tarifs.packs_description}
+            packsData={sortedPacksData}
          />
-         <TextIntro />
-         <PriceCards />
          {/*
 			<div className="info wrapper-small pt-12 sm:pt-24">
 				 <h2 className="text-2xl title-font font-semibold mb-10">
