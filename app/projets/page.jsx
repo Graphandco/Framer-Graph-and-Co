@@ -1,6 +1,21 @@
 import PageHero from "@/components/ui/PageHero";
 import { getMdxData } from "@/utils/mdxUtils";
 import ProjetsList from "@/components/projets/ProjetsList";
+import { getWordpressContent } from "@/actions/getWordpressContent";
+import { PROJECTS_QUERY } from "@/actions/queries/projectsQuery";
+import { getGlobalQuery } from "@/actions/queries/globalQuery";
+
+const projectsData = await getWordpressContent({
+   query: PROJECTS_QUERY,
+   variables: {},
+   rootField: "projects",
+});
+
+const pageData = await getWordpressContent({
+   query: getGlobalQuery("page"),
+   variables: { id: 193 },
+   rootField: "page",
+});
 
 export const metadata = {
    title: "Portfolio Sites Web Colmar - Réalisations E-commerce & Vitrines | Graph & Co",
@@ -31,11 +46,11 @@ export default async function ProjectsPage() {
    return (
       <>
          <PageHero
-            title="Les projets de sites web de votre agence à Colmar"
-            image="/projets/hero-projets.avif"
+            title={pageData.title}
+            image={pageData.featuredImage.node.sourceUrl}
          />
 
-         <ProjetsList projects={data} />
+         <ProjetsList projects={projectsData.nodes} pageData={pageData} />
       </>
    );
 }

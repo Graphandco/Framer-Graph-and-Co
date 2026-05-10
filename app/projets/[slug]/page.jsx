@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
    const { slug } = await params;
-   
+
    // Validation du slug pour prévenir Path Traversal
    if (!slug || typeof slug !== "string" || /[\.\/\\]/.test(slug)) {
       return {
@@ -14,9 +14,9 @@ export async function generateMetadata({ params }) {
          description: "La page demandée n'existe pas.",
       };
    }
-   
+
    const filePath = path.join(process.cwd(), "markdown/projets", `${slug}.mdx`);
-   
+
    // Vérification supplémentaire : s'assurer que le chemin résolu est bien dans le répertoire attendu
    const resolvedPath = path.resolve(filePath);
    const allowedDir = path.resolve(process.cwd(), "markdown/projets");
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }) {
          description: "La page demandée n'existe pas.",
       };
    }
-   
+
    let fileContent;
    try {
       fileContent = fs.readFileSync(filePath, "utf-8");
@@ -72,7 +72,7 @@ export default async function Page({ params }) {
    }
 
    const filePath = path.join(process.cwd(), "markdown/projets", `${slug}.mdx`);
-   
+
    // Vérification supplémentaire : s'assurer que le chemin résolu est bien dans le répertoire attendu
    const resolvedPath = path.resolve(filePath);
    const allowedDir = path.resolve(process.cwd(), "markdown/projets");

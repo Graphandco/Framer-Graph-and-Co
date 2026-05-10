@@ -9,6 +9,7 @@ import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import LoadGoogleAnalytics from "@/components/LoadGoogleAnalytics";
 import JsonLdLocalBusiness from "@/components/seo/JsonLdLocalBusiness";
 import MatomoAnalytics from "@/components/MatomoAnalytics";
+import BodyClassHandler from "@/utils/BodyClassHandler";
 // import { GoogleAnalytics } from "@next/third-parties/google";
 
 const outfit = Outfit({
@@ -54,7 +55,7 @@ export default function RootLayout({ children }) {
                <link rel="icon" href="/logo512.png" />
                <meta name="theme-color" content="#ffffff" />
             </head>
-            {/* <BodyClassHandler> */}
+            <BodyClassHandler />
             <body
                className={`${outfit.variable} ${urbanist.variable} antialiased`}
                suppressHydrationWarning={true}
