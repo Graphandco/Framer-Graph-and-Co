@@ -1,24 +1,30 @@
 import Button from "../ui/Button";
 
-const ProjetsFilter = ({ activeCategory, setActiveCategory }) => {
-	const categories = ["tous", "vitrine", "e-commerce", "mockup"];
+/** Valeurs ACF (stockées en WP) + libellés affichés */
+const CATEGORIES = [
+   { value: "tous", label: "tous" },
+   { value: "vitrine", label: "Vitrine" },
+   { value: "ecommerce", label: "eCommerce" },
+   { value: "mockup", label: "Mockup" },
+];
 
-	return (
-		<div className="sticky top-0 z-20 py-6 flex flex-wrap justify-center gap-2 sm:gap-4">
-			{categories.map((category) => (
-				<Button
-					key={category}
-					small
-					muted={activeCategory === category}
-					black={activeCategory !== category}
-					onClick={() => setActiveCategory(category)}
-					icon={null}
-				>
-					{category}
-				</Button>
-			))}
-		</div>
-	);
+const ProjetsFilter = ({ activeCategory, setActiveCategory }) => {
+   return (
+      <div className="sticky top-0 z-20 flex flex-wrap justify-center gap-2 py-6 sm:gap-4">
+         {CATEGORIES.map(({ value, label }) => (
+            <Button
+               key={value}
+               small
+               muted={activeCategory === value}
+               black={activeCategory !== value}
+               onClick={() => setActiveCategory(value)}
+               icon={null}
+            >
+               {label}
+            </Button>
+         ))}
+      </div>
+   );
 };
 
 export default ProjetsFilter;

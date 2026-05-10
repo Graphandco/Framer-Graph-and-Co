@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import NavLink from "../header/NavLink";
 
 const ProjetItem = ({ project, image }) => {
-   console.log(project);
    const MotionImage = motion.create(Image);
 
    return (
@@ -19,7 +18,7 @@ const ProjetItem = ({ project, image }) => {
             filter: "blur(0px)",
          }}
          viewport={{ amount: 0.4, once: false }}
-         className="relative featured nth-2:row-span-2 flex flex-col justify-end overflow-hidden rounded-3xl after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1/2 after:w-full after:bg-linear-to-t after:to-transparent after:from-black/80"
+         className="relative featured nth-2:row-span-2 nth-4:row-span-2 nth-8:row-span-2 flex flex-col justify-end overflow-hidden rounded-3xl after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1/2 after:w-full after:bg-linear-to-t after:to-transparent after:from-black/80"
       >
          <NavLink
             href={`/projets/${project.slug}`}

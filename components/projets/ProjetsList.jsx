@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import ProjetItem from "./ProjetItem";
-import RealisationsText from "@/markdown/realisations.mdx";
 import { AnimatePresence, motion } from "framer-motion";
 import ProjetsFilter from "./ProjetsFilter";
 import Button from "../ui/Button";
@@ -10,16 +9,22 @@ import Button from "../ui/Button";
 const ProjetsList = ({ projects, pageData }) => {
    const [activeCategory, setActiveCategory] = useState("tous");
 
-   const filteredProjects = projects.filter((project) =>
-      activeCategory === "tous"
-         ? true
-         : project.projectAcf.category === activeCategory,
-   );
+   const filteredProjects = projects.filter((project) => {
+      if (activeCategory === "tous") return true;
+      const cat = String(project.projectAcf?.category ?? "").toLowerCase();
+      return cat === activeCategory.toLowerCase();
+   });
 
-   // 🔀 Trie les projets pour que les `featured` passent en premier
+   // 🔀 mockup en dernier, puis featured en premier dans chaque groupe
    const orderedProjects = [...filteredProjects].sort((a, b) => {
+      const aMock =
+         String(a.projectAcf?.category ?? "").toLowerCase() === "mockup";
+      const bMock =
+         String(b.projectAcf?.category ?? "").toLowerCase() === "mockup";
+      if (aMock !== bMock) return aMock ? 1 : -1;
       if (a.projectAcf.featured && !b.projectAcf.featured) return -1;
-      if (!a.projectAcf.featured && b.projectAcf.featured) return;
+      if (!a.projectAcf.featured && b.projectAcf.featured) return 1;
+      return 0;
    });
 
    return (

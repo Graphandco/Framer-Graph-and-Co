@@ -1,61 +1,33 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
-import MDXRenderer from "@/components/MDXRenderer";
 import PageHero from "../ui/PageHero";
 import Button from "../ui/Button";
-import { GrReturn } from "react-icons/gr";
-import Loading from "../Loading";
 import { FaEye } from "react-icons/fa";
 import ProjetCarousel from "./ProjetCarousel";
 import { MdArrowOutward } from "react-icons/md";
-import { ArrowLeft, ArrowLeftCircleIcon } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import NavLink from "../header/NavLink";
 
-const ProjetSingle = ({ fileContent }) => {
-   const [mdxSource, setMdxSource] = useState(null);
-   const [frontmatter, setFrontmatter] = useState(null);
-
-   useEffect(() => {
-      const processMDX = async () => {
-         const { data, content } = matter(fileContent);
-         const mdx = await serialize(content);
-         setFrontmatter(data);
-         setMdxSource(mdx);
-      };
-
-      processMDX();
-   }, [fileContent]);
-
-   const images = Array.from(
-      { length: frontmatter?.nbrCaptures },
-      (_, i) => `/projets/${frontmatter.slug}/capture${i + 1}.avif`
-   );
-
-   if (!mdxSource || !frontmatter) return <Loading />;
+export default function ProjetSingle({ project }) {
+   const acf = project?.projectAcf;
+   const heroUrl =
+      project?.featuredImage?.node?.sourceUrl ?? "/projets/hero-projets.avif";
+   const position = acf?.positionDuBackground || "center";
+   const galleryUrls =
+      acf?.galerieDimages?.nodes
+         ?.map((n) => n?.sourceUrl)
+         .filter(Boolean) ?? [];
+   const siteUrl = acf?.lienDuSite;
 
    return (
       <>
          <PageHero
-            title={frontmatter.title}
-            image={`/projets/${frontmatter.image}`}
-            position={frontmatter.position ? frontmatter.position : "center"}
+            title={project.title}
+            image={heroUrl}
+            position={position}
          />
          <div className="wrapper pb-24">
-            {/* <Button
-               small
-               outline
-               href="/projets"
-               icon=<GrReturn />
-               className="mt-3 mb-8 inline-flex"
-            >
-               Retour aux projets
-            </Button> */}
             <NavLink
                href="/projets"
-               className="mt-3 mb-5 inline-flex items-center gap-1 underline group"
+               className="group mt-3 mb-5 inline-flex items-center gap-1 underline"
             >
                <ArrowLeft
                   size={15}
@@ -63,39 +35,44 @@ const ProjetSingle = ({ fileContent }) => {
                />
                Retour aux projets
             </NavLink>
-            <h2 className="text-4xl font-bold mb-5">
-               {frontmatter.description}
-            </h2>
-            <Button
-               blank
-               icon={<FaEye />}
-               href={frontmatter.url}
-               className="mb-8"
-            >
-               Voir le site
-            </Button>
-            <MDXRenderer source={mdxSource} />
-            {images.length > 0 && (
+            {acf?.sousTitre ? (
+               <h2 className="mb-5 text-4xl font-bold">{acf.sousTitre}</h2>
+            ) : null}
+            {siteUrl ? (
+               <Button blank icon={<FaEye />} href={siteUrl} className="mb-8">
+                  Voir le site
+               </Button>
+            ) : null}
+            {project.content ? (
+               <div
+                  className="markdown max-w-none"
+                  dangerouslySetInnerHTML={{ __html: project.content }}
+               />
+            ) : null}
+            {galleryUrls.length > 0 ? (
                <>
-                  <div className="text-2xl text-center pt-8 pb-5">
-                     Plongez dans l'univers de{" "}
-                     <a
-                        href={frontmatter.url}
-                        target="blank"
-                        className="text-primary hover:scale-105 inline-block transition-transform origin-left group duration-200"
-                     >
-                        {frontmatter.title}
-                        <sup>
-                           <MdArrowOutward className="inline group-hover:rotate-45 group-hover:-translate-x-2 origin-bottom transition-transform duration-200" />
-                        </sup>
-                     </a>
+                  <div className="pb-5 pt-8 text-center text-2xl">
+                     Plongez dans l&apos;univers de{" "}
+                     {siteUrl ? (
+                        <a
+                           href={siteUrl}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="group inline-block origin-left text-primary transition-transform duration-200 hover:scale-105"
+                        >
+                           {project.title}
+                           <sup>
+                              <MdArrowOutward className="inline origin-bottom transition-transform duration-200 group-hover:-translate-x-2 group-hover:rotate-45" />
+                           </sup>
+                        </a>
+                     ) : (
+                        <span>{project.title}</span>
+                     )}
                   </div>
-                  <ProjetCarousel images={images} />
+                  <ProjetCarousel images={galleryUrls} />
                </>
-            )}
+            ) : null}
          </div>
       </>
    );
-};
-
-export default ProjetSingle;
+}

@@ -1,64 +1,78 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import ProjetSingle from "@/components/projets/ProjetSingle";
 import { notFound } from "next/navigation";
+import { getWordpressContent } from "@/actions/getWordpressContent";
+import { SINGLE_PROJECT_QUERY } from "@/actions/queries/singleProjectQuery";
+import { PROJECTS_QUERY } from "@/actions/queries/projectsQuery";
+
+function isValidSlug(slug) {
+   return Boolean(slug && typeof slug === "string" && !/[\.\/\\]/.test(slug));
+}
+
+async function getProjectBySlug(slug) {
+   try {
+      return await getWordpressContent({
+         query: SINGLE_PROJECT_QUERY,
+         variables: { slug },
+         rootField: "project",
+      });
+   } catch {
+      return null;
+   }
+}
 
 export async function generateMetadata({ params }) {
    const { slug } = await params;
 
-   // Validation du slug pour prévenir Path Traversal
-   if (!slug || typeof slug !== "string" || /[\.\/\\]/.test(slug)) {
+   if (!isValidSlug(slug)) {
       return {
          title: "Page non trouvée - Graph & Co",
          description: "La page demandée n'existe pas.",
       };
    }
 
-   const filePath = path.join(process.cwd(), "markdown/projets", `${slug}.mdx`);
-
-   // Vérification supplémentaire : s'assurer que le chemin résolu est bien dans le répertoire attendu
-   const resolvedPath = path.resolve(filePath);
-   const allowedDir = path.resolve(process.cwd(), "markdown/projets");
-   if (!resolvedPath.startsWith(allowedDir)) {
+   const project = await getProjectBySlug(slug);
+   if (!project) {
       return {
          title: "Page non trouvée - Graph & Co",
          description: "La page demandée n'existe pas.",
       };
    }
 
-   let fileContent;
-   try {
-      fileContent = fs.readFileSync(filePath, "utf-8");
-   } catch (error) {
-      return {
-         title: "Page non trouvée - Graph & Co",
-         description: "La page demandée n'existe pas.",
-      };
-   }
-   const { data } = matter(fileContent);
+   const metaTitle = `${project.title} - Portfolio Web Colmar | Graph & Co`;
+   const metaDesc =
+      project.seo?.metaDesc ||
+      "Découvrez cette réalisation de site web créée par notre agence à Colmar.";
+   const ogImage = project.featuredImage?.node?.sourceUrl;
+
    return {
       alternates: {
          canonical: `https://graphandco.com/projets/${slug}`,
       },
-      title: `${data.title} - Portfolio Web Colmar | Graph & Co`,
-      description:
-         data.metadesc ||
-         "Découvrez cette réalisation de site web créée par notre agence à Colmar.",
+      title: metaTitle,
+      description: metaDesc,
       openGraph: {
-         title: `${data.title} - Portfolio Web Colmar | Graph & Co`,
-         description: data.metadesc,
+         title: metaTitle,
+         description: metaDesc,
          url: `https://graphandco.com/projets/${slug}`,
          type: "article",
          siteName: "Graph & Co",
-         images: [
-            {
-               url: `https://graphandco.com/projets/${data.image}`,
-               width: 1200,
-               height: 630,
-               alt: data.title,
-            },
-         ],
+         ...(ogImage
+            ? {
+                 images: [
+                    {
+                       url: ogImage,
+                       width:
+                          project.featuredImage?.node?.mediaDetails?.width ??
+                          1200,
+                       height:
+                          project.featuredImage?.node?.mediaDetails?.height ??
+                          630,
+                       alt:
+                          project.featuredImage?.node?.altText || project.title,
+                    },
+                 ],
+              }
+            : {}),
       },
    };
 }
@@ -66,40 +80,30 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
    const { slug } = await params;
 
-   // Validation du slug pour prévenir Path Traversal
-   if (!slug || typeof slug !== "string" || /[\.\/\\]/.test(slug)) {
+   if (!isValidSlug(slug)) {
       return notFound();
    }
 
-   const filePath = path.join(process.cwd(), "markdown/projets", `${slug}.mdx`);
-
-   // Vérification supplémentaire : s'assurer que le chemin résolu est bien dans le répertoire attendu
-   const resolvedPath = path.resolve(filePath);
-   const allowedDir = path.resolve(process.cwd(), "markdown/projets");
-   if (!resolvedPath.startsWith(allowedDir)) {
+   const project = await getProjectBySlug(slug);
+   if (!project) {
       return notFound();
    }
 
-   let fileContent;
-   try {
-      fileContent = fs.readFileSync(filePath, "utf-8");
-   } catch (error) {
-      // Si le fichier est introuvable, renvoyer une 404
-      return notFound();
-   }
-
-   return <ProjetSingle fileContent={fileContent} />;
+   return <ProjetSingle project={project} />;
 }
 
-export function generateStaticParams() {
-   const dirPath = path.join(process.cwd(), "markdown/projets");
-   const files = fs.readdirSync(dirPath);
-
-   return files
-      .filter((file) => file.endsWith(".mdx"))
-      .map((file) => ({
-         slug: file.replace(/\.mdx$/, ""),
-      }));
+export async function generateStaticParams() {
+   try {
+      const projects = await getWordpressContent({
+         query: PROJECTS_QUERY,
+         variables: {},
+         rootField: "projects",
+      });
+      const nodes = projects?.nodes ?? [];
+      return nodes.filter((n) => n?.slug).map((n) => ({ slug: n.slug }));
+   } catch {
+      return [];
+   }
 }
 
 export const dynamicParams = true;
