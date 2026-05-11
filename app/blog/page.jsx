@@ -1,6 +1,21 @@
 import PageHero from "@/components/ui/PageHero";
 import { getMdxData } from "@/utils/mdxUtils";
 import BlogList from "@/components/blog/BlogList";
+import { getWordpressContent } from "@/actions/getWordpressContent";
+import { getGlobalQuery } from "@/actions/queries/globalQuery";
+import { BLOGS_QUERY } from "@/actions/queries/blogsQuery";
+
+const pageData = await getWordpressContent({
+   query: getGlobalQuery("page"),
+   variables: { id: 290 },
+   rootField: "page",
+});
+
+const blogsData = await getWordpressContent({
+   query: BLOGS_QUERY,
+   variables: {},
+   rootField: "posts",
+});
 
 export const metadata = {
    title: "Blog Web Colmar - Actualités UX/UI et Développement | Graph & Co",
@@ -31,11 +46,11 @@ export default async function BlogPage() {
    return (
       <>
          <PageHero
-            title="Les actualités web et développement de votre agence à Colmar"
-            image="/blog/blog-hero.avif"
+            title={pageData.title}
+            image={pageData.featuredImage.node.sourceUrl}
          />
          <section className="bg-black/5">
-            <BlogList blog={data} />
+            <BlogList blog={data} blogsData={blogsData} />
          </section>
       </>
    );

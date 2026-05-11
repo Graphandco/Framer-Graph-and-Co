@@ -1,11 +1,11 @@
-export const PROJECTS_QUERY = `
-  query GetProjects {
-    projects(first: 100) {
+export const BLOGS_QUERY = `
+  query GetBlogs {
+    posts(first: 100) {
       nodes {
-
-
+        databaseId
         title
         slug
+        date
         featuredImage {
             node {
             altText
@@ -16,17 +16,15 @@ export const PROJECTS_QUERY = `
             sourceUrl
             }
         }
-
-
-        projectAcf {
-            category
-            lienDuSite
-            order
-            featured
-            positionDuBackground
-            sousTitre
+        categories {
+            nodes {
+            name
+            }
         }
 
+        blogAcf {
+            sousTitre
+        }
 
       }
     }
