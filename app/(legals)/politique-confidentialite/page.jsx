@@ -1,5 +1,12 @@
 import PageHero from "@/components/ui/PageHero";
-import Politique from "@/markdown/politique-confidentialite.mdx";
+import { getWordpressContent } from "@/actions/getWordpressContent";
+import { getGlobalQuery } from "@/actions/queries/globalQuery";
+
+const pageData = await getWordpressContent({
+   query: getGlobalQuery("page"),
+   variables: { id: 338 },
+   rootField: "page",
+});
 
 export const metadata = {
    title: "Politique de confidentialité - Agence Web Colmar | Graph & Co",
@@ -29,11 +36,11 @@ const PolitiqueConfidentialitePage = () => {
    return (
       <>
          <PageHero
-            title="Politique de confidentialité"
-            image="/legals/politique.avif"
+            title={pageData.title}
+            image={pageData.featuredImage.node.sourceUrl}
          />
          <div className="wrapper markdown py-8 sm:py-16">
-            <Politique />
+            <div dangerouslySetInnerHTML={{ __html: pageData.content }} />
          </div>
       </>
    );

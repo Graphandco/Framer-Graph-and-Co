@@ -1,6 +1,5 @@
 import data from "./data";
 import PriceCard from "./PriceCard";
-// import TextIntro from "@/markdown/offres/text-intro.mdx";
 
 const PriceCards = ({ title, description, packsData }) => {
    return (

@@ -1,7 +1,6 @@
 "use client";
 
 import Button from "../ui/Button";
-import PresentationText from "@/markdown/home/presentation.mdx";
 import Image from "next/image";
 import SplitLineText from "@/components/SplitLineText";
 

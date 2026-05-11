@@ -1,4 +1,3 @@
-import CompetencesText from "@/markdown/home/nos-competences.mdx";
 import Button from "../ui/Button";
 import SplitLineText from "../SplitLineText";
 

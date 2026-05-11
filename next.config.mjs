@@ -1,5 +1,3 @@
-import createMDX from "@next/mdx";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
    images: {
@@ -7,12 +5,11 @@ const nextConfig = {
          {
             protocol: "https",
             hostname: "sites.graphandco.net",
-            pathname: "/wp-content/uploads/**",
+            pathname: "/**",
          },
       ],
    },
-   // Configuration MDX existante
-   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+   pageExtensions: ["js", "jsx", "ts", "tsx"],
 
    // Redirects existants
    async redirects() {
@@ -94,10 +91,4 @@ const nextConfig = {
       ];
    },
 };
-
-const withMDX = createMDX({
-   // Add markdown plugins here, as desired
-});
-
-// Merge MDX config with Next.js config
-export default withMDX(nextConfig);
+export default nextConfig;

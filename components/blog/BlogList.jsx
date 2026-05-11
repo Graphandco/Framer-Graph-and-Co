@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import BlogItem from "./BlogItem";
-import BlogPresentation from "@/markdown/blog-presentation.mdx";
 import { AnimatePresence, motion } from "framer-motion";
 import BlogFilter from "./BlogFilter";
 
@@ -25,7 +24,7 @@ function collectCategoryFilters(posts) {
    ];
 }
 
-const BlogList = ({ posts = [] }) => {
+const BlogList = ({ posts, pageData }) => {
    const [activeCategory, setActiveCategory] = useState("tous");
 
    const categoryFilters = useMemo(
@@ -50,10 +49,10 @@ const BlogList = ({ posts = [] }) => {
    return (
       <section id="blog">
          <div className="wrapper py-8 sm:py-16">
-            <h2 className="text-4xl mb-5">Plongée dans les coulisses du web</h2>
-            <div className="markdown">
-               <BlogPresentation />
-            </div>
+            <div
+               className="markdown"
+               dangerouslySetInnerHTML={{ __html: pageData.content }}
+            />
             <BlogFilter
                categories={categoryFilters}
                activeCategory={activeCategory}

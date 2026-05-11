@@ -2,6 +2,14 @@ import ContactForm from "@/components/contact/ContactForm";
 import ContactText from "@/components/contact/ContactText";
 import Tabs from "@/components/contact/Tabs";
 import PageHero from "@/components/ui/PageHero";
+import { getWordpressContent } from "@/actions/getWordpressContent";
+import { CONTACT_QUERY } from "@/actions/queries/contactQuery";
+
+const pageData = await getWordpressContent({
+   query: CONTACT_QUERY,
+   variables: { id: 342 },
+   rootField: "page",
+});
 
 export const metadata = {
    title: "Contact Agence Web Colmar - Devis Gratuit Site Internet | Graph & Co",
@@ -27,21 +35,23 @@ export const metadata = {
    },
 };
 
+const faqItems = Array.isArray(pageData?.faq?.item) ? pageData.faq.item : [];
+
 const ContactPage = () => {
    return (
       <>
          <PageHero
-            title="Contactez votre agence web à Colmar"
-            image="/contact/hero-contact.avif"
+            title={pageData.title}
+            image={pageData.featuredImage.node.sourceUrl}
          />
          <div className="wrapper py-8 sm:py-16 space-y-6 xs:space-y-10">
             <h2 className="text-3xl">Une envie, un projet ?</h2>
             <div className="grid sm:grid-cols-2 gap-6 sm:gap-16 pb-10">
-               <ContactText />
+               <ContactText pageData={pageData} />
                <ContactForm />
             </div>
             <hr className="border-slate-300" />
-            <Tabs />
+            <Tabs items={faqItems} />
          </div>
       </>
    );

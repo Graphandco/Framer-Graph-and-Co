@@ -34,6 +34,7 @@ const ProjetItem = ({ project, image }) => {
                fill
                className={`object-cover object-${project.projectAcf.positionDuBackground ? project.projectAcf.positionDuBackground : "center"}`}
                priority
+               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
             {/* Text content */}
             <div className="relative z-10 text-white px-8 pt-52 pb-6">

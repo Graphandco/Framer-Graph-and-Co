@@ -7,6 +7,66 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
+/** Polices next/font (`layout.js`) — corps : Outfit, titres : Urbanist */
+const APP_FONT_FAMILIES = ["Outfit", "Urbanist"];
+
+const GENERIC_FONT_KEYWORDS = new Set([
+   "serif",
+   "sans-serif",
+   "monospace",
+   "system-ui",
+   "ui-sans-serif",
+   "ui-serif",
+   "ui-monospace",
+   "cursive",
+   "fantasy",
+   "emoji",
+]);
+
+function parseFontFamilyList(fontFamily) {
+   if (!fontFamily) return [];
+   return fontFamily
+      .split(",")
+      .map((part) => part.trim().replace(/^["']|["']$/g, ""))
+      .filter(Boolean);
+}
+
+/** Familles à charger : polices du thème + celles réellement appliquées aux blocs découpés */
+function familiesToLoad(elements) {
+   const names = new Set(APP_FONT_FAMILIES);
+   for (const el of elements) {
+      for (const name of parseFontFamilyList(
+         getComputedStyle(el).fontFamily,
+      )) {
+         if (!GENERIC_FONT_KEYWORDS.has(name.toLowerCase())) {
+            names.add(name);
+         }
+      }
+   }
+   return [...names];
+}
+
+/**
+ * Attend le chargement des polices pour que SplitText mesure correctement
+ * (évite le warning GSAP « called before fonts loaded »).
+ */
+async function waitForFontsBeforeSplit(elements) {
+   if (typeof document === "undefined" || !document.fonts?.ready) return;
+
+   await document.fonts.ready;
+
+   const families = familiesToLoad(elements);
+   await Promise.all(
+      families.map((family) =>
+         document.fonts.load(`1rem ${family}`).catch(() => []),
+      ),
+   );
+
+   await new Promise((resolve) => {
+      requestAnimationFrame(() => requestAnimationFrame(resolve));
+   });
+}
+
 export default function SplitLineText({
    children,
    animateOnScroll = true,
@@ -17,36 +77,14 @@ export default function SplitLineText({
    const splitRefs = useRef([]);
    const lines = useRef([]);
 
-   // const waitForFonts = async () => {
-   //   try {
-   //     await document.fonts.ready;
-
-   //     const customFonts = [
-   //       "Geist Mono",
-   //       "PP Neue Montreal",
-   //       "PP Pangram Sans",
-   //       "Big Shoulders Display",
-   //     ];
-   //     const fontCheckPromises = customFonts.map((fontFamily) => {
-   //       return document.fonts.check(`16px ${fontFamily}`);
-   //     });
-
-   //     await Promise.all(fontCheckPromises);
-   //     await new Promise((resolve) => setTimeout(resolve, 100));
-
-   //     return true;
-   //   } catch (error) {
-   //     await new Promise((resolve) => setTimeout(resolve, 200));
-   //     return true;
-   //   }
-   // };
-
    useGSAP(
       () => {
          if (!containerRef.current) return;
 
+         let cancelled = false;
+
          const initializeSplitText = async () => {
-            // await waitForFonts();
+            if (!containerRef.current) return;
 
             splitRefs.current = [];
             lines.current = [];
@@ -58,13 +96,19 @@ export default function SplitLineText({
             } else {
                const textBlocks = Array.from(
                   containerRef.current.querySelectorAll(
-                     "p, li, h1, h2, h3, h4, h5, h6, blockquote"
-                  )
+                     "p, li, h1, h2, h3, h4, h5, h6, blockquote",
+                  ),
                );
-               elements = textBlocks.length > 0 ? textBlocks : [containerRef.current];
+               elements =
+                  textBlocks.length > 0 ? textBlocks : [containerRef.current];
             }
 
-            elements.forEach((element) => {
+            await waitForFontsBeforeSplit(elements);
+            if (cancelled || !containerRef.current) return;
+
+            for (const element of elements) {
+               if (cancelled || !containerRef.current) return;
+
                elementRefs.current.push(element);
 
                const split = SplitText.create(element, {
@@ -91,7 +135,9 @@ export default function SplitLineText({
                });
 
                lines.current.push(...split.lines);
-            });
+            }
+
+            if (cancelled || !lines.current.length) return;
 
             gsap.set(lines.current, { y: "100%" });
 
@@ -120,14 +166,18 @@ export default function SplitLineText({
          initializeSplitText();
 
          return () => {
+            cancelled = true;
+            gsap.killTweensOf(lines.current);
             splitRefs.current.forEach((split) => {
                if (split) {
                   split.revert();
                }
             });
+            splitRefs.current = [];
+            lines.current = [];
          };
       },
-      { scope: containerRef, dependencies: [animateOnScroll, delay] }
+      { scope: containerRef, dependencies: [animateOnScroll, delay] },
    );
 
    if (React.Children.count(children) === 1) {

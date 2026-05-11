@@ -49,7 +49,7 @@ export default async function BlogPage() {
             image={pageData.featuredImage.node.sourceUrl}
          />
          <section className="bg-black/5">
-            <BlogList posts={posts} />
+            <BlogList posts={posts} pageData={pageData} />
          </section>
       </>
    );

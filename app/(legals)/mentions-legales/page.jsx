@@ -1,5 +1,12 @@
 import PageHero from "@/components/ui/PageHero";
-import Mentions from "@/markdown/mentions-legales.mdx";
+import { getWordpressContent } from "@/actions/getWordpressContent";
+import { getGlobalQuery } from "@/actions/queries/globalQuery";
+
+const pageData = await getWordpressContent({
+   query: getGlobalQuery("page"),
+   variables: { id: 333 },
+   rootField: "page",
+});
 
 export const metadata = {
    title: "Mentions légales - Agence Web Colmar | Graph & Co",
@@ -29,11 +36,11 @@ const MentionsLegalesPage = () => {
    return (
       <>
          <PageHero
-            title="Mentions légales"
-            image="/legals/mentions-legales.avif"
+            title={pageData.title}
+            image={pageData.featuredImage.node.sourceUrl}
          />
          <div className="wrapper markdown py-8 sm:py-16">
-            <Mentions />
+            <div dangerouslySetInnerHTML={{ __html: pageData.content }} />
          </div>
       </>
    );
