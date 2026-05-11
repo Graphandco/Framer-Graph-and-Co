@@ -1,5 +1,4 @@
 import PageHero from "@/components/ui/PageHero";
-import { getMdxData } from "@/utils/mdxUtils";
 import BlogList from "@/components/blog/BlogList";
 import { getWordpressContent } from "@/actions/getWordpressContent";
 import { getGlobalQuery } from "@/actions/queries/globalQuery";
@@ -42,7 +41,7 @@ export const metadata = {
 };
 
 export default async function BlogPage() {
-   const data = await getMdxData("markdown/blog");
+   const posts = blogsData?.nodes ?? [];
    return (
       <>
          <PageHero
@@ -50,7 +49,7 @@ export default async function BlogPage() {
             image={pageData.featuredImage.node.sourceUrl}
          />
          <section className="bg-black/5">
-            <BlogList blog={data} blogsData={blogsData} />
+            <BlogList posts={posts} />
          </section>
       </>
    );

@@ -1,14 +1,22 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-// import NavLink from "../header/NavLink";
-// import Button from "../ui/Button";
 import RotatingButton from "../RotatingButton";
 
-const BlogItem = ({ blog }) => {
-   const { title, description, slug, category, image, date } = blog;
+const BlogItem = ({ post }) => {
+   const title = post.title ?? "";
+   const slug = post.slug ?? "";
+   const date = post.date;
+   const description = post.blogAcf?.sousTitre ?? "";
+   const categoryNode = post.categories?.nodes?.[0];
+   const categoryLabel = categoryNode?.name?.trim() || "Blog";
+   const imageNode = post.featuredImage?.node;
+   const src = imageNode?.sourceUrl;
+   const alt = imageNode?.altText?.trim() || title;
+   const w = imageNode?.mediaDetails?.width ?? 1200;
+   const h = imageNode?.mediaDetails?.height ?? 630;
+
    const MotionImage = motion.create(Image);
-   // console.log(blog);
 
    const formattedDate = new Date(date).toLocaleDateString("fr-FR", {
       day: "2-digit",
@@ -28,22 +36,30 @@ const BlogItem = ({ blog }) => {
       >
          <div className="h-full flex flex-col relative">
             <div className="absolute top-3 right-3 bg-primary py-0.5 px-2 rounded-full text-sm z-10 font-medium">
-               {category}
+               {categoryLabel}
             </div>
-            <MotionImage
-               variants={{
-                  hover: { scale: 1.025, filter: "blur(2px)" },
-               }}
-               transition={{ duration: 0.25, ease: "easeOut" }}
-               src={`/blog/${image}`}
-               alt={title}
-               width={600}
-               height={200}
-               style={{ width: "100%", height: "200px" }}
-               className="object-cover"
-               priority
-            />
-            {/* Text content */}
+            {src ? (
+               <MotionImage
+                  variants={{
+                     hover: { scale: 1.025, filter: "blur(2px)" },
+                  }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  src={src}
+                  alt={alt}
+                  width={w}
+                  height={h}
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  style={{ width: "100%", height: "200px" }}
+                  className="object-cover"
+                  priority
+               />
+            ) : (
+               <div
+                  className="w-full bg-black/10 shrink-0"
+                  style={{ height: "200px" }}
+                  aria-hidden
+               />
+            )}
             <div className="relative grow-1 flex flex-col z-10 p-5 pt-2 bg-white">
                <div className="text-right text-sm font-medium text-black/40 mb-5">
                   {formattedDate}
@@ -60,15 +76,12 @@ const BlogItem = ({ blog }) => {
                <div className="grow-1 text-black/40 font-medium leading-tight mb-2">
                   {description}
                </div>
-               {/* <Button small icon={null}>
-                  En savoir plus
-               </Button> */}
                <RotatingButton
                   href={`/blog/${slug}`}
                   text="En savoir plus "
                   className="text-black"
-                  letterSpacing={1} // espacement entre lettres
-                  radius={32} // rayon de base
+                  letterSpacing={1}
+                  radius={32}
                   hoverRadius={42}
                />
             </div>

@@ -1,41 +1,42 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
-import MDXRenderer from "@/components/MDXRenderer";
 import PageHero from "../ui/PageHero";
-import Button from "../ui/Button";
-import { GrReturn } from "react-icons/gr";
-import Loading from "../Loading";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import NavLink from "../header/NavLink";
 
-const BlogSingle = ({ fileContent }) => {
-   const [mdxSource, setMdxSource] = useState(null);
-   const [frontmatter, setFrontmatter] = useState(null);
+function BlogFooterLinks() {
+   return (
+      <div className="mt-8 text-primary">
+         <NavLink
+            href="/offres"
+            className="mt-3 mb-5 flex items-center gap-1 underline group"
+         >
+            Découvrez nos offres de création de sites
+            <ArrowRight
+               size={15}
+               className="transition-transform duration-200 group-hover:translate-x-1.5"
+            />
+         </NavLink>
+         <NavLink
+            href="/projets"
+            className="mt-3 mb-5 flex items-center gap-1 underline group"
+         >
+            Consultez nos réalisations récentes{" "}
+            <ArrowRight
+               size={15}
+               className="transition-transform duration-200 group-hover:translate-x-1.5"
+            />
+         </NavLink>
+      </div>
+   );
+}
 
-   useEffect(() => {
-      const processMDX = async () => {
-         const { data, content } = matter(fileContent);
-         const mdx = await serialize(content);
-         setFrontmatter(data);
-         setMdxSource(mdx);
-      };
+export default function BlogSingle({ post }) {
+   const heroUrl =
+      post?.featuredImage?.node?.sourceUrl ?? "/projets/hero-projets.avif";
+   const subtitle = post?.blogAcf?.sousTitre ?? "";
 
-      processMDX();
-   }, [fileContent]);
-
-   if (!mdxSource || !frontmatter) {
-      return <Loading />;
-   }
    return (
       <>
-         <PageHero
-            title={frontmatter.title}
-            image={`/blog/${frontmatter.image}`}
-            position={frontmatter.position ? frontmatter.position : "center"}
-         />
+         <PageHero title={post.title} image={heroUrl} position="center" />
          <div className="wrapper pb-24">
             <NavLink
                href="/blog"
@@ -47,41 +48,15 @@ const BlogSingle = ({ fileContent }) => {
                />
                Retour au blog
             </NavLink>
-            {/* <Button
-               small
-               href="/blog"
-               icon=<GrReturn />
-               className="mt-3 mb-8 ml-auto"
-            >
-               Retour au blog
-            </Button> */}
-            <h2 className="text-4xl mb-5">{frontmatter.description}</h2>
-            <MDXRenderer source={mdxSource} />
-            <div className="mt-8 text-primary">
-               <NavLink
-                  href="/offres"
-                  className="mt-3 mb-5 flex items-center gap-1 underline group"
-               >
-                  Découvrez nos offres de création de sites
-                  <ArrowRight
-                     size={15}
-                     className="transition-transform duration-200 group-hover:translate-x-1.5"
-                  />
-               </NavLink>
-               <NavLink
-                  href="/projets"
-                  className="mt-3 mb-5 flex items-center gap-1 underline group"
-               >
-                  Consultez nos réalisations récentes{" "}
-                  <ArrowRight
-                     size={15}
-                     className="transition-transform duration-200 group-hover:translate-x-1.5"
-                  />
-               </NavLink>
-            </div>
+            {subtitle ? <h2 className="text-4xl mb-5">{subtitle}</h2> : null}
+            {post.content ? (
+               <div
+                  className="markdown"
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+               />
+            ) : null}
+            <BlogFooterLinks />
          </div>
       </>
    );
-};
-
-export default BlogSingle;
+}
