@@ -17,25 +17,25 @@ jobs:
          packages: write
 
       steps:
-         - uses: actions/checkout@v4
+         - uses: actions/checkout@v6
 
          - name: Log in to GitHub Container Registry
-           uses: docker/login-action@v3
+           uses: docker/login-action@v4
            with:
               registry: ${{ env.REGISTRY }}
               username: ${{ github.actor }}
               password: ${{ secrets.GITHUB_TOKEN }}
 
          - name: Build and push
-           uses: docker/build-push-action@v6
+           uses: docker/build-push-action@v7
            with:
               context: .
               push: true
               no-cache: true
               pull: true
               tags: |
-                 ghcr.io/graphandco/Framer-Graph-and-Co:latest
-                 ghcr.io/graphandco/Framer-Graph-and-Co:${{ github.sha }}
+                 ghcr.io/graphandco/framer-graph-and-co:latest
+                 ghcr.io/graphandco/framer-graph-and-co:${{ github.sha }}
               build-args: |
                  NEXT_PUBLIC_WP_GRAPHQL=${{ vars.NEXT_PUBLIC_WP_GRAPHQL }}
                  NEXT_PUBLIC_MATOMO_URL=${{ vars.NEXT_PUBLIC_MATOMO_URL }}

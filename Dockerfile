@@ -1,5 +1,5 @@
 # Build stage
-FROM node:20-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
@@ -30,7 +30,7 @@ COPY gsap-plugins/SplitText.js node_modules/gsap/SplitText.js
 RUN npm run build
 
 # Runtime stage
-FROM node:20-alpine
+FROM node:22-alpine
 
 # Créer un utilisateur et un groupe non-root
 RUN addgroup -S nodejs && adduser -S nextjs -G nodejs

@@ -1,7 +1,7 @@
 services:
    app:
       container_name: graphandco
-      image: ghcr.io/graphandco/Framer-Graph-and-Co:latest
+      image: ghcr.io/graphandco/framer-graph-and-co:latest
       # Sans ça, Docker réutilise l’ancienne image locale même si `latest` a été repoussé sur GHCR.
       pull_policy: always
       # build:
