@@ -21,7 +21,7 @@ export const metadata = {
       "Agence Web Colmar - Création de Sites Internet | Graph & Co",
    description:
       data.seo.metaDesc ||
-      "Agence web à Colmar spécialisée dans la création de sites internet sur-mesure. Design moderne, performances optimales et accompagnement personnalisé à Colmar.",
+      "Agence web à Colmar spécialisée dans la création de sites internet sur mesure. Design moderne, sites rapides et accompagnement personnalisé.",
    alternates: {
       canonical: "https://graphandco.com/",
    },
@@ -32,10 +32,10 @@ export const metadata = {
    openGraph: {
       title:
          data.seo.title ||
-         "Agence Web Colmar - Création Sites Internet Sur-Mesure | Graph & Co",
+         "Agence Web Colmar - Création Sites Internet | Graph & Co",
       description:
          data.seo.metaDesc ||
-         "Agence web à Colmar spécialisée dans la création de sites internet sur-mesure. Design moderne, performances optimales et accompagnement personnalisé à Colmar.",
+         "Agence web à Colmar spécialisée dans la création de sites internet sur mesure. Design moderne, sites rapides et accompagnement personnalisé.",
       url: "https://graphandco.com",
       images: [
          {

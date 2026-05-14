@@ -23,16 +23,16 @@ const urbanist = Urbanist({
 });
 
 export const metadata = {
-   title: "Création Site Web Colmar - Agence Web Sur-Mesure | Graph & Co",
+   title: "Agence Web Colmar - Création de Sites Internet | Graph & Co",
    description:
-      "Agence web à Colmar spécialisée dans la création de sites sur mesure. Graph & Co conçoit des sites rapides, esthétiques et orientés expérience utilisateur.",
+      "Agence web à Colmar spécialisée dans la création de sites internet sur mesure. Design moderne, sites rapides et accompagnement personnalisé.",
    alternates: {
       canonical: "https://graphandco.com/",
    },
    openGraph: {
-      title: "Création Site Web Colmar - Agence Web Sur-Mesure | Graph & Co",
+      title: "Agence Web Colmar - Création de Sites Internet | Graph & Co",
       description:
-         "Agence web à Colmar spécialisée dans la création de sites sur mesure. Graph & Co conçoit des sites rapides, esthétiques et orientés expérience utilisateur.",
+         "Agence web à Colmar spécialisée dans la création de sites internet sur mesure. Design moderne, sites rapides et accompagnement personnalisé.",
       url: "https://graphandco.com",
       images: [
          {
