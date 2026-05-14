@@ -51,7 +51,6 @@ const BlogItem = ({ post }) => {
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   style={{ width: "100%", height: "200px" }}
                   className="object-cover"
-                  priority
                />
             ) : (
                <div

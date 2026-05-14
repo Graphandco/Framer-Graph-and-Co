@@ -1,7 +1,6 @@
 import Hero from "@/components/home/Hero";
 import NosCompetences from "@/components/home/NosCompetences";
 import NosAtouts from "@/components/home/NosAtouts";
-// import Rassurance from "@/components/home/Rassurance";
 import SiteSurMesure from "@/components/home/SiteSurMesure";
 import Stats from "@/components/home/Stats";
 import { HomeContentText } from "@/components/home/HomeContentText";
@@ -10,16 +9,32 @@ import Temoignage from "@/components/home/Temoignage";
 import { getWordpressContent } from "@/actions/getWordpressContent";
 import { HOMEPAGE_QUERY } from "@/actions/queries/homepageQuery";
 
+const data = await getWordpressContent({
+   query: HOMEPAGE_QUERY,
+   variables: { id: 106 },
+   rootField: "page",
+});
+
 export const metadata = {
-   title: "Agence Web Colmar - Création Sites Internet Sur-Mesure | Graph & Co",
+   title:
+      data.seo.title ||
+      "Agence Web Colmar - Création de Sites Internet | Graph & Co",
    description:
+      data.seo.metaDesc ||
       "Agence web à Colmar spécialisée dans la création de sites internet sur-mesure. Design moderne, performances optimales et accompagnement personnalisé à Colmar.",
    alternates: {
       canonical: "https://graphandco.com/",
    },
+   robots: {
+      index: data.seo?.metaRobotsNoindex !== "noindex",
+      follow: data.seo?.metaRobotsNofollow !== "nofollow",
+   },
    openGraph: {
-      title: "Agence Web Colmar - Création Sites Internet Sur-Mesure | Graph & Co",
+      title:
+         data.seo.title ||
+         "Agence Web Colmar - Création Sites Internet Sur-Mesure | Graph & Co",
       description:
+         data.seo.metaDesc ||
          "Agence web à Colmar spécialisée dans la création de sites internet sur-mesure. Design moderne, performances optimales et accompagnement personnalisé à Colmar.",
       url: "https://graphandco.com",
       images: [
@@ -31,14 +46,10 @@ export const metadata = {
          },
       ],
       type: "website",
+      siteName: "Graph & Co",
    },
 };
 
-const data = await getWordpressContent({
-   query: HOMEPAGE_QUERY,
-   variables: { id: 106 },
-   rootField: "page",
-});
 export default function Home() {
    return (
       <>

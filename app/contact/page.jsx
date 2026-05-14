@@ -12,15 +12,25 @@ const pageData = await getWordpressContent({
 });
 
 export const metadata = {
-   title: "Contact Agence Web Colmar - Devis Gratuit Site Internet | Graph & Co",
+   title:
+      pageData.seo.title ||
+      "Contact Agence Web Colmar - Devis Gratuit Site Internet | Graph & Co",
    description:
+      pageData.seo.metaDesc ||
       "Contactez Graph & Co, votre agence web à Colmar. Devis gratuit pour votre projet de site internet professionnel. Réponse rapide garantie.",
+   robots: {
+      index: pageData.seo?.metaRobotsNoindex !== "noindex",
+      follow: pageData.seo?.metaRobotsNofollow !== "nofollow",
+   },
    alternates: {
       canonical: "https://graphandco.com/contact",
    },
    openGraph: {
-      title: "Contact Agence Web Colmar - Devis Gratuit Site Internet | Graph & Co",
+      title:
+         pageData.seo.title ||
+         "Contact Agence Web Colmar - Devis Gratuit Site Internet | Graph & Co",
       description:
+         pageData.seo.metaDesc ||
          "Contactez Graph & Co, votre agence web à Colmar. Devis gratuit pour votre projet de site internet professionnel. Réponse rapide garantie.",
       url: "https://graphandco.com/contact",
       images: [

@@ -15,6 +15,7 @@ export const GLOBAL_PAGE_FIELDS = `
   seo: seo {
     title
     metaDesc
+    metaRobotsNofollow
     metaRobotsNoindex
   }
 `;

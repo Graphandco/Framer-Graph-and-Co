@@ -9,15 +9,24 @@ const pageData = await getWordpressContent({
 });
 
 export const metadata = {
-   title: "Mentions légales - Agence Web Colmar | Graph & Co",
+   title:
+      pageData.seo.title || "Mentions légales - Agence Web Colmar | Graph & Co",
    description:
+      pageData.seo.metaDesc ||
       "Mentions légales de Graph & Co, agence de création de sites web à Colmar. Retrouvez toutes les informations légales, coordonnées et responsabilités du site.",
    alternates: {
       canonical: "https://graphandco.com/mentions-legales",
    },
+   robots: {
+      index: pageData.seo?.metaRobotsNoindex !== "noindex",
+      follow: pageData.seo?.metaRobotsNofollow !== "nofollow",
+   },
    openGraph: {
-      title: "Mentions légales - Agence Web Colmar | Graph & Co",
+      title:
+         pageData.seo.title ||
+         "Mentions légales - Agence Web Colmar | Graph & Co",
       description:
+         pageData.seo.metaDesc ||
          "Mentions légales de Graph & Co, agence de création de sites web à Colmar. Retrouvez toutes les informations légales, coordonnées et responsabilités du site.",
       url: "https://graphandco.com/mentions-legales",
       images: [

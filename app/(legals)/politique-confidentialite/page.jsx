@@ -9,15 +9,25 @@ const pageData = await getWordpressContent({
 });
 
 export const metadata = {
-   title: "Politique de confidentialité - Agence Web Colmar | Graph & Co",
+   title:
+      pageData.seo.title ||
+      "Politique de confidentialité - Agence Web Colmar | Graph & Co",
    description:
+      pageData.seo.metaDesc ||
       "Politique de confidentialité de Graph & Co, agence web à Colmar. Découvrez comment vos données personnelles sont collectées, utilisées et protégées sur notre site.",
+   robots: {
+      index: pageData.seo?.metaRobotsNoindex !== "noindex",
+      follow: pageData.seo?.metaRobotsNofollow !== "nofollow",
+   },
    alternates: {
       canonical: "https://graphandco.com/politique-confidentialite",
    },
    openGraph: {
-      title: "Politique de confidentialité - Agence Web Colmar | Graph & Co",
+      title:
+         pageData.seo.title ||
+         "Politique de confidentialité - Agence Web Colmar | Graph & Co",
       description:
+         pageData.seo.metaDesc ||
          "Politique de confidentialité de Graph & Co, agence web à Colmar. Découvrez comment vos données personnelles sont collectées, utilisées et protégées sur notre site.",
       url: "https://graphandco.com/politique-confidentialite",
       images: [

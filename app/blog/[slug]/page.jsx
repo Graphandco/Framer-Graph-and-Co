@@ -38,12 +38,17 @@ export async function generateMetadata({ params }) {
       };
    }
 
-   const metaTitle = `${post.title} - Blog Web Colmar | Graph & Co`;
+   const metaTitle =
+      post.seo?.title || `${post.title} - Blog Web Colmar | Graph & Co`;
    const metaDesc =
       post.seo?.metaDesc ||
       post.blogAcf?.sousTitre ||
       "Découvrez notre article de blog sur la création de sites web à Colmar.";
    const ogImage = post.featuredImage?.node?.sourceUrl;
+   const robots = {
+      index: post.seo?.metaRobotsNoindex !== "noindex",
+      follow: post.seo?.metaRobotsNofollow !== "nofollow",
+   };
 
    return {
       alternates: {
@@ -63,12 +68,10 @@ export async function generateMetadata({ params }) {
                     {
                        url: ogImage,
                        width:
-                          post.featuredImage?.node?.mediaDetails?.width ??
-                          1200,
+                          post.featuredImage?.node?.mediaDetails?.width ?? 1200,
                        height:
                           post.featuredImage?.node?.mediaDetails?.height ?? 630,
-                       alt:
-                          post.featuredImage?.node?.altText || post.title,
+                       alt: post.featuredImage?.node?.altText || post.title,
                     },
                  ],
               }

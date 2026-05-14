@@ -17,15 +17,25 @@ const pageData = await getWordpressContent({
 });
 
 export const metadata = {
-   title: "Portfolio Sites Web Colmar - Réalisations E-commerce & Vitrines | Graph & Co",
+   title:
+      pageData.seo.title ||
+      "Portfolio Sites Web Colmar - Réalisations E-commerce & Vitrines | Graph & Co",
    description:
+      pageData.seo.metaDesc ||
       "Découvrez nos réalisations de sites web à Colmar : projets sur-mesure, vitrines, e-commerce. Un aperçu concret de notre savoir-faire en design, UX et performance.",
    alternates: {
       canonical: "https://graphandco.com/projets",
    },
+   robots: {
+      index: pageData.seo?.metaRobotsNoindex !== "noindex",
+      follow: pageData.seo?.metaRobotsNofollow !== "nofollow",
+   },
    openGraph: {
-      title: "Portfolio Sites Web Colmar - Réalisations E-commerce & Vitrines | Graph & Co",
+      title:
+         pageData.seo.title ||
+         "Portfolio Sites Web Colmar - Réalisations E-commerce & Vitrines | Graph & Co",
       description:
+         pageData.seo.metaDesc ||
          "Découvrez nos réalisations de sites web à Colmar : projets sur-mesure, vitrines, e-commerce. Un aperçu concret de notre savoir-faire en design, UX et performance.",
       url: "https://graphandco.com/projets",
       images: [

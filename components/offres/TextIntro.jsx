@@ -50,7 +50,7 @@ const TextIntro = ({ data }) => {
             className="wrapper py-8 sm:py-16 overflow-y-scroll"
             ref={containerRef}
          >
-            <p
+            <div
                className="text-3xl mb-8"
                dangerouslySetInnerHTML={{ __html: data.content }}
             />

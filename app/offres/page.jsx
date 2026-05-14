@@ -26,16 +26,26 @@ const sortedPacksData = {
 };
 
 export const metadata = {
-   title: "Tarifs création de sites web – Colmar, Sainte-Croix-en-Plaine | Graph & Co",
+   title:
+      data.seo.title ||
+      "Tarifs création de sites web – Colmar, Sainte-Croix-en-Plaine | Graph & Co",
    description:
-      "Tarifs création de sites web à Colmar, Sainte-Croix-en-Plaine et environs : vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
+      data.seo.metaDesc ||
+      "Tarifs création de sites web à Colmar, Sainte-Croix-en-Plaine et environs. Hébergement inclus, design sur-mesure, maintenance assurée.",
    alternates: {
       canonical: "https://graphandco.com/offres",
    },
+   robots: {
+      index: data.seo?.metaRobotsNoindex !== "noindex",
+      follow: data.seo?.metaRobotsNofollow !== "nofollow",
+   },
    openGraph: {
-      title: "Tarifs création de sites web – Colmar, Sainte-Croix-en-Plaine | Graph & Co",
+      title:
+         data.seo.title ||
+         "Tarifs création de sites web – Colmar, Sainte-Croix-en-Plaine | Graph & Co",
       description:
-         "Tarifs création de sites web à Colmar, Sainte-Croix-en-Plaine et environs : vitrine, e-commerce, premium. Hébergement inclus, design sur-mesure, maintenance assurée.",
+         data.seo.metaDesc ||
+         "Tarifs création de sites web à Colmar, Sainte-Croix-en-Plaine et environs. Hébergement inclus, design sur-mesure, maintenance assurée.",
       url: "https://graphandco.com/offres",
       images: [
          {

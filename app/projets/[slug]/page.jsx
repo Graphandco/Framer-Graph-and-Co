@@ -38,9 +38,11 @@ export async function generateMetadata({ params }) {
       };
    }
 
-   const metaTitle = `${project.title} - Portfolio Web Colmar | Graph & Co`;
+   const metaTitle =
+      project.seo?.title || `${project.title} - Projet Web | Graph & Co`;
    const metaDesc =
       project.seo?.metaDesc ||
+      project.projectAcf?.sousTitre ||
       "Découvrez cette réalisation de site web créée par notre agence à Colmar.";
    const ogImage = project.featuredImage?.node?.sourceUrl;
 
@@ -48,13 +50,17 @@ export async function generateMetadata({ params }) {
       alternates: {
          canonical: `https://graphandco.com/projets/${slug}`,
       },
+      robots: {
+         index: project.seo?.metaRobotsNoindex !== "noindex",
+         follow: project.seo?.metaRobotsNofollow !== "nofollow",
+      },
       title: metaTitle,
       description: metaDesc,
       openGraph: {
          title: metaTitle,
          description: metaDesc,
          url: `https://graphandco.com/projets/${slug}`,
-         type: "article",
+         type: "website",
          siteName: "Graph & Co",
          ...(ogImage
             ? {

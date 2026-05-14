@@ -17,15 +17,25 @@ const blogsData = await getWordpressContent({
 });
 
 export const metadata = {
-   title: "Blog Web Colmar - Actualités UX/UI et Développement | Graph & Co",
+   title:
+      pageData.seo.title ||
+      "Blog Web Colmar - Actualités UX/UI et Développement | Graph & Co",
    description:
+      pageData.seo.metaDesc ||
       "Découvrez notre blog dédié à la création de sites web à Colmar : conseils en UX/UI, design sur-mesure, performance, accessibilité et retours d'expérience pour des sites modernes et efficaces.",
+   robots: {
+      index: pageData.seo?.metaRobotsNoindex !== "noindex",
+      follow: pageData.seo?.metaRobotsNofollow !== "nofollow",
+   },
    alternates: {
       canonical: "https://graphandco.com/blog",
    },
    openGraph: {
-      title: "Blog Web Colmar - Actualités UX/UI et Développement | Graph & Co",
+      title:
+         pageData.seo.title ||
+         "Blog Web Colmar - Actualités UX/UI et Développement | Graph & Co",
       description:
+         pageData.seo.metaDesc ||
          "Découvrez notre blog dédié à la création de sites web à Colmar : conseils en UX/UI, design sur-mesure, performance, accessibilité et retours d'expérience pour des sites modernes et efficaces.",
       url: "https://graphandco.com/blog",
       images: [
