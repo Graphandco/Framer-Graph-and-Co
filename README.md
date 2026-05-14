@@ -1,36 +1,171 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Graph & Co
 
-## Getting Started
+Site vitrine de l'agence `graphandco.com`, construit avec Next.js App Router et alimenté par WordPress via WPGraphQL.
 
-First, run the development server:
+## Fonctionnalités
+
+- Page d'accueil de l'agence avec sections éditables depuis WordPress
+- Page `offres` / tarifs avec packs et contenu dynamiques
+- Page `projets` + fiches projet individuelles
+- Page `blog` + articles individuels
+- Page `contact` avec formulaire d'envoi d'e-mail et FAQ
+- Pages légales
+- Métadonnées SEO dynamiques : `title`, `description`, `canonical`, `Open Graph`, `Twitter`, `robots`
+- Schéma `JSON-LD` de type `ProfessionalService`
+- Sitemap généré après build
+- Manifest web et icônes PWA
+- Tracking Google Analytics et Matomo
+
+## Stack
+
+- `Next.js 15`
+- `React 18`
+- `WordPress + WPGraphQL`
+- `GSAP`
+- `Framer Motion`
+- `Sass`
+- `Resend`
+- `next-sitemap`
+
+## Structure
+
+```text
+app/
+  api/send/route.js
+  blog/
+  contact/
+  offres/
+  projets/
+  (legals)/
+
+actions/
+  getWordpressContent.js
+  queries/
+
+components/
+  blog/
+  contact/
+  footer/
+  header/
+  home/
+  offres/
+  projets/
+  seo/
+  ui/
+
+public/
+  manifest.json
+  favicon.ico
+  logo*.png
+  og-image.jpg
+```
+
+## Variables d'environnement
+
+Créer un fichier `.env.local` :
+
+```bash
+NEXT_PUBLIC_WP_GRAPHQL=https://votre-site-wordpress.com/graphql
+REVALIDATE_TIME=300
+RESEND_API_KEY=re_xxxxxxxxx
+NEXT_PUBLIC_MATOMO_URL=https://votre-instance-matomo.tld
+NEXT_PUBLIC_MATOMO_SITE_ID=1
+NEXT_PUBLIC_ENVIRONMENT=DEV
+```
+
+### Détail
+
+- `NEXT_PUBLIC_WP_GRAPHQL` : endpoint WPGraphQL
+- `REVALIDATE_TIME` : durée de revalidation des requêtes WordPress en secondes
+- `RESEND_API_KEY` : clé utilisée par l'API `/api/send`
+- `NEXT_PUBLIC_MATOMO_URL` : URL Matomo, optionnelle
+- `NEXT_PUBLIC_MATOMO_SITE_ID` : identifiant Matomo, optionnel
+- `NEXT_PUBLIC_ENVIRONMENT` : active certains repères visuels en développement
+
+## Installation
+
+```bash
+npm install
+```
+
+## Lancement en local
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le serveur démarre avec Turbopack sur `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
 
-## Learn More
+Le script `postbuild` exécute automatiquement `next-sitemap`.
 
-To learn more about Next.js, take a look at the following resources:
+## Source de contenu
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Toutes les données WordPress transitent par :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+actions/getWordpressContent.js
+```
 
-## Deploy on Vercel
+Le helper :
+- envoie les requêtes GraphQL
+- applique la revalidation Next.js
+- valide le champ racine attendu
+- remonte les erreurs GraphQL
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Pages dynamiques
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/blog/[slug]/page.jsx`
+- `app/projets/[slug]/page.jsx`
+
+Ces routes :
+- génèrent leurs métadonnées dynamiquement
+- récupèrent les slugs via WPGraphQL
+- gèrent les erreurs avec `notFound()`
+
+## Contact
+
+Le formulaire est dans :
+
+```text
+components/contact/ContactForm.jsx
+```
+
+Il envoie les données vers :
+
+```text
+app/api/send/route.js
+```
+
+L'API :
+- valide `name`, `email`, `message`
+- nettoie les valeurs
+- envoie l'e-mail via `Resend`
+
+## SEO
+
+Le projet gère :
+- les métadonnées Next.js par page
+- les balises Open Graph et Twitter
+- les canoniques
+- les directives `robots`
+- le schéma local business global via :
+
+```text
+components/seo/JsonLdLocalBusiness.jsx
+```
+
+## Notes
+
+- Le contenu principal du site est administré dans WordPress.
+- Certaines pages utilisent des IDs WordPress codés en dur côté Next.js.
+- Google Analytics est chargé via un composant client avec un identifiant défini dans le code.
+- Le projet utilise à la fois `app/globals.css` et `app/custom.scss`.
