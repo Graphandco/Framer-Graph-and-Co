@@ -3,10 +3,7 @@
 import Image from "next/image";
 import { FaQuoteLeft } from "react-icons/fa";
 import FadeInOnView from "@/components/ui/FadeInOnView";
-import Button from "@/components/ui/Button";
-import Parallax from "@/components/ui/Parallax";
 import { useRef } from "react";
-// import DistortedSlider from "@/components/DistortedSlider"; // Commenté car non utilisé
 import ElfsightWidget from "@/components/ElfsightWidget";
 import SplitLineText from "@/components/SplitLineText";
 

@@ -68,11 +68,11 @@ const BlogItem = ({ post }) => {
                      hover: { scale: 0.9 },
                   }}
                   transition={{ duration: 0.2 }}
-                  className="text-xl mb-3 origin-left"
+                  className="font-semibold leading-tight mb-3 origin-left"
                >
                   {title}
                </motion.div>
-               <div className="grow-1 text-black/40 font-medium leading-tight mb-2">
+               <div className="grow-1 text-black/40 text-[0.9rem] leading-tight mb-2">
                   {description}
                </div>
                <RotatingButton
