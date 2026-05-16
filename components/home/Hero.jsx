@@ -1,14 +1,24 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
 import MagnetButton from "@/components/ui/MagnetButton";
-import SplitLineText from "@/components/SplitLineText";
 import HeroBackground from "@/components/home/HeroBackground";
+
+const SplitLineText = dynamic(() => import("@/components/SplitLineText"), {
+	ssr: false,
+});
+
+const MOBILE_MEDIA = "(max-width: 767px)";
+
+const brandTitleClassName =
+	"title-font text-10xl font-semibold text-white xs:mix-blend-exclusion";
 
 const Hero = ({ data }) => {
 	const sectionRef = useRef(null);
 	const titleRef = useRef(null);
+	const [isMobile, setIsMobile] = useState(true);
 
 	const { scrollYProgress } = useScroll({
 		target: sectionRef,
@@ -31,6 +41,20 @@ const Hero = ({ data }) => {
 
 	const brandTitle =
 		process.env.NEXT_PUBLIC_ENVIRONMENT === "DEV" ? "Sandbox" : "Graph & Co";
+
+	useEffect(() => {
+		const mq = window.matchMedia(MOBILE_MEDIA);
+		const update = () => setIsMobile(mq.matches);
+		update();
+		mq.addEventListener("change", update);
+		return () => mq.removeEventListener("change", update);
+	}, []);
+
+	const brandTitleMotion = (
+		<motion.div style={{ y: yTitle }} className={brandTitleClassName}>
+			{brandTitle}
+		</motion.div>
+	);
 
 	return (
 		<section
@@ -55,14 +79,13 @@ const Hero = ({ data }) => {
 				</div>
 
 				<div ref={titleRef}>
-					<SplitLineText animateOnScroll={false}>
-						<motion.div
-							style={{ y: yTitle }}
-							className="title-font text-10xl font-semibold text-white xs:mix-blend-exclusion"
-						>
-							{brandTitle}
-						</motion.div>
-					</SplitLineText>
+					{isMobile ? (
+						brandTitleMotion
+					) : (
+						<SplitLineText animateOnScroll={false}>
+							{brandTitleMotion}
+						</SplitLineText>
+					)}
 				</div>
 
 				<div className="relative mt-8 space-y-4">
