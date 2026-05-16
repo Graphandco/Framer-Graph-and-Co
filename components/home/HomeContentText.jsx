@@ -21,8 +21,7 @@ export const HomeContentText = ({ data }) => {
                      width={data.image.node.mediaDetails.width}
                      height={data.image.node.mediaDetails.height}
                      className="rounded-xl"
-                     priority
-                     sizes="(max-width: 640px) 100vw, 400px"
+                     sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) 42vw, 500px"
                   />
                   <div className="text-lg title-font mt-5 font-bold">Régis</div>
                   <div className="italic font-medium text-neutral-500">
