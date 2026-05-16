@@ -1,4 +1,5 @@
 import Hero from "@/components/home/Hero";
+import HomeHeroPreload from "@/components/home/HomeHeroPreload";
 import NosCompetences from "@/components/home/NosCompetences";
 import NosAtouts from "@/components/home/NosAtouts";
 import SiteSurMesure from "@/components/home/SiteSurMesure";
@@ -53,6 +54,7 @@ export const metadata = {
 export default function Home() {
    return (
       <>
+         <HomeHeroPreload />
          <Hero data={data.homepage.hero} />
          <StickySection data={data.homepage.expertise} />
          <HomeContentText data={data.homepage.content} />

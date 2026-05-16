@@ -4,19 +4,24 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useLenis } from "@studio-freight/react-lenis";
 
-/** Remonte en haut à chaque changement de route (Lenis). */
+/** Remonte en haut à chaque changement de route (Lenis ou scroll natif). */
 export default function ScrollToTopOnRouteChange() {
-   const pathname = usePathname();
-   const lenis = useLenis();
+	const pathname = usePathname();
+	const lenis = useLenis();
 
-   useEffect(() => {
-      if (!lenis) return;
+	useEffect(() => {
+		const goTop = () => {
+			if (lenis) {
+				lenis.scrollTo(0, { immediate: true, force: true });
+			} else {
+				window.scrollTo(0, 0);
+			}
+		};
 
-      const goTop = () => lenis.scrollTo(0, { immediate: true, force: true });
-      goTop();
-      const id = requestAnimationFrame(goTop);
-      return () => cancelAnimationFrame(id);
-   }, [pathname, lenis]);
+		goTop();
+		const id = requestAnimationFrame(goTop);
+		return () => cancelAnimationFrame(id);
+	}, [pathname, lenis]);
 
-   return null;
+	return null;
 }

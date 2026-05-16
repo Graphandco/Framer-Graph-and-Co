@@ -22,6 +22,18 @@ const urbanist = Urbanist({
    subsets: ["latin"],
 });
 
+function getMatomoOrigin() {
+   const url = process.env.NEXT_PUBLIC_MATOMO_URL;
+   if (!url) return null;
+   try {
+      return new URL(url).origin;
+   } catch {
+      return null;
+   }
+}
+
+const matomoOrigin = getMatomoOrigin();
+
 export const metadata = {
    title: "Agence Web Colmar - Création de Sites Internet | Graph & Co",
    description:
@@ -54,6 +66,12 @@ export default function RootLayout({ children }) {
                <link rel="manifest" href="/manifest.json" />
                <link rel="icon" href="/logo512.png" />
                <meta name="theme-color" content="#ffffff" />
+               {matomoOrigin ? (
+                  <>
+                     <link rel="preconnect" href={matomoOrigin} />
+                     <link rel="dns-prefetch" href={matomoOrigin} />
+                  </>
+               ) : null}
             </head>
             <BodyClassHandler />
             <body
