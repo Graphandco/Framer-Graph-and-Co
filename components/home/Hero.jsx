@@ -84,7 +84,7 @@ const Hero = ({ data }) => {
                <SplitLineText>
                   <motion.div
                      style={{ y: yTitle }}
-                     className="text-10xl title-font text-white font-semibold leading-[0.8] xs:mix-blend-exclusion"
+                     className="text-10xl title-font text-white font-semibold xs:mix-blend-exclusion"
                   >
                      {process.env.NEXT_PUBLIC_ENVIRONMENT === "DEV"
                         ? "Sandbox"
