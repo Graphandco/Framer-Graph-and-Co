@@ -6,10 +6,7 @@ export default function BodyClassHandler() {
    const pathname = usePathname(); // Récupère le pathname actuel
 
    useEffect(() => {
-      // Détermine la classe à appliquer au <body>
       const id = pathname === "/" ? "home" : `${pathname.replace(/\//g, "")}`;
-
-      // Applique la nouvelle classe au <body>
       document.body.id = id;
    }, [pathname]);
 

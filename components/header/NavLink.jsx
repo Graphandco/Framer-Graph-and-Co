@@ -3,7 +3,6 @@ import { useTransitionRouter } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-
 const NavLink = ({
 	name,
 	href,

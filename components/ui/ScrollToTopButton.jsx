@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion, useScroll } from "framer-motion";
-
 export default function ScrollToTopButton() {
 	const { scrollY } = useScroll();
 	const [show, setShow] = useState(false);

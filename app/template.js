@@ -1,5 +1,6 @@
 "use client";
 import ReactLenis from "@studio-freight/react-lenis";
+import ScrollToTopOnRouteChange from "@/components/ScrollToTopOnRouteChange";
 
 export default function Template({ children }) {
 	return (
@@ -12,6 +13,7 @@ export default function Template({ children }) {
 				touchMultiplier: 1.5,
 			}}
 		>
+			<ScrollToTopOnRouteChange />
 			{children}
 		</ReactLenis>
 	);
