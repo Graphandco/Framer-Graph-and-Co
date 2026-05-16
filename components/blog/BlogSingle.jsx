@@ -1,4 +1,4 @@
-import PageHero from "../ui/PageHero";
+import PageHeroSection from "../ui/PageHeroSection";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import NavLink from "../header/NavLink";
 
@@ -36,7 +36,7 @@ export default function BlogSingle({ post }) {
 
    return (
       <>
-         <PageHero title={post.title} image={heroUrl} position="center" />
+         <PageHeroSection title={post.title} image={heroUrl} position="center" />
          <div className="wrapper pb-24">
             <NavLink
                href="/blog"

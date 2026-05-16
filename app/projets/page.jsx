@@ -1,4 +1,4 @@
-import PageHero from "@/components/ui/PageHero";
+import PageHeroSection from "@/components/ui/PageHeroSection";
 import ProjetsList from "@/components/projets/ProjetsList";
 import { getWordpressContent } from "@/actions/getWordpressContent";
 import { PROJECTS_QUERY } from "@/actions/queries/projectsQuery";
@@ -53,7 +53,7 @@ export const metadata = {
 export default async function ProjectsPage() {
    return (
       <>
-         <PageHero
+         <PageHeroSection
             title={pageData.title}
             image={pageData.featuredImage.node.sourceUrl}
          />

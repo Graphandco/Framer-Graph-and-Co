@@ -1,7 +1,7 @@
 import ContactForm from "@/components/contact/ContactForm";
 import ContactText from "@/components/contact/ContactText";
 import Tabs from "@/components/contact/Tabs";
-import PageHero from "@/components/ui/PageHero";
+import PageHeroSection from "@/components/ui/PageHeroSection";
 import { getWordpressContent } from "@/actions/getWordpressContent";
 import { CONTACT_QUERY } from "@/actions/queries/contactQuery";
 
@@ -50,7 +50,7 @@ const faqItems = Array.isArray(pageData?.faq?.item) ? pageData.faq.item : [];
 const ContactPage = () => {
    return (
       <>
-         <PageHero
+         <PageHeroSection
             title={pageData.title}
             image={pageData.featuredImage.node.sourceUrl}
          />

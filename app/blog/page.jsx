@@ -1,4 +1,4 @@
-import PageHero from "@/components/ui/PageHero";
+import PageHeroSection from "@/components/ui/PageHeroSection";
 import BlogList from "@/components/blog/BlogList";
 import { getWordpressContent } from "@/actions/getWordpressContent";
 import { getGlobalQuery } from "@/actions/queries/globalQuery";
@@ -52,9 +52,10 @@ export const metadata = {
 
 export default async function BlogPage() {
    const posts = blogsData?.nodes ?? [];
+
    return (
       <>
-         <PageHero
+         <PageHeroSection
             title={pageData.title}
             image={pageData.featuredImage.node.sourceUrl}
          />

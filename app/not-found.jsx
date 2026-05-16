@@ -1,11 +1,11 @@
 import NavLink from "@/components/header/NavLink";
 import Button from "@/components/ui/Button";
-import PageHero from "@/components/ui/PageHero";
+import PageHeroSection from "@/components/ui/PageHeroSection";
 
 export default function NotFound() {
 	return (
 		<>
-			<PageHero title="404" image="/404.avif" />
+			<PageHeroSection title="404" image="/404.avif" />
 			<div className="wrapper min-h-[50vh] flex flex-col gap-3 items-center justify-center">
 				<p>La page recherchée n'existe pas</p>
 				<h2 className="text-5xl">Page non trouvée</h2>

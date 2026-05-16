@@ -3,7 +3,7 @@ import PriceCards from "@/components/offres/prices/PriceCards";
 import TextIntro from "@/components/offres/TextIntro";
 import UserWithIcon from "@/components/offres/UserWithIcon";
 import { VelocityText } from "@/components/offres/VelocityText";
-import PageHero from "@/components/ui/PageHero";
+import PageHeroSection from "@/components/ui/PageHeroSection";
 import { getWordpressContent } from "@/actions/getWordpressContent";
 import { TARIFS_QUERY } from "@/actions/queries/tarifsQuery";
 import { PACKS_QUERY } from "@/actions/queries/packsQuery";
@@ -65,7 +65,7 @@ export default async function OffresPage() {
 
    return (
       <>
-         <PageHero title={data.title} image={heroImage} position="top" />
+         <PageHeroSection title={data.title} image={heroImage} position="top" />
          <TextIntro data={data} />
          <PriceCards
             title={data.tarifs.packs_title}

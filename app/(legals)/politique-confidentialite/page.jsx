@@ -1,4 +1,4 @@
-import PageHero from "@/components/ui/PageHero";
+import PageHeroSection from "@/components/ui/PageHeroSection";
 import { getWordpressContent } from "@/actions/getWordpressContent";
 import { getGlobalQuery } from "@/actions/queries/globalQuery";
 
@@ -45,7 +45,7 @@ export const metadata = {
 const PolitiqueConfidentialitePage = () => {
    return (
       <>
-         <PageHero
+         <PageHeroSection
             title={pageData.title}
             image={pageData.featuredImage.node.sourceUrl}
          />

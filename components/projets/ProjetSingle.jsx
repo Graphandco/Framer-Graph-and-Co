@@ -1,4 +1,4 @@
-import PageHero from "../ui/PageHero";
+import PageHeroSection from "../ui/PageHeroSection";
 import Button from "../ui/Button";
 import { FaEye } from "react-icons/fa";
 import ProjetCarousel from "./ProjetCarousel";
@@ -19,7 +19,7 @@ export default function ProjetSingle({ project }) {
 
    return (
       <>
-         <PageHero
+         <PageHeroSection
             title={project.title}
             image={heroUrl}
             position={position}
